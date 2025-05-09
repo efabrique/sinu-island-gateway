@@ -1,0 +1,74 @@
+
+import React from 'react';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+
+const programs = [
+  {
+    title: "Business Administration",
+    description: "Develop managerial and entrepreneurial skills with our comprehensive business program.",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3",
+    link: "#"
+  },
+  {
+    title: "Marine Science",
+    description: "Study marine ecosystems and conservation in one of the world's most biodiverse regions.",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3",
+    link: "#"
+  },
+  {
+    title: "Education",
+    description: "Shape the future by becoming a skilled educator with our teaching certification programs.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3",
+    link: "#"
+  }
+];
+
+const FeaturedPrograms = () => {
+  return (
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-university-blue mb-4">Featured Academic Programs</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Discover our diverse range of undergraduate and graduate programs designed to prepare you for success.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {programs.map((program, index) => (
+            <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src={program.image} 
+                  alt={program.title} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle>{program.title}</CardTitle>
+                <CardDescription>{program.description}</CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <Button variant="outline" className="w-full">
+                  Learn More
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+        
+        <div className="text-center mt-12">
+          <Button>
+            View All Programs
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FeaturedPrograms;
