@@ -3,6 +3,8 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import OptimizedImage from '../common/OptimizedImage';
+import ErrorBoundary from '../common/ErrorBoundary';
 
 const programs = [
   {
@@ -27,47 +29,52 @@ const programs = [
 
 const FeaturedPrograms = () => {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-university-blue mb-4">Featured Academic Programs</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover our diverse range of undergraduate and graduate programs designed to prepare you for success.
-          </p>
+    <ErrorBoundary>
+      <section className="py-8 md:py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-university-blue mb-4">Featured Academic Programs</h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+              Discover our diverse range of undergraduate and graduate programs designed to prepare you for success.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {programs.map((program, index) => (
+              <ErrorBoundary key={index}>
+                <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                  <div className="h-48 overflow-hidden">
+                    <OptimizedImage 
+                      src={program.image} 
+                      alt={program.title} 
+                      className="w-full h-full"
+                      objectFit="cover"
+                    />
+                  </div>
+                  <CardHeader>
+                    <CardTitle>{program.title}</CardTitle>
+                    <CardDescription>{program.description}</CardDescription>
+                  </CardHeader>
+                  <CardFooter>
+                    <Button variant="outline" className="w-full">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </ErrorBoundary>
+            ))}
+          </div>
+          
+          <div className="text-center mt-8 md:mt-12">
+            <Button>
+              View All Programs
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {programs.map((program, index) => (
-            <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={program.image} 
-                  alt={program.title} 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle>{program.title}</CardTitle>
-                <CardDescription>{program.description}</CardDescription>
-              </CardHeader>
-              <CardFooter>
-                <Button variant="outline" className="w-full">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-        
-        <div className="text-center mt-12">
-          <Button>
-            View All Programs
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
-      </div>
-    </section>
+      </section>
+    </ErrorBoundary>
   );
 };
 

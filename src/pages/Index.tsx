@@ -6,18 +6,31 @@ import FeaturedPrograms from '@/components/home/FeaturedPrograms';
 import NewsEvents from '@/components/home/NewsEvents';
 import QuickLinks from '@/components/home/QuickLinks';
 import Footer from '@/components/layout/Footer';
+import ErrorBoundary from '@/components/common/ErrorBoundary';
 
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <ErrorBoundary>
+        <Header />
+      </ErrorBoundary>
       <main className="flex-grow">
-        <Hero />
-        <QuickLinks />
-        <FeaturedPrograms />
-        <NewsEvents />
+        <ErrorBoundary>
+          <Hero />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <QuickLinks />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <FeaturedPrograms />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <NewsEvents />
+        </ErrorBoundary>
       </main>
-      <Footer />
+      <ErrorBoundary>
+        <Footer />
+      </ErrorBoundary>
     </div>
   );
 };

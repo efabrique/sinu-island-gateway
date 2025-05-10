@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { BookOpen, Calendar, Library, GraduationCap, Users, MapPin } from 'lucide-react';
+import ErrorBoundary from '../common/ErrorBoundary';
 
 const quickLinks = [
   {
@@ -43,29 +44,32 @@ const quickLinks = [
 
 const QuickLinks = () => {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-university-blue text-center mb-12">Quick Links</h2>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {quickLinks.map((link, index) => (
-            <a 
-              key={index} 
-              href={link.link}
-              className="flex items-center p-4 border rounded-lg hover:bg-university-light-gray hover:shadow-md transition-all"
-            >
-              <div className="h-12 w-12 bg-university-blue/10 rounded-full flex items-center justify-center text-university-blue mr-4">
-                <link.icon className="h-6 w-6" />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg text-university-blue">{link.title}</h3>
-                <p className="text-gray-600 text-sm">{link.description}</p>
-              </div>
-            </a>
-          ))}
+    <ErrorBoundary>
+      <section className="py-8 md:py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-university-blue text-center mb-8 md:mb-12">Quick Links</h2>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {quickLinks.map((link, index) => (
+              <ErrorBoundary key={index}>
+                <a 
+                  href={link.link}
+                  className="flex items-center p-3 md:p-4 border rounded-lg hover:bg-university-light-gray hover:shadow-md transition-all"
+                >
+                  <div className="h-10 w-10 md:h-12 md:w-12 bg-university-blue/10 rounded-full flex items-center justify-center text-university-blue mr-3 md:mr-4">
+                    <link.icon className="h-5 w-5 md:h-6 md:w-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-base md:text-lg text-university-blue">{link.title}</h3>
+                    <p className="text-xs md:text-sm text-gray-600">{link.description}</p>
+                  </div>
+                </a>
+              </ErrorBoundary>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </ErrorBoundary>
   );
 };
 
