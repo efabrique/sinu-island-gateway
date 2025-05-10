@@ -34,7 +34,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image }) => {
   };
 
   return (
-    <div className={`${isMobile ? 'w-full' : 'mega-menu-container'} relative`}>
+    <div className={`${isMobile ? 'w-full' : 'mega-menu-container relative'}`}>
       <button 
         className="px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium hover:text-university-blue focus:outline-none"
         onClick={toggleMenu}
@@ -80,9 +80,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image }) => {
       
       {/* Desktop Mega Menu Dropdown */}
       {!isMobile && (
-        <div className="mega-menu absolute left-1/2 transform -translate-x-1/2 w-screen bg-white shadow-lg border-t border-gray-200">
+        <div className="mega-menu absolute left-1/2 transform -translate-x-1/2 w-full max-w-screen-xl bg-white shadow-lg border-t border-gray-200">
           <div className="container mx-auto px-4 py-6">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
               {/* First Column */}
               <div className="md:col-span-4">
                 <h3 className="text-lg font-bold text-university-blue mb-4">{columns[0].title}</h3>

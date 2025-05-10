@@ -104,12 +104,15 @@
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
     z-index: 100;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
   }
   
   .mega-menu-container:hover .mega-menu {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
 
   .mega-menu-image {
