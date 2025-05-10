@@ -80,11 +80,11 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image }) => {
       
       {/* Desktop Mega Menu Dropdown */}
       {!isMobile && (
-        <div className="mega-menu absolute left-0 w-screen bg-white shadow-lg border-t border-gray-200">
+        <div className="mega-menu absolute left-1/2 transform -translate-x-1/2 w-screen bg-white shadow-lg border-t border-gray-200">
           <div className="container mx-auto px-4 py-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               {/* First Column */}
-              <div className="lg:col-span-4">
+              <div className="md:col-span-4">
                 <h3 className="text-lg font-bold text-university-blue mb-4">{columns[0].title}</h3>
                 <ul className="space-y-2">
                   {columns[0].links.map((link, index) => (
@@ -99,7 +99,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image }) => {
               </div>
               
               {/* Second Column */}
-              <div className="lg:col-span-4">
+              <div className="md:col-span-4">
                 <h3 className="text-lg font-bold text-university-blue mb-4">{columns[1].title}</h3>
                 <ul className="space-y-2">
                   {columns[1].links.map((link, index) => (
@@ -114,14 +114,15 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image }) => {
               </div>
               
               {/* Image Column */}
-              <div className="lg:col-span-4 h-64">
+              <div className="md:col-span-4">
                 <div className="h-full w-full overflow-hidden rounded-md">
                   <OptimizedImage 
                     src={image.src} 
                     alt={image.alt} 
-                    className="h-full w-full"
+                    className="h-60 w-full object-cover"
                     objectFit="cover"
                   />
+                  <p className="mt-2 text-sm text-gray-600 italic">{image.alt}</p>
                 </div>
               </div>
             </div>

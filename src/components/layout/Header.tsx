@@ -77,7 +77,7 @@ const Header = () => {
       {/* Bottom Navigation Row with Mega Menus - hidden in mobile unless menu is open */}
       <div className={`bg-university-light-gray border-t border-gray-200 ${isMobile && !menuOpen ? 'hidden' : 'block'}`}>
         <div className="container mx-auto px-4">
-          <nav className={`flex ${isMobile ? 'flex-col' : 'justify-center md:justify-start'}`}>
+          <nav className={`flex ${isMobile ? 'flex-col' : 'justify-center'}`}>
             {Object.entries(megaMenuData).map(([key, menuData]) => (
               <MegaMenu 
                 key={key} 
