@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import OptimizedImage from '../common/OptimizedImage';
@@ -21,9 +21,10 @@ interface MegaMenuProps {
     src: string;
     alt: string;
   };
+  id: string; // Added unique ID prop
 }
 
-const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image }) => {
+const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
   
@@ -34,10 +35,12 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image }) => {
   };
 
   return (
-    <div className={`${isMobile ? 'w-full' : 'mega-menu-container'}`}>
+    <div className={`${isMobile ? 'w-full' : 'mega-menu-container'}`} id={`menu-container-${id}`}>
       <button 
         className="px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium hover:text-university-blue focus:outline-none"
         onClick={toggleMenu}
+        aria-controls={`mega-menu-${id}`}
+        aria-expanded={isMobile ? isOpen : undefined}
       >
         {title}
         {isMobile ? 
@@ -48,7 +51,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image }) => {
       
       {/* Mobile Dropdown */}
       {isMobile && isOpen && (
-        <div className="bg-white p-4 border-t border-gray-100 animate-accordion-down">
+        <div className="bg-white p-4 border-t border-gray-100 animate-accordion-down" id={`mobile-menu-${id}`}>
           <div className="space-y-4">
             {columns.map((column, colIndex) => (
               <div key={colIndex}>
@@ -80,7 +83,10 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image }) => {
       
       {/* Desktop Mega Menu Dropdown */}
       {!isMobile && (
-        <div className="mega-menu shadow-lg border-t border-gray-200">
+        <div 
+          className="mega-menu" 
+          id={`mega-menu-${id}`}
+        >
           <div className="container mx-auto px-4 py-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* First Column */}

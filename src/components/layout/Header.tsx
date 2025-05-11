@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Search, Book, User, Users, Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import MegaMenu from './MegaMenu';
@@ -9,13 +9,56 @@ import { useIsMobile } from '@/hooks/use-mobile';
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const isMobile = useIsMobile();
+  const headerRef = useRef<HTMLElement>(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  // Function to update mega menu position
+  const updateMegaMenuPosition = () => {
+    if (isMobile || !headerRef.current) return;
+    
+    const headerHeight = headerRef.current.offsetHeight;
+    const megaMenus = document.querySelectorAll('.mega-menu') as NodeListOf<HTMLElement>;
+    
+    megaMenus.forEach(menu => {
+      menu.style.top = `${headerHeight}px`;
+    });
+  };
+
+  // Update position on mount, window resize, and scroll
+  useEffect(() => {
+    updateMegaMenuPosition();
+    
+    const handleResize = () => {
+      updateMegaMenuPosition();
+    };
+
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        // Only update on scroll to top as header might change size
+        updateMegaMenuPosition();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
+    
+    // Run again after a short delay to ensure all elements are fully rendered
+    const timer = setTimeout(() => {
+      updateMegaMenuPosition();
+    }, 200);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
+  }, [isMobile]);
+
   return (
-    <header className="sticky top-0 w-full bg-white shadow-md z-50">
+    <header ref={headerRef} className="sticky top-0 w-full bg-white shadow-md z-50">
       {/* University Logo and Name */}
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <a href="/" className="flex items-center gap-3">
@@ -78,12 +121,13 @@ const Header = () => {
       <div className={`bg-university-light-gray border-t border-gray-200 ${isMobile && !menuOpen ? 'hidden' : 'block'}`}>
         <div className="container mx-auto px-4">
           <nav className="flex justify-center">
-            {Object.entries(megaMenuData).map(([key, menuData]) => (
+            {Object.entries(megaMenuData).map(([key, menuData], index) => (
               <MegaMenu 
                 key={key} 
                 title={key} 
                 columns={menuData.columns}
                 image={menuData.image}
+                id={`menu-${index}`} // Add unique ID
               />
             ))}
           </nav>
