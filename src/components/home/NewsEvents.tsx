@@ -51,29 +51,29 @@ const events = [
 
 const NewsEvents = () => {
   return (
-    <section className="py-16 bg-university-light-gray">
+    <section className="py-16 bg-[#8ecae6]/20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* News Section */}
           <div>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-university-blue">Latest News</h2>
-              <Button variant="link" className="text-university-blue">
+              <h2 className="text-2xl font-bold text-[#219ebc]">Latest News</h2>
+              <Button variant="link" className="text-[#219ebc]">
                 All News <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
             <div className="space-y-6">
               {news.map((item, index) => (
-                <Card key={index}>
+                <Card key={index} className="border-[#8ecae6]/30">
                   <CardHeader className="pb-2">
-                    <div className="text-sm text-gray-500 mb-1">{item.date}</div>
-                    <CardTitle className="text-lg">{item.title}</CardTitle>
+                    <div className="text-sm text-[#023047]/70 mb-1">{item.date}</div>
+                    <CardTitle className="text-lg text-[#023047]">{item.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600">{item.summary}</p>
+                    <p className="text-[#023047]/80">{item.summary}</p>
                   </CardContent>
                   <CardFooter>
-                    <Button variant="link" className="p-0 h-auto text-university-blue">
+                    <Button variant="link" className="p-0 h-auto text-[#219ebc]">
                       Read More
                     </Button>
                   </CardFooter>
@@ -85,26 +85,26 @@ const NewsEvents = () => {
           {/* Events Section */}
           <div>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-university-blue">Upcoming Events</h2>
-              <Button variant="link" className="text-university-blue">
+              <h2 className="text-2xl font-bold text-[#219ebc]">Upcoming Events</h2>
+              <Button variant="link" className="text-[#219ebc]">
                 All Events <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
             <div className="space-y-6">
               {events.map((event, index) => (
-                <Card key={index}>
+                <Card key={index} className="border-[#8ecae6]/30">
                   <CardHeader className="pb-2">
-                    <div className="flex items-center text-sm text-gray-500 mb-1">
+                    <div className="flex items-center text-sm text-[#023047]/70 mb-1">
                       <Calendar className="mr-1 h-4 w-4" />
                       {event.date} | {event.time}
                     </div>
-                    <CardTitle className="text-lg">{event.title}</CardTitle>
+                    <CardTitle className="text-lg text-[#023047]">{event.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600">Location: {event.location}</p>
+                    <p className="text-[#023047]/80">Location: {event.location}</p>
                   </CardContent>
                   <CardFooter>
-                    <Button variant="link" className="p-0 h-auto text-university-blue">
+                    <Button variant="link" className="p-0 h-auto text-[#219ebc]">
                       Event Details
                     </Button>
                   </CardFooter>

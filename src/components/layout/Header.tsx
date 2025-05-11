@@ -62,16 +62,16 @@ const Header = () => {
       {/* University Logo and Name */}
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <a href="/" className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-university-blue rounded-full flex items-center justify-center">
+          <div className="w-12 h-12 bg-[#219ebc] rounded-full flex items-center justify-center">
             <span className="text-white font-bold text-xs sm:text-sm">SINU</span>
           </div>
-          <span className="text-university-blue font-bold text-lg hidden md:block">
+          <span className="text-[#023047] font-bold text-lg hidden md:block">
             Solomon Islands National University
           </span>
         </a>
         <div className="flex items-center gap-2">
           <div className="hidden md:block">
-            <p className="text-university-dark-gray text-sm">Your Future, Our Commitment</p>
+            <p className="text-[#023047] text-sm">Your Future, Our Commitment</p>
           </div>
 
           {/* Mobile menu toggle */}
@@ -89,25 +89,25 @@ const Header = () => {
       </div>
 
       {/* Top Navigation Row */}
-      <div className="bg-university-blue">
+      <div className="bg-[#219ebc]">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-between items-center">
             <div className="flex-1"></div>
             <div className={`${isMobile && !menuOpen ? 'hidden' : 'flex'} flex-col md:flex-row items-center w-full md:w-auto space-y-2 md:space-y-0 space-x-0 md:space-x-2 py-2`}>
-              <Button variant="ghost" size="sm" className="text-white w-full md:w-auto hover:text-university-gold hover:bg-university-blue/90">
+              <Button variant="ghost" size="sm" className="text-white w-full md:w-auto hover:text-[#ffb703] hover:bg-[#219ebc]/90">
                 <User className="mr-2 h-4 w-4" />
                 <span>Staff Portal</span>
               </Button>
-              <Button variant="ghost" size="sm" className="text-white w-full md:w-auto hover:text-university-gold hover:bg-university-blue/90">
+              <Button variant="ghost" size="sm" className="text-white w-full md:w-auto hover:text-[#ffb703] hover:bg-[#219ebc]/90">
                 <Users className="mr-2 h-4 w-4" />
                 <span>Student Portal</span>
               </Button>
-              <Button variant="ghost" size="sm" className="text-white w-full md:w-auto hover:text-university-gold hover:bg-university-blue/90">
+              <Button variant="ghost" size="sm" className="text-white w-full md:w-auto hover:text-[#ffb703] hover:bg-[#219ebc]/90">
                 <Book className="mr-2 h-4 w-4" />
                 <span>Apply Now</span>
               </Button>
               <div className="relative w-full md:w-auto">
-                <Button variant="ghost" size="sm" className="text-white w-full md:w-auto hover:text-university-gold hover:bg-university-blue/90">
+                <Button variant="ghost" size="sm" className="text-white w-full md:w-auto hover:text-[#ffb703] hover:bg-[#219ebc]/90">
                   <Search className="mr-2 h-4 w-4" />
                   <span>Search</span>
                 </Button>
@@ -118,7 +118,7 @@ const Header = () => {
       </div>
 
       {/* Bottom Navigation Row with Mega Menus - hidden in mobile unless menu is open */}
-      <div className={`bg-university-light-gray border-t border-gray-200 ${isMobile && !menuOpen ? 'hidden' : 'block'}`}>
+      <div className={`bg-[#8ecae6] border-t border-[#66b2b2] ${isMobile && !menuOpen ? 'hidden' : 'block'}`}>
         <div className="container mx-auto px-4">
           <nav className="flex justify-center">
             {Object.entries(megaMenuData).map(([key, menuData], index) => (

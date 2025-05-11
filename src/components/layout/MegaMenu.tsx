@@ -37,7 +37,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
   return (
     <div className={`${isMobile ? 'w-full' : 'mega-menu-container'}`} id={`menu-container-${id}`}>
       <button 
-        className="px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium hover:text-university-blue focus:outline-none"
+        className="px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium hover:text-[#023047] focus:outline-none"
         onClick={toggleMenu}
         aria-controls={`mega-menu-${id}`}
         aria-expanded={isMobile ? isOpen : undefined}
@@ -51,16 +51,16 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
       
       {/* Mobile Dropdown */}
       {isMobile && isOpen && (
-        <div className="bg-white p-4 border-t border-gray-100 animate-accordion-down" id={`mobile-menu-${id}`}>
+        <div className="bg-white p-4 border-t border-[#8ecae6] animate-accordion-down" id={`mobile-menu-${id}`}>
           <div className="space-y-4">
             {columns.map((column, colIndex) => (
               <div key={colIndex}>
-                <h3 className="text-lg font-bold text-university-blue mb-2">{column.title}</h3>
+                <h3 className="text-lg font-bold text-[#219ebc] mb-2">{column.title}</h3>
                 <ul className="space-y-2 pl-2">
                   {column.links.map((link, linkIndex) => (
                     <li key={linkIndex} className="flex items-start">
-                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-university-green"></span>
-                      <a href={link.url} className="text-gray-700 hover:text-university-blue hover:underline">
+                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-[#66b2b2]"></span>
+                      <a href={link.url} className="text-[#023047] hover:text-[#219ebc] hover:underline">
                         {link.title}
                       </a>
                     </li>
@@ -91,12 +91,12 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* First Column */}
               <div className="col-span-1">
-                <h3 className="text-lg font-bold text-university-blue mb-4">{columns[0].title}</h3>
+                <h3 className="text-lg font-bold text-[#219ebc] mb-4">{columns[0].title}</h3>
                 <ul className="space-y-2">
                   {columns[0].links.map((link, index) => (
                     <li key={index} className="flex items-start">
-                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-university-green"></span>
-                      <a href={link.url} className="text-gray-700 hover:text-university-blue hover:underline">
+                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-[#66b2b2]"></span>
+                      <a href={link.url} className="text-[#023047] hover:text-[#219ebc] hover:underline">
                         {link.title}
                       </a>
                     </li>
@@ -106,12 +106,12 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
               
               {/* Second Column */}
               <div className="col-span-1">
-                <h3 className="text-lg font-bold text-university-blue mb-4">{columns[1].title}</h3>
+                <h3 className="text-lg font-bold text-[#219ebc] mb-4">{columns[1].title}</h3>
                 <ul className="space-y-2">
                   {columns[1].links.map((link, index) => (
                     <li key={index} className="flex items-start">
-                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-university-green"></span>
-                      <a href={link.url} className="text-gray-700 hover:text-university-blue hover:underline">
+                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-[#66b2b2]"></span>
+                      <a href={link.url} className="text-[#023047] hover:text-[#219ebc] hover:underline">
                         {link.title}
                       </a>
                     </li>
@@ -128,7 +128,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
                     className="h-60 w-full object-cover"
                     objectFit="cover"
                   />
-                  <p className="mt-2 text-sm text-gray-600 italic">{image.alt}</p>
+                  <p className="mt-2 text-sm text-[#023047] italic">{image.alt}</p>
                 </div>
               </div>
             </div>

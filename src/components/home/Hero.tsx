@@ -5,7 +5,7 @@ import OptimizedImage from '@/components/common/OptimizedImage';
 
 const Hero = () => {
   return (
-    <div className="relative bg-university-blue h-[50vh] md:h-[70vh] overflow-hidden">
+    <div className="relative bg-[#023047] h-[50vh] md:h-[70vh] overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 bg-black">
         <OptimizedImage
@@ -26,7 +26,7 @@ const Hero = () => {
             innovative research opportunities, and a vibrant campus community.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button size="lg" className="bg-university-green hover:bg-university-green/90 w-full sm:w-auto">
+            <Button size="lg" className="bg-[#66b2b2] hover:bg-[#66b2b2]/90 text-white w-full sm:w-auto">
               Explore Programs
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/20 w-full sm:w-auto">
@@ -37,9 +37,9 @@ const Hero = () => {
       </div>
       
       {/* Announcement Bar */}
-      <div className="absolute bottom-0 left-0 right-0 bg-university-gold py-2 md:py-3">
+      <div className="absolute bottom-0 left-0 right-0 bg-[#ffb703] py-2 md:py-3">
         <div className="container mx-auto px-4">
-          <p className="text-center text-black text-sm md:text-base font-medium">
+          <p className="text-center text-[#023047] text-sm md:text-base font-medium">
             Enrollment for Spring Semester 2025 is now open! Apply before November 30th.
           </p>
         </div>

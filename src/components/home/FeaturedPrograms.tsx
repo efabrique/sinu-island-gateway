@@ -33,8 +33,8 @@ const FeaturedPrograms = () => {
       <section className="py-8 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-university-blue mb-4">Featured Academic Programs</h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#219ebc] mb-4">Featured Academic Programs</h2>
+            <p className="text-base md:text-lg text-[#023047] max-w-2xl mx-auto">
               Discover our diverse range of undergraduate and graduate programs designed to prepare you for success.
             </p>
           </div>
@@ -52,11 +52,11 @@ const FeaturedPrograms = () => {
                     />
                   </div>
                   <CardHeader>
-                    <CardTitle>{program.title}</CardTitle>
-                    <CardDescription>{program.description}</CardDescription>
+                    <CardTitle className="text-[#023047]">{program.title}</CardTitle>
+                    <CardDescription className="text-[#023047]/80">{program.description}</CardDescription>
                   </CardHeader>
                   <CardFooter>
-                    <Button variant="outline" className="w-full">
+                    <Button variant="outline" className="w-full text-[#219ebc] border-[#219ebc] hover:bg-[#219ebc] hover:text-white">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -67,7 +67,7 @@ const FeaturedPrograms = () => {
           </div>
           
           <div className="text-center mt-8 md:mt-12">
-            <Button>
+            <Button className="bg-[#219ebc] text-white hover:bg-[#219ebc]/90">
               View All Programs
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

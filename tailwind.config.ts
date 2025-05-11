@@ -64,12 +64,12 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				university: {
-					'blue': '#003366',
-					'light-blue': '#0077B6',
-					'green': '#008060',
-					'gold': '#FFD700',
-					'light-gray': '#F5F5F5',
-					'dark-gray': '#333333'
+					'blue': '#219ebc',
+					'light-blue': '#8ecae6',
+					'green': '#66b2b2',
+					'gold': '#ffb703',
+					'light-gray': '#f5f5f5',
+					'dark-gray': '#023047'
 				}
 			},
 			borderRadius: {
