@@ -21,11 +21,12 @@ interface MegaMenuProps {
     src: string;
     alt: string;
   };
-  id: string; // Added unique ID prop
+  id: string;
 }
 
 const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const isMobile = useIsMobile();
   
   const toggleMenu = () => {
@@ -37,8 +38,12 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
   return (
     <div className={`${isMobile ? 'w-full' : 'mega-menu-container'}`} id={`menu-container-${id}`}>
       <button 
-        className="px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium hover:text-[#023047] focus:outline-none"
+        className={`px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium focus:outline-none transition-colors ${
+          isHovered ? 'bg-[#66b2b2] text-white' : 'hover:text-[#023047]'
+        }`}
         onClick={toggleMenu}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
         aria-controls={`mega-menu-${id}`}
         aria-expanded={isMobile ? isOpen : undefined}
       >
