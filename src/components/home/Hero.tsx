@@ -9,8 +9,8 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 bg-black">
         <OptimizedImage
-          src="https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3"
-          alt="Campus view"
+          src="https://images.unsplash.com/photo-1517022812141-23620dba5c23"
+          alt="Beautiful campus view with students"
           className="w-full h-full opacity-60"
           objectFit="cover"
           priority={true}

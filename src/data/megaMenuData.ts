@@ -26,8 +26,8 @@ export const megaMenuData = {
       }
     ],
     image: {
-      src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3",
-      alt: "Students studying in a modern library"
+      src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+      alt: "Students studying with laptops in a modern library"
     }
   },
   "International": {
@@ -56,8 +56,8 @@ export const megaMenuData = {
       }
     ],
     image: {
-      src: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3",
-      alt: "International students on campus"
+      src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+      alt: "International students collaborating on a project"
     }
   },
   "Research": {
@@ -86,8 +86,8 @@ export const megaMenuData = {
       }
     ],
     image: {
-      src: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3",
-      alt: "Research laboratory at SINU"
+      src: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
+      alt: "Research laboratory with scientific equipment"
     }
   },
   "Campus Life": {
@@ -116,8 +116,8 @@ export const megaMenuData = {
       }
     ],
     image: {
-      src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3",
-      alt: "Students enjoying campus life"
+      src: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+      alt: "Students enjoying campus activities"
     }
   },
   "Alumni": {
@@ -146,8 +146,8 @@ export const megaMenuData = {
       }
     ],
     image: {
-      src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3",
-      alt: "Alumni gathering event"
+      src: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+      alt: "Alumni networking event with professionals"
     }
   },
   "About": {
@@ -176,8 +176,8 @@ export const megaMenuData = {
       }
     ],
     image: {
-      src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3",
-      alt: "SINU main campus"
+      src: "https://images.unsplash.com/photo-1527576539890-dfa815648363",
+      alt: "SINU main campus building"
     }
   }
 };

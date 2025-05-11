@@ -10,19 +10,19 @@ const programs = [
   {
     title: "Business Administration",
     description: "Develop managerial and entrepreneurial skills with our comprehensive business program.",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3",
+    image: "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9",
     link: "#"
   },
   {
     title: "Marine Science",
     description: "Study marine ecosystems and conservation in one of the world's most biodiverse regions.",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3",
+    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742",
     link: "#"
   },
   {
     title: "Education",
     description: "Shape the future by becoming a skilled educator with our teaching certification programs.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3",
+    image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511",
     link: "#"
   }
 ];
