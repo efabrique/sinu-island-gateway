@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -98,15 +97,22 @@
     font-family: 'Merriweather', serif;
   }
 
+  /* Mega menu styling */
   .mega-menu {
     visibility: hidden;
     opacity: 0;
-    transform: translateY(-10px);
+    position: absolute;
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
     z-index: 100;
-    margin: 0 auto;
+    width: 100vw;
+    max-width: 100vw;
     left: 50%;
     transform: translateX(-50%) translateY(-10px);
+    background-color: white;
+  }
+  
+  .mega-menu-container {
+    position: relative;
   }
   
   .mega-menu-container:hover .mega-menu {
