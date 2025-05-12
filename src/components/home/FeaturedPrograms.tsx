@@ -49,6 +49,7 @@ const FeaturedPrograms = () => {
                       alt={program.title} 
                       className="w-full h-full"
                       objectFit="cover"
+                      width={400}
                     />
                   </div>
                   <CardHeader>

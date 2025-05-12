@@ -32,52 +32,59 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   const getOptimizedImageUrl = (url: string) => {
     if (!url) return '';
 
-    // For Unsplash images, we can use their optimization parameters
-    if (url.includes('unsplash.com')) {
-      const size = isMobile ? 600 : width || 1200;
-      const quality = 80;
-      
-      // Add width, height and quality parameters for Unsplash
-      if (url.includes('?')) {
-        return `${url}&w=${size}&q=${quality}&auto=format`;
-      } else {
-        return `${url}?w=${size}&q=${quality}&auto=format`;
+    try {
+      // For Unsplash images, we can use their optimization parameters
+      if (url.includes('unsplash.com')) {
+        // Check if URL already has parameters
+        const hasParams = url.includes('?');
+        const size = isMobile ? 600 : width || 1200;
+        const quality = 80;
+        
+        // Make sure we don't add duplicate parameters
+        const baseUrl = url.split('?')[0];
+        return `${baseUrl}?w=${size}&q=${quality}&auto=format&fit=crop`;
       }
+      
+      return url;
+    } catch (error) {
+      console.error('Error optimizing image URL:', error);
+      return url; // Return original URL if optimization fails
     }
-    
-    return url;
   };
 
   useEffect(() => {
     if (!src) return;
+    
+    // Set a default image source immediately to ensure something is displayed
+    setImgSrc(src);
 
-    // For priority images, load immediately
-    if (priority) {
-      setImgSrc(getOptimizedImageUrl(src));
-      return;
-    }
+    // Then optimize it
+    const optimizedUrl = getOptimizedImageUrl(src);
+    setImgSrc(optimizedUrl);
 
     // For non-priority images, use Intersection Observer
-    let observer: IntersectionObserver;
-    const element = document.createElement('div');
-    
-    observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setImgSrc(getOptimizedImageUrl(src));
+    if (!priority) {
+      let observer: IntersectionObserver;
+      const element = document.createElement('div');
+      
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setImgSrc(optimizedUrl);
+            observer.disconnect();
+          }
+        });
+      }, { rootMargin: '200px' });
+
+      observer.observe(element);
+      
+      return () => {
+        if (observer) {
           observer.disconnect();
         }
-      });
-    }, { rootMargin: '200px' }); // Start loading when image is 200px away from viewport
-
-    observer.observe(element);
-    
-    return () => {
-      if (observer) {
-        observer.disconnect();
-      }
-    };
-  }, [src, priority, isMobile]);
+      };
+    }
+  }, [src, priority, isMobile, width]);
 
   return (
     <div 
@@ -88,7 +95,13 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
       )}
       style={{ width, height }}
     >
-      {!isLoaded && loadingPlaceholder ? loadingPlaceholder : null}
+      {!isLoaded && loadingPlaceholder ? loadingPlaceholder : (
+        !isLoaded && (
+          <div className="absolute inset-0 flex items-center justify-center bg-[#8ecae6]/20">
+            <div className="w-8 h-8 rounded-full border-2 border-[#219ebc] border-t-transparent animate-spin"></div>
+          </div>
+        )
+      )}
       
       {imgSrc && (
         <img
@@ -105,12 +118,15 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
             height: '100%',
           }}
           onLoad={() => setIsLoaded(true)}
-          onError={() => {
+          onError={(e) => {
             console.error(`Failed to load image: ${src}`);
-            // Fallback to original URL if optimization fails
+            // Try without parameters as fallback
             if (imgSrc !== src) {
               setImgSrc(src);
             }
+            // Add a placeholder background color
+            const target = e.target as HTMLImageElement;
+            target.style.backgroundColor = '#8ecae6';
           }}
           loading={priority ? 'eager' : 'lazy'}
         />

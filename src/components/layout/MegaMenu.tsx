@@ -74,12 +74,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
               </div>
             ))}
             
-            <div className="h-40 mt-4">
+            <div className="h-40 mt-4 overflow-hidden rounded-md">
               <OptimizedImage
                 src={image.src}
                 alt={image.alt}
-                className="rounded-md h-full w-full"
+                className="h-full w-full"
                 objectFit="cover"
+                width={300}
               />
             </div>
           </div>
@@ -130,8 +131,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
                   <OptimizedImage 
                     src={image.src} 
                     alt={image.alt} 
-                    className="h-60 w-full object-cover"
+                    className="h-60 w-full"
                     objectFit="cover"
+                    width={400}
                   />
                   <p className="mt-2 text-sm text-[#023047] italic">{image.alt}</p>
                 </div>

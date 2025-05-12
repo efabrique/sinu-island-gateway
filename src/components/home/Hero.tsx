@@ -14,6 +14,7 @@ const Hero = () => {
           className="w-full h-full opacity-60"
           objectFit="cover"
           priority={true}
+          width={1920}
         />
       </div>
       
