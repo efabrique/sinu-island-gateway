@@ -9,13 +9,15 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 bg-black">
         <OptimizedImage
-          src="https://images.unsplash.com/photo-1517022812141-23620dba5c23"
-          alt="Beautiful campus view with students"
-          className="w-full h-full opacity-60"
+          src="/lovable-uploads/7284ab6b-b66f-44ea-be92-9f17dc726408.png"
+          alt="Student examining plant with magnifying glass"
+          className="w-full h-full"
           objectFit="cover"
           priority={true}
           width={1920}
         />
+        {/* Light blue fluorescent tint overlay */}
+        <div className="absolute inset-0 bg-[#1EAEDB]/30 mix-blend-overlay"></div>
       </div>
       
       {/* Content */}
