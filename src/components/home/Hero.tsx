@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <div className="relative bg-[#023047] h-[50vh] md:h-[70vh] overflow-hidden">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 bg-black">
+      <div className="absolute inset-0">
         <OptimizedImage
           src="/lovable-uploads/7284ab6b-b66f-44ea-be92-9f17dc726408.png"
           alt="Student examining plant with magnifying glass"
@@ -15,6 +15,7 @@ const Hero = () => {
           objectFit="cover"
           priority={true}
           width={1920}
+          height={1080}
         />
         {/* Light blue fluorescent tint overlay */}
         <div className="absolute inset-0 bg-[#1EAEDB]/30 mix-blend-overlay"></div>

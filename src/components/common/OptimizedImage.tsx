@@ -93,7 +93,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         !isLoaded && "bg-gray-100",
         className
       )}
-      style={{ width, height }}
+      style={{ width: '100%', height: '100%' }}
     >
       {!isLoaded && loadingPlaceholder ? loadingPlaceholder : (
         !isLoaded && (
