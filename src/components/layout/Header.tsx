@@ -60,8 +60,9 @@ const Header = () => {
   return (
     <header ref={headerRef} className="sticky top-0 w-full bg-white shadow-md z-50">
       {/* University Logo and Name */}
-      <div className="container mx-auto px-4 py-2 flex justify-between items-center">
-        <a href="/" className="flex items-center">
+      <div className="container mx-auto px-4 py-2 flex items-center">
+        {/* Logo on the left */}
+        <a href="/" className="flex-shrink-0">
           <div className="h-12 sm:h-16 md:h-20 bg-white flex items-center justify-center">
             <img 
               src="/lovable-uploads/2cf1a54f-426a-4061-a0d6-6db4803d4a1d.png" 
@@ -69,21 +70,24 @@ const Header = () => {
               className="h-full w-auto max-h-full object-contain"
             />
           </div>
-          <span className="text-[#023047] font-bold text-lg hidden md:block ml-3">
-            Solomon Islands National University
-          </span>
         </a>
-        <div className="flex items-center gap-2">
-          <div className="hidden md:block">
-            <p className="text-[#023047] text-sm">Your Future, Our Commitment</p>
-          </div>
-
-          {/* Mobile menu toggle */}
+        
+        {/* University name and catch phrase centered in the available space */}
+        <div className="flex-grow flex flex-col items-center justify-center">
+          <h1 className="text-[#023047] font-bold text-xl sm:text-2xl md:text-3xl text-center">
+            Solomon Islands National University
+          </h1>
+          <p className="text-[#023047] text-xs sm:text-sm md:text-base text-center">
+            Creating Your Future is Our Commitment
+          </p>
+        </div>
+        
+        {/* Mobile menu toggle - pushed to the right */}
+        <div className="flex-shrink-0">
           {isMobile && (
             <Button 
               variant="ghost" 
               size="sm" 
-              className="ml-2 md:hidden"
               onClick={toggleMenu}
             >
               {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
