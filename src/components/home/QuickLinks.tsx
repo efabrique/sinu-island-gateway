@@ -54,7 +54,7 @@ const QuickLinks = () => {
               <ErrorBoundary key={index}>
                 <a 
                   href={link.link}
-                  className="flex items-center p-3 md:p-4 border rounded-lg hover:bg-[#8ecae6]/10 hover:shadow-md transition-all"
+                  className="flex items-center p-3 md:p-4 border rounded-lg bg-white hover:bg-[#8ecae6]/10 hover:shadow-md transition-all"
                 >
                   <div className="h-10 w-10 md:h-12 md:w-12 bg-[#8ecae6]/20 rounded-full flex items-center justify-center text-[#219ebc] mr-3 md:mr-4">
                     <link.icon className="h-5 w-5 md:h-6 md:w-6" />
