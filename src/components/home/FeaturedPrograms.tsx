@@ -30,7 +30,7 @@ const programs = [
 const FeaturedPrograms = () => {
   return (
     <ErrorBoundary>
-      <section className="py-8 md:py-16 bg-[#b2d8d8]">
+      <section className="py-8 md:py-16 bg-[#F8F8F8]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-[#219ebc] mb-4">Featured Academic Programs</h2>

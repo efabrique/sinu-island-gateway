@@ -45,7 +45,7 @@ const quickLinks = [
 const QuickLinks = () => {
   return (
     <ErrorBoundary>
-      <section className="py-8 md:py-16 bg-[#b2d8d8]">
+      <section className="py-8 md:py-16 bg-[#F8F8F8]">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-[#219ebc] text-center mb-8 md:mb-12">Quick Links</h2>
           
