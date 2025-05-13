@@ -61,7 +61,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
     const baseClasses = "px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium focus:outline-none transition-colors";
     
     if (isHovered || isActive) {
-      return `${baseClasses} bg-[#023047]`;
+      return `${baseClasses} bg-university-gold`;
     }
     
     return `${baseClasses} hover:text-[#023047]`;
