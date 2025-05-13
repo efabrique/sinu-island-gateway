@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import OptimizedImage from '../common/OptimizedImage';
@@ -27,7 +27,9 @@ interface MegaMenuProps {
 const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   const isMobile = useIsMobile();
+  const menuContainerRef = useRef<HTMLDivElement>(null);
   
   const toggleMenu = () => {
     if (isMobile) {
@@ -35,12 +37,44 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
     }
   };
 
+  // Track hover state for the mega menu container
+  useEffect(() => {
+    if (isMobile) return;
+    
+    const menuContainer = menuContainerRef.current;
+    if (!menuContainer) return;
+    
+    const handleMouseEnter = () => setIsActive(true);
+    const handleMouseLeave = () => setIsActive(false);
+    
+    menuContainer.addEventListener('mouseenter', handleMouseEnter);
+    menuContainer.addEventListener('mouseleave', handleMouseLeave);
+    
+    return () => {
+      menuContainer.removeEventListener('mouseenter', handleMouseEnter);
+      menuContainer.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [isMobile]);
+
+  // Calculate background color based on hovered and active states
+  const getButtonClasses = () => {
+    const baseClasses = "px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium focus:outline-none transition-colors";
+    
+    if (isHovered || isActive) {
+      return `${baseClasses} bg-[#023047]`;
+    }
+    
+    return `${baseClasses} hover:text-[#023047]`;
+  };
+
   return (
-    <div className={`${isMobile ? 'w-full' : 'mega-menu-container'}`} id={`menu-container-${id}`}>
+    <div 
+      className={`${isMobile ? 'w-full' : 'mega-menu-container'}`} 
+      id={`menu-container-${id}`}
+      ref={menuContainerRef}
+    >
       <button 
-        className={`px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium focus:outline-none transition-colors ${
-          isHovered ? 'bg-[#66b2b2] text-white' : 'hover:text-[#023047]'
-        }`}
+        className={getButtonClasses()}
         onClick={toggleMenu}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
