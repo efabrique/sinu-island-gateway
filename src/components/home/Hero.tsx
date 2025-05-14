@@ -40,11 +40,11 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Announcement Bar */}
-      <div className="absolute bottom-0 left-0 right-0 bg-[#ffb703] py-2 md:py-3">
-        <div className="container mx-auto px-4">
-          <p className="text-center text-[#023047] text-sm md:text-base font-medium">
-            Enrollment for Spring Semester 2025 is now open! Apply before November 30th.
+      {/* Announcement Banner with Scrolling Text */}
+      <div className="absolute bottom-0 left-0 right-0 bg-[#ffb703] py-2 md:py-3 overflow-hidden">
+        <div className="whitespace-nowrap inline-block animate-scroll">
+          <p className="text-[#023047] text-sm md:text-base font-medium px-4">
+            Enrollment for Semester two 2025 is now open! Apply before May 30th.
           </p>
         </div>
       </div>
