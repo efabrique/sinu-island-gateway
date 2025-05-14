@@ -61,11 +61,11 @@ const Header = () => {
     <header ref={headerRef} className="sticky top-0 w-full bg-white shadow-md z-50">
       {/* University Logo and Name */}
       <div className="container mx-auto px-4 py-2 flex items-center">
-        {/* Logo on the left */}
+        {/* Logo on the left - Updated with new logo */}
         <a href="/" className="flex-shrink-0">
           <div className="h-12 sm:h-16 md:h-20 bg-white flex items-center justify-center">
             <img 
-              src="/lovable-uploads/2cf1a54f-426a-4061-a0d6-6db4803d4a1d.png" 
+              src="/lovable-uploads/26f8db50-7fe6-4c6f-b38c-180f22a0a88b.png" 
               alt="SINU Logo" 
               className="h-full w-auto max-h-full object-contain"
             />
