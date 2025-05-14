@@ -23,7 +23,7 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative container mx-auto px-4 h-full flex items-center">
-        <div className="max-w-xl md:max-w-2xl text-white animate-fade-in">
+        <div className="max-w-xl md:max-w-2xl text-[#ffb703] animate-fade-in">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">Discover Your Potential at SINU</h1>
           <p className="text-base md:text-xl mb-8">
             Solomon Islands National University offers world-class education, 
