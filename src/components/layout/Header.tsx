@@ -74,10 +74,10 @@ const Header = () => {
         
         {/* University name and catch phrase centered in the available space */}
         <div className="flex-grow flex flex-col items-center justify-center">
-          <h1 className="text-[#0b2c55] font-bold text-xl sm:text-2xl md:text-3xl text-center shadow-sm" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)' }}>
+          <h1 className="text-[#0b2c55] font-bold text-xl sm:text-2xl md:text-3xl text-center" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)' }}>
             Solomon Islands National University
           </h1>
-          <p className="text-[#d7a12c] text-xs sm:text-sm md:text-base text-center shadow-sm" style={{ textShadow: '0.5px 0.5px 1px rgba(0, 0, 0, 0.2)' }}>
+          <p className="text-[#d7a12c] text-xs sm:text-sm md:text-base text-center" style={{ textShadow: '0.5px 0.5px 1px rgba(0, 0, 0, 0.2)' }}>
             Creating Your Future is Our Commitment
           </p>
         </div>
