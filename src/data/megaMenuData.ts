@@ -6,22 +6,22 @@ export const megaMenuData = {
         title: "Academic Programs",
         links: [
           { title: "Undergraduate Programs", url: "#" },
-          { title: "Graduate Programs", url: "#" },
-          { title: "Doctoral Studies", url: "#" },
-          { title: "Distance Education", url: "#" },
-          { title: "Professional Development", url: "#" },
+          { title: "Postgraduate Programs", url: "#" },
+          { title: "Distance & Flexible Learning", url: "#" },
+          { title: "SINU TAFE & TVET", url: "#" },
+          { title: "University Preparatory Courses", url: "#" },
           { title: "Short Courses", url: "#" }
         ]
       },
       {
         title: "Academic Resources",
         links: [
-          { title: "Course Catalog", url: "#" },
+          { title: "Schools and Faculties", url: "#" },
           { title: "Academic Calendar", url: "#" },
           { title: "Library Services", url: "#" },
-          { title: "Student Support", url: "#" },
-          { title: "Tutoring Center", url: "#" },
-          { title: "Career Development", url: "#" }
+          { title: "Student Academic Support", url: "#" },
+          { title: "Scholarships", url: "#" },
+          { title: "ICT Services", url: "#" }
         ]
       }
     ],
