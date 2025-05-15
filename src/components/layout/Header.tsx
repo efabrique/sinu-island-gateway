@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import MegaMenu from './MegaMenu';
 import { megaMenuData } from '@/data/megaMenuData';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -115,9 +116,16 @@ const Header = () => {
                 <span>Apply Now</span>
               </Button>
               <div className="relative w-full md:w-auto">
-                <Button variant="ghost" size="sm" className="text-white w-full md:w-auto hover:text-[#ffb703] hover:bg-[#219ebc]/90">
-                  <Search className="mr-2 h-4 w-4" />
-                  <span>Search</span>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="text-white w-full md:w-auto hover:text-[#ffb703] hover:bg-[#219ebc]/90"
+                  asChild
+                >
+                  <Link to="/course-finder">
+                    <Search className="mr-2 h-4 w-4" />
+                    <span>Search</span>
+                  </Link>
                 </Button>
               </div>
             </div>
