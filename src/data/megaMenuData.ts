@@ -176,8 +176,8 @@ export const megaMenuData = {
       }
     ],
     image: {
-      src: "https://images.unsplash.com/photo-1527576539890-dfa815648363",
-      alt: "SINU main campus building"
+      src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+      alt: "Solomon Islands National University campus buildings and grounds"
     }
   }
 };
