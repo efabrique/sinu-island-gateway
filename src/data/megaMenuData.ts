@@ -157,7 +157,7 @@ export const megaMenuData = {
         links: [
           { title: "Mission & Vision", url: "#" },
           { title: "History", url: "#" },
-          { title: "Leadership", url: "#" },
+          { title: "Executive Leadership", url: "#" },
           { title: "Organizational Structure", url: "#" },
           { title: "Strategic Plan", url: "#" },
           { title: "Policies & Procedures", url: "#" }
@@ -169,9 +169,9 @@ export const megaMenuData = {
           { title: "News & Media", url: "#" },
           { title: "Events Calendar", url: "#" },
           { title: "Employment Opportunities", url: "#" },
+          { title: "Tender Opportunities", url: "#" },
           { title: "Contact Us", url: "#" },
-          { title: "Campus Locations", url: "#" },
-          { title: "Visit SINU", url: "#" }
+          { title: "Campus Locations", url: "#" }
         ]
       }
     ],
