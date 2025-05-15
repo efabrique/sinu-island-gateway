@@ -30,10 +30,17 @@ const Hero = () => {
             innovative research opportunities, and a vibrant campus community.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button size="lg" className="bg-[#66b2b2] hover:bg-[#66b2b2]/90 text-white w-full sm:w-auto">
+            <Button 
+              size="lg" 
+              className="bg-[#0b2c55] hover:bg-[#d7a12c] text-white w-full sm:w-auto"
+            >
               Explore Programs
             </Button>
-            <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/20 w-full sm:w-auto">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="bg-[#d7a12c] text-white border-transparent hover:bg-[#0b2c55] hover:border-transparent w-full sm:w-auto"
+            >
               Virtual Campus Tour
             </Button>
           </div>
