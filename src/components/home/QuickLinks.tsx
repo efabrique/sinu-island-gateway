@@ -2,13 +2,14 @@
 import React from 'react';
 import { BookOpen, Calendar, Library, GraduationCap, Users, MapPin } from 'lucide-react';
 import ErrorBoundary from '../common/ErrorBoundary';
+import { Link } from 'react-router-dom';
 
 const quickLinks = [
   {
     title: "Course Catalog",
     description: "Browse our comprehensive listing of courses",
     icon: BookOpen,
-    link: "#"
+    link: "/course-catalog"
   },
   {
     title: "Academic Calendar",
@@ -52,8 +53,8 @@ const QuickLinks = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {quickLinks.map((link, index) => (
               <ErrorBoundary key={index}>
-                <a 
-                  href={link.link}
+                <Link 
+                  to={link.link}
                   className="flex items-center p-3 md:p-4 border rounded-lg bg-white hover:bg-[#8ecae6]/10 hover:shadow-md transition-all"
                 >
                   <div className="h-10 w-10 md:h-12 md:w-12 bg-[#8ecae6]/20 rounded-full flex items-center justify-center text-[#219ebc] mr-3 md:mr-4">
@@ -63,7 +64,7 @@ const QuickLinks = () => {
                     <h3 className="font-bold text-base md:text-lg text-[#219ebc]">{link.title}</h3>
                     <p className="text-xs md:text-sm text-[#023047]">{link.description}</p>
                   </div>
-                </a>
+                </Link>
               </ErrorBoundary>
             ))}
           </div>

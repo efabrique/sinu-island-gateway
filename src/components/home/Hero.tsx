@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import OptimizedImage from '@/components/common/OptimizedImage';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -33,8 +34,9 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-[#0b2c55] hover:bg-[#d7a12c] text-white w-full sm:w-auto"
+              asChild
             >
-              Explore Programs
+              <Link to="/course-catalog">Explore Programs</Link>
             </Button>
             <Button 
               size="lg" 
