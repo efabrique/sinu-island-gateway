@@ -1,11 +1,10 @@
-
 export const megaMenuData = {
   "Study": {
     columns: [
       {
         title: "Academic Programs",
         links: [
-          { title: "Undergraduate Programs", url: "#" },
+          { title: "Undergraduate Programs", url: "/undergraduate-study" },
           { title: "Postgraduate Programs", url: "#" },
           { title: "Distance & Flexible Learning", url: "#" },
           { title: "SINU TAFE & TVET", url: "#" },
