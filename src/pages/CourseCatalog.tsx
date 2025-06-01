@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -8,6 +7,15 @@ import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { 
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination';
 import { ChevronDown, ChevronUp, Search, Filter, BookOpen } from 'lucide-react';
 
 const FACULTIES = [
@@ -32,6 +40,8 @@ const STUDY_AREAS = [
   "Science & Mathematics",
   "Tourism & Hospitality"
 ];
+
+const STUDY_MODES = ["Face to face", "Online", "Blended", "Research"];
 
 const SAMPLE_COURSES = [
   {
@@ -100,6 +110,7 @@ type FilterState = {
   faculty: string[];
   level: string[];
   studyArea: string[];
+  studyMode: string[];
 };
 
 const CourseCard = ({ course }: { course: typeof SAMPLE_COURSES[0] }) => (
@@ -202,10 +213,13 @@ const CourseCatalog = () => {
   const [selectedFilters, setSelectedFilters] = useState<FilterState>({
     faculty: [],
     level: [],
-    studyArea: []
+    studyArea: [],
+    studyMode: []
   });
   const [sortBy, setSortBy] = useState("relevance");
   const [viewMode, setViewMode] = useState("grid");
+  const [currentPage, setCurrentPage] = useState(1);
+  const coursesPerPage = 6;
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -217,13 +231,26 @@ const CourseCatalog = () => {
     setSelectedFilters({
       faculty: [],
       level: [],
-      studyArea: []
+      studyArea: [],
+      studyMode: []
     });
   };
 
   // In a real application, we would filter based on the selected filters
   // For this demo, we're just showing all sample courses
   const filteredCourses = SAMPLE_COURSES;
+  
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
+  const startIndex = (currentPage - 1) * coursesPerPage;
+  const endIndex = startIndex + coursesPerPage;
+  const currentCourses = filteredCourses.slice(startIndex, endIndex);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Scroll to top of courses section
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -301,6 +328,14 @@ const CourseCatalog = () => {
                   setSelectedFilters={setSelectedFilters}
                   filterKey="studyArea"
                 />
+                
+                <FilterSection 
+                  title="Study Mode" 
+                  options={STUDY_MODES} 
+                  selectedFilters={selectedFilters}
+                  setSelectedFilters={setSelectedFilters}
+                  filterKey="studyMode"
+                />
               </div>
             </div>
             
@@ -312,6 +347,9 @@ const CourseCatalog = () => {
                     <h2 className="text-lg font-bold text-[#0b2c55]">
                       {filteredCourses.length} courses found
                     </h2>
+                    <p className="text-sm text-[#023047]">
+                      Showing {startIndex + 1}-{Math.min(endIndex, filteredCourses.length)} of {filteredCourses.length} courses
+                    </p>
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
@@ -355,10 +393,45 @@ const CourseCatalog = () => {
                 </div>
                 
                 <div className={`grid ${viewMode === 'grid' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-2' : 'grid-cols-1'} gap-6`}>
-                  {filteredCourses.map(course => (
+                  {currentCourses.map(course => (
                     <CourseCard key={course.id} course={course} />
                   ))}
                 </div>
+
+                {/* Pagination */}
+                {totalPages > 1 && (
+                  <div className="mt-8 pt-6 border-t">
+                    <Pagination>
+                      <PaginationContent>
+                        <PaginationItem>
+                          <PaginationPrevious 
+                            onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
+                            className={currentPage === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
+                          />
+                        </PaginationItem>
+                        
+                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                          <PaginationItem key={page}>
+                            <PaginationLink
+                              onClick={() => handlePageChange(page)}
+                              isActive={currentPage === page}
+                              className="cursor-pointer"
+                            >
+                              {page}
+                            </PaginationLink>
+                          </PaginationItem>
+                        ))}
+                        
+                        <PaginationItem>
+                          <PaginationNext 
+                            onClick={() => currentPage < totalPages && handlePageChange(currentPage + 1)}
+                            className={currentPage === totalPages ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
+                          />
+                        </PaginationItem>
+                      </PaginationContent>
+                    </Pagination>
+                  </div>
+                )}
               </div>
               
               {/* Study Areas Section */}
