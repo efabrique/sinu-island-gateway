@@ -10,7 +10,7 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <OptimizedImage
-          src="/lovable-uploads/7284ab6b-b66f-44ea-be92-9f17dc726408.png"
+          src="/lovable-uploads/49aaf3f8-456b-4260-8aa7-3110587fb521.png"
           alt="Student examining plant with magnifying glass"
           className="w-full h-full"
           objectFit="cover"
