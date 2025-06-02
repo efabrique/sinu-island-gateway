@@ -44,13 +44,13 @@ const StudyOptionsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-[#edf4ff]">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#023047] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#082952] mb-4">
             Postgraduate Study Options
           </h2>
-          <p className="text-lg text-[#023047] max-w-3xl mx-auto">
+          <p className="text-lg text-[#082952] max-w-3xl mx-auto">
             Choose from our range of postgraduate programs designed to advance your career 
             and contribute to the development of the Solomon Islands and the Pacific region.
           </p>
@@ -61,13 +61,13 @@ const StudyOptionsSection = () => {
             <Card key={index} className="hover:shadow-lg transition-shadow border-[#8ecae6]">
               <CardHeader>
                 <div className="mb-4">{option.icon}</div>
-                <CardTitle className="text-xl text-[#023047]">{option.title}</CardTitle>
-                <CardDescription className="text-[#d7a12c] font-medium">
+                <CardTitle className="text-xl text-[#082952]">{option.title}</CardTitle>
+                <CardDescription className="text-[#ffb703] font-medium">
                   {option.duration}
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-[#023047]">{option.description}</p>
+                <p className="text-[#082952]">{option.description}</p>
               </CardContent>
             </Card>
           ))}

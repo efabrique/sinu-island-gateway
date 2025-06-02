@@ -47,10 +47,10 @@ const SupportSection = () => {
     <section className="py-16 bg-[#edf4ff]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#023047] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#082952] mb-4">
             Student Support Services
           </h2>
-          <p className="text-lg text-[#023047] max-w-3xl mx-auto">
+          <p className="text-lg text-[#082952] max-w-3xl mx-auto">
             We provide comprehensive support to help you succeed in your postgraduate journey, 
             from financial assistance to academic resources and wellbeing services.
           </p>
@@ -61,15 +61,15 @@ const SupportSection = () => {
             <Card key={index} className="hover:shadow-lg transition-shadow border-[#8ecae6]">
               <CardHeader>
                 <div className="mb-4">{service.icon}</div>
-                <CardTitle className="text-xl text-[#023047]">{service.title}</CardTitle>
-                <CardDescription className="text-[#023047]">
+                <CardTitle className="text-xl text-[#082952]">{service.title}</CardTitle>
+                <CardDescription className="text-[#082952]">
                   {service.description}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
                   {service.services.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-center text-sm text-[#023047]">
+                    <li key={itemIndex} className="flex items-center text-sm text-[#082952]">
                       <span className="w-2 h-2 bg-[#219ebc] rounded-full mr-2"></span>
                       {item}
                     </li>

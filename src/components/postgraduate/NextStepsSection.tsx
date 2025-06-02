@@ -41,10 +41,10 @@ const NextStepsSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#023047] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#082952] mb-4">
               Ready to Take the Next Step?
             </h2>
-            <p className="text-lg text-[#023047] max-w-3xl mx-auto">
+            <p className="text-lg text-[#082952] max-w-3xl mx-auto">
               Your postgraduate journey starts here. Take the next step towards advancing 
               your career and making a meaningful impact in your field.
             </p>
@@ -57,8 +57,8 @@ const NextStepsSection = () => {
                   <div className="mx-auto mb-4 bg-[#edf4ff] w-16 h-16 rounded-full flex items-center justify-center">
                     {step.icon}
                   </div>
-                  <CardTitle className="text-lg text-[#023047]">{step.title}</CardTitle>
-                  <CardDescription className="text-[#023047]">
+                  <CardTitle className="text-lg text-[#082952]">{step.title}</CardTitle>
+                  <CardDescription className="text-[#082952]">
                     {step.description}
                   </CardDescription>
                 </CardHeader>
@@ -66,7 +66,7 @@ const NextStepsSection = () => {
                   <Button
                     className={
                       step.actionType === 'primary'
-                        ? "bg-[#219ebc] hover:bg-[#023047] text-white w-full"
+                        ? "bg-[#219ebc] hover:bg-[#082952] text-white w-full"
                         : "bg-transparent border border-[#219ebc] text-[#219ebc] hover:bg-[#219ebc] hover:text-white w-full"
                     }
                   >
@@ -78,20 +78,20 @@ const NextStepsSection = () => {
           </div>
           
           <div className="bg-[#8ecae6] rounded-lg p-8 text-center">
-            <h3 className="text-2xl font-bold text-[#023047] mb-4">
+            <h3 className="text-2xl font-bold text-[#082952] mb-4">
               Start Your Application Today
             </h3>
-            <p className="text-[#023047] mb-6 max-w-2xl mx-auto">
+            <p className="text-[#082952] mb-6 max-w-2xl mx-auto">
               Join the next generation of leaders, researchers, and professionals who are 
               shaping the future of the Solomon Islands and the Pacific region.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-[#219ebc] hover:bg-[#023047] text-white px-8 py-3">
+              <Button className="bg-[#219ebc] hover:bg-[#082952] text-white px-8 py-3">
                 Apply Now
               </Button>
               <Button 
                 variant="outline" 
-                className="border-[#023047] text-[#023047] hover:bg-[#023047] hover:text-white px-8 py-3"
+                className="border-[#082952] text-[#082952] hover:bg-[#082952] hover:text-white px-8 py-3"
               >
                 Download Application Guide
               </Button>
