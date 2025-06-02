@@ -6,8 +6,8 @@ export const megaMenuData = {
         links: [
           { title: "Undergraduate Programs", url: "/undergraduate-study" },
           { title: "Postgraduate Programs", url: "/postgraduate-study" },
-          { title: "Distance & Flexible Learning", url: "/sinu-tafe-vvet" },
-          { title: "SINU TAFE & TVET", url: "#" },
+          { title: "Distance & Flexible Learning", url: "/distance-flexible-learning" },
+          { title: "SINU TAFE & TVET", url: "/sinu-tafe-vvet" },
           { title: "University Preparatory Courses", url: "#" },
           { title: "Short Courses", url: "#" }
         ]
