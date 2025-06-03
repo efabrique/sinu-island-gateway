@@ -2,6 +2,7 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Laptop, Users, Calendar, BookOpen } from 'lucide-react';
+import OptimizedImage from '@/components/common/OptimizedImage';
 
 const StudyOptionsSection = () => {
   const studyModes = [
@@ -10,28 +11,32 @@ const StudyOptionsSection = () => {
       title: "Fully Online",
       description: "Complete your studies entirely online with digital resources and virtual classrooms",
       features: ["24/7 Learning Platform", "Video Lectures", "Online Assessments", "Digital Library Access"],
-      suitableFor: "Working professionals, Remote island residents"
+      suitableFor: "Working professionals, Remote island residents",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
     },
     {
       icon: Users,
       title: "Blended Learning",
       description: "Combine online study with regular face-to-face sessions at learning centers",
       features: ["Flexible Schedule", "Practical Workshops", "Peer Interaction", "Local Support"],
-      suitableFor: "Students needing hands-on experience, Local community members"
+      suitableFor: "Students needing hands-on experience, Local community members",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
     },
     {
       icon: Calendar,
       title: "Block Mode",
       description: "Intensive study periods followed by independent learning phases",
       features: ["Intensive Workshops", "Extended Projects", "Industry Placements", "Mentorship"],
-      suitableFor: "Working adults, Career changers"
+      suitableFor: "Working adults, Career changers",
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
     },
     {
       icon: BookOpen,
       title: "Correspondence",
       description: "Traditional distance learning with printed materials and postal support",
       features: ["Study Guides", "Assignment Booklets", "Phone Tutorials", "Regional Exams"],
-      suitableFor: "Areas with limited internet, Traditional learners"
+      suitableFor: "Areas with limited internet, Traditional learners",
+      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173"
     }
   ];
 
@@ -49,7 +54,16 @@ const StudyOptionsSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {studyModes.map((mode, index) => (
-            <Card key={index} className="border-[#219ebc] hover:shadow-lg transition-shadow">
+            <Card key={index} className="border-[#219ebc] hover:shadow-lg transition-shadow overflow-hidden">
+              <div className="relative h-48">
+                <OptimizedImage
+                  src={mode.image}
+                  alt={mode.title}
+                  className="w-full h-full"
+                  objectFit="cover"
+                />
+                <div className="absolute inset-0 bg-[#082952]/20"></div>
+              </div>
               <CardHeader className="text-center">
                 <div className="bg-[#219ebc] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <mode.icon className="h-8 w-8 text-white" />

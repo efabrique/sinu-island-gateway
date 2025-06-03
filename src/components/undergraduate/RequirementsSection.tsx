@@ -2,6 +2,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, FileText, Calendar, DollarSign } from 'lucide-react';
+import OptimizedImage from '@/components/common/OptimizedImage';
 
 const RequirementsSection = () => {
   const requirements = [
@@ -13,7 +14,8 @@ const RequirementsSection = () => {
         "Minimum C grade in English and Mathematics",
         "Relevant subject prerequisites for specific programs",
         "International qualifications assessed case by case"
-      ]
+      ],
+      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173"
     },
     {
       title: "Application Process",
@@ -23,7 +25,8 @@ const RequirementsSection = () => {
         "Provide certified copies of academic transcripts",
         "Complete personal statement (500 words)",
         "Attend interview if required for specific programs"
-      ]
+      ],
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
     },
     {
       title: "Financial Information",
@@ -33,7 +36,8 @@ const RequirementsSection = () => {
         "Scholarships available for eligible students",
         "Payment plans and financial aid options",
         "Additional costs for materials and accommodation"
-      ]
+      ],
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
     }
   ];
 
@@ -52,7 +56,16 @@ const RequirementsSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           {requirements.map((req, index) => (
-            <Card key={index} className="border-[#8ecae6]">
+            <Card key={index} className="border-[#8ecae6] overflow-hidden">
+              <div className="relative h-48">
+                <OptimizedImage
+                  src={req.image}
+                  alt={req.title}
+                  className="w-full h-full"
+                  objectFit="cover"
+                />
+                <div className="absolute inset-0 bg-[#082952]/20"></div>
+              </div>
               <CardHeader>
                 <div className="flex items-center gap-3">
                   <div className="bg-[#8ecae6] p-2 rounded-lg text-[#023047]">
