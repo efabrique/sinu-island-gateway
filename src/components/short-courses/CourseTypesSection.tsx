@@ -2,6 +2,7 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Briefcase, Computer, Users, Lightbulb, Heart, Wrench } from 'lucide-react';
+import OptimizedImage from '@/components/common/OptimizedImage';
 
 const CourseTypesSection = () => {
   const courseTypes = [
@@ -9,37 +10,43 @@ const CourseTypesSection = () => {
       icon: Briefcase,
       title: "Business & Management",
       description: "Leadership, project management, and entrepreneurship courses",
-      courses: "25+ courses available"
+      courses: "25+ courses available",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
     },
     {
       icon: Computer,
       title: "Technology & Digital Skills",
       description: "Programming, digital marketing, and cybersecurity training",
-      courses: "30+ courses available"
+      courses: "30+ courses available",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
     },
     {
       icon: Users,
       title: "Professional Development",
       description: "Communication, teamwork, and career advancement skills",
-      courses: "20+ courses available"
+      courses: "20+ courses available",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
     },
     {
       icon: Lightbulb,
       title: "Creative Arts",
       description: "Design thinking, multimedia production, and creative writing",
-      courses: "15+ courses available"
+      courses: "15+ courses available",
+      image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0"
     },
     {
       icon: Heart,
       title: "Health & Wellness",
       description: "Public health, nutrition, and community health programs",
-      courses: "18+ courses available"
+      courses: "18+ courses available",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56"
     },
     {
       icon: Wrench,
       title: "Trade & Technical Skills",
       description: "Practical skills for various trades and technical fields",
-      courses: "22+ courses available"
+      courses: "22+ courses available",
+      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
     }
   ];
 
@@ -58,7 +65,16 @@ const CourseTypesSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courseTypes.map((type, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow border-[#8ecae6] hover:border-[#219ebc]">
+            <Card key={index} className="hover:shadow-lg transition-shadow border-[#8ecae6] hover:border-[#219ebc] overflow-hidden">
+              <div className="relative h-48">
+                <OptimizedImage
+                  src={type.image}
+                  alt={type.title}
+                  className="w-full h-full"
+                  objectFit="cover"
+                />
+                <div className="absolute inset-0 bg-[#082952]/20"></div>
+              </div>
               <CardHeader className="text-center">
                 <div className="bg-[#8ecae6] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <type.icon className="h-8 w-8 text-[#082952]" />

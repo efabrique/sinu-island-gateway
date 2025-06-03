@@ -1,38 +1,52 @@
 
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Clock, Globe, Users, Award } from 'lucide-react';
+import { Microscope, Calculator, Gavel, Stethoscope, Palette, Globe } from 'lucide-react';
+import OptimizedImage from '@/components/common/OptimizedImage';
 
 const StudyOptionsSection = () => {
   const studyOptions = [
     {
-      title: "Bachelor's Degrees",
-      description: "3-4 year comprehensive programs across various disciplines",
-      icon: <Award className="h-6 w-6" />,
-      features: ["Full-time and part-time options", "Industry placements", "Research opportunities"],
-      programs: ["Business", "Education", "Science", "Arts", "Technology"]
+      icon: <Microscope className="h-8 w-8 text-[#219ebc]" />,
+      title: "Bachelor of Science",
+      description: "Explore the natural world through marine biology, environmental science, and applied sciences.",
+      duration: "3-4 years full-time",
+      image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d"
     },
     {
-      title: "Diploma Programs",
-      description: "1-2 year focused programs for specific career paths",
-      icon: <Clock className="h-6 w-6" />,
-      features: ["Practical skills focus", "Fast-track to employment", "Pathway to degree programs"],
-      programs: ["Nursing", "Teaching", "Tourism", "Marine Studies", "Agriculture"]
+      icon: <Calculator className="h-8 w-8 text-[#219ebc]" />,
+      title: "Bachelor of Business",
+      description: "Develop business skills relevant to the Pacific region's growing economy.",
+      duration: "3 years full-time",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
     },
     {
-      title: "Foundation Studies",
-      description: "Preparatory programs for university study",
-      icon: <Users className="h-6 w-6" />,
-      features: ["University preparation", "Academic skills development", "Guaranteed pathway"],
-      programs: ["Science Foundation", "Arts Foundation", "Business Foundation"]
+      icon: <Gavel className="h-8 w-8 text-[#219ebc]" />,
+      title: "Bachelor of Laws",
+      description: "Study law with focus on Pacific legal systems and customary law.",
+      duration: "4 years full-time",
+      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f"
     },
     {
-      title: "Distance Learning",
-      description: "Flexible study options for working professionals",
-      icon: <Globe className="h-6 w-6" />,
-      features: ["Online resources", "Flexible scheduling", "Local support centers"],
-      programs: ["Education", "Business", "Public Administration"]
+      icon: <Stethoscope className="h-8 w-8 text-[#219ebc]" />,
+      title: "Bachelor of Nursing",
+      description: "Train to become a healthcare professional with focus on tropical and community health.",
+      duration: "3 years full-time",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56"
+    },
+    {
+      icon: <Palette className="h-8 w-8 text-[#219ebc]" />,
+      title: "Bachelor of Education",
+      description: "Prepare to teach in primary or secondary schools across the Solomon Islands.",
+      duration: "4 years full-time",
+      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
+    },
+    {
+      icon: <Globe className="h-8 w-8 text-[#219ebc]" />,
+      title: "Bachelor of Arts",
+      description: "Study humanities, social sciences, and Pacific studies.",
+      duration: "3 years full-time",
+      image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570"
     }
   ];
 
@@ -40,54 +54,36 @@ const StudyOptionsSection = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#023047] mb-4">
-            Your Study Options
+          <h2 className="text-3xl md:text-4xl font-bold text-[#082952] mb-4">
+            Undergraduate Study Options
           </h2>
-          <p className="text-lg text-[#023047] max-w-3xl mx-auto">
-            Choose from a wide range of undergraduate programs designed to meet your career goals 
-            and learning preferences. All programs are tailored to the unique needs of Solomon Islands students.
+          <p className="text-lg text-[#082952] max-w-3xl mx-auto">
+            Choose from our range of undergraduate programs designed to prepare you for success 
+            in your chosen career while contributing to the development of the Solomon Islands.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {studyOptions.map((option, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow border-[#8ecae6]">
+            <Card key={index} className="hover:shadow-lg transition-shadow border-[#8ecae6] overflow-hidden">
+              <div className="relative h-48">
+                <OptimizedImage
+                  src={option.image}
+                  alt={option.title}
+                  className="w-full h-full"
+                  objectFit="cover"
+                />
+                <div className="absolute inset-0 bg-[#082952]/20"></div>
+              </div>
               <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="bg-[#8ecae6] p-2 rounded-lg text-[#023047]">
-                    {option.icon}
-                  </div>
-                  <CardTitle className="text-xl text-[#023047]">{option.title}</CardTitle>
-                </div>
-                <CardDescription className="text-[#023047]">
-                  {option.description}
+                <div className="mb-4">{option.icon}</div>
+                <CardTitle className="text-xl text-[#082952]">{option.title}</CardTitle>
+                <CardDescription className="text-[#ffb703] font-medium">
+                  {option.duration}
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="mb-4">
-                  <h4 className="font-semibold text-[#023047] mb-2">Key Features:</h4>
-                  <ul className="space-y-1">
-                    {option.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-sm text-[#023047]">
-                        <ArrowRight className="h-4 w-4 mr-2 text-[#219ebc]" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mb-4">
-                  <h4 className="font-semibold text-[#023047] mb-2">Popular Programs:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {option.programs.map((program, idx) => (
-                      <span key={idx} className="bg-[#8ecae6]/30 text-[#023047] text-xs px-2 py-1 rounded">
-                        {program}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <Button className="w-full bg-[#219ebc] hover:bg-[#023047] text-white">
-                  Explore Programs
-                </Button>
+                <p className="text-[#082952]">{option.description}</p>
               </CardContent>
             </Card>
           ))}

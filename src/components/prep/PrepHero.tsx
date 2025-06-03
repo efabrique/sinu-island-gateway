@@ -2,11 +2,20 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { GraduationCap, ArrowRight } from 'lucide-react';
+import OptimizedImage from '@/components/common/OptimizedImage';
 
 const PrepHero = () => {
   return (
-    <section className="bg-[#edf4ff] py-16">
-      <div className="container mx-auto px-4">
+    <section className="bg-[#edf4ff] py-16 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10">
+        <OptimizedImage
+          src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173"
+          alt="Students studying preparation courses"
+          className="w-full h-full"
+          objectFit="cover"
+        />
+      </div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-[#ffb703] w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
             <GraduationCap className="h-10 w-10 text-[#082952]" />
