@@ -90,7 +90,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
       
       {/* Mobile Dropdown */}
       {isMobile && isOpen && (
-        <div className="bg-[#ffb703] p-4 border-t border-[#8ecae6] animate-accordion-down" id={`mobile-menu-${id}`}>
+        <div className="bg-[#ADC5CF] p-4 border-t border-[#8ecae6] animate-accordion-down" id={`mobile-menu-${id}`}>
           <div className="space-y-4">
             {columns.map((column, colIndex) => (
               <div key={colIndex}>
