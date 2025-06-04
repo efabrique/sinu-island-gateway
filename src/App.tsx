@@ -13,6 +13,7 @@ import DistanceFlexibleLearning from "./pages/DistanceFlexibleLearning";
 import SinuTafeVvet from "./pages/SinuTafeVvet";
 import UniversityPreparatory from "./pages/UniversityPreparatory";
 import ShortCourses from "./pages/ShortCourses";
+import LibraryServices from "./pages/LibraryServices";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/sinu-tafe-vvet" element={<SinuTafeVvet />} />
           <Route path="/university-preparatory" element={<UniversityPreparatory />} />
           <Route path="/short-courses" element={<ShortCourses />} />
+          <Route path="/library-services" element={<LibraryServices />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
