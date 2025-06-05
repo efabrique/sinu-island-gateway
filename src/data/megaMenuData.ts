@@ -1,3 +1,4 @@
+
 export const megaMenuData = {
   "Study": {
     columns: [
@@ -19,7 +20,7 @@ export const megaMenuData = {
           { title: "Academic Calendar", url: "#" },
           { title: "Library Services", url: "/library-services" },
           { title: "Student Academic Support", url: "/student-academic-support" },
-          { title: "Scholarships", url: "#" },
+          { title: "Scholarships", url: "/scholarships" },
           { title: "ICT Services", url: "#" }
         ]
       }
