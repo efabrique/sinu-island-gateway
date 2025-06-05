@@ -14,6 +14,7 @@ import SinuTafeVvet from "./pages/SinuTafeVvet";
 import UniversityPreparatory from "./pages/UniversityPreparatory";
 import ShortCourses from "./pages/ShortCourses";
 import LibraryServices from "./pages/LibraryServices";
+import SchoolsFaculties from "./pages/SchoolsFaculties";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/university-preparatory" element={<UniversityPreparatory />} />
           <Route path="/short-courses" element={<ShortCourses />} />
           <Route path="/library-services" element={<LibraryServices />} />
+          <Route path="/schools-faculties" element={<SchoolsFaculties />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

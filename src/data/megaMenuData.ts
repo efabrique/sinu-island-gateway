@@ -15,7 +15,7 @@ export const megaMenuData = {
       {
         title: "Academic Resources",
         links: [
-          { title: "Schools and Faculties", url: "#" },
+          { title: "Schools and Faculties", url: "/schools-faculties" },
           { title: "Academic Calendar", url: "#" },
           { title: "Library Services", url: "/library-services" },
           { title: "Student Academic Support", url: "#" },
