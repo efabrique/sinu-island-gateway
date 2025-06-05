@@ -21,7 +21,7 @@ export const megaMenuData = {
           { title: "Library Services", url: "/library-services" },
           { title: "Student Academic Support", url: "/student-academic-support" },
           { title: "Scholarships", url: "/scholarships" },
-          { title: "ICT Services", url: "#" }
+          { title: "ICT Services", url: "/ict-services" }
         ]
       }
     ],
