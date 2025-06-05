@@ -18,6 +18,7 @@ import SchoolsFaculties from "./pages/SchoolsFaculties";
 import StudentAcademicSupport from "./pages/StudentAcademicSupport";
 import Scholarships from "./pages/Scholarships";
 import IctServices from "./pages/IctServices";
+import AdmissionRequirements from "./pages/AdmissionRequirements";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/student-academic-support" element={<StudentAcademicSupport />} />
           <Route path="/scholarships" element={<Scholarships />} />
           <Route path="/ict-services" element={<IctServices />} />
+          <Route path="/admission-requirements" element={<AdmissionRequirements />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

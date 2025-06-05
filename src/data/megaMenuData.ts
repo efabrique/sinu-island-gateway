@@ -1,4 +1,3 @@
-
 export const megaMenuData = {
   "Study": {
     columns: [
@@ -35,7 +34,7 @@ export const megaMenuData = {
       {
         title: "International Students",
         links: [
-          { title: "Admission Requirements", url: "#" },
+          { title: "Admission Requirements", url: "/admission-requirements" },
           { title: "Visa Information", url: "#" },
           { title: "Housing Options", url: "#" },
           { title: "English Language Programs", url: "#" },
