@@ -65,17 +65,17 @@ const Header = () => {
         {/* Logo and SINU text on the left */}
         <a href="/" className="flex-shrink-0 flex items-center gap-2 sm:gap-3 md:gap-4">
           <div className="relative">
-            {/* Enlarged logo without border */}
-            <div className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 flex items-center justify-center">
+            {/* New SINU logo - responsive sizing */}
+            <div className="h-14 w-14 sm:h-18 sm:w-18 md:h-22 md:w-22 lg:h-24 lg:w-24 flex items-center justify-center">
               <img 
-                src="/lovable-uploads/e5c3aa30-03d5-4c47-ba31-097184e5e74e.png" 
+                src="/lovable-uploads/23ead6eb-64a7-49ff-b85e-923f1ded7e0e.png" 
                 alt="SINU Logo" 
                 className="h-full w-full object-contain"
               />
             </div>
           </div>
-          {/* SINU text */}
-          <div className="text-[#082952] font-bold text-lg sm:text-2xl md:text-3xl lg:text-4xl">
+          {/* SINU text - responsive sizing */}
+          <div className="text-[#082952] font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
             SINU
           </div>
         </a>
