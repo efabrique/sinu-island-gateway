@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -6,8 +5,17 @@ import { GraduationCap, Users, FileText, Clock } from 'lucide-react';
 
 const PostgraduateRequirementsSection = () => {
   return (
-    <section className="py-16 bg-[#219ebc]">
-      <div className="container mx-auto px-4">
+    <section className="py-16 bg-[#219ebc] relative">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80&auto=format&fit=crop)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -19,14 +27,22 @@ const PostgraduateRequirementsSection = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <Card className="border-[#ffb703] hover:shadow-lg transition-shadow bg-white">
-              <CardHeader>
+            <Card className="border-[#ffb703] hover:shadow-lg transition-shadow bg-white/95 backdrop-blur-sm relative overflow-hidden">
+              <div 
+                className="absolute inset-0 opacity-5"
+                style={{
+                  backgroundImage: 'url(https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&q=80&auto=format&fit=crop)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              />
+              <CardHeader className="relative z-10">
                 <div className="flex items-center mb-2">
                   <GraduationCap className="h-6 w-6 text-[#ffb703] mr-2" />
                   <CardTitle className="text-[#082952]">Master's Degree Requirements</CardTitle>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative z-10">
                 <ul className="space-y-3 text-[#082952]">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-[#ffb703] rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -56,14 +72,22 @@ const PostgraduateRequirementsSection = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-[#ffb703] hover:shadow-lg transition-shadow bg-white">
-              <CardHeader>
+            <Card className="border-[#ffb703] hover:shadow-lg transition-shadow bg-white/95 backdrop-blur-sm relative overflow-hidden">
+              <div 
+                className="absolute inset-0 opacity-5"
+                style={{
+                  backgroundImage: 'url(https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              />
+              <CardHeader className="relative z-10">
                 <div className="flex items-center mb-2">
                   <Users className="h-6 w-6 text-[#ffb703] mr-2" />
                   <CardTitle className="text-[#082952]">Doctoral Degree Requirements</CardTitle>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative z-10">
                 <ul className="space-y-3 text-[#082952]">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-[#ffb703] rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -95,14 +119,22 @@ const PostgraduateRequirementsSection = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <Card className="border-[#8ecae6] hover:shadow-lg transition-shadow bg-white">
-              <CardHeader>
+            <Card className="border-[#8ecae6] hover:shadow-lg transition-shadow bg-white/95 backdrop-blur-sm relative overflow-hidden">
+              <div 
+                className="absolute inset-0 opacity-5"
+                style={{
+                  backgroundImage: 'url(https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&q=80&auto=format&fit=crop)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              />
+              <CardHeader className="relative z-10">
                 <div className="flex items-center mb-2">
                   <FileText className="h-6 w-6 text-[#ffb703] mr-2" />
                   <CardTitle className="text-[#082952]">Additional Documents</CardTitle>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative z-10">
                 <ul className="space-y-2 text-[#082952]">
                   <li className="flex items-center">
                     <span className="w-1.5 h-1.5 bg-[#ffb703] rounded-full mr-2"></span>
@@ -128,14 +160,22 @@ const PostgraduateRequirementsSection = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-[#8ecae6] hover:shadow-lg transition-shadow bg-white">
-              <CardHeader>
+            <Card className="border-[#8ecae6] hover:shadow-lg transition-shadow bg-white/95 backdrop-blur-sm relative overflow-hidden">
+              <div 
+                className="absolute inset-0 opacity-5"
+                style={{
+                  backgroundImage: 'url(https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80&auto=format&fit=crop)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              />
+              <CardHeader className="relative z-10">
                 <div className="flex items-center mb-2">
                   <Clock className="h-6 w-6 text-[#ffb703] mr-2" />
                   <CardTitle className="text-[#082952]">Application Timeline</CardTitle>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative z-10">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between p-3 bg-[#edf4ff] rounded-lg">
                     <span className="font-medium text-[#082952]">Semester 1</span>

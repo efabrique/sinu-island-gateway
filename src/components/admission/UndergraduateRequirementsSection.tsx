@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -6,8 +5,17 @@ import { BookOpen, Award, Calculator, Beaker } from 'lucide-react';
 
 const UndergraduateRequirementsSection = () => {
   return (
-    <section className="py-16 bg-[#8ecae6]">
-      <div className="container mx-auto px-4">
+    <section className="py-16 bg-[#8ecae6] relative">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 opacity-15"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1523050854058-8df90110c9d1?w=1200&q=80&auto=format&fit=crop)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#082952] mb-4">
@@ -19,14 +27,22 @@ const UndergraduateRequirementsSection = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <Card className="border-[#219ebc] hover:shadow-lg transition-shadow bg-white">
-              <CardHeader>
+            <Card className="border-[#219ebc] hover:shadow-lg transition-shadow bg-white/95 backdrop-blur-sm relative overflow-hidden">
+              <div 
+                className="absolute inset-0 opacity-5"
+                style={{
+                  backgroundImage: 'url(https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600&q=80&auto=format&fit=crop)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              />
+              <CardHeader className="relative z-10">
                 <div className="flex items-center mb-2">
                   <BookOpen className="h-6 w-6 text-[#ffb703] mr-2" />
                   <CardTitle className="text-[#082952]">General Requirements</CardTitle>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative z-10">
                 <ul className="space-y-3 text-[#082952]">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-[#ffb703] rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -56,14 +72,22 @@ const UndergraduateRequirementsSection = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-[#219ebc] hover:shadow-lg transition-shadow bg-white">
-              <CardHeader>
+            <Card className="border-[#219ebc] hover:shadow-lg transition-shadow bg-white/95 backdrop-blur-sm relative overflow-hidden">
+              <div 
+                className="absolute inset-0 opacity-5"
+                style={{
+                  backgroundImage: 'url(https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80&auto=format&fit=crop)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              />
+              <CardHeader className="relative z-10">
                 <div className="flex items-center mb-2">
                   <Award className="h-6 w-6 text-[#ffb703] mr-2" />
                   <CardTitle className="text-[#082952]">Academic Prerequisites</CardTitle>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative z-10">
                 <ul className="space-y-3 text-[#082952]">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-[#ffb703] rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -95,12 +119,20 @@ const UndergraduateRequirementsSection = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-[#219ebc] hover:shadow-lg transition-shadow bg-white">
-              <CardHeader className="text-center">
+            <Card className="border-[#219ebc] hover:shadow-lg transition-shadow bg-white/95 backdrop-blur-sm relative overflow-hidden">
+              <div 
+                className="absolute inset-0 opacity-5"
+                style={{
+                  backgroundImage: 'url(https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&q=80&auto=format&fit=crop)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              />
+              <CardHeader className="text-center relative z-10">
                 <Calculator className="h-12 w-12 text-[#ffb703] mx-auto mb-2" />
                 <CardTitle className="text-[#082952]">Business & Economics</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative z-10">
                 <div className="space-y-2">
                   <Badge variant="secondary" className="bg-[#d7a12c] text-white">Mathematics</Badge>
                   <Badge variant="secondary" className="bg-[#d7a12c] text-white">English</Badge>
@@ -112,12 +144,20 @@ const UndergraduateRequirementsSection = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-[#219ebc] hover:shadow-lg transition-shadow bg-white">
-              <CardHeader className="text-center">
+            <Card className="border-[#219ebc] hover:shadow-lg transition-shadow bg-white/95 backdrop-blur-sm relative overflow-hidden">
+              <div 
+                className="absolute inset-0 opacity-5"
+                style={{
+                  backgroundImage: 'url(https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&q=80&auto=format&fit=crop)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              />
+              <CardHeader className="text-center relative z-10">
                 <Beaker className="h-12 w-12 text-[#ffb703] mx-auto mb-2" />
                 <CardTitle className="text-[#082952]">Science & Health</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative z-10">
                 <div className="space-y-2">
                   <Badge variant="secondary" className="bg-[#d7a12c] text-white">Biology</Badge>
                   <Badge variant="secondary" className="bg-[#d7a12c] text-white">Chemistry</Badge>
@@ -130,12 +170,20 @@ const UndergraduateRequirementsSection = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-[#219ebc] hover:shadow-lg transition-shadow bg-white">
-              <CardHeader className="text-center">
+            <Card className="border-[#219ebc] hover:shadow-lg transition-shadow bg-white/95 backdrop-blur-sm relative overflow-hidden">
+              <div 
+                className="absolute inset-0 opacity-5"
+                style={{
+                  backgroundImage: 'url(https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80&auto=format&fit=crop)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              />
+              <CardHeader className="text-center relative z-10">
                 <BookOpen className="h-12 w-12 text-[#ffb703] mx-auto mb-2" />
                 <CardTitle className="text-[#082952]">Arts & Humanities</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative z-10">
                 <div className="space-y-2">
                   <Badge variant="secondary" className="bg-[#d7a12c] text-white">English</Badge>
                   <Badge variant="secondary" className="bg-[#d7a12c] text-white">History</Badge>

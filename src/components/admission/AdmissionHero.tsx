@@ -4,8 +4,17 @@ import { GraduationCap, Globe, Users, FileCheck } from 'lucide-react';
 
 const AdmissionHero = () => {
   return (
-    <section className="bg-[#082952] py-16">
-      <div className="container mx-auto px-4">
+    <section className="bg-[#082952] py-16 relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1523050854058-8df90110c9d1?w=1200&q=80&auto=format&fit=crop)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             International Student Admission Requirements
