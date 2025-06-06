@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -61,7 +60,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
     const baseClasses = "px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium focus:outline-none transition-colors";
     
     if (isHovered || isActive) {
-      return `${baseClasses} bg-university-gold`;
+      return `${baseClasses} bg-[#d7a12c]`;
     }
     
     return `${baseClasses} hover:text-[#023047]`;
