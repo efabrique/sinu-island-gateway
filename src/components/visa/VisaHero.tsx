@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Passport, Globe, Shield, CheckCircle } from 'lucide-react';
+import { FileText, Globe, Shield, CheckCircle } from 'lucide-react';
 
 const VisaHero = () => {
   return (
@@ -29,7 +29,7 @@ const VisaHero = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
             <div className="flex flex-col items-center">
               <div className="bg-[#ffb703] p-4 rounded-full mb-4">
-                <Passport className="h-8 w-8 text-[#082952]" />
+                <FileText className="h-8 w-8 text-[#082952]" />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Visa Types</h3>
               <p className="text-[#8ecae6] text-center text-sm">Student visa categories and options</p>
