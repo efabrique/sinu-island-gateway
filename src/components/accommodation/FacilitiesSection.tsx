@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Wifi, Utensils, Dumbbell, BookOpen, Washing, Car, Shield, Phone } from 'lucide-react';
+import { Wifi, Utensils, Dumbbell, BookOpen, Shirt, Car, Shield, Phone } from 'lucide-react';
 
 const FacilitiesSection = () => {
   const facilities = [
@@ -25,7 +25,7 @@ const FacilitiesSection = () => {
     },
     {
       category: "Practical Services",
-      icon: Washing,
+      icon: Shirt,
       color: "#d7a12c",
       items: ["Laundry facilities", "Mail services", "Parking spaces", "Bike storage", "24/7 maintenance"]
     }
