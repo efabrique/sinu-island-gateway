@@ -5,15 +5,19 @@ import { GraduationCap, Globe, Users, FileCheck } from 'lucide-react';
 const AdmissionHero = () => {
   return (
     <section className="bg-[#082952] py-16 relative overflow-hidden">
-      {/* Background Image */}
+      {/* World Map Background Image */}
       <div 
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1523050854058-8df90110c9d1?w=1200&q=80&auto=format&fit=crop)',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80&auto=format&fit=crop)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
         }}
       />
+      {/* Dark blue transparent overlay */}
+      <div className="absolute inset-0 bg-[#082952]/80"></div>
+      
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
