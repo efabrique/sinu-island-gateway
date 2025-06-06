@@ -5,8 +5,18 @@ import { GraduationCap, Globe, BookOpen } from 'lucide-react';
 
 const EnglishHero = () => {
   return (
-    <section className="relative bg-gradient-to-br from-[#219ebc] to-[#8ecae6] text-white py-20">
-      <div className="container mx-auto px-4">
+    <section className="relative bg-gradient-to-br from-[#219ebc] to-[#8ecae6] text-white py-20 overflow-hidden">
+      {/* Background Image with Dark Blue Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&q=80&auto=format&fit=crop)',
+        }}
+      >
+        <div className="absolute inset-0 bg-[#082952]/70"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex justify-center mb-6">
             <div className="bg-[#ffb703] p-4 rounded-full">
