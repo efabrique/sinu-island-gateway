@@ -62,14 +62,21 @@ const Header = () => {
     <header ref={headerRef} className="sticky top-0 w-full bg-white shadow-md z-50">
       {/* University Logo and Name */}
       <div className="container mx-auto px-4 py-2 flex items-center">
-        {/* Logo on the left - Updated with new logo */}
-        <a href="/" className="flex-shrink-0">
-          <div className="h-12 sm:h-16 md:h-20 bg-white flex items-center justify-center">
-            <img 
-              src="/lovable-uploads/26f8db50-7fe6-4c6f-b38c-180f22a0a88b.png" 
-              alt="SINU Logo" 
-              className="h-full w-auto max-h-full object-contain"
-            />
+        {/* Logo and SINU text on the left */}
+        <a href="/" className="flex-shrink-0 flex items-center gap-2 sm:gap-3 md:gap-4">
+          <div className="relative">
+            {/* Oval border container */}
+            <div className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-full border-2 sm:border-3 md:border-4 border-[#d7a12c] p-1 bg-white flex items-center justify-center">
+              <img 
+                src="/lovable-uploads/e5c3aa30-03d5-4c47-ba31-097184e5e74e.png" 
+                alt="SINU Logo" 
+                className="h-full w-full object-contain rounded-full"
+              />
+            </div>
+          </div>
+          {/* SINU text */}
+          <div className="text-[#082952] font-bold text-lg sm:text-2xl md:text-3xl lg:text-4xl">
+            SINU
           </div>
         </a>
         
