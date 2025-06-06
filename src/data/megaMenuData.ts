@@ -39,7 +39,7 @@ export const megaMenuData = {
           { title: "Student Accommodation", url: "/student-accommodation" },
           { title: "English Language Programs", url: "/english-language-programs" },
           { title: "Cultural Orientation", url: "/cultural-orientation" },
-          { title: "International Student Support", url: "#" }
+          { title: "International Student Support", url: "/international-student-support" }
         ]
       },
       {
