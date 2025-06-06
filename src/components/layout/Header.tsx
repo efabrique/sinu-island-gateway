@@ -65,12 +65,12 @@ const Header = () => {
         {/* Logo and SINU text on the left */}
         <a href="/" className="flex-shrink-0 flex items-center gap-2 sm:gap-3 md:gap-4">
           <div className="relative">
-            {/* Oval border container */}
-            <div className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-full border-2 sm:border-3 md:border-4 border-[#d7a12c] p-1 bg-white flex items-center justify-center">
+            {/* Enlarged logo without border */}
+            <div className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 flex items-center justify-center">
               <img 
                 src="/lovable-uploads/e5c3aa30-03d5-4c47-ba31-097184e5e74e.png" 
                 alt="SINU Logo" 
-                className="h-full w-full object-contain rounded-full"
+                className="h-full w-full object-contain"
               />
             </div>
           </div>
