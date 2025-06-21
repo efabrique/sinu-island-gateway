@@ -1,3 +1,4 @@
+
 export const megaMenuData = {
   "Study": {
     columns: [
@@ -149,7 +150,7 @@ export const megaMenuData = {
       alt: "Alumni networking event with professionals"
     }
   },
-  "About": {
+  "Our Uni": {
     columns: [
       {
         title: "Our University",
