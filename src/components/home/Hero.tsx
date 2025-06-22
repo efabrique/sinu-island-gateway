@@ -40,7 +40,7 @@ const Hero = () => {
       {/* Mobile Title - Only visible on mobile */}
       <div className="relative block md:hidden">
         <h2 className="text-center text-[#ffb703] font-bold text-lg pt-4 px-4">
-          Semester 2 Application Open
+          Semester 2 Applications Now Open
         </h2>
       </div>
       
