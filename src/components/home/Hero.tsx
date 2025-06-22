@@ -63,7 +63,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="bg-[#082952] md:bg-[#d7a12c] text-white border-transparent hover:bg-[#d7a12c] hover:text-[#ffffff] hover:border-transparent w-full sm:w-auto transition-colors duration-300"
+              className="bg-[#082952] text-white border-transparent hover:bg-[#d7a12c] hover:text-[#ffffff] hover:border-transparent w-full sm:w-auto transition-colors duration-300"
             >
               Apply Now
             </Button>
