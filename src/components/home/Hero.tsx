@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <div className="relative bg-[#023047] h-[50vh] md:h-[70vh] overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
+      {/* Background Image with Overlay - Desktop */}
+      <div className="absolute inset-0 hidden md:block">
         <OptimizedImage
           src="/lovable-uploads/49aaf3f8-456b-4260-8aa7-3110587fb521.png"
           alt="Student examining plant with magnifying glass"
@@ -17,6 +17,21 @@ const Hero = () => {
           priority={true}
           width={1920}
           height={1080}
+        />
+        {/* Light blue fluorescent tint overlay */}
+        <div className="absolute inset-0 bg-[#1EAEDB]/30 mix-blend-overlay"></div>
+      </div>
+
+      {/* Background Image with Overlay - Mobile */}
+      <div className="absolute inset-0 block md:hidden">
+        <OptimizedImage
+          src="/lovable-uploads/e5c3aa30-03d5-4c47-ba31-097184e5e74e.png"
+          alt="Mobile hero background"
+          className="w-full h-full"
+          objectFit="cover"
+          priority={true}
+          width={768}
+          height={576}
         />
         {/* Light blue fluorescent tint overlay */}
         <div className="absolute inset-0 bg-[#1EAEDB]/30 mix-blend-overlay"></div>
@@ -33,7 +48,7 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4">
             <Button 
               size="lg" 
-              className="bg-[#0b2c55] hover:bg-[#d7a12c] text-white w-full sm:w-auto"
+              className="bg-[#0b2c55] hover:bg-[#d7a12c] hover:text-[#ffffff] text-white w-full sm:w-auto transition-colors duration-300"
               asChild
             >
               <Link to="/course-catalog">Explore Programs</Link>
@@ -41,9 +56,9 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="bg-[#d7a12c] text-white border-transparent hover:bg-[#0b2c55] hover:border-transparent w-full sm:w-auto"
+              className="bg-[#d7a12c] text-white border-transparent hover:bg-[#082952] hover:text-[#ffffff] hover:border-transparent w-full sm:w-auto transition-colors duration-300"
             >
-              Virtual Campus Tour
+              Apply Now
             </Button>
           </div>
         </div>
