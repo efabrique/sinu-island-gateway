@@ -31,11 +31,10 @@ const HeaderLogo: React.FC<HeaderLogoProps> = ({ isMobile }) => {
   return (
     <>
       {/* Floating Logo Card for Desktop/Tablet */}
-      <div className="fixed top-4 left-4 z-50 bg-white rounded-lg shadow-lg p-4" 
+      <div className="fixed top-4 left-4 z-50 bg-white hover:bg-[#ffb703] rounded-lg shadow-lg p-6 transition-colors duration-300" 
            style={{ 
-             width: '120px', 
-             height: '120px',
-             marginBottom: '2px'
+             width: '160px', 
+             height: '160px'
            }}>
         <Link to="/" className="w-full h-full flex items-center justify-center">
           <img 
@@ -47,7 +46,7 @@ const HeaderLogo: React.FC<HeaderLogoProps> = ({ isMobile }) => {
       </div>
       
       {/* Header Content without Logo */}
-      <div className="flex-grow flex flex-col items-center justify-center ml-32">
+      <div className="flex-grow flex flex-col items-center justify-center ml-44">
         <h1 className="text-[#0b2c55] font-bold text-xl sm:text-2xl md:text-3xl text-center" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)' }}>
           Solomon Islands National University
         </h1>
