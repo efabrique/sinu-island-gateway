@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -31,7 +30,7 @@ const HeaderLogo: React.FC<HeaderLogoProps> = ({ isMobile }) => {
   return (
     <>
       {/* Floating Logo Card for Desktop/Tablet */}
-      <div className="fixed top-4 left-4 z-50 bg-white hover:bg-[#ffb703] rounded-lg shadow-lg p-2 transition-colors duration-300" 
+      <div className="fixed top-4 left-4 z-50 bg-white hover:bg-[#edf4ff] rounded-lg shadow-lg p-2 transition-colors duration-300" 
            style={{ 
              width: '160px', 
              height: '140px'
