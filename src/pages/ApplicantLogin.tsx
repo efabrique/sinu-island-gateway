@@ -22,7 +22,7 @@ const ApplicantLogin = () => {
       <div className="max-w-md w-full bg-white rounded-lg shadow-xl p-8">
         <div className="text-center mb-8">
           <img 
-            src="/lovable-uploads/23ead6eb-64a7-49ff-b85e-923f1ded7e0e.png" 
+            src="/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png" 
             alt="SINU Logo" 
             className="h-16 w-16 mx-auto mb-4"
           />

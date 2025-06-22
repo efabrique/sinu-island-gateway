@@ -14,7 +14,7 @@ const HeaderLogo: React.FC<HeaderLogoProps> = ({ isMobile }) => {
           <div className="relative">
             <div className="h-16 w-16 flex items-center justify-center">
               <img 
-                src="/lovable-uploads/23ead6eb-64a7-49ff-b85e-923f1ded7e0e.png" 
+                src="/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png" 
                 alt="SINU Logo" 
                 className="h-full w-full object-contain"
               />
@@ -34,7 +34,7 @@ const HeaderLogo: React.FC<HeaderLogoProps> = ({ isMobile }) => {
         <div className="relative">
           <div className="h-14 w-14 sm:h-18 sm:w-18 md:h-22 md:w-22 lg:h-24 lg:w-24 flex items-center justify-center">
             <img 
-              src="/lovable-uploads/23ead6eb-64a7-49ff-b85e-923f1ded7e0e.png" 
+              src="/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png" 
               alt="SINU Logo" 
               className="h-full w-full object-contain"
             />
