@@ -34,7 +34,7 @@ const HeaderLogo: React.FC<HeaderLogoProps> = ({ isMobile }) => {
       <div className="fixed top-4 left-4 z-50 bg-white hover:bg-[#ffb703] rounded-lg shadow-lg p-6 transition-colors duration-300" 
            style={{ 
              width: '160px', 
-             height: '160px'
+             height: '140px'
            }}>
         <Link to="/" className="w-full h-full flex items-center justify-center">
           <img 
