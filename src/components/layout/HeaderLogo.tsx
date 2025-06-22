@@ -44,17 +44,17 @@ const HeaderLogo: React.FC<HeaderLogoProps> = ({ isMobile }) => {
 
   return (
     <>
-      {/* Floating Logo Card for Desktop/Tablet */}
-      <div className="fixed top-4 left-4 z-50 bg-white hover:bg-[#edf4ff] rounded-lg shadow-lg p-2 transition-colors duration-300" 
+      {/* Floating Logo Card for Desktop/Tablet - Now Oval/Circular */}
+      <div className="fixed top-4 left-4 z-50 bg-white hover:bg-[#edf4ff] rounded-full shadow-lg p-1 transition-colors duration-300" 
            style={{ 
-             width: '160px', 
-             height: '140px'
+             width: '142px', 
+             height: '142px'
            }}>
-        <Link to="/" onClick={handleLogoClick} className="w-full h-full flex items-center justify-center">
+        <Link to="/" onClick={handleLogoClick} className="w-full h-full flex items-center justify-center rounded-full overflow-hidden">
           <img 
             src="/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png" 
             alt="SINU Logo" 
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain p-1"
           />
         </Link>
       </div>
