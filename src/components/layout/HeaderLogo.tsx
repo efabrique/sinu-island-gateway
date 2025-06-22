@@ -1,15 +1,30 @@
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface HeaderLogoProps {
   isMobile: boolean;
 }
 
 const HeaderLogo: React.FC<HeaderLogoProps> = ({ isMobile }) => {
+  const navigate = useNavigate();
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/');
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 0);
+  };
+
   if (isMobile) {
     return (
       <div className="flex-1 flex justify-center">
-        <Link to="/" className="flex items-center gap-3">
+        <Link to="/" onClick={handleLogoClick} className="flex items-center gap-3">
           <div className="relative">
             <div className="h-16 w-16 flex items-center justify-center">
               <img 
@@ -35,7 +50,7 @@ const HeaderLogo: React.FC<HeaderLogoProps> = ({ isMobile }) => {
              width: '160px', 
              height: '140px'
            }}>
-        <Link to="/" className="w-full h-full flex items-center justify-center">
+        <Link to="/" onClick={handleLogoClick} className="w-full h-full flex items-center justify-center">
           <img 
             src="/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png" 
             alt="SINU Logo" 
