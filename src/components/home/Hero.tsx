@@ -52,7 +52,7 @@ const Hero = () => {
             Solomon Islands National University offers world-class education, 
             innovative research opportunities, and a vibrant campus community.
           </p>
-          <div className="flex flex-wrap gap-4 md:justify-start justify-center absolute md:relative bottom-[calc(4rem+20px)] md:bottom-auto left-0 right-0 px-4 md:px-0">
+          <div className="flex flex-wrap gap-4 md:justify-start justify-center absolute md:relative bottom-[calc(4rem+25px)] md:bottom-auto left-0 right-0 px-4 md:px-0">
             <Button 
               size="lg" 
               className="bg-[#0b2c55] hover:bg-[#d7a12c] hover:text-[#ffffff] text-white w-full sm:w-auto transition-colors duration-300"
