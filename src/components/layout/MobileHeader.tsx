@@ -26,8 +26,12 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
       <div className="flex-shrink-0">
         <Drawer open={menuOpen} onOpenChange={setMenuOpen}>
           <DrawerTrigger asChild>
-            <Button variant="ghost" size="sm">
-              <Menu className="h-6 w-6" />
+            <Button 
+              variant="ghost" 
+              size="lg" 
+              className="border border-gray-300 rounded-md p-3 hover:border-gray-400 transition-colors"
+            >
+              <Menu className="h-8 w-8" />
             </Button>
           </DrawerTrigger>
           <DrawerContent className="h-[90vh]">
