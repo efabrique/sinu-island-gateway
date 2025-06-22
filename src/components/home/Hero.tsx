@@ -25,7 +25,7 @@ const Hero = () => {
       {/* Background Image with Overlay - Mobile */}
       <div className="absolute inset-0 block md:hidden">
         <OptimizedImage
-          src="/lovable-uploads/e5c3aa30-03d5-4c47-ba31-097184e5e74e.png"
+          src="/lovable-uploads/9763b031-1bb6-490a-bd9c-b086819fa224.png"
           alt="Mobile hero background"
           className="w-full h-full"
           objectFit="cover"
