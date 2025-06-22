@@ -36,6 +36,13 @@ const Hero = () => {
         {/* Light blue fluorescent tint overlay */}
         <div className="absolute inset-0 bg-[#1EAEDB]/30 mix-blend-overlay"></div>
       </div>
+
+      {/* Mobile Title - Only visible on mobile */}
+      <div className="relative block md:hidden">
+        <h2 className="text-center text-[#ffb703] font-bold text-lg pt-4 px-4">
+          Semester 2 Application Open
+        </h2>
+      </div>
       
       {/* Content */}
       <div className="relative container mx-auto px-4 h-full flex items-center md:items-center">
