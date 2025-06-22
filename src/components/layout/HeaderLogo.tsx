@@ -30,22 +30,24 @@ const HeaderLogo: React.FC<HeaderLogoProps> = ({ isMobile }) => {
 
   return (
     <>
-      <Link to="/" className="flex-shrink-0 flex items-center gap-2 sm:gap-3 md:gap-4">
-        <div className="relative">
-          <div className="h-14 w-14 sm:h-18 sm:w-18 md:h-22 md:w-22 lg:h-24 lg:w-24 flex items-center justify-center">
-            <img 
-              src="/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png" 
-              alt="SINU Logo" 
-              className="h-full w-full object-contain"
-            />
-          </div>
-        </div>
-        <div className="text-[#082952] font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
-          SINU
-        </div>
-      </Link>
+      {/* Floating Logo Card for Desktop/Tablet */}
+      <div className="fixed top-4 left-4 z-50 bg-white rounded-lg shadow-lg p-4" 
+           style={{ 
+             width: '120px', 
+             height: '120px',
+             marginBottom: '2px'
+           }}>
+        <Link to="/" className="w-full h-full flex items-center justify-center">
+          <img 
+            src="/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png" 
+            alt="SINU Logo" 
+            className="w-full h-full object-contain"
+          />
+        </Link>
+      </div>
       
-      <div className="flex-grow flex flex-col items-center justify-center">
+      {/* Header Content without Logo */}
+      <div className="flex-grow flex flex-col items-center justify-center ml-32">
         <h1 className="text-[#0b2c55] font-bold text-xl sm:text-2xl md:text-3xl text-center" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)' }}>
           Solomon Islands National University
         </h1>
