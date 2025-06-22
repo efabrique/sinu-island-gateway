@@ -10,6 +10,7 @@ import StudyPathways from '@/components/english/StudyPathways';
 import ApplicationProcess from '@/components/english/ApplicationProcess';
 import SupportServices from '@/components/english/SupportServices';
 import CampusLife from '@/components/english/CampusLife';
+import BackToTop from '@/components/common/BackToTop';
 
 const EnglishLanguagePrograms = () => {
   return (
@@ -26,6 +27,7 @@ const EnglishLanguagePrograms = () => {
         <CampusLife />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

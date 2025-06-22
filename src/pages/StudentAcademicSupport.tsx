@@ -7,6 +7,7 @@ import SupportServicesSection from '@/components/student-support/SupportServices
 import AcademicResourcesSection from '@/components/student-support/AcademicResourcesSection';
 import StudentLifeSection from '@/components/student-support/StudentLifeSection';
 import ContactSupportSection from '@/components/student-support/ContactSupportSection';
+import BackToTop from '@/components/common/BackToTop';
 
 const StudentAcademicSupport = () => {
   return (
@@ -20,6 +21,7 @@ const StudentAcademicSupport = () => {
         <ContactSupportSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

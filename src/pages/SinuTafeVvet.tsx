@@ -8,6 +8,7 @@ import StudyOptionsSection from '@/components/tafe/StudyOptionsSection';
 import SupportSection from '@/components/tafe/SupportSection';
 import PathwaysSection from '@/components/tafe/PathwaysSection';
 import EnrollmentSection from '@/components/tafe/EnrollmentSection';
+import BackToTop from '@/components/common/BackToTop';
 
 const SinuTafeVvet = () => {
   return (
@@ -22,6 +23,7 @@ const SinuTafeVvet = () => {
         <EnrollmentSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

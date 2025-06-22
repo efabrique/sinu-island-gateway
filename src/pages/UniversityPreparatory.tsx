@@ -8,6 +8,7 @@ import PathwayOptionsSection from '@/components/prep/PathwayOptionsSection';
 import EntryRequirementsSection from '@/components/prep/EntryRequirementsSection';
 import SupportServicesSection from '@/components/prep/SupportServicesSection';
 import ApplicationSection from '@/components/prep/ApplicationSection';
+import BackToTop from '@/components/common/BackToTop';
 
 const UniversityPreparatory = () => {
   return (
@@ -22,6 +23,7 @@ const UniversityPreparatory = () => {
         <ApplicationSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

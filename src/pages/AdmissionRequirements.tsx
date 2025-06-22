@@ -9,6 +9,7 @@ import PostgraduateRequirementsSection from '@/components/admission/Postgraduate
 import EnglishRequirementsSection from '@/components/admission/EnglishRequirementsSection';
 import DocumentsSection from '@/components/admission/DocumentsSection';
 import ApplicationProcessSection from '@/components/admission/ApplicationProcessSection';
+import BackToTop from '@/components/common/BackToTop';
 
 const AdmissionRequirements = () => {
   return (
@@ -24,6 +25,7 @@ const AdmissionRequirements = () => {
         <ApplicationProcessSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import StudyOptionsSection from '@/components/undergraduate/StudyOptionsSection'
 import RequirementsSection from '@/components/undergraduate/RequirementsSection';
 import SupportSection from '@/components/undergraduate/SupportSection';
 import NextStepsSection from '@/components/undergraduate/NextStepsSection';
+import BackToTop from '@/components/common/BackToTop';
 
 const UndergraduateStudy = () => {
   return (
@@ -20,6 +21,7 @@ const UndergraduateStudy = () => {
         <NextStepsSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

@@ -8,6 +8,7 @@ import ApplicationProcessSection from '@/components/scholarships/ApplicationProc
 import FeaturedScholarshipsSection from '@/components/scholarships/FeaturedScholarshipsSection';
 import EligibilitySection from '@/components/scholarships/EligibilitySection';
 import ScholarshipSearchSection from '@/components/scholarships/ScholarshipSearchSection';
+import BackToTop from '@/components/common/BackToTop';
 
 const Scholarships = () => {
   return (
@@ -22,6 +23,7 @@ const Scholarships = () => {
         <ApplicationProcessSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

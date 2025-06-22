@@ -7,6 +7,7 @@ import FacultiesSection from '@/components/schools/FacultiesSection';
 import SchoolsSection from '@/components/schools/SchoolsSection';
 import InstitutesSection from '@/components/schools/InstitutesSection';
 import CentresSection from '@/components/schools/CentresSection';
+import BackToTop from '@/components/common/BackToTop';
 
 const SchoolsFaculties = () => {
   return (
@@ -20,6 +21,7 @@ const SchoolsFaculties = () => {
         <CentresSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

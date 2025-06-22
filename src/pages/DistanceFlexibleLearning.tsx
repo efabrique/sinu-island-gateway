@@ -8,6 +8,7 @@ import StudyOptionsSection from '@/components/distance/StudyOptionsSection';
 import SupportServicesSection from '@/components/distance/SupportServicesSection';
 import TechnologySection from '@/components/distance/TechnologySection';
 import EnrollmentSection from '@/components/distance/EnrollmentSection';
+import BackToTop from '@/components/common/BackToTop';
 
 const DistanceFlexibleLearning = () => {
   return (
@@ -22,6 +23,7 @@ const DistanceFlexibleLearning = () => {
         <EnrollmentSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

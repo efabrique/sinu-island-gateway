@@ -12,6 +12,7 @@ import HealthInsuranceSection from '@/components/visa/HealthInsuranceSection';
 import WorkRightsSection from '@/components/visa/WorkRightsSection';
 import RenewalExtensionSection from '@/components/visa/RenewalExtensionSection';
 import SupportResourcesSection from '@/components/visa/SupportResourcesSection';
+import BackToTop from '@/components/common/BackToTop';
 
 const VisaInformation = () => {
   return (
@@ -30,6 +31,7 @@ const VisaInformation = () => {
         <SupportResourcesSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

@@ -6,6 +6,7 @@ import FeaturedPrograms from '@/components/home/FeaturedPrograms';
 import NewsEvents from '@/components/home/NewsEvents';
 import QuickLinks from '@/components/home/QuickLinks';
 import Footer from '@/components/layout/Footer';
+import BackToTop from '@/components/common/BackToTop';
 import ErrorBoundary from '@/components/common/ErrorBoundary';
 
 const Index = () => {
@@ -31,6 +32,7 @@ const Index = () => {
       <ErrorBoundary>
         <Footer />
       </ErrorBoundary>
+      <BackToTop />
     </div>
   );
 };

@@ -8,6 +8,7 @@ import ServicesSection from '@/components/library/ServicesSection';
 import ResourcesSection from '@/components/library/ResourcesSection';
 import StudySpacesSection from '@/components/library/StudySpacesSection';
 import SupportSection from '@/components/library/SupportSection';
+import BackToTop from '@/components/common/BackToTop';
 
 const LibraryServices = () => {
   return (
@@ -22,6 +23,7 @@ const LibraryServices = () => {
         <SupportSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

@@ -8,6 +8,7 @@ import FeaturedCoursesSection from '@/components/short-courses/FeaturedCoursesSe
 import BenefitsSection from '@/components/short-courses/BenefitsSection';
 import UpcomingCoursesSection from '@/components/short-courses/UpcomingCoursesSection';
 import EnrollmentProcessSection from '@/components/short-courses/EnrollmentProcessSection';
+import BackToTop from '@/components/common/BackToTop';
 
 const ShortCourses = () => {
   return (
@@ -22,6 +23,7 @@ const ShortCourses = () => {
         <EnrollmentProcessSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

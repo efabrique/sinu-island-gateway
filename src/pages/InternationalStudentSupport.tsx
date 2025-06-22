@@ -10,6 +10,7 @@ import LegalImmigration from '@/components/international/LegalImmigration';
 import CommunityConnection from '@/components/international/CommunityConnection';
 import EmergencySupport from '@/components/international/EmergencySupport';
 import ContactInformation from '@/components/international/ContactInformation';
+import BackToTop from '@/components/common/BackToTop';
 
 const InternationalStudentSupport = () => {
   return (
@@ -26,6 +27,7 @@ const InternationalStudentSupport = () => {
         <ContactInformation />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

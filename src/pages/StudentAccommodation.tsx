@@ -11,6 +11,7 @@ import ApplicationProcessSection from '@/components/accommodation/ApplicationPro
 import CostsFeesSection from '@/components/accommodation/CostsFeesSection';
 import SupportServicesSection from '@/components/accommodation/SupportServicesSection';
 import FacilitiesSection from '@/components/accommodation/FacilitiesSection';
+import BackToTop from '@/components/common/BackToTop';
 
 const StudentAccommodation = () => {
   return (
@@ -28,6 +29,7 @@ const StudentAccommodation = () => {
         <SupportServicesSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

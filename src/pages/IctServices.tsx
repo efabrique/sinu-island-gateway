@@ -8,6 +8,7 @@ import StudentServicesSection from '@/components/ict/StudentServicesSection';
 import StaffServicesSection from '@/components/ict/StaffServicesSection';
 import SupportSection from '@/components/ict/SupportSection';
 import ResourcesSection from '@/components/ict/ResourcesSection';
+import BackToTop from '@/components/common/BackToTop';
 
 const IctServices = () => {
   return (
@@ -22,6 +23,7 @@ const IctServices = () => {
         <ResourcesSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

@@ -9,6 +9,7 @@ import CulturalActivities from '@/components/cultural/CulturalActivities';
 import PracticalInformation from '@/components/cultural/PracticalInformation';
 import CommunityConnections from '@/components/cultural/CommunityConnections';
 import SupportResources from '@/components/cultural/SupportResources';
+import BackToTop from '@/components/common/BackToTop';
 
 const CulturalOrientation = () => {
   return (
@@ -24,6 +25,7 @@ const CulturalOrientation = () => {
         <SupportResources />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };
