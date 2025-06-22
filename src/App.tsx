@@ -24,6 +24,9 @@ import StudentAccommodation from "./pages/StudentAccommodation";
 import EnglishLanguagePrograms from "./pages/EnglishLanguagePrograms";
 import CulturalOrientation from "./pages/CulturalOrientation";
 import InternationalStudentSupport from "./pages/InternationalStudentSupport";
+import StaffLogin from "./pages/StaffLogin";
+import StudentLogin from "./pages/StudentLogin";
+import ApplicantLogin from "./pages/ApplicantLogin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -55,6 +58,9 @@ const App = () => (
           <Route path="/english-language-programs" element={<EnglishLanguagePrograms />} />
           <Route path="/cultural-orientation" element={<CulturalOrientation />} />
           <Route path="/international-student-support" element={<InternationalStudentSupport />} />
+          <Route path="/staff-login" element={<StaffLogin />} />
+          <Route path="/student-login" element={<StudentLogin />} />
+          <Route path="/applicant-login" element={<ApplicantLogin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -26,17 +26,38 @@ const MobileDrawerMenu: React.FC<MobileDrawerMenuProps> = ({ expandedMenus, togg
       <div className="flex-1 overflow-y-auto p-4">
         <div className="space-y-3 mb-6">
           <h3 className="text-sm font-semibold text-[#082952] uppercase tracking-wide mb-3">Quick Access</h3>
-          <Button variant="ghost" size="sm" className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10">
-            <User className="mr-3 h-4 w-4" />
-            <span>Staff Portal</span>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10"
+            asChild
+          >
+            <Link to="/staff-login">
+              <User className="mr-3 h-4 w-4" />
+              <span>Staff Portal</span>
+            </Link>
           </Button>
-          <Button variant="ghost" size="sm" className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10">
-            <Users className="mr-3 h-4 w-4" />
-            <span>Student Portal</span>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10"
+            asChild
+          >
+            <Link to="/student-login">
+              <Users className="mr-3 h-4 w-4" />
+              <span>Student Portal</span>
+            </Link>
           </Button>
-          <Button variant="ghost" size="sm" className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10">
-            <Book className="mr-3 h-4 w-4" />
-            <span>Apply Now</span>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10"
+            asChild
+          >
+            <Link to="/applicant-login">
+              <Book className="mr-3 h-4 w-4" />
+              <span>Apply Now</span>
+            </Link>
           </Button>
           <Button 
             variant="ghost" 
