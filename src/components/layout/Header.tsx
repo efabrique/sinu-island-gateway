@@ -1,19 +1,34 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, Book, User, Users, Menu, X } from 'lucide-react';
+import { Search, Book, User, Users, Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import MegaMenu from './MegaMenu';
 import { megaMenuData } from '@/data/megaMenuData';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Link } from 'react-router-dom';
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTrigger,
+  DrawerClose,
+} from "@/components/ui/drawer";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
   const isMobile = useIsMobile();
   const headerRef = useRef<HTMLElement>(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const toggleSubmenu = (menuKey: string) => {
+    setExpandedMenus(prev => 
+      prev.includes(menuKey) 
+        ? prev.filter(key => key !== menuKey)
+        : [...prev, menuKey]
+    );
   };
 
   // Function to update mega menu position
@@ -58,6 +73,13 @@ const Header = () => {
     };
   }, [isMobile]);
 
+  // Reset expanded menus when drawer closes
+  useEffect(() => {
+    if (!menuOpen) {
+      setExpandedMenus([]);
+    }
+  }, [menuOpen]);
+
   return (
     <header ref={headerRef} className="sticky top-0 w-full bg-white shadow-md z-50">
       {/* University Logo and Name */}
@@ -92,41 +114,133 @@ const Header = () => {
         
         {/* Mobile menu toggle - pushed to the right */}
         <div className="flex-shrink-0">
-          {isMobile && (
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              onClick={toggleMenu}
-            >
-              {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          )}
+          {isMobile ? (
+            <Drawer open={menuOpen} onOpenChange={setMenuOpen}>
+              <DrawerTrigger asChild>
+                <Button variant="ghost" size="sm">
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </DrawerTrigger>
+              <DrawerContent className="h-[90vh]">
+                <div className="flex flex-col h-full">
+                  {/* Header with close button */}
+                  <div className="flex justify-between items-center p-4 border-b">
+                    <h2 className="text-lg font-semibold text-[#082952]">Menu</h2>
+                    <DrawerClose asChild>
+                      <Button variant="ghost" size="sm">
+                        <X className="h-6 w-6" />
+                      </Button>
+                    </DrawerClose>
+                  </div>
+                  
+                  {/* Scrollable content */}
+                  <div className="flex-1 overflow-y-auto p-4">
+                    {/* Top Navigation Links */}
+                    <div className="space-y-3 mb-6">
+                      <h3 className="text-sm font-semibold text-[#082952] uppercase tracking-wide mb-3">Quick Access</h3>
+                      <Button variant="ghost" size="sm" className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10">
+                        <User className="mr-3 h-4 w-4" />
+                        <span>Staff Portal</span>
+                      </Button>
+                      <Button variant="ghost" size="sm" className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10">
+                        <Users className="mr-3 h-4 w-4" />
+                        <span>Student Portal</span>
+                      </Button>
+                      <Button variant="ghost" size="sm" className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10">
+                        <Book className="mr-3 h-4 w-4" />
+                        <span>Apply Now</span>
+                      </Button>
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10"
+                        asChild
+                      >
+                        <Link to="/course-finder">
+                          <Search className="mr-3 h-4 w-4" />
+                          <span>Search</span>
+                        </Link>
+                      </Button>
+                    </div>
+
+                    {/* Menu Sections */}
+                    <div className="space-y-2">
+                      <h3 className="text-sm font-semibold text-[#082952] uppercase tracking-wide mb-3">Main Menu</h3>
+                      {Object.entries(megaMenuData).map(([key, menuData]) => (
+                        <div key={key} className="border-b border-gray-100 last:border-b-0">
+                          <Button
+                            variant="ghost"
+                            className="w-full justify-between text-left p-3 h-auto font-medium text-[#082952] hover:bg-[#8ecae6]/20"
+                            onClick={() => toggleSubmenu(key)}
+                          >
+                            <span>{key}</span>
+                            {expandedMenus.includes(key) ? (
+                              <ChevronDown className="h-4 w-4 text-[#219ebc]" />
+                            ) : (
+                              <ChevronRight className="h-4 w-4 text-[#219ebc]" />
+                            )}
+                          </Button>
+                          
+                          {expandedMenus.includes(key) && (
+                            <div className="bg-gray-50 py-2">
+                              {menuData.columns.map((column, columnIndex) => (
+                                <div key={columnIndex} className="mb-4 last:mb-0">
+                                  <h4 className="text-sm font-semibold text-[#082952] px-6 py-2 uppercase tracking-wide">
+                                    {column.title}
+                                  </h4>
+                                  <div className="space-y-1">
+                                    {column.links.map((link, linkIndex) => (
+                                      <Button
+                                        key={linkIndex}
+                                        variant="ghost"
+                                        size="sm"
+                                        className="w-full justify-start px-8 py-2 text-sm text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10"
+                                        asChild
+                                      >
+                                        <Link to={link.url}>
+                                          {link.title}
+                                        </Link>
+                                      </Button>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </DrawerContent>
+            </Drawer>
+          ) : null}
         </div>
       </div>
 
-      {/* Top Navigation Row */}
-      <div className="bg-[#219ebc]">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-between items-center">
-            <div className="flex-1"></div>
-            <div className={`${isMobile && !menuOpen ? 'hidden' : 'flex'} flex-col md:flex-row items-center w-full md:w-auto space-y-2 md:space-y-0 space-x-0 md:space-x-2 py-2`}>
-              <Button variant="ghost" size="sm" className="text-white w-full md:w-auto hover:text-[#ffb703] hover:bg-[#219ebc]/90">
-                <User className="mr-2 h-4 w-4" />
-                <span>Staff Portal</span>
-              </Button>
-              <Button variant="ghost" size="sm" className="text-white w-full md:w-auto hover:text-[#ffb703] hover:bg-[#219ebc]/90">
-                <Users className="mr-2 h-4 w-4" />
-                <span>Student Portal</span>
-              </Button>
-              <Button variant="ghost" size="sm" className="text-white w-full md:w-auto hover:text-[#ffb703] hover:bg-[#219ebc]/90">
-                <Book className="mr-2 h-4 w-4" />
-                <span>Apply Now</span>
-              </Button>
-              <div className="relative w-full md:w-auto">
+      {/* Top Navigation Row - Desktop only */}
+      {!isMobile && (
+        <div className="bg-[#219ebc]">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap justify-between items-center">
+              <div className="flex-1"></div>
+              <div className="flex items-center space-x-2 py-2">
+                <Button variant="ghost" size="sm" className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90">
+                  <User className="mr-2 h-4 w-4" />
+                  <span>Staff Portal</span>
+                </Button>
+                <Button variant="ghost" size="sm" className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90">
+                  <Users className="mr-2 h-4 w-4" />
+                  <span>Student Portal</span>
+                </Button>
+                <Button variant="ghost" size="sm" className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90">
+                  <Book className="mr-2 h-4 w-4" />
+                  <span>Apply Now</span>
+                </Button>
                 <Button 
                   variant="ghost" 
                   size="sm" 
-                  className="text-white w-full md:w-auto hover:text-[#ffb703] hover:bg-[#219ebc]/90"
+                  className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90"
                   asChild
                 >
                   <Link to="/course-finder">
@@ -138,24 +252,26 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </div>
+      )}
 
-      {/* Bottom Navigation Row with Mega Menus - hidden in mobile unless menu is open */}
-      <div className={`bg-[#8ecae6] border-t border-[#66b2b2] ${isMobile && !menuOpen ? 'hidden' : 'block'}`}>
-        <div className="container mx-auto px-4">
-          <nav className="flex justify-center">
-            {Object.entries(megaMenuData).map(([key, menuData], index) => (
-              <MegaMenu 
-                key={key} 
-                title={key} 
-                columns={menuData.columns}
-                image={menuData.image}
-                id={`menu-${index}`} // Add unique ID
-              />
-            ))}
-          </nav>
+      {/* Bottom Navigation Row with Mega Menus - Desktop only */}
+      {!isMobile && (
+        <div className="bg-[#8ecae6] border-t border-[#66b2b2]">
+          <div className="container mx-auto px-4">
+            <nav className="flex justify-center">
+              {Object.entries(megaMenuData).map(([key, menuData], index) => (
+                <MegaMenu 
+                  key={key} 
+                  title={key} 
+                  columns={menuData.columns}
+                  image={menuData.image}
+                  id={`menu-${index}`}
+                />
+              ))}
+            </nav>
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 };
