@@ -46,13 +46,36 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative container mx-auto px-4 h-full flex items-center md:items-center">
-        <div className="max-w-xl md:max-w-2xl text-[#ffb703] animate-fade-in w-full">
-          <h1 className="hidden md:block text-3xl md:text-5xl font-bold mb-4">Discover Your Potential at SINU</h1>
-          <p className="hidden md:block text-base md:text-xl mb-8">
-            Solomon Islands National University offers world-class education, 
-            innovative research opportunities, and a vibrant campus community.
-          </p>
-          <div className="flex flex-wrap gap-4 md:justify-start justify-center absolute md:relative bottom-[calc(4rem+30px)] md:bottom-auto left-0 right-0 px-4 md:px-0">
+        {/* Desktop/Tablet Content Card */}
+        <div className="hidden md:block bg-[#219ebc]/50 rounded-lg p-8 max-w-2xl backdrop-blur-sm">
+          <div className="text-[#ffb703] animate-fade-in">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">Discover Your Potential at SINU</h1>
+            <p className="text-base md:text-xl mb-8">
+              Solomon Islands National University offers world-class education, 
+              innovative research opportunities, and a vibrant campus community.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Button 
+                size="lg" 
+                className="bg-[#0b2c55] hover:bg-[#d7a12c] hover:text-[#ffffff] text-white transition-colors duration-300"
+                asChild
+              >
+                <Link to="/course-catalog">Explore Programs</Link>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="bg-[#082952] text-white border-transparent hover:bg-[#d7a12c] hover:text-[#ffffff] hover:border-transparent transition-colors duration-300"
+              >
+                Apply Now
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Content - positioned at bottom */}
+        <div className="block md:hidden w-full">
+          <div className="flex flex-wrap gap-4 justify-center absolute bottom-[calc(4rem+30px)] left-0 right-0 px-4">
             <Button 
               size="lg" 
               className="bg-[#0b2c55] hover:bg-[#d7a12c] hover:text-[#ffffff] text-white w-full sm:w-auto transition-colors duration-300"
