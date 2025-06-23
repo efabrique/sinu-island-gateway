@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import OptimizedImage from '@/components/common/OptimizedImage';
@@ -58,7 +56,7 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
-                className="bg-[#0b2c55] hover:bg-[#d7a12c] hover:text-[#ffffff] text-white border-white transition-colors duration-300"
+                className="bg-[#0b2c55] hover:bg-[#d7a12c] hover:text-[#ffffff] text-white border border-white transition-colors duration-300"
                 asChild
               >
                 <Link to="/course-catalog">Explore Programs</Link>
@@ -108,4 +106,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
