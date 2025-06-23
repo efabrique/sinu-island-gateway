@@ -46,7 +46,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative container mx-auto px-4 h-full flex items-center md:items-center">
         {/* Desktop/Tablet Content Card */}
-        <div className="hidden md:block bg-[#8ecae6]/60 rounded-lg p-8 max-w-2xl backdrop-blur-sm">
+        <div className="hidden md:block bg-[#8ecae6]/70 rounded-lg p-8 max-w-2xl backdrop-blur-sm">
           <div className="text-[#ffb703] animate-fade-in">
             <h1 className="text-3xl md:text-5xl font-bold mb-4">Discover Your Potential at SINU</h1>
             <p className="text-base md:text-xl mb-8">
