@@ -90,7 +90,7 @@ const Footer = () => {
       {/* Bottom Footer */}
       <div className="border-t border-white/20 py-6">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-          <p>Designed by Dean Foy. &copy; {new Date().getFullYear()} Solomon Islands National University. All rights reserved.</p>
+          <p className="text-center md:text-left">Designed by Dean Foy. &copy; {new Date().getFullYear()} Solomon Islands National University. All rights reserved.</p>
           <div className="mt-4 md:mt-0">
             <ul className="flex flex-wrap space-x-4 justify-center">
               <li><a href="#" className="hover:text-[#ffb703] hover:underline text-sm">Privacy Policy</a></li>
