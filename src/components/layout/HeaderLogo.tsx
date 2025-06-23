@@ -44,8 +44,8 @@ const HeaderLogo: React.FC<HeaderLogoProps> = ({ isMobile }) => {
 
   return (
     <>
-      {/* Floating Logo Card for Desktop/Tablet - Now Oval/Circular */}
-      <div className="fixed top-4 left-4 z-50 bg-white hover:bg-[#edf4ff] rounded-full shadow-lg p-1 transition-colors duration-300" 
+      {/* Floating Logo Card for Desktop/Tablet - Now Completely Transparent */}
+      <div className="fixed top-4 left-4 z-50 rounded-full p-1 transition-colors duration-300" 
            style={{ 
              width: '142px', 
              height: '142px'
