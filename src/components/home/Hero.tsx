@@ -48,8 +48,8 @@ const Hero = () => {
       {/* Content */}
       <div className="relative container mx-auto px-4 h-full flex items-center md:items-center">
         {/* Desktop/Tablet Content Card */}
-        <div className="hidden md:block bg-white/80 rounded-lg p-8 max-w-2xl backdrop-blur-sm">
-          <div className="text-[#ffb703] animate-fade-in">
+        <div className="hidden md:block bg-[#082952]/70 rounded-lg p-8 max-w-2xl backdrop-blur-sm">
+          <div className="text-white animate-fade-in">
             <h1 className="text-3xl md:text-5xl font-bold mb-4">Discover Your Potential at SINU</h1>
             <p className="text-base md:text-xl mb-8 font-bold">
               Solomon Islands National University offers world-class education, 
@@ -58,7 +58,7 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
-                className="bg-[#0b2c55] hover:bg-[#d7a12c] hover:text-[#ffffff] text-white transition-colors duration-300"
+                className="bg-[#0b2c55] hover:bg-[#d7a12c] hover:text-[#ffffff] text-white border-white transition-colors duration-300"
                 asChild
               >
                 <Link to="/course-catalog">Explore Programs</Link>
@@ -66,7 +66,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="bg-[#082952] text-white border-transparent hover:bg-[#d7a12c] hover:text-[#ffffff] hover:border-transparent transition-colors duration-300"
+                className="bg-[#082952] text-white border-white hover:bg-[#d7a12c] hover:text-[#ffffff] hover:border-transparent transition-colors duration-300"
               >
                 Apply Now
               </Button>
@@ -108,3 +108,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
