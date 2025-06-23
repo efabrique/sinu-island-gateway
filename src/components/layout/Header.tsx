@@ -3,10 +3,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from './MobileHeader';
 import DesktopHeader from './DesktopHeader';
+import ScrolledDesktopHeader from './ScrolledDesktopHeader';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
+  const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
   const headerRef = useRef<HTMLElement>(null);
 
@@ -17,6 +19,19 @@ const Header = () => {
         : [...prev, menuKey]
     );
   };
+
+  // Handle scroll behavior for desktop/tablet
+  useEffect(() => {
+    if (isMobile) return;
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50); // Trigger after 50px of scroll
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isMobile]);
 
   // Function to update mega menu position
   const updateMegaMenuPosition = () => {
@@ -38,14 +53,14 @@ const Header = () => {
       updateMegaMenuPosition();
     };
 
-    const handleScroll = () => {
+    const handleScrollPosition = () => {
       if (window.scrollY === 0) {
         updateMegaMenuPosition();
       }
     };
 
     window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScrollPosition);
     
     const timer = setTimeout(() => {
       updateMegaMenuPosition();
@@ -53,10 +68,10 @@ const Header = () => {
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScrollPosition);
       clearTimeout(timer);
     };
-  }, [isMobile]);
+  }, [isMobile, isScrolled]);
 
   // Reset expanded menus when drawer closes
   useEffect(() => {
@@ -74,6 +89,8 @@ const Header = () => {
           expandedMenus={expandedMenus}
           toggleSubmenu={toggleSubmenu}
         />
+      ) : isScrolled ? (
+        <ScrolledDesktopHeader />
       ) : (
         <DesktopHeader />
       )}
