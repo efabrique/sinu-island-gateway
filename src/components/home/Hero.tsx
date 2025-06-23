@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import OptimizedImage from '@/components/common/OptimizedImage';
@@ -49,7 +50,7 @@ const Hero = () => {
         <div className="hidden md:block bg-[#8ecae6]/80 rounded-lg p-8 max-w-2xl backdrop-blur-sm">
           <div className="text-[#ffb703] animate-fade-in">
             <h1 className="text-3xl md:text-5xl font-bold mb-4">Discover Your Potential at SINU</h1>
-            <p className="text-base md:text-xl mb-8">
+            <p className="text-base md:text-xl mb-8 font-bold">
               Solomon Islands National University offers world-class education, 
               innovative research opportunities, and a vibrant campus community.
             </p>
