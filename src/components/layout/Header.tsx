@@ -20,18 +20,24 @@ const Header = () => {
     );
   };
 
-  // Handle scroll behavior for desktop/tablet
+  // Handle scroll behavior for desktop/tablet with smoother transition
   useEffect(() => {
     if (isMobile) return;
 
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50); // Trigger after 50px of scroll
+      const shouldBeScrolled = scrollTop > 30; // Reduced threshold for earlier trigger
+      
+      // Only update state if it actually changes to prevent unnecessary re-renders
+      if (shouldBeScrolled !== isScrolled) {
+        setIsScrolled(shouldBeScrolled);
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Use passive listener for better performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMobile]);
+  }, [isMobile, isScrolled]);
 
   // Function to update mega menu position
   const updateMegaMenuPosition = () => {
@@ -81,7 +87,12 @@ const Header = () => {
   }, [menuOpen]);
 
   return (
-    <header ref={headerRef} className="sticky top-0 w-full bg-white shadow-md z-50">
+    <header 
+      ref={headerRef} 
+      className={`sticky top-0 w-full bg-white shadow-md z-50 transition-all duration-300 ease-in-out ${
+        isScrolled && !isMobile ? 'transform-gpu' : ''
+      }`}
+    >
       {isMobile ? (
         <MobileHeader 
           menuOpen={menuOpen}
@@ -89,10 +100,26 @@ const Header = () => {
           expandedMenus={expandedMenus}
           toggleSubmenu={toggleSubmenu}
         />
-      ) : isScrolled ? (
-        <ScrolledDesktopHeader />
       ) : (
-        <DesktopHeader />
+        <div className="relative">
+          {/* Desktop Header - with smooth transition */}
+          <div className={`transition-all duration-300 ease-in-out transform-gpu ${
+            isScrolled 
+              ? 'opacity-0 -translate-y-full absolute inset-x-0 pointer-events-none' 
+              : 'opacity-100 translate-y-0 relative'
+          }`}>
+            <DesktopHeader />
+          </div>
+          
+          {/* Scrolled Header - with smooth transition */}
+          <div className={`transition-all duration-300 ease-in-out transform-gpu ${
+            isScrolled 
+              ? 'opacity-100 translate-y-0 relative' 
+              : 'opacity-0 translate-y-full absolute inset-x-0 pointer-events-none'
+          }`}>
+            <ScrolledDesktopHeader />
+          </div>
+        </div>
       )}
     </header>
   );
