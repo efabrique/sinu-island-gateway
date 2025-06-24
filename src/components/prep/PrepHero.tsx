@@ -61,7 +61,7 @@ const PrepHero = () => {
                   Apply Now
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-[#082952] px-8 py-3 text-lg">
+                <Button className="bg-white text-[#082952] hover:bg-[#082952] hover:text-white px-8 py-3 text-lg transition-colors">
                   Download Brochure
                 </Button>
               </div>
