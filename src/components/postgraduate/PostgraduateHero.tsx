@@ -50,7 +50,7 @@ const PostgraduateHero = () => {
                 <Button className="bg-[#219ebc] hover:bg-[#082952] text-white px-8 py-3">
                   Apply Now
                 </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-[#082952] px-8 py-3">
+                <Button className="bg-white text-[#082952] hover:bg-[#082952] hover:text-white border-0 px-8 py-3 transition-all duration-300">
                   Download Prospectus
                 </Button>
               </div>
