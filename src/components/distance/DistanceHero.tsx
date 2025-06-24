@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Monitor } from 'lucide-react';
@@ -54,27 +55,14 @@ const DistanceHero = () => {
                 </Button>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div className="text-center bg-white/90 backdrop-blur-sm rounded-lg p-6">
-                  <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="h-8 w-8 text-[#219ebc]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#082952] mb-2">Regional Access</h3>
-                  <p className="text-[#082952]">Learning centers across all provinces for local support</p>
-                </div>
-                <div className="text-center bg-white/90 backdrop-blur-sm rounded-lg p-6">
-                  <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Clock className="h-8 w-8 text-[#219ebc]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#082952] mb-2">Flexible Schedule</h3>
-                  <p className="text-[#082952]">Study when it suits your work and family commitments</p>
-                </div>
-                <div className="text-center bg-white/90 backdrop-blur-sm rounded-lg p-6">
-                  <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Monitor className="h-8 w-8 text-[#219ebc]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#082952] mb-2">Online & Blended</h3>
-                  <p className="text-[#082952]">Combine online learning with face-to-face support</p>
+              <div className="flex justify-center mt-12">
+                <div className="text-center bg-white/90 backdrop-blur-sm rounded-lg p-8 max-w-2xl">
+                  <h3 className="text-2xl md:text-3xl font-semibold text-[#082952] mb-4">
+                    Highly flexible, tailored for online learning and close to your home.
+                  </h3>
+                  <p className="text-lg text-[#082952] leading-relaxed">
+                    Studying online may feel overwhelming, but we're here to help you. You'll have access to all our wide range of support services. Ask our Distance and Flexible Learning Center Support Staff.
+                  </p>
                 </div>
               </div>
             </div>
