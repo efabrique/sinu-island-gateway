@@ -46,11 +46,6 @@ const PostgraduateHero = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Postgraduate Study at SINU
               </h1>
-              <p className="text-xl text-white mb-8 leading-relaxed">
-                Advance your career and expertise with our comprehensive postgraduate programs. 
-                Build on your existing knowledge while contributing to research and innovation 
-                that addresses the unique challenges and opportunities of the Solomon Islands.
-              </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                 <Button className="bg-[#219ebc] hover:bg-[#082952] text-white px-8 py-3">
                   Apply Now
