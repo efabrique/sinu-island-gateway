@@ -12,7 +12,7 @@ const PrepHero = () => {
         {/* Desktop: 16:9 aspect ratio */}
         <div className="hidden lg:block aspect-video w-full">
           <OptimizedImage
-            src="/lovable-uploads/49fd2528-2051-4b64-8900-259f466794fe.png"
+            src="/lovable-uploads/3f6b006d-a695-4295-8a23-6c4049ec7033.png"
             alt="Students studying preparatory courses"
             className="w-full h-full object-cover"
             objectFit="cover"
@@ -22,7 +22,7 @@ const PrepHero = () => {
         {/* Tablet: 4:3 aspect ratio */}
         <div className="hidden md:block lg:hidden aspect-[4/3] w-full">
           <OptimizedImage
-            src="/lovable-uploads/49fd2528-2051-4b64-8900-259f466794fe.png"
+            src="/lovable-uploads/3f6b006d-a695-4295-8a23-6c4049ec7033.png"
             alt="Students studying preparatory courses"
             className="w-full h-full object-cover"
             objectFit="cover"
@@ -32,9 +32,9 @@ const PrepHero = () => {
         {/* Mobile: 9:16 aspect ratio - centered on person's face */}
         <div className="block md:hidden aspect-[9/16] w-full">
           <OptimizedImage
-            src="/lovable-uploads/49fd2528-2051-4b64-8900-259f466794fe.png"
+            src="/lovable-uploads/3f6b006d-a695-4295-8a23-6c4049ec7033.png"
             alt="Students studying preparatory courses"
-            className="w-full h-full object-cover object-[center_25%]"
+            className="w-full h-full object-cover object-[center_30%]"
             objectFit="cover"
           />
         </div>
