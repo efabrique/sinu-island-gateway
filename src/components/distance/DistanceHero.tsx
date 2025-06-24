@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Monitor } from 'lucide-react';
@@ -46,11 +45,6 @@ const DistanceHero = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Distance & Flexible Learning Centers
               </h1>
-              <p className="text-xl text-white mb-8 leading-relaxed">
-                Access quality education from anywhere in the Solomon Islands through our 
-                comprehensive distance and flexible learning programs. Study at your own pace 
-                with support from our regional learning centers.
-              </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                 <Button className="bg-[#219ebc] hover:bg-[#082952] text-white px-8 py-3">
                   Find a Center Near You
