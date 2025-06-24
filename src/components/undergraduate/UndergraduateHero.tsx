@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { GraduationCap, Users, BookOpen } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 import OptimizedImage from '@/components/common/OptimizedImage';
 
 const UndergraduateHero = () => {
@@ -60,28 +60,17 @@ const UndergraduateHero = () => {
                 </Button>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div className="text-center bg-white/90 backdrop-blur-sm rounded-lg p-6">
-                  <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <GraduationCap className="h-8 w-8 text-[#219ebc]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#082952] mb-2">Quality Education</h3>
-                  <p className="text-[#082952]">Internationally recognized programs with local relevance</p>
-                </div>
-                <div className="text-center bg-white/90 backdrop-blur-sm rounded-lg p-6">
-                  <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-8 w-8 text-[#219ebc]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#082952] mb-2">Expert Faculty</h3>
-                  <p className="text-[#082952]">Learn from experienced academics and industry professionals</p>
-                </div>
-                <div className="text-center bg-white/90 backdrop-blur-sm rounded-lg p-6">
-                  <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <BookOpen className="h-8 w-8 text-[#219ebc]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#082952] mb-2">Practical Learning</h3>
-                  <p className="text-[#082952]">Hands-on experience and real-world applications</p>
-                </div>
+              <div className="flex justify-center mt-12">
+                <Card className="bg-white/95 backdrop-blur-sm max-w-2xl">
+                  <CardContent className="p-8 text-center">
+                    <h3 className="text-2xl md:text-3xl font-semibold text-[#082952] mb-4">
+                      Prepare Yourself for a Great Future with Confidence
+                    </h3>
+                    <p className="text-lg text-[#082952] leading-relaxed">
+                      There are multiple ways to apply for your preferred degree, whether you are completing high school or looking to study as a non-school leaver.
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>
