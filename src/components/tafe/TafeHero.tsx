@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Award, Users, Briefcase } from 'lucide-react';
 import OptimizedImage from '@/components/common/OptimizedImage';
 
 const TafeHero = () => {
@@ -55,27 +54,14 @@ const TafeHero = () => {
                 </Button>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div className="text-center bg-white/90 backdrop-blur-sm rounded-lg p-6">
-                  <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Award className="h-8 w-8 text-[#219ebc]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#082952] mb-2">Industry-Ready Skills</h3>
-                  <p className="text-[#082952]">Practical training aligned with industry needs and standards</p>
-                </div>
-                <div className="text-center bg-white/90 backdrop-blur-sm rounded-lg p-6">
-                  <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-8 w-8 text-[#219ebc]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#082952] mb-2">Expert Instructors</h3>
-                  <p className="text-[#082952]">Learn from experienced professionals and industry experts</p>
-                </div>
-                <div className="text-center bg-white/90 backdrop-blur-sm rounded-lg p-6">
-                  <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Briefcase className="h-8 w-8 text-[#219ebc]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#082952] mb-2">Career Pathways</h3>
-                  <p className="text-[#082952]">Clear progression routes to employment and higher education</p>
+              <div className="flex justify-center mt-12">
+                <div className="text-center bg-white/90 backdrop-blur-sm rounded-lg p-8 max-w-2xl">
+                  <h3 className="text-2xl md:text-3xl font-semibold text-[#082952] mb-4">
+                    Want to Learn a Skill or Trade?
+                  </h3>
+                  <p className="text-lg text-[#082952] leading-relaxed">
+                    Vocational education, also known as TAFE (Technical and Further Education), offers hands-on training to help land your first job, upskill, change careers or transition into university.
+                  </p>
                 </div>
               </div>
             </div>
