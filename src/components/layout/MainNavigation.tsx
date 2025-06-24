@@ -17,6 +17,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isScrolled = false }) =
           columns={menuData.columns}
           image={menuData.image}
           id={`menu-${index}`}
+          isScrolled={isScrolled}
         />
       ))}
     </nav>

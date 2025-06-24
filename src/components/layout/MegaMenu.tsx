@@ -22,9 +22,10 @@ interface MegaMenuProps {
     alt: string;
   };
   id: string;
+  isScrolled?: boolean;
 }
 
-const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
+const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id, isScrolled = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -56,15 +57,23 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id }) => {
     };
   }, [isMobile]);
 
-  // Calculate background color based on hovered and active states
+  // Calculate background color based on hovered, active states, and scroll state
   const getButtonClasses = () => {
     const baseClasses = "px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium focus:outline-none transition-colors";
     
-    if (isHovered || isActive) {
-      return `${baseClasses} bg-white`;
+    if (isScrolled) {
+      // When scrolled, use white text by default
+      if (isHovered || isActive) {
+        return `${baseClasses} bg-white text-[#082952]`;
+      }
+      return `${baseClasses} text-white hover:bg-white hover:text-[#082952]`;
+    } else {
+      // Normal state (not scrolled)
+      if (isHovered || isActive) {
+        return `${baseClasses} bg-white text-[#082952]`;
+      }
+      return `${baseClasses} hover:text-[#023047]`;
     }
-    
-    return `${baseClasses} hover:text-[#023047]`;
   };
 
   return (

@@ -28,27 +28,27 @@ const ScrolledDesktopHeader = () => {
 
   return (
     <div className="relative transform-gpu">
-      {/* Main Navigation Bar */}
-      <div className="bg-[#8ecae6] border-t border-[#66b2b2]">
+      {/* Main Navigation Bar with dark background */}
+      <div className="bg-[#082952] border-t border-[#0b2c55]">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            {/* SINU Text Logo */}
+            {/* SINU Text Logo - White color */}
             <div className="py-3 transition-all duration-200 ease-in-out">
-              <Link to="/" className="text-[#082952] font-bold text-2xl hover:text-[#0b2c55] transition-colors duration-200">
+              <Link to="/" className="text-white font-bold text-2xl hover:text-gray-200 transition-colors duration-200">
                 SINU
               </Link>
             </div>
 
-            {/* Main Navigation */}
+            {/* Main Navigation - Pass scrolled state */}
             <div className="flex-1 flex justify-center">
-              <MainNavigation />
+              <MainNavigation isScrolled={true} />
             </div>
 
-            {/* Hamburger Menu */}
+            {/* Hamburger Menu - White icon */}
             <div className="relative" ref={sidebarRef}>
               <Button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="bg-[#219ebc] hover:bg-white text-[#082952] border border-white h-12 w-12 p-0 transition-all duration-200 ease-in-out hover:scale-105"
+                className="bg-[#219ebc] hover:bg-white text-white hover:text-[#082952] border border-white h-12 w-12 p-0 transition-all duration-200 ease-in-out hover:scale-105"
                 size="lg"
               >
                 <Menu className="h-6 w-6 transition-transform duration-200" />
