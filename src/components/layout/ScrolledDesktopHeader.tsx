@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Menu, Search, Book, User, Users } from 'lucide-react';
+import { Menu, Search, Book, User, Users, Library, GraduationCap, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 import MainNavigation from './MainNavigation';
@@ -44,18 +44,22 @@ const ScrolledDesktopHeader = () => {
               <MainNavigation isScrolled={true} />
             </div>
 
-            {/* Hamburger Menu - White icon */}
+            {/* Hamburger Menu with updated styling */}
             <div className="relative" ref={sidebarRef}>
               <Button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="bg-[#219ebc] hover:bg-white text-white hover:text-[#082952] border border-white h-12 w-12 p-0 transition-all duration-200 ease-in-out hover:scale-105"
+                className="bg-white hover:bg-[#edf4ff] text-[#082952] border border-gray-300 h-12 w-12 p-0 transition-all duration-200 ease-in-out hover:scale-105"
                 size="lg"
               >
-                <Menu className="h-6 w-6 transition-transform duration-200" />
+                {sidebarOpen ? (
+                  <X className="h-6 w-6 transition-transform duration-200" />
+                ) : (
+                  <Menu className="h-6 w-6 transition-transform duration-200" />
+                )}
               </Button>
 
-              {/* Dropdown Sidebar with smooth animation */}
-              <div className={`absolute top-full right-0 bg-white shadow-lg border border-gray-200 rounded-b-lg z-50 w-96 transition-all duration-300 ease-in-out transform-gpu ${
+              {/* Expanded Dropdown Sidebar with smooth animation */}
+              <div className={`absolute top-full right-0 bg-white shadow-lg border border-gray-200 rounded-b-lg z-50 w-[480px] transition-all duration-300 ease-in-out transform-gpu ${
                 sidebarOpen 
                   ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' 
                   : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'
@@ -80,6 +84,26 @@ const ScrolledDesktopHeader = () => {
                     >
                       <Users className="h-8 w-8 text-[#219ebc] mb-2 transition-transform duration-200" />
                       <span className="text-sm font-medium text-[#082952]">Student Portal</span>
+                    </Link>
+
+                    {/* Moodle Card */}
+                    <Link
+                      to="#"
+                      className="flex flex-col items-center p-4 border rounded-lg hover:bg-gray-50 transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-md"
+                      onClick={() => setSidebarOpen(false)}
+                    >
+                      <GraduationCap className="h-8 w-8 text-[#219ebc] mb-2 transition-transform duration-200" />
+                      <span className="text-sm font-medium text-[#082952]">Moodle</span>
+                    </Link>
+
+                    {/* Library Card */}
+                    <Link
+                      to="/library-services"
+                      className="flex flex-col items-center p-4 border rounded-lg hover:bg-gray-50 transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-md"
+                      onClick={() => setSidebarOpen(false)}
+                    >
+                      <Library className="h-8 w-8 text-[#219ebc] mb-2 transition-transform duration-200" />
+                      <span className="text-sm font-medium text-[#082952]">Library</span>
                     </Link>
 
                     {/* Apply Now Card */}
