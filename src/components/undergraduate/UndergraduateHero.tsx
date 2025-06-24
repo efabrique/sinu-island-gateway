@@ -46,11 +46,6 @@ const UndergraduateHero = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Undergraduate Study at SINU
               </h1>
-              <p className="text-xl text-white mb-8 leading-relaxed">
-                Start your journey towards a rewarding career with our comprehensive undergraduate programs. 
-                Designed to prepare you for the challenges of tomorrow while celebrating the rich culture 
-                and heritage of the Solomon Islands.
-              </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                 <Button className="bg-[#219ebc] hover:bg-[#082952] text-white px-8 py-3">
                   Apply Now
