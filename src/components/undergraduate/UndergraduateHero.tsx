@@ -12,7 +12,7 @@ const UndergraduateHero = () => {
         {/* Desktop: 16:9 aspect ratio */}
         <div className="hidden lg:block aspect-video w-full">
           <OptimizedImage
-            src="/lovable-uploads/04baa6ff-767b-4aec-943a-531b6a9908a3.png"
+            src="/lovable-uploads/6b273f3f-f623-4cb9-be89-346eea9ab6a9.png"
             alt="SINU students celebrating achievement"
             className="w-full h-full object-cover"
             objectFit="cover"
@@ -22,7 +22,7 @@ const UndergraduateHero = () => {
         {/* Tablet: 4:3 aspect ratio */}
         <div className="hidden md:block lg:hidden aspect-[4/3] w-full">
           <OptimizedImage
-            src="/lovable-uploads/04baa6ff-767b-4aec-943a-531b6a9908a3.png"
+            src="/lovable-uploads/6b273f3f-f623-4cb9-be89-346eea9ab6a9.png"
             alt="SINU students celebrating achievement"
             className="w-full h-full object-cover"
             objectFit="cover"
@@ -32,7 +32,7 @@ const UndergraduateHero = () => {
         {/* Mobile: 9:16 aspect ratio */}
         <div className="block md:hidden aspect-[9/16] w-full">
           <OptimizedImage
-            src="/lovable-uploads/04baa6ff-767b-4aec-943a-531b6a9908a3.png"
+            src="/lovable-uploads/6b273f3f-f623-4cb9-be89-346eea9ab6a9.png"
             alt="SINU students celebrating achievement"
             className="w-full h-full object-cover"
             objectFit="cover"
@@ -40,7 +40,7 @@ const UndergraduateHero = () => {
         </div>
         
         {/* Content Overlay */}
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
