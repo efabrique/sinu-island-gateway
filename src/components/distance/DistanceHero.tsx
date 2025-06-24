@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Monitor } from 'lucide-react';
@@ -50,7 +51,7 @@ const DistanceHero = () => {
                 <Button className="bg-[#219ebc] hover:bg-[#082952] text-white px-8 py-3">
                   Find a Center Near You
                 </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-[#082952] px-8 py-3">
+                <Button className="bg-white text-[#082952] hover:bg-[#082952] hover:text-white border-0 px-8 py-3 transition-all duration-300">
                   Browse Programs
                 </Button>
               </div>
@@ -74,3 +75,4 @@ const DistanceHero = () => {
 };
 
 export default DistanceHero;
+
