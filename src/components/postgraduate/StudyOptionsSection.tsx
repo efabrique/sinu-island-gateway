@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Microscope, Calculator, Gavel, Stethoscope, Palette, Globe } from 'lucide-react';
@@ -32,7 +31,7 @@ const StudyOptionsSection = () => {
       title: "Master of Public Health",
       description: "Address health challenges in island nations with focus on tropical medicine and health policy.",
       duration: "2 years full-time",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f"
+      image: "/lovable-uploads/d44b1801-b253-4e8b-b5be-25632990ac05.png"
     },
     {
       icon: <Palette className="h-8 w-8 text-[#219ebc]" />,
