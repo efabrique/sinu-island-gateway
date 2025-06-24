@@ -46,10 +46,6 @@ const TafeHero = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 SINU TAFE & TVET
               </h1>
-              <p className="text-xl text-white mb-8 leading-relaxed">
-                Technical and Further Education (TAFE) and Technical and Vocational Education and Training (TVET) 
-                programs designed to equip you with practical skills for today's workforce in the Solomon Islands.
-              </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                 <Button className="bg-[#219ebc] hover:bg-[#082952] text-white px-8 py-3">
                   Explore Course Areas
