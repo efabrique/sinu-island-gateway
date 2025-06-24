@@ -18,7 +18,7 @@ const StudyOptionsSection = () => {
       title: "Bachelor of Business",
       description: "Develop business skills relevant to the Pacific region's growing economy.",
       duration: "3 years full-time",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+      image: "/lovable-uploads/552cc4eb-ec31-4319-85ea-55903c6fd74c.png"
     },
     {
       icon: <Gavel className="h-8 w-8 text-[#219ebc]" />,
