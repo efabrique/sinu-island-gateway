@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Search, Book, User, Users, ChevronDown, ChevronRight, X } from 'lucide-react';
+import { Search, Book, User, Users, ChevronDown, ChevronRight, X, Library, GraduationCap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 import { DrawerClose } from "@/components/ui/drawer";
@@ -26,50 +26,81 @@ const MobileDrawerMenu: React.FC<MobileDrawerMenuProps> = ({ expandedMenus, togg
       <div className="flex-1 overflow-y-auto p-4">
         <div className="space-y-3 mb-6">
           <h3 className="text-sm font-semibold text-[#082952] uppercase tracking-wide mb-3">Quick Access</h3>
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10"
-            asChild
-          >
-            <Link to="/staff-login">
-              <User className="mr-3 h-4 w-4" />
-              <span>Staff Portal</span>
-            </Link>
-          </Button>
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10"
-            asChild
-          >
-            <Link to="/student-login">
-              <Users className="mr-3 h-4 w-4" />
-              <span>Student Portal</span>
-            </Link>
-          </Button>
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10"
-            asChild
-          >
-            <Link to="/applicant-login">
-              <Book className="mr-3 h-4 w-4" />
-              <span>Apply Now</span>
-            </Link>
-          </Button>
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10"
-            asChild
-          >
-            <Link to="/course-finder">
-              <Search className="mr-3 h-4 w-4" />
-              <span>Search</span>
-            </Link>
-          </Button>
+          
+          {/* 2-column grid for Quick Access links */}
+          <div className="grid grid-cols-2 gap-2">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10 p-3 h-auto flex-col items-center gap-1"
+              asChild
+            >
+              <Link to="/staff-login">
+                <User className="h-4 w-4" />
+                <span className="text-xs text-center">Staff Portal</span>
+              </Link>
+            </Button>
+            
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10 p-3 h-auto flex-col items-center gap-1"
+              asChild
+            >
+              <Link to="/student-login">
+                <Users className="h-4 w-4" />
+                <span className="text-xs text-center">Student Portal</span>
+              </Link>
+            </Button>
+            
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10 p-3 h-auto flex-col items-center gap-1"
+              asChild
+            >
+              <Link to="#moodle">
+                <GraduationCap className="h-4 w-4" />
+                <span className="text-xs text-center">Moodle</span>
+              </Link>
+            </Button>
+            
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10 p-3 h-auto flex-col items-center gap-1"
+              asChild
+            >
+              <Link to="/library-services">
+                <Library className="h-4 w-4" />
+                <span className="text-xs text-center">Library</span>
+              </Link>
+            </Button>
+            
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10 p-3 h-auto flex-col items-center gap-1"
+              asChild
+            >
+              <Link to="/applicant-login">
+                <Book className="h-4 w-4" />
+                <span className="text-xs text-center">Apply Now</span>
+              </Link>
+            </Button>
+            
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="w-full justify-start text-[#219ebc] hover:text-[#ffb703] hover:bg-[#219ebc]/10 p-3 h-auto flex-col items-center gap-1"
+              asChild
+            >
+              <Link to="/course-finder">
+                <Search className="h-4 w-4" />
+                <span className="text-xs text-center">Search</span>
+              </Link>
+            </Button>
+          </div>
         </div>
 
         <div className="space-y-2">
