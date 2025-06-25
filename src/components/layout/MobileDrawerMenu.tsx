@@ -17,7 +17,7 @@ const MobileDrawerMenu: React.FC<MobileDrawerMenuProps> = ({ expandedMenus, togg
       <div className="flex justify-between items-center p-4 border-b">
         <h2 className="text-lg font-semibold text-[#082952]">Menu</h2>
         <DrawerClose asChild>
-          <Button variant="ghost" size="sm">
+          <Button variant="ghost" size="sm" className="hover:bg-[#082952] hover:text-white transition-colors">
             <X className="h-6 w-6" />
           </Button>
         </DrawerClose>

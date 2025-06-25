@@ -29,7 +29,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
             <Button 
               variant="ghost" 
               size="lg" 
-              className="border border-gray-300 rounded-md p-3 hover:border-gray-400 transition-colors"
+              className="border border-gray-300 rounded-md p-3 hover:border-gray-400 hover:bg-[#082952] hover:text-white transition-colors"
             >
               <Menu className="h-8 w-8" />
             </Button>
