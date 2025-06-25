@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import OptimizedImage from '@/components/common/OptimizedImage';
@@ -23,15 +24,17 @@ const Hero = () => {
 
       {/* Background Image with Overlay - Mobile */}
       <div className="absolute inset-0 block md:hidden">
-        <OptimizedImage
-          src="/lovable-uploads/9763b031-1bb6-490a-bd9c-b086819fa224.png"
-          alt="Mobile hero background"
-          className="w-full h-full"
-          objectFit="cover"
-          priority={true}
-          width={768}
-          height={576}
-        />
+        <div className="aspect-[9/16] w-full h-full">
+          <OptimizedImage
+            src="/lovable-uploads/a23d8180-72b6-4460-bda4-a7f878b1d27b.png"
+            alt="Student in traditional dress"
+            className="w-full h-full object-cover object-center"
+            objectFit="cover"
+            priority={true}
+            width={540}
+            height={960}
+          />
+        </div>
         {/* Light blue fluorescent tint overlay */}
         <div className="absolute inset-0 bg-[#1EAEDB]/30 mix-blend-overlay"></div>
       </div>
