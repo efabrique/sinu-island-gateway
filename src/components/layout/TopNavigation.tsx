@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Search, Book, User, Users } from 'lucide-react';
+import { Search, Book, User, Users, Library, GraduationCap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const TopNavigation = () => {
             <Button 
               variant="ghost" 
               size="sm" 
-              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90"
+              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90 transition-colors duration-300"
               asChild
             >
               <Link to="/staff-login">
@@ -25,7 +25,7 @@ const TopNavigation = () => {
             <Button 
               variant="ghost" 
               size="sm" 
-              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90"
+              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90 transition-colors duration-300"
               asChild
             >
               <Link to="/student-login">
@@ -36,7 +36,29 @@ const TopNavigation = () => {
             <Button 
               variant="ghost" 
               size="sm" 
-              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90"
+              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90 transition-colors duration-300"
+              asChild
+            >
+              <Link to="#moodle">
+                <GraduationCap className="mr-2 h-4 w-4" />
+                <span>Moodle</span>
+              </Link>
+            </Button>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90 transition-colors duration-300"
+              asChild
+            >
+              <Link to="/library-services">
+                <Library className="mr-2 h-4 w-4" />
+                <span>Library</span>
+              </Link>
+            </Button>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90 transition-colors duration-300"
               asChild
             >
               <Link to="/applicant-login">
@@ -47,7 +69,7 @@ const TopNavigation = () => {
             <Button 
               variant="ghost" 
               size="sm" 
-              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90"
+              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90 transition-colors duration-300"
               asChild
             >
               <Link to="/course-finder">
