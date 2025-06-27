@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import OptimizedImage from '@/components/common/OptimizedImage';
@@ -25,8 +26,8 @@ const Hero = () => {
       <div className="absolute inset-0 block md:hidden">
         <div className="aspect-[9/16] w-full h-full">
           <OptimizedImage
-            src="/lovable-uploads/a23d8180-72b6-4460-bda4-a7f878b1d27b.png"
-            alt="Student in traditional dress"
+            src="/lovable-uploads/16dcb639-48bc-444b-84fb-8819666d204d.png"
+            alt="Young woman with dreadlocks in white top and denim skirt"
             className="w-full h-full object-cover object-center"
             objectFit="cover"
             priority={true}
