@@ -11,8 +11,6 @@ export function PublicHealthHero() {
         style={{ backgroundImage: `url(${publicHealthHero})` }}
       />
       
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-[#082952]/70" />
       
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -43,22 +41,6 @@ export function PublicHealthHero() {
               <Users className="mr-2 h-5 w-5" />
               Meet Our Researchers
             </Button>
-          </div>
-        </div>
-        
-        {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#8ecae6] mb-2">50+</div>
-            <div className="text-lg opacity-80">Research Projects</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#8ecae6] mb-2">25+</div>
-            <div className="text-lg opacity-80">International Partners</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#8ecae6] mb-2">100+</div>
-            <div className="text-lg opacity-80">Publications</div>
           </div>
         </div>
       </div>
