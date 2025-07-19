@@ -10,8 +10,8 @@ const Hero = () => {
       {/* Background Image - Desktop and Tablet */}
       <div className="absolute inset-0 hidden md:block">
         <OptimizedImage
-          src="/lovable-uploads/14230634-06c7-442c-99f2-16522f195ee8.png"
-          alt="SINU graduation ceremony with students celebrating"
+          src="/src/assets/university-campus-hero.jpg"
+          alt="University campus with students walking and studying"
           className="w-full h-full"
           objectFit="cover"
           priority={true}
@@ -23,8 +23,8 @@ const Hero = () => {
       {/* Background Image - Mobile */}
       <div className="absolute inset-0 block md:hidden">
         <OptimizedImage
-          src="/lovable-uploads/14230634-06c7-442c-99f2-16522f195ee8.png"
-          alt="SINU graduation ceremony with students celebrating"
+          src="/src/assets/university-campus-hero.jpg"
+          alt="University campus with students walking and studying"
           className="w-full h-full object-cover object-center"
           objectFit="cover"
           priority={true}
