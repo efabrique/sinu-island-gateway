@@ -51,7 +51,7 @@ export const megaMenuData = {
           { title: "Study Abroad", url: "/study-abroad" },
           { title: "International Scholarships", url: "/international-scholarships" },
           { title: "Global Research Collaborations", url: "/global-research-collaborations" },
-          { title: "International Events", url: "#" }
+          { title: "International Events", url: "/international-events" }
         ]
       }
     ],

@@ -29,6 +29,7 @@ import PartnerUniversities from "./pages/PartnerUniversities";
 import StudyAbroad from "./pages/StudyAbroad";
 import InternationalScholarships from "./pages/InternationalScholarships";
 import GlobalResearchCollaborations from "./pages/GlobalResearchCollaborations";
+import InternationalEvents from "./pages/InternationalEvents";
 import StaffLogin from "./pages/StaffLogin";
 import StudentLogin from "./pages/StudentLogin";
 import ApplicantLogin from "./pages/ApplicantLogin";
@@ -68,6 +69,7 @@ const App = () => (
           <Route path="/study-abroad" element={<StudyAbroad />} />
           <Route path="/international-scholarships" element={<InternationalScholarships />} />
           <Route path="/global-research-collaborations" element={<GlobalResearchCollaborations />} />
+          <Route path="/international-events" element={<InternationalEvents />} />
           <Route path="/staff-login" element={<StaffLogin />} />
           <Route path="/student-login" element={<StudentLogin />} />
           <Route path="/applicant-login" element={<ApplicantLogin />} />
