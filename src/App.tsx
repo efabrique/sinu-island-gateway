@@ -33,6 +33,7 @@ import InternationalEvents from "./pages/InternationalEvents";
 import MarineScienceConservation from "./pages/MarineScienceConservation";
 import ClimateChangeAdaptation from "./pages/ClimateChangeAdaptation";
 import SustainableDevelopment from "./pages/SustainableDevelopment";
+import IndigenousKnowledge from "./pages/IndigenousKnowledge";
 import StaffLogin from "./pages/StaffLogin";
 import StudentLogin from "./pages/StudentLogin";
 import ApplicantLogin from "./pages/ApplicantLogin";
@@ -76,6 +77,7 @@ const App = () => (
           <Route path="/marine-science-conservation" element={<MarineScienceConservation />} />
           <Route path="/climate-change-adaptation" element={<ClimateChangeAdaptation />} />
           <Route path="/sustainable-development" element={<SustainableDevelopment />} />
+          <Route path="/indigenous-knowledge" element={<IndigenousKnowledge />} />
           <Route path="/staff-login" element={<StaffLogin />} />
           <Route path="/student-login" element={<StudentLogin />} />
           <Route path="/applicant-login" element={<ApplicantLogin />} />
