@@ -13,7 +13,7 @@ const InternationalSupportHero = () => {
           backgroundImage: 'url(https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&q=80&auto=format&fit=crop)',
         }}
       >
-        <div className="absolute inset-0 bg-[#082952]/70"></div>
+        
       </div>
       
       <div className="container mx-auto px-4 relative z-10">

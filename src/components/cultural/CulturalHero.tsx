@@ -13,7 +13,7 @@ const CulturalHero = () => {
           backgroundImage: 'url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80&auto=format&fit=crop)',
         }}
       >
-        <div className="absolute inset-0 bg-[#082952]/70"></div>
+        
       </div>
       
       <div className="container mx-auto px-4 relative z-10">

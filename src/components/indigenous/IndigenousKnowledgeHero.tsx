@@ -11,7 +11,7 @@ const IndigenousKnowledgeHero = () => {
         style={{ backgroundImage: `url(${heroImage})` }}
       />
       
-      <div className="absolute inset-0 bg-gradient-to-r from-[#082952]/90 to-transparent" />
+      
       
       <div className="relative z-10 container mx-auto px-4 text-white">
         <div className="max-w-3xl">
