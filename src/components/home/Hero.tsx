@@ -40,7 +40,8 @@ const Hero = () => {
             Discover Your Potential at SINU
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl mb-8 font-semibold drop-shadow-lg">
-            Its Your Future. Let us help you discover it.
+            <span className="block md:hidden">Discover Your Potential at SINU</span>
+            <span className="hidden md:block">Its Your Future. Let us help you discover it.</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
