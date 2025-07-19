@@ -26,6 +26,7 @@ import CulturalOrientation from "./pages/CulturalOrientation";
 import InternationalStudentSupport from "./pages/InternationalStudentSupport";
 import ExchangeProgram from "./pages/ExchangeProgram";
 import PartnerUniversities from "./pages/PartnerUniversities";
+import StudyAbroad from "./pages/StudyAbroad";
 import StaffLogin from "./pages/StaffLogin";
 import StudentLogin from "./pages/StudentLogin";
 import ApplicantLogin from "./pages/ApplicantLogin";
@@ -62,6 +63,7 @@ const App = () => (
           <Route path="/international-student-support" element={<InternationalStudentSupport />} />
           <Route path="/exchange-program" element={<ExchangeProgram />} />
           <Route path="/partner-universities" element={<PartnerUniversities />} />
+          <Route path="/study-abroad" element={<StudyAbroad />} />
           <Route path="/staff-login" element={<StaffLogin />} />
           <Route path="/student-login" element={<StudentLogin />} />
           <Route path="/applicant-login" element={<ApplicantLogin />} />
