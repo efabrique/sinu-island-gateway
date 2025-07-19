@@ -40,7 +40,7 @@ const Hero = () => {
             Discover Your Potential at SINU
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl mb-8 font-semibold drop-shadow-lg">
-            Discover Your Potential at SINU
+            Its Your Future. Let us help you discover it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
