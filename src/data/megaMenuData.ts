@@ -50,7 +50,7 @@ export const megaMenuData = {
           { title: "Partner Universities", url: "/partner-universities" },
           { title: "Study Abroad", url: "/study-abroad" },
           { title: "International Scholarships", url: "/international-scholarships" },
-          { title: "Global Research Collaborations", url: "#" },
+          { title: "Global Research Collaborations", url: "/global-research-collaborations" },
           { title: "International Events", url: "#" }
         ]
       }
