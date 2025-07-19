@@ -26,8 +26,8 @@ const IndigenousKnowledgeHero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-90">
-            Supporting and promoting the unique perspectives, knowledge and contributions 
-            of Aboriginal and Torres Strait Islander people through Indigenous-led research.
+            Supporting and promoting the unique perspectives, knowledge, and contributions 
+            of Solomon Islanders and Pacific Islander people through Indigenous-led research.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">

@@ -70,7 +70,7 @@ export const megaMenuData = {
           { title: "Sustainable Development", url: "/sustainable-development" },
           { title: "Indigenous Knowledge", url: "/indigenous-knowledge" },
           { title: "Public Health", url: "#" },
-          { title: "Renewable Energy", url: "#" }
+          { title: "Security Studies", url: "#" }
         ]
       },
       {
