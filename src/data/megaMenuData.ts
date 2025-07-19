@@ -47,7 +47,7 @@ export const megaMenuData = {
         title: "Global Initiatives",
         links: [
           { title: "Exchange Programs", url: "/exchange-program" },
-          { title: "Partner Universities", url: "#" },
+          { title: "Partner Universities", url: "/partner-universities" },
           { title: "Study Abroad", url: "#" },
           { title: "International Scholarships", url: "#" },
           { title: "Global Research Collaborations", url: "#" },
