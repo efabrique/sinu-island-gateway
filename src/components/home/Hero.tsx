@@ -23,8 +23,8 @@ const Hero = () => {
       {/* Background Image - Mobile */}
       <div className="absolute inset-0 block md:hidden">
         <OptimizedImage
-          src="/lovable-uploads/dd83a8a4-d4ea-40b9-924f-7052266d9b2a.png"
-          alt="Beautiful coastal city at night with illuminated buildings and harbor"
+          src="/lovable-uploads/dd607778-2df7-469b-8bdd-075226d8cec6.png"
+          alt="Student in yellow dress holding book"
           className="w-full h-full object-cover object-center"
           objectFit="cover"
           priority={true}
