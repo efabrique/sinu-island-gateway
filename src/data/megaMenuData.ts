@@ -66,7 +66,7 @@ export const megaMenuData = {
         title: "Research Areas",
         links: [
           { title: "Marine Science & Conservation", url: "/marine-science-conservation" },
-          { title: "Climate Change Adaptation", url: "#" },
+          { title: "Climate Change Adaptation", url: "/climate-change-adaptation" },
           { title: "Sustainable Development", url: "#" },
           { title: "Indigenous Knowledge", url: "#" },
           { title: "Public Health", url: "#" },
