@@ -24,11 +24,11 @@ const CulturalHero = () => {
             </div>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Cultural Orientation
           </h1>
           
-          <p className="text-xl md:text-2xl mb-8 text-[#edf4ff]">
+          <p className="text-xl md:text-2xl mb-8 text-[#edf4ff]" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Welcome to Solomon Islands - Discover culture, build connections, and make SINU your home
           </p>
           

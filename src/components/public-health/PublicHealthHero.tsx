@@ -15,12 +15,12 @@ export function PublicHealthHero() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Transformative Public Health
             <span className="text-[#8ecae6] block">Research Excellence</span>
           </h1>
           
-          <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-90">
+          <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-90" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Be surrounded by world-leading researchers making discoveries in fields including 
             early influences on health, global health, environmental health, and evidence-based policy.
           </p>

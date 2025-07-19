@@ -8,10 +8,10 @@ export function StudyAbroadHero() {
         style={{ backgroundImage: `url(${studyAbroadHero})` }}
       />
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 text-shadow-lg">
+        <h1 className="text-5xl md:text-6xl font-bold mb-6 text-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
           Study Abroad Program
         </h1>
-        <p className="text-xl md:text-2xl mb-8 text-shadow font-medium">
+        <p className="text-xl md:text-2xl mb-8 text-shadow font-medium" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
           Experience world-class education at Solomon Islands National University and broaden your global perspective
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

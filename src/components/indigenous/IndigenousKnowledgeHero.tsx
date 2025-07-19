@@ -20,12 +20,12 @@ const IndigenousKnowledgeHero = () => {
             <span className="text-[#ffb703] font-semibold text-lg">Research Excellence</span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Indigenous Knowledge
             <span className="block text-[#8ecae6]">Research Network</span>
           </h1>
           
-          <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-90">
+          <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-90" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Supporting and promoting the unique perspectives, knowledge, and contributions 
             of Solomon Islanders and Pacific Islander people through Indigenous-led research.
           </p>

@@ -16,10 +16,10 @@ const MarineScienceHero: React.FC = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Marine Studies Institute
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200">
+          <p className="text-xl md:text-2xl mb-8 text-gray-200" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Innovating ways to understand and manage the marine environment
           </p>
           

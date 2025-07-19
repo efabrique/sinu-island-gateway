@@ -20,10 +20,10 @@ const AccommodationHero = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Student Accommodation
           </h1>
-          <p className="text-lg md:text-xl text-[#8ecae6] mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-[#8ecae6] mb-8 leading-relaxed" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Find your home away from home at Solomon Islands National University. We offer comfortable, safe, and affordable accommodation options for international and domestic students.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">

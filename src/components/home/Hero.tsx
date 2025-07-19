@@ -36,10 +36,10 @@ const Hero = () => {
       {/* Content - Text and Buttons directly on image */}
       <div className="relative h-full flex items-center justify-center">
         <div className="text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Discover Your Potential at SINU
           </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl mb-8 font-semibold drop-shadow-lg">
+          <p className="text-xl md:text-2xl lg:text-3xl mb-8 font-semibold drop-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             <span className="block md:hidden">Discover Your Potential at SINU</span>
             <span className="hidden md:block">Its Your Future. Let us help you discover it.</span>
           </p>

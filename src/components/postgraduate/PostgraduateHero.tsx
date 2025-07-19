@@ -43,7 +43,7 @@ const PostgraduateHero = () => {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 Postgraduate Study at SINU
               </h1>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

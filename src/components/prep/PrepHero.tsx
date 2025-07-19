@@ -47,11 +47,11 @@ const PrepHero = () => {
                 <GraduationCap className="h-10 w-10 text-[#082952]" />
               </div>
               
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 University Preparatory Courses
               </h1>
               
-              <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
+              <p className="text-xl text-white mb-8 max-w-3xl mx-auto" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 Build the skills and confidence you need to succeed at university. Our preparatory programs 
                 provide a pathway to undergraduate study for students who don't meet direct entry requirements.
               </p>
