@@ -1,3 +1,5 @@
+import { BookOpen, Users, Globe, Heart, Handshake } from 'lucide-react';
+
 export function ProgramOverview() {
   return (
     <section className="py-16 px-4">
@@ -14,7 +16,7 @@ export function ProgramOverview() {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white rounded-lg p-8 shadow-lg" style={{ borderTop: '4px solid #ffb703' }}>
             <div className="w-16 h-16 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#8ecae6' }}>
-              <span className="text-2xl" style={{ color: '#082952' }}>🌏</span>
+              <Globe className="h-8 w-8" style={{ color: '#082952' }} />
             </div>
             <h3 className="text-xl font-semibold mb-4" style={{ color: '#082952' }}>
               International Perspective
@@ -26,7 +28,7 @@ export function ProgramOverview() {
 
           <div className="bg-white rounded-lg p-8 shadow-lg" style={{ borderTop: '4px solid #219ebc' }}>
             <div className="w-16 h-16 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#8ecae6' }}>
-              <span className="text-2xl" style={{ color: '#082952' }}>📚</span>
+              <BookOpen className="h-8 w-8" style={{ color: '#082952' }} />
             </div>
             <h3 className="text-xl font-semibold mb-4" style={{ color: '#082952' }}>
               Academic Excellence
@@ -38,7 +40,7 @@ export function ProgramOverview() {
 
           <div className="bg-white rounded-lg p-8 shadow-lg" style={{ borderTop: '4px solid #d7a12c' }}>
             <div className="w-16 h-16 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#8ecae6' }}>
-              <span className="text-2xl" style={{ color: '#082952' }}>🤝</span>
+              <Handshake className="h-8 w-8" style={{ color: '#082952' }} />
             </div>
             <h3 className="text-xl font-semibold mb-4" style={{ color: '#082952' }}>
               Cultural Immersion

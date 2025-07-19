@@ -1,3 +1,5 @@
+import { Waves, Leaf, GraduationCap, Hospital } from 'lucide-react';
+
 export function PartnershipImpact() {
   return (
     <section className="py-16 px-4" style={{ backgroundColor: '#edf4ff' }}>
@@ -15,7 +17,7 @@ export function PartnershipImpact() {
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
           <div className="bg-white rounded-lg p-8 shadow-lg">
             <div className="w-16 h-16 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#ffb703' }}>
-              <span className="text-2xl">🌊</span>
+              <Waves className="h-8 w-8" style={{ color: '#082952' }} />
             </div>
             <h3 className="text-xl font-semibold mb-4" style={{ color: '#082952' }}>
               Marine Conservation Technology
@@ -27,7 +29,7 @@ export function PartnershipImpact() {
 
           <div className="bg-white rounded-lg p-8 shadow-lg">
             <div className="w-16 h-16 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#219ebc' }}>
-              <span className="text-2xl text-white">🏥</span>
+              <Hospital className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-4" style={{ color: '#082952' }}>
               Tropical Disease Research
@@ -39,7 +41,7 @@ export function PartnershipImpact() {
 
           <div className="bg-white rounded-lg p-8 shadow-lg">
             <div className="w-16 h-16 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#8ecae6' }}>
-              <span className="text-2xl">🌱</span>
+              <Leaf className="h-8 w-8" style={{ color: '#082952' }} />
             </div>
             <h3 className="text-xl font-semibold mb-4" style={{ color: '#082952' }}>
               Climate Adaptation Strategies
@@ -51,7 +53,7 @@ export function PartnershipImpact() {
 
           <div className="bg-white rounded-lg p-8 shadow-lg">
             <div className="w-16 h-16 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#d7a12c' }}>
-              <span className="text-2xl">🎓</span>
+              <GraduationCap className="h-8 w-8" style={{ color: '#082952' }} />
             </div>
             <h3 className="text-xl font-semibold mb-4" style={{ color: '#082952' }}>
               Indigenous Knowledge Systems

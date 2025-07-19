@@ -1,3 +1,5 @@
+import { Mail, MapPin, Phone } from 'lucide-react';
+
 export function ContactSupport() {
   return (
     <section className="py-16 px-4" style={{ backgroundColor: '#edf4ff' }}>
@@ -14,7 +16,7 @@ export function ContactSupport() {
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="w-8 h-8 rounded-full mr-4 mt-1 flex items-center justify-center" style={{ backgroundColor: '#ffb703' }}>
-                  <span className="text-sm" style={{ color: '#082952' }}>📧</span>
+                  <Mail className="h-4 w-4" style={{ color: '#082952' }} />
                 </div>
                 <div>
                   <p className="font-semibold mb-1" style={{ color: '#082952' }}>Email</p>
@@ -25,7 +27,7 @@ export function ContactSupport() {
               
               <div className="flex items-start">
                 <div className="w-8 h-8 rounded-full mr-4 mt-1 flex items-center justify-center" style={{ backgroundColor: '#219ebc' }}>
-                  <span className="text-sm text-white">📞</span>
+                  <Phone className="h-4 w-4 text-white" />
                 </div>
                 <div>
                   <p className="font-semibold mb-1" style={{ color: '#082952' }}>Phone</p>
@@ -36,7 +38,7 @@ export function ContactSupport() {
               
               <div className="flex items-start">
                 <div className="w-8 h-8 rounded-full mr-4 mt-1 flex items-center justify-center" style={{ backgroundColor: '#8ecae6' }}>
-                  <span className="text-sm" style={{ color: '#082952' }}>📍</span>
+                  <MapPin className="h-4 w-4" style={{ color: '#082952' }} />
                 </div>
                 <div>
                   <p className="font-semibold mb-1" style={{ color: '#082952' }}>Office Location</p>

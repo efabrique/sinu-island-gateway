@@ -1,3 +1,5 @@
+import { Mail, Phone, Calendar, Globe, Users, Headphones, Clock } from 'lucide-react';
+
 export const EventsSupport = () => {
   return (
     <section className="py-20 bg-white">
@@ -104,9 +106,18 @@ export const EventsSupport = () => {
             <div className="mt-8 pt-6 border-t border-[#8ecae6]/30">
               <h4 className="font-bold text-[#082952] mb-3">Contact Information</h4>
               <div className="space-y-2 text-sm text-[#082952]/70">
-                <p>📧 events@sinu.edu.sb</p>
-                <p>📞 +677 30100 (International Events)</p>
-                <p>🕒 Monday - Friday, 8:00 AM - 5:00 PM (SBT)</p>
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4" />
+                  <span>events@sinu.edu.sb</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <span>+677 30100 (International Events)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="h-4 w-4" />
+                  <span>Monday - Friday, 8:00 AM - 5:00 PM (SBT)</span>
+                </div>
               </div>
             </div>
           </div>

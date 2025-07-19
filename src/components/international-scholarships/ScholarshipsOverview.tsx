@@ -1,3 +1,5 @@
+import { Trophy, Target, Users, DollarSign, Globe } from 'lucide-react';
+
 export function ScholarshipsOverview() {
   return (
     <section className="py-16 px-4">
@@ -14,7 +16,7 @@ export function ScholarshipsOverview() {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white rounded-lg p-8 shadow-lg text-center" style={{ borderTop: '4px solid #ffb703' }}>
             <div className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center" style={{ backgroundColor: '#8ecae6' }}>
-              <span className="text-3xl">🏆</span>
+              <Trophy className="h-10 w-10" style={{ color: '#082952' }} />
             </div>
             <h3 className="text-xl font-semibold mb-4" style={{ color: '#082952' }}>
               Merit-Based Awards
@@ -26,7 +28,7 @@ export function ScholarshipsOverview() {
 
           <div className="bg-white rounded-lg p-8 shadow-lg text-center" style={{ borderTop: '4px solid #219ebc' }}>
             <div className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center" style={{ backgroundColor: '#8ecae6' }}>
-              <span className="text-3xl">💰</span>
+              <DollarSign className="h-10 w-10" style={{ color: '#082952' }} />
             </div>
             <h3 className="text-xl font-semibold mb-4" style={{ color: '#082952' }}>
               Financial Support
@@ -38,7 +40,7 @@ export function ScholarshipsOverview() {
 
           <div className="bg-white rounded-lg p-8 shadow-lg text-center" style={{ borderTop: '4px solid #d7a12c' }}>
             <div className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center" style={{ backgroundColor: '#8ecae6' }}>
-              <span className="text-3xl">🌍</span>
+              <Globe className="h-10 w-10" style={{ color: '#082952' }} />
             </div>
             <h3 className="text-xl font-semibold mb-4" style={{ color: '#082952' }}>
               Global Opportunities
