@@ -40,6 +40,7 @@ import Publications from "./pages/Publications";
 import ResearchGrants from "./pages/ResearchGrants";
 import EthicsCommittee from "./pages/EthicsCommittee";
 import ResearchPartnerships from "./pages/ResearchPartnerships";
+import ResearchSeminars from "./pages/ResearchSeminars";
 import StaffLogin from "./pages/StaffLogin";
 import StudentLogin from "./pages/StudentLogin";
 import ApplicantLogin from "./pages/ApplicantLogin";
@@ -90,6 +91,7 @@ const App = () => (
         <Route path="/research-grants" element={<ResearchGrants />} />
           <Route path="/ethics-committee" element={<EthicsCommittee />} />
           <Route path="/research-partnerships" element={<ResearchPartnerships />} />
+          <Route path="/research-seminars" element={<ResearchSeminars />} />
           <Route path="/staff-login" element={<StaffLogin />} />
           <Route path="/student-login" element={<StudentLogin />} />
           <Route path="/applicant-login" element={<ApplicantLogin />} />

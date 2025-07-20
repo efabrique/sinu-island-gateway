@@ -81,7 +81,7 @@ export const megaMenuData = {
           { title: "Research Grants", url: "/research-grants" },
           { title: "Ethics Committee", url: "/ethics-committee" },
           { title: "Research Partnerships", url: "/research-partnerships" },
-          { title: "Research Seminars", url: "#" }
+          { title: "Research Seminars", url: "/research-seminars" }
         ]
       }
     ],
