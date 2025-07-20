@@ -37,6 +37,7 @@ import IndigenousKnowledge from "./pages/IndigenousKnowledge";
 import PublicHealth from "./pages/PublicHealth";
 import ResearchCentersInstitutes from "./pages/ResearchCentersInstitutes";
 import Publications from "./pages/Publications";
+import ResearchGrants from "./pages/ResearchGrants";
 import StaffLogin from "./pages/StaffLogin";
 import StudentLogin from "./pages/StudentLogin";
 import ApplicantLogin from "./pages/ApplicantLogin";
@@ -84,6 +85,7 @@ const App = () => (
         <Route path="/public-health" element={<PublicHealth />} />
         <Route path="/research-centers-institutes" element={<ResearchCentersInstitutes />} />
         <Route path="/publications" element={<Publications />} />
+        <Route path="/research-grants" element={<ResearchGrants />} />
           <Route path="/staff-login" element={<StaffLogin />} />
           <Route path="/student-login" element={<StudentLogin />} />
           <Route path="/applicant-login" element={<ApplicantLogin />} />
