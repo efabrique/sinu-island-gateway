@@ -1,4 +1,8 @@
 import React from 'react';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import BackToTop from '@/components/common/BackToTop';
+import ErrorBoundary from '@/components/common/ErrorBoundary';
 import { HealthWellnessHero } from '@/components/health-wellness/HealthWellnessHero';
 import { HealthOverview } from '@/components/health-wellness/HealthOverview';
 import { MedicalServices } from '@/components/health-wellness/MedicalServices';
@@ -11,16 +15,43 @@ import { ContactHealth } from '@/components/health-wellness/ContactHealth';
 
 const HealthWellness = () => {
   return (
-    <div className="min-h-screen">
-      <HealthWellnessHero />
-      <HealthOverview />
-      <MedicalServices />
-      <WellnessPrograms />
-      <CounselingSupport />
-      <AccessibilitySupport />
-      <FitnessRecreation />
-      <EmergencyServices />
-      <ContactHealth />
+    <div className="min-h-screen flex flex-col">
+      <ErrorBoundary>
+        <Header />
+      </ErrorBoundary>
+      <main className="flex-grow">
+        <ErrorBoundary>
+          <HealthWellnessHero />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <HealthOverview />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <MedicalServices />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <WellnessPrograms />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <CounselingSupport />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <AccessibilitySupport />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <FitnessRecreation />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <EmergencyServices />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <ContactHealth />
+        </ErrorBoundary>
+      </main>
+      <ErrorBoundary>
+        <Footer />
+      </ErrorBoundary>
+      <BackToTop />
     </div>
   );
 };
