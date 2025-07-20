@@ -88,20 +88,20 @@ const App = () => (
           <Route path="/international-events" element={<InternationalEvents />} />
           <Route path="/marine-science-conservation" element={<MarineScienceConservation />} />
           <Route path="/climate-change-adaptation" element={<ClimateChangeAdaptation />} />
-        <Route path="/sustainable-development" element={<SustainableDevelopment />} />
-        <Route path="/indigenous-knowledge" element={<IndigenousKnowledge />} />
-        <Route path="/public-health" element={<PublicHealth />} />
-        <Route path="/research-centers-institutes" element={<ResearchCentersInstitutes />} />
-        <Route path="/publications" element={<Publications />} />
-        <Route path="/research-grants" element={<ResearchGrants />} />
+          <Route path="/sustainable-development" element={<SustainableDevelopment />} />
+          <Route path="/indigenous-knowledge" element={<IndigenousKnowledge />} />
+          <Route path="/public-health" element={<PublicHealth />} />
+          <Route path="/research-centers-institutes" element={<ResearchCentersInstitutes />} />
+          <Route path="/publications" element={<Publications />} />
+          <Route path="/research-grants" element={<ResearchGrants />} />
           <Route path="/ethics-committee" element={<EthicsCommittee />} />
           <Route path="/research-partnerships" element={<ResearchPartnerships />} />
           <Route path="/research-seminars" element={<ResearchSeminars />} />
           <Route path="/student-clubs" element={<StudentClubs />} />
           <Route path="/sports-recreation" element={<SportsRecreation />} />
           <Route path="/arts-culture" element={<ArtsCulture />} />
-        <Route path="/dining-services" element={<DiningServices />} />
-        <Route path="/health-wellness" element={<HealthWellness />} />
+          <Route path="/dining-services" element={<DiningServices />} />
+          <Route path="/health-wellness" element={<HealthWellness />} />
           <Route path="/staff-login" element={<StaffLogin />} />
           <Route path="/student-login" element={<StudentLogin />} />
           <Route path="/applicant-login" element={<ApplicantLogin />} />
