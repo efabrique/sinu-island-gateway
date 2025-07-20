@@ -99,7 +99,7 @@ export const megaMenuData = {
           { title: "Sports & Recreation", url: "/sports-recreation" },
           { title: "Arts & Culture", url: "/arts-culture" },
           { title: "Dining Services", url: "/dining-services" },
-          { title: "Health & Wellness", url: "#" },
+          { title: "Health & Wellness", url: "/health-wellness" },
           { title: "Campus Events", url: "#" }
         ]
       },
