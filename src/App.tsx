@@ -42,6 +42,7 @@ import EthicsCommittee from "./pages/EthicsCommittee";
 import ResearchPartnerships from "./pages/ResearchPartnerships";
 import ResearchSeminars from "./pages/ResearchSeminars";
 import StudentClubs from "./pages/StudentClubs";
+import SportsRecreation from "./pages/SportsRecreation";
 import StaffLogin from "./pages/StaffLogin";
 import StudentLogin from "./pages/StudentLogin";
 import ApplicantLogin from "./pages/ApplicantLogin";
@@ -94,6 +95,7 @@ const App = () => (
           <Route path="/research-partnerships" element={<ResearchPartnerships />} />
           <Route path="/research-seminars" element={<ResearchSeminars />} />
           <Route path="/student-clubs" element={<StudentClubs />} />
+          <Route path="/sports-recreation" element={<SportsRecreation />} />
           <Route path="/staff-login" element={<StaffLogin />} />
           <Route path="/student-login" element={<StudentLogin />} />
           <Route path="/applicant-login" element={<ApplicantLogin />} />
