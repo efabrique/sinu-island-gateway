@@ -47,6 +47,7 @@ import ArtsCulture from "./pages/ArtsCulture";
 import DiningServices from "./pages/DiningServices";
 import HealthWellness from "./pages/HealthWellness";
 import CampusEvents from "./pages/CampusEvents";
+import CampusAccommodation from "./pages/CampusAccommodation";
 import StaffLogin from "./pages/StaffLogin";
 import StudentLogin from "./pages/StudentLogin";
 import ApplicantLogin from "./pages/ApplicantLogin";
@@ -104,6 +105,7 @@ const App = () => (
           <Route path="/dining-services" element={<DiningServices />} />
           <Route path="/health-wellness" element={<HealthWellness />} />
           <Route path="/campus-events" element={<CampusEvents />} />
+          <Route path="/campus-accommodation" element={<CampusAccommodation />} />
           <Route path="/staff-login" element={<StaffLogin />} />
           <Route path="/student-login" element={<StudentLogin />} />
           <Route path="/applicant-login" element={<ApplicantLogin />} />
