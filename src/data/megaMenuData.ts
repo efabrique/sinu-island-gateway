@@ -80,7 +80,7 @@ export const megaMenuData = {
           { title: "Publications", url: "/publications" },
           { title: "Research Grants", url: "/research-grants" },
           { title: "Ethics Committee", url: "/ethics-committee" },
-          { title: "Research Partnerships", url: "#" },
+          { title: "Research Partnerships", url: "/research-partnerships" },
           { title: "Research Seminars", url: "#" }
         ]
       }
