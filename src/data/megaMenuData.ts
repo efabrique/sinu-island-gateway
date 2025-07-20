@@ -97,7 +97,7 @@ export const megaMenuData = {
         links: [
           { title: "Student Clubs & Organizations", url: "/student-clubs" },
           { title: "Sports & Recreation", url: "/sports-recreation" },
-          { title: "Arts & Culture", url: "#" },
+          { title: "Arts & Culture", url: "/arts-culture" },
           { title: "Dining Services", url: "#" },
           { title: "Health & Wellness", url: "#" },
           { title: "Campus Events", url: "#" }
