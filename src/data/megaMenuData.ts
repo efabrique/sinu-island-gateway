@@ -107,7 +107,7 @@ export const megaMenuData = {
         title: "Campus Resources",
         links: [
           { title: "Campus Accommodation", url: "/campus-accommodation" },
-          { title: "Transportation", url: "#" },
+          { title: "Transportation", url: "/transportation" },
           { title: "Security Services", url: "#" },
           { title: "Student Center", url: "#" },
           { title: "Technology Services", url: "#" },
