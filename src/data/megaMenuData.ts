@@ -77,7 +77,7 @@ export const megaMenuData = {
         title: "Research Resources",
         links: [
           { title: "Research Centers & Institutes", url: "/research-centers-institutes" },
-          { title: "Publications", url: "#" },
+          { title: "Publications", url: "/publications" },
           { title: "Research Grants", url: "#" },
           { title: "Ethics Committee", url: "#" },
           { title: "Research Partnerships", url: "#" },
