@@ -8,6 +8,7 @@ import QuickLinks from '@/components/home/QuickLinks';
 import Footer from '@/components/layout/Footer';
 import BackToTop from '@/components/common/BackToTop';
 import ErrorBoundary from '@/components/common/ErrorBoundary';
+import MissonVision from '@/components/home/MissionVission';
 
 const Index = () => {
   return (
@@ -18,6 +19,10 @@ const Index = () => {
       <main className="flex-grow">
         <ErrorBoundary>
           <Hero />
+        </ErrorBoundary>
+        <div className="my-10" />
+        <ErrorBoundary>
+          <MissonVision />
         </ErrorBoundary>
         <ErrorBoundary>
           <FeaturedPrograms />
