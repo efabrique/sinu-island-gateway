@@ -64,15 +64,15 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id, isScroll
     if (isScrolled) {
       // When scrolled, use white text by default
       if (isHovered || isActive) {
-        return `${baseClasses} bg-white text-[#082952]`;
+        return `${baseClasses} bg-[#f9c74f] text-[#023047] hover:bg-[#f9c74f] hover:text-[#023047]`;
       }
-      return `${baseClasses} text-white hover:bg-white hover:text-[#082952]`;
+      return `${baseClasses} text-white hover:bg-[#f9c74f] hover:text-[#023047]`;
     } else {
       // Normal state (not scrolled)
       if (isHovered || isActive) {
-        return `${baseClasses} bg-white text-[#082952]`;
+        return `${baseClasses} bg-[#f9c74f] text-[#023047] hover:bg-[#f9c74f] hover:text-[#023047]`;
       }
-      return `${baseClasses} hover:text-[#023047]`;
+      return `${baseClasses} text-white hover:bg-[#f9c74f] hover:text-[#023047] `;
     }
   };
 

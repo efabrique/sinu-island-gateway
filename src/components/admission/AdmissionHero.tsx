@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { GraduationCap, Globe, Users, FileCheck } from 'lucide-react';
 
 const AdmissionHero = () => {

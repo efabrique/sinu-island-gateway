@@ -20,10 +20,10 @@ const Index = () => {
           <Hero />
         </ErrorBoundary>
         <ErrorBoundary>
-          <QuickLinks />
-        </ErrorBoundary>
-        <ErrorBoundary>
           <FeaturedPrograms />
+        </ErrorBoundary>
+          <ErrorBoundary>
+          <QuickLinks />
         </ErrorBoundary>
         <ErrorBoundary>
           <NewsEvents />
