@@ -1,6 +1,11 @@
-
-import React from 'react';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import OptimizedImage from '../common/OptimizedImage';
@@ -24,29 +29,80 @@ const programs = [
     description: "Shape the future by becoming a skilled educator with our teaching certification programs.",
     image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511",
     link: "#"
+  },
+  {
+    title: "Computer Science",
+    description: "Master AI, cybersecurity, and software development with our cutting-edge CS curriculum.",
+    image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+    link: "#"
+  },
+  {
+    title: "Public Health",
+    description: "Empower communities and improve healthcare systems through impactful public health training.",
+    image: "https://images.unsplash.com/photo-1551601651-2a8555f1a136",
+    link: "#"
   }
 ];
 
 const FeaturedPrograms = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const scrollStep = 1;
+    const delay = 30;
+
+    const interval = setInterval(() => {
+      if (!isPaused && container) {
+        if (direction === 'right') {
+          container.scrollLeft += scrollStep;
+
+          if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
+            setDirection('left');
+          }
+        } else {
+          container.scrollLeft -= scrollStep;
+
+          if (container.scrollLeft <= 0) {
+            setDirection('right');
+          }
+        }
+      }
+    }, delay);
+
+    return () => clearInterval(interval);
+  }, [isPaused, direction]);
+
   return (
     <ErrorBoundary>
-      <section className="py-8 md:py-16 bg-[#F8F8F8]">
+      <section className="py-8 md:py-8 bg-[#F8F8F8]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#219ebc] mb-4">Featured Academic Programs</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#082952] mb-4">
+              Featured Academic Programs
+            </h2>
             <p className="text-base md:text-lg text-[#023047] max-w-2xl mx-auto">
               Discover our diverse range of undergraduate and graduate programs designed to prepare you for success.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+          <div
+            ref={scrollRef}
+            className="flex overflow-x-auto space-x-6 md:space-x-8 scroll-smooth py-4 px-1 scrollbar-hide"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             {programs.map((program, index) => (
               <ErrorBoundary key={index}>
-                <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <Card className="min-w-[280px] max-w-[280px] shrink-0 overflow-hidden hover:shadow-lg transition-shadow duration-300">
                   <div className="h-48 overflow-hidden">
-                    <OptimizedImage 
-                      src={program.image} 
-                      alt={program.title} 
+                    <OptimizedImage
+                      src={program.image}
+                      alt={program.title}
                       className="w-full h-full"
                       objectFit="cover"
                       width={400}
@@ -54,10 +110,15 @@ const FeaturedPrograms = () => {
                   </div>
                   <CardHeader>
                     <CardTitle className="text-[#023047]">{program.title}</CardTitle>
-                    <CardDescription className="text-[#023047]/80">{program.description}</CardDescription>
+                    <CardDescription className="text-[#023047]/80">
+                      {program.description}
+                    </CardDescription>
                   </CardHeader>
                   <CardFooter>
-                    <Button variant="outline" className="w-full text-[#219ebc] border-[#219ebc] hover:bg-[#219ebc] hover:text-white">
+                    <Button
+                      variant="outline"
+                      className="w-full text-[#219ebc] border-[#219ebc] hover:bg-[#219ebc] hover:text-white"
+                    >
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -66,9 +127,9 @@ const FeaturedPrograms = () => {
               </ErrorBoundary>
             ))}
           </div>
-          
-          <div className="text-center mt-8 md:mt-12">
-            <Button className="bg-[#219ebc] text-white hover:bg-[#219ebc]/90">
+
+          <div className="text-center mt-8 md:mt-8">
+            <Button className="bg-[#082952] text-white hover:bg-[#082952]/90">
               View All Programs
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

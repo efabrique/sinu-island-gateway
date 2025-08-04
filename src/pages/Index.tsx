@@ -9,6 +9,10 @@ import Footer from '@/components/layout/Footer';
 import BackToTop from '@/components/common/BackToTop';
 import ErrorBoundary from '@/components/common/ErrorBoundary';
 import MissonVision from '@/components/home/MissionVission';
+import StudyWithUs from '@/components/home/StudyWithUs';
+import StudentServices from '@/components/home/StudentServices';
+import OurStories from '@/components/home/OurStories';
+import NewsAndEvents from '@/components/home/NewsAndEvents';
 
 const Index = () => {
   return (
@@ -25,13 +29,22 @@ const Index = () => {
           <MissonVision />
         </ErrorBoundary>
         <ErrorBoundary>
+          <StudyWithUs/>
+        </ErrorBoundary>
+          <ErrorBoundary>
+          <StudentServices/>
+        </ErrorBoundary>
+        <ErrorBoundary>
           <FeaturedPrograms />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <OurStories />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <NewsAndEvents />
         </ErrorBoundary>
           <ErrorBoundary>
           <QuickLinks />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <NewsEvents />
         </ErrorBoundary>
       </main>
       <ErrorBoundary>
