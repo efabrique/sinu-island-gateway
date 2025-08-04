@@ -13,6 +13,7 @@ import StudyWithUs from '@/components/home/StudyWithUs';
 import StudentServices from '@/components/home/StudentServices';
 import OurStories from '@/components/home/OurStories';
 import NewsAndEvents from '@/components/home/NewsAndEvents';
+import DFL from '@/components/home/DFL';
 
 const Index = () => {
   return (
@@ -37,15 +38,18 @@ const Index = () => {
         <ErrorBoundary>
           <FeaturedPrograms />
         </ErrorBoundary>
+        <div className="my-10" />
+        <ErrorBoundary>
+          <DFL />
+        </ErrorBoundary>
+        <div className="my-10" />
         <ErrorBoundary>
           <OurStories />
         </ErrorBoundary>
         <ErrorBoundary>
           <NewsAndEvents />
         </ErrorBoundary>
-          <ErrorBoundary>
-          <QuickLinks />
-        </ErrorBoundary>
+        <div className="my-10" />
       </main>
       <ErrorBoundary>
         <Footer />
