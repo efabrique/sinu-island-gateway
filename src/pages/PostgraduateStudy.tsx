@@ -8,6 +8,9 @@ import RequirementsSection from '@/components/postgraduate/RequirementsSection';
 import SupportSection from '@/components/postgraduate/SupportSection';
 import NextStepsSection from '@/components/postgraduate/NextStepsSection';
 import BackToTop from '@/components/common/BackToTop';
+import PostgraduateTab from '@/components/postgraduate/PostgaduateTab';
+import PostgraduateStudyOptions from '@/components/postgraduate/PostgraduateStudyOptions';
+import PostgraduateKeyDates from '@/components/postgraduate/PostgraduateKeyDates';
 
 const PostgraduateStudy = () => {
   return (
@@ -15,10 +18,13 @@ const PostgraduateStudy = () => {
       <Header />
       <main>
         <PostgraduateHero />
+        <PostgraduateTab/>
+        <NextStepsSection />
+        <PostgraduateStudyOptions/>
         <StudyOptionsSection />
         <RequirementsSection />
-        <SupportSection />
-        <NextStepsSection />
+        <PostgraduateKeyDates/>
+        
       </main>
       <Footer />
       <BackToTop />

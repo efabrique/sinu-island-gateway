@@ -15,23 +15,23 @@ const NextStepsSection = () => {
     },
     {
       icon: <MessageCircle className="h-8 w-8 text-[#219ebc]" />,
-      title: "Contact Admissions",
-      description: "Get personalized advice about your application and program requirements.",
-      action: "Contact Us",
+      title: "Check Requirements",
+      description: "Check requirements of your course before apply.",
+      action: "Course Requirements",
       actionType: "secondary"
     },
     {
       icon: <Calendar className="h-8 w-8 text-[#219ebc]" />,
-      title: "Attend Information Session",
-      description: "Join our regular information sessions to learn more about postgraduate study options.",
-      action: "Book Session",
+      title: "Submit Application",
+      description: "After careful consideration, submit your application with the required documents.",
+      action: "Submit Application",
       actionType: "secondary"
     },
     {
       icon: <Phone className="h-8 w-8 text-[#219ebc]" />,
-      title: "Schedule a Call",
-      description: "Speak directly with our postgraduate advisors to discuss your study plans.",
-      action: "Schedule Call",
+      title: "Join SINU",
+      description: "Once you recieve your admission letter. Congratulation, you are coming to SINU",
+      action: "Join SINU",
       actionType: "secondary"
     }
   ];
@@ -75,27 +75,6 @@ const NextStepsSection = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
-          
-          <div className="bg-[#8ecae6] rounded-lg p-8 text-center">
-            <h3 className="text-2xl font-bold text-[#082952] mb-4">
-              Start Your Application Today
-            </h3>
-            <p className="text-[#082952] mb-6 max-w-2xl mx-auto">
-              Join the next generation of leaders, researchers, and professionals who are 
-              shaping the future of the Solomon Islands and the Pacific region.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-[#219ebc] hover:bg-[#082952] text-white px-8 py-3">
-                Apply Now
-              </Button>
-              <Button 
-                variant="outline" 
-                className="border-[#082952] text-[#082952] hover:bg-[#082952] hover:text-white px-8 py-3"
-              >
-                Download Application Guide
-              </Button>
-            </div>
           </div>
         </div>
       </div>
