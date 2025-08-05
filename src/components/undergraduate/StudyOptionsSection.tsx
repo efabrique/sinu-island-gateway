@@ -55,12 +55,8 @@ const StudyOptionsSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#082952] mb-4">
-            Undergraduate Study Options
+            Search by study area...
           </h2>
-          <p className="text-lg text-[#082952] max-w-3xl mx-auto">
-            Choose from our range of undergraduate programs designed to prepare you for success 
-            in your chosen career while contributing to the development of the Solomon Islands.
-          </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

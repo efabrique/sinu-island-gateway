@@ -8,6 +8,9 @@ import RequirementsSection from '@/components/undergraduate/RequirementsSection'
 import SupportSection from '@/components/undergraduate/SupportSection';
 import NextStepsSection from '@/components/undergraduate/NextStepsSection';
 import BackToTop from '@/components/common/BackToTop';
+import UndergraduateStudyOptions from '@/components/undergraduate/UndergraduateStudyOptions';
+import UndergraduateTab from '@/components/undergraduate/UndergaduateTab';
+import KeyDatesSection from '@/components/undergraduate/UndergraduateKeyDates';
 
 const UndergraduateStudy = () => {
   return (
@@ -15,10 +18,15 @@ const UndergraduateStudy = () => {
       <Header />
       <main>
         <UndergraduateHero />
-        <StudyOptionsSection />
-        <RequirementsSection />
-        <SupportSection />
+
+        <UndergraduateTab/>
         <NextStepsSection />
+        <UndergraduateStudyOptions />
+        
+        <StudyOptionsSection />
+        
+        <RequirementsSection />
+        <KeyDatesSection />
       </main>
       <Footer />
       <BackToTop />

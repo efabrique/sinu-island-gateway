@@ -42,7 +42,7 @@ const RequirementsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-[#f8f9fa]">
+    <section className="py-10 bg-[#fff]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#023047] mb-4">
@@ -86,30 +86,6 @@ const RequirementsSection = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="bg-[#8ecae6] rounded-lg p-8 text-center">
-          <h3 className="text-2xl font-bold text-[#023047] mb-4">
-            Need Help with Your Application?
-          </h3>
-          <p className="text-[#023047] mb-6">
-            Our admissions team is here to guide you through the application process. 
-            Contact us for personalized support and advice.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <div className="text-center">
-              <p className="font-semibold text-[#023047]">Phone</p>
-              <p className="text-[#023047]">+677 12345678</p>
-            </div>
-            <div className="text-center">
-              <p className="font-semibold text-[#023047]">Email</p>
-              <p className="text-[#023047]">admissions@sinu.edu.sb</p>
-            </div>
-            <div className="text-center">
-              <p className="font-semibold text-[#023047]">Office Hours</p>
-              <p className="text-[#023047]">Mon-Fri, 8:00 AM - 4:00 PM</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
