@@ -2,37 +2,29 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { FileText, MessageCircle, Calendar, Phone } from 'lucide-react';
+import { FileText, MessageCircle, Calendar, Phone, ArrowRight } from 'lucide-react';
 
 const NextStepsSection = () => {
   const nextSteps = [
     {
-      icon: <FileText className="h-8 w-8 text-[#219ebc]" />,
+      step: "1",
       title: "Explore Programs",
-      description: "Browse our postgraduate programs and find the one that matches your interests and career goals.",
-      action: "View Programs",
-      actionType: "primary"
+      description: "Browse our undergraduate programs and find the one that matches your interests and career goals."
     },
     {
-      icon: <MessageCircle className="h-8 w-8 text-[#219ebc]" />,
+      step: "2",
       title: "Check Requirements",
-      description: "Check requirements of your course before apply.",
-      action: "Course Requirements",
-      actionType: "secondary"
+      description: "Review the entry requirements and ensure you meet the academic and other prerequisites."
     },
     {
-      icon: <Calendar className="h-8 w-8 text-[#219ebc]" />,
+      step: "3",
       title: "Submit Application",
-      description: "After careful consideration, submit your application with the required documents.",
-      action: "Submit Application",
-      actionType: "secondary"
+      description: "Complete your online application and submit all required documents by the deadline."
     },
     {
-      icon: <Phone className="h-8 w-8 text-[#219ebc]" />,
+      step: "4",
       title: "Join SINU",
-      description: "Once you recieve your admission letter. Congratulation, you are coming to SINU",
-      action: "Join SINU",
-      actionType: "secondary"
+      description: "Accept your offer, complete enrollment, and start your journey with us!"
     }
   ];
 
@@ -50,32 +42,22 @@ const NextStepsSection = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {nextSteps.map((step, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow border-[#8ecae6]">
-                <CardHeader>
-                  <div className="mx-auto mb-4 bg-[#edf4ff] w-16 h-16 rounded-full flex items-center justify-center">
-                    {step.icon}
-                  </div>
-                  <CardTitle className="text-lg text-[#082952]">{step.title}</CardTitle>
-                  <CardDescription className="text-[#082952]">
-                    {step.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button
-                    className={
-                      step.actionType === 'primary'
-                        ? "bg-[#219ebc] hover:bg-[#082952] text-white w-full"
-                        : "bg-transparent border border-[#219ebc] text-[#219ebc] hover:bg-[#219ebc] hover:text-white w-full"
-                    }
-                  >
-                    {step.action}
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-2">
+          {nextSteps.map((step, index) => (
+            <div key={index} className="text-center">
+              <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                {step.step}
+              </div>
+              <h3 className="text-lg font-semibold text-[#023047] mb-2">{step.title}</h3>
+              <p className="text-[#023047] text-sm">{step.description}</p>
+              {index < nextSteps.length - 1 && (
+                <div className="hidden md:block mt-4">
+                  <ArrowRight className="h-6 w-6 text-[#8ecae6] mx-auto" />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
         </div>
       </div>
     </section>
