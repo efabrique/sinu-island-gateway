@@ -42,6 +42,8 @@ const RequirementsSection = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#082952] mb-4">
               Admission Requirements
+                              <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+
             </h2>
             <p className="text-lg text-[#082952]">
               Find out what you need to apply for postgraduate study at SINU

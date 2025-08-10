@@ -79,11 +79,13 @@ const FeaturedPrograms = () => {
 
   return (
     <ErrorBoundary>
-      <section className="py-8 md:py-8 bg-[#F8F8F8]">
+      <section className="py-8 md:py-8 bg-[#fff]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#082952] mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mb-4  ">
               Featured Academic Programs
+                <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+
             </h2>
             <p className="text-base md:text-lg text-[#023047] max-w-2xl mx-auto">
               Discover our diverse range of undergraduate and graduate programs designed to prepare you for success.
@@ -117,7 +119,7 @@ const FeaturedPrograms = () => {
                   <CardFooter>
                     <Button
                       variant="outline"
-                      className="w-full text-[#219ebc] border-[#219ebc] hover:bg-[#219ebc] hover:text-white"
+                      className="w-full text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white"
                     >
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -129,7 +131,7 @@ const FeaturedPrograms = () => {
           </div>
 
           <div className="text-center mt-8 md:mt-8">
-            <Button className="bg-[#082952] text-white hover:bg-[#082952]/90">
+            <Button className="bg-[#035ac5ff] text-white hover:bg-[#082952]/90">
               View All Programs
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

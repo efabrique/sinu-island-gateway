@@ -21,7 +21,7 @@ const DFL: React.FC = () => {
       <div className="inherit z-10 p-8 h-full flex flex-col justify-end brightness-100 group-hover:brightness-75">
         {/* Title with hover expansion */}
         <h2 className="text-white text-4xl font-bold transition-all duration-500">
-          {hovered ? 'Distance Flexible Learning' : 'DFL'}
+          {hovered ? 'Distance & Flexible Learning' : 'DFL'}
         </h2>
 
         {/* Description */}

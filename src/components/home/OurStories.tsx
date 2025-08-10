@@ -34,7 +34,10 @@ const cards: CardItem[] = [
 const OurStories: React.FC = () => {
   return (
     <section className="py-10 px-4">
-        <h2 className="text-3xl font-bold text-center mb-8 text-[#082952]">Our Stories</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-[#082952]">Our Stories
+                <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+
+        </h2>
       <div className="max-w-7xl mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {cards.map((card, index) => (
           <div key={index} className="bg-white rounded shadow hover:shadow-md transition-shadow duration-300 overflow-hidden flex flex-col">
@@ -63,7 +66,7 @@ const OurStories: React.FC = () => {
         ))}
       </div>
         <div className="text-center mt-8 md:mt-8">
-            <Button className="bg-[#082952] text-white hover:bg-[#082952]/90">
+            <Button className="bg-[#035ac5ff] text-white hover:bg-[#082952]/90">
               Show More Stories
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

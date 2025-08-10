@@ -216,7 +216,7 @@ const ScrollableCardRow: React.FC<{ cards: CardItem[] }> = ({ cards }) => {
                 <p className="text-sm text-gray-600">{card.description}</p>
               </div>
               <div className="mt-4">
-                <a href={card.link} className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                <a href={card.link} className="inline-flex items-center text-[#035ac5ff] hover:text-blue-800 font-medium">
                   Read More
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
@@ -243,7 +243,7 @@ const NewsEventsSection: React.FC = () => {
               onClick={() => setActiveTab(tab as 'news' | 'events')}
               className={`px-5 py-2 rounded font-medium transition-colors duration-200
                 ${activeTab === tab
-                  ? 'bg-[#082952]/90 text-white'
+                  ? 'bg-[#035ac5ff]/90 text-white'
                   : 'bg-transparent text-blue-1200 hover:bg-blue-100'}`}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}

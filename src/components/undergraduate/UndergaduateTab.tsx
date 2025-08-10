@@ -32,7 +32,7 @@ const UndergraduateTab: React.FC = () => {
           <button
             key={tab.label}
             onClick={() => handleTabClick(tab)}
-            className="pl-10 px-4 py-2 text-sm md:text-base text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-500 transition bg-transparent font-bold"
+            className="pl-10 px-4 py-2 text-sm md:text-base text-gray-500 hover:text-[#222222] border-b-2 border-transparent hover:border-blue-500 transition bg-transparent font-bold"
           >
             {tab.label}
           </button>

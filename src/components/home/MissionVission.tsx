@@ -29,13 +29,13 @@ const MissionVission: React.FC = () => {
         <div
             style={{
             display: 'flex',
-            gap: '10rem',
+            gap: '18rem',
             justifyContent: 'center',
             alignItems: 'center',
-            minHeight: '20vh',
-            backgroundColor: '#0b2c55',
+            minHeight: '15vh',
+            backgroundColor: '#035ac5ff',
             padding: '2rem',
-            color: '#ffb703',
+            color: '#fff',
             fontSize: '1.5rem',
             }}
         >

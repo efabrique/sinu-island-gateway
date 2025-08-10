@@ -27,7 +27,10 @@ export default function StudyWithUs() {
                     left: '2vw', // Slight overlap
                 }}
             >
-                <h2 style={{ marginBottom: '1.5rem', fontWeight: 700, fontSize: '1.5rem' }}>Study With Us</h2>
+                <h2 style={{ marginBottom: '1.5rem', fontWeight: 700, fontSize: '1.5rem' }}>Study With Us
+                                    <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+
+                </h2>
                 <p style={{ marginBottom: '1.5rem', color: '#555', textAlign: 'justify' }}>
                     Choose a degree or course that excites and motivates, where you will gain the knowledge, industry connections and real-world experience needed to create the career you want.
                 </p>
@@ -37,7 +40,7 @@ export default function StudyWithUs() {
                             padding: '0.75rem 1.5rem',
                             borderRadius: 8,
                             border: 'none',
-                            background: '#0b2c55',
+                            background: '#035ac5ff',
                             color: '#fff',
                             fontWeight: 600,
                             fontSize: '1rem',
@@ -53,7 +56,7 @@ export default function StudyWithUs() {
                             padding: '0.75rem 1.5rem',
                             borderRadius: 8,
                             border: '1px solid #0b2c55',
-                            background: '#0b2c55',
+                            background: '#035ac5ff',
                             color: '#fff',
                             fontWeight: 600,
                             fontSize: '1rem',

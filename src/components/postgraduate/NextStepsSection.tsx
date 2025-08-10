@@ -33,8 +33,10 @@ const NextStepsSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#082952] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4">
               Ready to Take the Next Step?
+                              <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+
             </h2>
             <p className="text-lg text-[#082952] max-w-3xl mx-auto">
               Your postgraduate journey starts here. Take the next step towards advancing 
@@ -45,14 +47,14 @@ const NextStepsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-2">
           {nextSteps.map((step, index) => (
             <div key={index} className="text-center">
-              <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="bg-[#035ac5ff] text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 {step.step}
               </div>
-              <h3 className="text-lg font-semibold text-[#023047] mb-2">{step.title}</h3>
+              <h3 className="text-lg font-semibold text-[#222222] mb-2">{step.title}</h3>
               <p className="text-[#023047] text-sm">{step.description}</p>
               {index < nextSteps.length - 1 && (
                 <div className="hidden md:block mt-4">
-                  <ArrowRight className="h-6 w-6 text-[#8ecae6] mx-auto" />
+                  <ArrowRight className="h-6 w-6 text-[#035ac5ff] mx-auto" />
                 </div>
               )}
             </div>

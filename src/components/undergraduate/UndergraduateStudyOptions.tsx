@@ -46,8 +46,10 @@ const UndergraduateStudyOptions: React.FC = () => {
   return (
     <div className="w-full max-w-3xl mx-auto p-6">
                 <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#082952] mb-4">
-            Undergraduate Study Options
+          <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4">
+            Undergraduate Degrees
+                            <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+
           </h2>
           <p className="text-lg text-[#082952] max-w-3xl mx-auto">
             Choose from our range of undergraduate programs designed to prepare you for success 
@@ -55,7 +57,7 @@ const UndergraduateStudyOptions: React.FC = () => {
           </p>
         </div>
       {/* Sentence with Dropdown */}
-      <label className="text-lg font-medium text-gray-800">
+      <label className="text-lg font-medium text-[#222222]">
         Degree you are looking for:{' '}
               </label>
     <div className="relative">

@@ -32,8 +32,10 @@ const NextStepsSection = () => {
     <section className="py-10 bg-[#fff]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#023047] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4">
             Ready to Start Your Journey?
+                            <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+
           </h2>
           <p className="text-lg text-[#023047] max-w-3xl mx-auto">
             Take the next step towards your future. Follow these simple steps to begin your 
@@ -51,7 +53,7 @@ const NextStepsSection = () => {
               <p className="text-[#023047] text-sm">{step.description}</p>
               {index < nextSteps.length - 1 && (
                 <div className="hidden md:block mt-4">
-                  <ArrowRight className="h-6 w-6 text-[#8ecae6] mx-auto" />
+                  <ArrowRight className="h-6 w-6 text-[#035ac5ff] mx-auto" />
                 </div>
               )}
             </div>

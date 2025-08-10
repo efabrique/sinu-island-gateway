@@ -2,14 +2,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const tabs = [
-  { label: 'Why PostGrad', path: '/why_postgrad'},
-  { label: 'Admission Requirement', sectionId: 'pg-admission' },
+  { label: 'Why DFL', path: '/why_dfl'},
+  { label: 'Technical Requirement', sectionId: 'dfl-admission' },
   { label: 'Key Dates', sectionId: 'key-dates' },
   { label: 'Scholarships', path: '/scholarships' },
   { label: 'Events', path: '/events' },
 ];
 
-const PostgraduateTab: React.FC = () => {
+const DistanceTab: React.FC = () => {
   const navigate = useNavigate();
 
   const handleTabClick = (tab: typeof tabs[number]) => {
@@ -33,7 +33,7 @@ const PostgraduateTab: React.FC = () => {
           <button
             key={tab.label}
             onClick={() => handleTabClick(tab)}
-            className=" px-4 py-2 text-sm md:text-base text-gray-500 hover:text-[#222222] border-b-2 border-transparent hover:border-blue-500 transition bg-transparent font-bold"
+            className=" px-4 py-2 text-sm md:text-base text-gray-500 hover:text-gray-900 border-b-2 border-transparent hover:border-blue-500 transition bg-transparent font-bold"
           >
             {tab.label}
           </button>
@@ -43,4 +43,4 @@ const PostgraduateTab: React.FC = () => {
   );
 };
 
-export default PostgraduateTab;
+export default DistanceTab;

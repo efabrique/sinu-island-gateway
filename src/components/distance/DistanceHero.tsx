@@ -48,7 +48,7 @@ const DistanceHero = () => {
                 Distance & Flexible Learning Centers
               </h1>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <Button className="bg-[#219ebc] hover:bg-[#082952] text-white px-8 py-3">
+                <Button className="bg-blue-600 hover:bg-[#082952] text-white px-8 py-3">
                   Find a Center Near You
                 </Button>
                 <Button className="bg-white text-[#082952] hover:bg-[#082952] hover:text-white border-0 px-8 py-3 transition-all duration-300">
@@ -57,7 +57,7 @@ const DistanceHero = () => {
               </div>
               
               <div className="flex justify-center mt-12">
-                <div className="text-center bg-white/90 backdrop-blur-sm rounded-lg p-8 max-w-2xl">
+                <div className="text-center bg-gray/40 rounded-lg p-8 max-w-2xl">
                   <h3 className="text-2xl md:text-3xl font-semibold text-[#082952] mb-4">
                     Highly flexible, tailored for online learning and close to your home.
                   </h3>

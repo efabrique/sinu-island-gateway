@@ -41,15 +41,16 @@ const EnrollmentSection = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#082952] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4">
             Ready to Start Your Journey?
+            <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
           </h2>
           <p className="text-xl text-[#082952] max-w-3xl mx-auto">
             Follow these simple steps to enroll in our distance and flexible learning programs
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-2">
           {enrollmentSteps.map((step, index) => (
             <Card key={index} className="border-[#8ecae6] text-center hover:shadow-lg transition-shadow overflow-hidden">
               <div className="relative h-32">
@@ -62,63 +63,19 @@ const EnrollmentSection = () => {
                 <div className="absolute inset-0 bg-[#082952]/20"></div>
               </div>
               <CardHeader>
-                <div className="bg-[#8ecae6] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <step.icon className="h-8 w-8 text-[#082952]" />
+                <div className="bg-[#035ac5ff] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <step.icon className="h-8 w-8 text-[#fff]" />
                 </div>
-                <CardTitle className="text-lg text-[#082952]">{step.title}</CardTitle>
+                <CardTitle className="text-lg text-[#222222]">{step.title}</CardTitle>
                 <CardDescription className="text-[#082952]">{step.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="outline" size="sm" className="border-[#219ebc] text-[#219ebc] hover:bg-[#219ebc] hover:text-white">
+                <Button variant="outline" size="sm" className="border-[#035ac5ff] text-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white">
                   {step.action}
                 </Button>
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="bg-[#edf4ff] rounded-lg p-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl font-bold text-[#082952] mb-4">
-                Still Have Questions?
-              </h3>
-              <p className="text-[#082952] mb-6">
-                Our enrollment advisors are here to help you choose the right program 
-                and understand your options for distance and flexible learning.
-              </p>
-              <div className="space-y-3 text-[#082952]">
-                <div className="flex items-center">
-                  <span className="font-medium mr-2">Phone:</span>
-                  <span>+677 ENROLL-1 (367-6551)</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="font-medium mr-2">Email:</span>
-                  <span>distance@sinu.edu.sb</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="font-medium mr-2">Hours:</span>
-                  <span>Monday - Friday, 8:00 AM - 5:00 PM</span>
-                </div>
-              </div>
-            </div>
-            <div className="text-center">
-              <h4 className="text-xl font-semibold text-[#082952] mb-4">
-                Get Started Today
-              </h4>
-              <div className="space-y-4">
-                <Button className="bg-[#219ebc] hover:bg-[#082952] text-white px-8 py-3 w-full">
-                  Start Your Application
-                </Button>
-                <Button variant="outline" className="border-[#082952] text-[#082952] hover:bg-[#082952] hover:text-white px-8 py-3 w-full">
-                  Schedule a Call
-                </Button>
-                <Button variant="ghost" className="text-[#219ebc] hover:text-[#082952] w-full">
-                  Download Information Pack
-                </Button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

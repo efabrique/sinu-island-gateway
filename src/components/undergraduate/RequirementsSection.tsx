@@ -45,8 +45,10 @@ const RequirementsSection = () => {
     <section className="py-10 bg-[#fff]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#023047] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4">
             Entry Requirements & Application
+                            <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+
           </h2>
           <p className="text-lg text-[#023047] max-w-3xl mx-auto">
             Everything you need to know about applying for undergraduate study at SINU. 
@@ -68,17 +70,17 @@ const RequirementsSection = () => {
               </div>
               <CardHeader>
                 <div className="flex items-center gap-3">
-                  <div className="bg-[#8ecae6] p-2 rounded-lg text-[#023047]">
+                  <div className="bg-[#035ac5ff] p-2 rounded-lg text-[#fff]">
                     {req.icon}
                   </div>
-                  <CardTitle className="text-xl text-[#023047]">{req.title}</CardTitle>
+                  <CardTitle className="text-xl text-[#222222]">{req.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
                   {req.items.map((item, idx) => (
                     <li key={idx} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 mr-3 text-[#219ebc] mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 mr-3 text-[#035ac5ff] mt-0.5 flex-shrink-0" />
                       <span className="text-[#023047] text-sm">{item}</span>
                     </li>
                   ))}
