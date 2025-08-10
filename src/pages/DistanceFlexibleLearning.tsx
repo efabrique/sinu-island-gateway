@@ -12,6 +12,7 @@ import BackToTop from '@/components/common/BackToTop';
 import DistanceSearch from '@/components/distance/DistanceSearch';
 import DistanceTab from '@/components/distance/DistanceTabs';
 import DistanceKeyDates from '@/components/distance/DistanceKeyDates';
+import DFLProgramStructure from '@/components/distance/DFLProgramStructure';
 
 const DistanceFlexibleLearning = () => {
   return (
@@ -23,6 +24,7 @@ const DistanceFlexibleLearning = () => {
         <DistanceSearch />
         <EnrollmentSection />
         <StudyOptionsSection />
+        <DFLProgramStructure/>
         <TechnologySection />
         <DistanceKeyDates />
       </main>
