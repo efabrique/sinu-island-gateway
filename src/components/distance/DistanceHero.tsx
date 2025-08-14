@@ -44,10 +44,19 @@ const DistanceHero = () => {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 py-10" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 Distance & Flexible Learning Centers
               </h1>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              
+              <div className="flex justify-center mt-12">
+                <div className="bg-black/10 max-w-3xl border-0">
+                  <h3 className="text-2xl md:text-3xl font-semibold text-[#fff] mb-4">
+                    Highly flexible, tailored for online learning and close to your home.
+                  </h3>
+                  <p className="text-lg text-[#fff] leading-relaxed">
+                    Studying online may feel overwhelming, but we're here to help you. You'll have access to all our wide range of support services. Ask our Distance and Flexible Learning Center Support Staff.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 py-8">
                 <Button className="bg-blue-600 hover:bg-[#082952] text-white px-8 py-3">
                   Find a Center Near You
                 </Button>
@@ -56,14 +65,6 @@ const DistanceHero = () => {
                 </Button>
               </div>
               
-              <div className="flex justify-center mt-12">
-                <div className="text-center bg-gray/40 rounded-lg p-8 max-w-2xl">
-                  <h3 className="text-2xl md:text-3xl font-semibold text-[#082952] mb-4">
-                    Highly flexible, tailored for online learning and close to your home.
-                  </h3>
-                  <p className="text-lg text-[#082952] leading-relaxed">
-                    Studying online may feel overwhelming, but we're here to help you. You'll have access to all our wide range of support services. Ask our Distance and Flexible Learning Center Support Staff.
-                  </p>
                 </div>
               </div>
             </div>

@@ -5,14 +5,14 @@ export const megaMenuData = {
       {
         title: "Academic Programs",
         links: [
-          { title: "Undergraduate Programs", url: "/undergraduate-study" },
-          { title: "Postgraduate Programs", url: "/postgraduate-study" },
+          { title: "Undergraduate", url: "/undergraduate-study" },
+          { title: "Postgraduate", url: "/postgraduate-study" },
           { title: "Distance & Flexible Learning", url: "/distance-flexible-learning" },
           { title: "SINU TAFE & TVET", url: "/sinu-tafe-vvet" },
-          { title: "University Preparatory Courses", url: "/university-preparatory" },
-          { title: "Short Courses", url: "/short-courses" }
+          { title: "Short Courses", url: "/short-courses" },
+          { title: "International", url: "/international-programs" }
         ]
-      },
+      }, 
       {
         title: "Academic Resources",
         links: [
@@ -30,37 +30,37 @@ export const megaMenuData = {
       alt: "Students studying with laptops in a modern library"
     }
   },
-  "International": {
+  "Research": {
     columns: [
       {
-        title: "International Students",
+        title: "Research Areas",
         links: [
-          { title: "Admission Requirements", url: "/admission-requirements" },
-          { title: "Visa Information", url: "/visa-information" },
-          { title: "Student Accommodation", url: "/student-accommodation" },
-          { title: "English Language Programs", url: "/english-language-programs" },
-          { title: "Cultural Orientation", url: "/cultural-orientation" },
-          { title: "International Student Support", url: "/international-student-support" }
+          { title: "Marine Science & Conservation", url: "/marine-science-conservation" },
+          { title: "Climate Change Adaptation", url: "/climate-change-adaptation" },
+          { title: "Sustainable Development", url: "/sustainable-development" },
+          { title: "Indigenous Knowledge", url: "/indigenous-knowledge" },
+          { title: "Public Health", url: "/public-health" },
+          { title: "Security Studies", url: "#" }
         ]
       },
       {
-        title: "Global Initiatives",
+        title: "Research Resources",
         links: [
-          { title: "Exchange Programs", url: "/exchange-program" },
-          { title: "Partner Universities", url: "/partner-universities" },
-          { title: "Study Abroad", url: "/study-abroad" },
-          { title: "International Scholarships", url: "/international-scholarships" },
-          { title: "Global Research Collaborations", url: "/global-research-collaborations" },
-          { title: "International Events", url: "/international-events" }
+          { title: "Research Centers & Institutes", url: "/research-centers-institutes" },
+          { title: "Publications", url: "/publications" },
+          { title: "Research Grants", url: "/research-grants" },
+          { title: "Ethics Committee", url: "/ethics-committee" },
+          { title: "Research Partnerships", url: "/research-partnerships" },
+          { title: "Research Seminars", url: "/research-seminars" }
         ]
       }
     ],
     image: {
-      src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-      alt: "International students collaborating on a project"
+      src: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
+      alt: "Research laboratory with scientific equipment"
     }
   },
-  "Research": {
+  "Collaboration": {
     columns: [
       {
         title: "Research Areas",

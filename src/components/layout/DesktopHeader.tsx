@@ -11,7 +11,7 @@ const DesktopHeader = () => {
         <HeaderLogo isMobile={false} />
       </div>
       <TopNavigation />
-      <div className="bg-[#8ecae6] border-t border-[#66b2b2]">
+      <div className="bg-blue-600 border-t border-[#66b2b2]">
         <div className="container mx-auto px-4">
           <MainNavigation />
         </div>

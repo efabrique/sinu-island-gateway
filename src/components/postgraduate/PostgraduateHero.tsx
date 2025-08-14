@@ -43,17 +43,10 @@ const PostgraduateHero = () => {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 py-10" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 Postgraduate at SINU
               </h1>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <Button className="bg-blue-600 hover:bg-[#082952] text-white px-8 py-3">
-                  Apply Now
-                </Button>
-                <Button className="bg-white text-[#082952] hover:bg-[#082952] hover:text-white border-0 px-8 py-3 transition-all duration-300">
-                  Download Prospectus
-                </Button>
-              </div>
+              
               
               <div className="flex justify-center mt-12">
                 <Card className="bg-black/10 max-w-3xl border-0">
@@ -64,6 +57,14 @@ const PostgraduateHero = () => {
                     <p className="text-lg text-[#fff] leading-relaxed">
                       Build on your existing knowledge while contributing to research and innovation that addresses the unique challenges and opportunities of the Solomon Islands and the Pacific Region.
                     </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 py-8">
+                <Button className="bg-blue-600 hover:bg-[#082952] text-white px-8 py-3">
+                  Apply Now
+                </Button>
+                <Button className="bg-white text-[#082952] hover:bg-[#082952] hover:text-white border-0 px-8 py-3 transition-all duration-300">
+                  Download Prospectus
+                </Button>
+              </div>
                   </CardContent>
                 </Card>
               </div>

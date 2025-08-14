@@ -46,7 +46,7 @@ const events: EventItem[] = [
   },
 ];
 
-const KeyDatesSection: React.FC = () => {
+const TafeKeyDates: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
 
   const visibleEvents = showAll ? events : events.slice(0, 3);
@@ -128,9 +128,11 @@ const KeyDatesSection: React.FC = () => {
 </div>
 
         </div>
+
+      {/* View More Button */}
      
     </section>
   );
 };
 
-export default KeyDatesSection;
+export default TafeKeyDates;

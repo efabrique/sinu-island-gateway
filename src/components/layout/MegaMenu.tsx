@@ -152,22 +152,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id, isScroll
                   ))}
                 </ul>
               </div>
-              
-              {/* Second Column */}
-              <div className="col-span-1">
-                <h3 className="text-lg font-bold text-[#082952] mb-4">{columns[1].title}</h3>
-                <ul className="space-y-2">
-                  {columns[1].links.map((link, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-[#66b2b2]"></span>
-                      <a href={link.url} className="text-[#023047] hover:text-[#219ebc] hover:underline">
-                        {link.title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
+            
               {/* Image Column */}
               <div className="col-span-1">
                 <div className="h-full w-full overflow-hidden rounded-md">

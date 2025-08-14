@@ -1,8 +1,11 @@
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Wrench, Stethoscope, Car, Cpu, Building, Users, ChefHat, Palette } from 'lucide-react';
+import OptimizedImage from '../common/OptimizedImage';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+
 
 const CourseAreasSection = () => {
   const courseAreas = [
@@ -10,13 +13,20 @@ const CourseAreasSection = () => {
       icon: Wrench,
       title: "Trades & Construction",
       description: "Carpentry, plumbing, electrical work, and building construction",
+          image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+          disabled: false,
+          tooltip: "Coming Soon",
       courses: ["Certificate III in Carpentry", "Electrical Installation", "Plumbing Services"],
       color: "#219ebc"
     },
     {
       icon: Stethoscope,
-      title: "Health & Community Services",
+      title: "Health Services",
       description: "Healthcare support, aged care, and community development",
+          image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+          disabled: false,
+          tooltip: "Coming Soon",
+
       courses: ["Certificate III in Health Services", "Community Services", "Aged Care Support"],
       color: "#ffb703"
     },
@@ -24,6 +34,10 @@ const CourseAreasSection = () => {
       icon: Car,
       title: "Automotive & Transport",
       description: "Vehicle maintenance, marine engineering, and logistics",
+          image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+          disabled: false,
+          tooltip: "Coming Soon",
+
       courses: ["Automotive Servicing", "Marine Engineering", "Transport & Logistics"],
       color: "#8ecae6"
     },
@@ -31,6 +45,10 @@ const CourseAreasSection = () => {
       icon: Cpu,
       title: "Information Technology",
       description: "Computer systems, networking, and digital media",
+          image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+          disabled: true,
+          tooltip: "Not Available in Sem 2 2025",
+
       courses: ["IT Support", "Computer Networks", "Digital Media Production"],
       color: "#d7a12c"
     },
@@ -38,6 +56,10 @@ const CourseAreasSection = () => {
       icon: Building,
       title: "Business & Administration",
       description: "Office administration, accounting, and customer service",
+          image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+          disabled: false,
+          tooltip: "Coming Soon",
+
       courses: ["Business Administration", "Accounting Fundamentals", "Customer Service"],
       color: "#219ebc"
     },
@@ -45,6 +67,10 @@ const CourseAreasSection = () => {
       icon: Users,
       title: "Tourism & Hospitality",
       description: "Hotel management, tour operations, and event planning",
+          image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+          disabled: false,
+          tooltip: "Coming Soon",
+
       courses: ["Hotel Operations", "Tour Guiding", "Event Management"],
       color: "#ffb703"
     },
@@ -52,6 +78,10 @@ const CourseAreasSection = () => {
       icon: ChefHat,
       title: "Culinary Arts",
       description: "Commercial cookery, food safety, and kitchen management",
+          image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+          disabled: false,
+          tooltip: "Coming Soon",
+
       courses: ["Commercial Cookery", "Food Safety", "Kitchen Operations"],
       color: "#8ecae6"
     },
@@ -59,53 +89,128 @@ const CourseAreasSection = () => {
       icon: Palette,
       title: "Creative Arts",
       description: "Visual arts, design, and traditional crafts",
+          image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+          disabled: false,
+          tooltip: "Coming Soon",
+
       courses: ["Visual Arts", "Graphic Design", "Traditional Crafts"],
       color: "#d7a12c"
     }
   ];
 
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const scrollStep = 1;
+    const delay = 30;
+
+    const interval = setInterval(() => {
+      if (!isPaused && container) {
+        if (direction === 'right') {
+          container.scrollLeft += scrollStep;
+
+          if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
+            setDirection('left');
+          }
+        } else {
+          container.scrollLeft -= scrollStep;
+
+          if (container.scrollLeft <= 0) {
+            setDirection('right');
+          }
+        }
+      }
+    }, delay);
+
+    return () => clearInterval(interval);
+  }, [isPaused, direction]);
+
   return (
-    <section className="py-16 bg-white">
+    <section id= "tafe-courses" className="py-4 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#082952] mb-4">
-            Course Areas
+          <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4">
+            TAFE Offered Courses
+                          <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+
           </h2>
           <p className="text-xl text-[#082952] max-w-3xl mx-auto">
             Discover your pathway to success with our comprehensive range of technical and vocational courses
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {courseAreas.map((area, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader className="text-center pb-2">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: area.color }}>
-                  <area.icon className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-lg text-[#082952]">{area.title}</CardTitle>
-                <CardDescription className="text-[#082952]">{area.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="pt-2">
-                <div className="space-y-2 mb-4">
-                  {area.courses.map((course, courseIndex) => (
-                    <div key={courseIndex} className="text-sm text-[#082952] flex items-start">
-                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-[#219ebc]"></span>
-                      {course}
-                    </div>
-                  ))}
-                </div>
-                <Button 
-                  variant="outline" 
-                  className="w-full border-[#219ebc] text-[#219ebc] hover:bg-[#219ebc] hover:text-white"
-                  size="sm"
-                >
-                  View Courses
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+         <div
+  ref={scrollRef}
+  className="flex overflow-x-auto space-x-6 md:space-x-8 scroll-smooth py-4 px-1 scrollbar-hide"
+  onMouseEnter={() => setIsPaused(true)}
+  onMouseLeave={() => setIsPaused(false)}
+>
+  <TooltipProvider>
+    {courseAreas.map((area, index) => {
+      const cardContent = (
+        <Card
+          key={index}
+          className={`flex flex-col border-[#222222] justify-between min-h-[400px] text-center shrink-0 w-80 transition-shadow 
+            ${area.disabled 
+              ? "bg-gray-200 opacity-60 pointer-events-none" // grey out and disable interaction
+              : "hover:shadow-lg"
+            }`}
+        >
+          <CardHeader className="pb-2">
+            <div className="h-56 overflow-hidden">
+              <OptimizedImage
+                src={area.image}
+                alt={area.title}
+                className="w-full h-full"
+                objectFit="cover"
+                width={500}
+              />
+            </div>
+            <CardTitle className="text-xl text-[#082952] mt-3">{area.title}</CardTitle>
+            <CardDescription className="text-[#082952] flex-grow text-base mt-1">
+              {area.description}
+            </CardDescription>
+          </CardHeader>
+
+          <CardContent className="pt-2 mt-auto">
+            <Button
+              variant="outline"
+              className="w-full text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white"
+              size="lg"
+              disabled={area.disabled}
+            >
+              View Courses
+            </Button>
+          </CardContent>
+        </Card>
+      );
+
+      return area.disabled ? (
+        <Tooltip key={index}>
+          <TooltipTrigger asChild>
+            <div className='relative'>{cardContent}</div>
+          </TooltipTrigger>
+          <TooltipContent
+                className="!absolute !flex !items-center !justify-center !bg-black/70 !text-white !rounded-lg !p-4 !text-lg !font-medium !z-50"
+                side="top"
+                align="center"
+              >
+            {area.tooltip || "Coming Soon"}
+          </TooltipContent>
+        </Tooltip>
+      ) : (
+        cardContent
+      );
+    })}
+  </TooltipProvider>
+</div>
+
+
       </div>
     </section>
   );
