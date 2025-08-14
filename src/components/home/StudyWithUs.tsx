@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '../ui/button';
 
 const backgroundImageUrl = 'public/lovable-uploads/7284ab6b-b66f-44ea-be92-9f17dc726408.png';
 
@@ -35,38 +36,20 @@ export default function StudyWithUs() {
                     Choose a degree or course that excites and motivates, where you will gain the knowledge, industry connections and real-world experience needed to create the career you want.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                    <button
-                        style={{
-                            padding: '0.75rem 1.5rem',
-                            borderRadius: 8,
-                            border: 'none',
-                            background: '#035ac5ff',
-                            color: '#fff',
-                            fontWeight: 600,
-                            fontSize: '1rem',
-                            cursor: 'pointer',
-                            transition: 'background 0.2s',
-                        }}
+                    <Button
+                        variant="outline"
+                        className="w-full text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white"
                         onClick={() => alert('Find a degree clicked')}
                     >
                         Find a Degree
-                    </button>
-                    <button
-                        style={{
-                            padding: '0.75rem 1.5rem',
-                            borderRadius: 8,
-                            border: '1px solid #0b2c55',
-                            background: '#035ac5ff',
-                            color: '#fff',
-                            fontWeight: 600,
-                            fontSize: '1rem',
-                            cursor: 'pointer',
-                            transition: 'background 0.2s, color 0.2s',
-                        }}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        className="w-full text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white"
                         onClick={() => alert('Ask an academic clicked')}
                     >
                         Ask an Academic
-                    </button>
+                    </Button>
                 </div>
             </div>
             <img
