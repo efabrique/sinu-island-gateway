@@ -73,7 +73,7 @@ const StudyOptionsSection = () => {
                 </div>
 
                 <div className={`w-full md:w-1/2 mt-6 md:mt-0 ${isEven ? '-ml-12' : '-mr-12'} bg-white bg-opacity-90 p-6 md:p-8 rounded-lg shadow-md z-10 relative`}>  
-                  <div className="bg-[#219ebc] w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                  <div className="bg-[#219ebc] w-14 h-14 rounded-full flex items-center justify-center mb-4 bg-blue-600">
                     <mode.icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-2xl font-semibold text-[#222222] mb-2"> You are:</h3>

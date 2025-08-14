@@ -26,7 +26,7 @@ const DFL: React.FC = () => {
 
         {/* Description */}
         <p className="text-white text-lg mt-3 max-w-xl">
-          Learn anytime, anywhere with our flexible course options.
+          Bringing the University to your Home
         </p>
 
         {/* Explore Button */}

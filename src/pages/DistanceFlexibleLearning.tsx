@@ -25,7 +25,7 @@ const DistanceFlexibleLearning = () => {
         <EnrollmentSection />
         <StudyOptionsSection />
         <DFLProgramStructure/>
-        <TechnologySection />
+       
         <DistanceKeyDates />
       </main>
       <Footer />

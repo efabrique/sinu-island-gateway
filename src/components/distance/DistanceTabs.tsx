@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const tabs = [
   { label: 'Why DFL', path: '/why_dfl'},
-  { label: 'Technical Requirement', sectionId: 'dfl-admission' },
+  { label: 'Program Structure', sectionId: 'dfl-programs' },
   { label: 'Key Dates', sectionId: 'key-dates' },
   { label: 'Scholarships', path: '/scholarships' },
   { label: 'Events', path: '/events' },
