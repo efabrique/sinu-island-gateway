@@ -10,7 +10,7 @@ export const megaMenuData = {
           { title: "Distance & Flexible Learning", url: "/distance-flexible-learning" },
           { title: "SINU TAFE & TVET", url: "/sinu-tafe-vvet" },
           { title: "Short Courses", url: "/short-courses" },
-          { title: "International", url: "/international-programs" }
+          { title: "International", url: "/admission-requirements" }
         ]
       }, 
       {

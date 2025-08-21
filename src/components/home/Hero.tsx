@@ -95,12 +95,12 @@ const Hero: React.FC = () => {
             subtitle: "Its Your Future. Let us help you discover it.",
             buttons: [
               {
-                label: "Explore Programs",
+                label: "Undergraduate",
                 to: "/course-catalog",
                 variant: "primary",
               },
               {
-                label: "Apply Now",
+                label: "Postgraduate",
                 to: "/apply",
                 variant: "outline",
               },
