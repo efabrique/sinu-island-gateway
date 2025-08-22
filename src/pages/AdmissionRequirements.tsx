@@ -9,6 +9,10 @@ import EnglishRequirementsSection from '@/components/admission/EnglishRequiremen
 import DocumentsSection from '@/components/admission/DocumentsSection';
 import ApplicationProcessSection from '@/components/admission/ApplicationProcessSection';
 import BackToTop from '@/components/common/BackToTop';
+import InternationalTab from '@/components/admission/InternationalTabs';
+import InternationalStudyOptions from '@/components/study-abroad/InternationalStudyOptions';
+import InternationalFeaturedPrograms from '@/components/study-abroad/InternationalFeaturedPrograms';
+import InternationalStudyOptionsSection from '@/components/study-abroad/InternationalStudyOptionsSection';
 
 const AdmissionRequirements = () => {
   return (
@@ -16,7 +20,11 @@ const AdmissionRequirements = () => {
       <Header />
       <main className="flex-1">
         <AdmissionHero />
+        <InternationalTab />
         <RequirementsOverviewSection />
+        <InternationalStudyOptions/>
+        <InternationalFeaturedPrograms />
+        <InternationalStudyOptionsSection />
         <UndergraduateRequirementsSection />
         <PostgraduateRequirementsSection />
         <EnglishRequirementsSection />

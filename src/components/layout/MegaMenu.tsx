@@ -138,14 +138,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id, isScroll
         >
           <div className="container mx-auto px-4 py-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* First Column */}
+              
               <div className="col-span-1">
                 <h3 className="text-lg font-bold text-[#082952] mb-4">{columns[0].title}</h3>
                 <ul className="space-y-2">
                   {columns[0].links.map((link, index) => (
                     <li key={index} className="flex items-start">
                       <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-[#66b2b2]"></span>
-                      <a href={link.url} className="text-[#023047] hover:text-[#219ebc] hover:underline">
+                      <a href={link.url} className="text-gray-500 text-lg font-bold hover:text-[#222222] hover:underline">
                         {link.title}
                       </a>
                     </li>
