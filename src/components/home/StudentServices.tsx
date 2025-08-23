@@ -28,8 +28,10 @@ export default function StudentServices() {
                     left: '50vw', // Slight overlap
                 }}
             >
-                <h2 style={{ marginBottom: '1.5rem', fontWeight: 700, fontSize: '1.5rem' }}>Student Services</h2>
-                <p style={{ marginBottom: '1.5rem', color: '#555', textAlign: 'justify' }}>
+                <h2 style={{ marginBottom: '1.5rem', fontWeight: 700, fontSize: '1.5rem' }}>Student Services
+                    <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+                </h2>
+                <p style={{ marginBottom: '1.5rem', color: '#023047', textAlign: 'justify' }}>
                     Explore a range of services designed to support your academic journey, from counseling and career advice to health and wellness resources.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -41,12 +43,12 @@ export default function StudentServices() {
                         Student Services
                     </Button>
                     <Button
-                                            variant="outline"
-                                            className="w-full text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white"
-                                            onClick={() => alert('Find a degree clicked')}
-                                        >
-                                            Student Wellness
-                                        </Button>
+                    variant="outline"
+                    className="w-full text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white"
+                    onClick={() => alert('Find a degree clicked')}
+                    >
+                    Student Wellness
+                    </Button>
                 </div>
             </div>
             <img

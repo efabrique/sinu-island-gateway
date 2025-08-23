@@ -45,7 +45,7 @@ const DistanceHero = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 py-10" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                Distance & Flexible Learning Centers
+                Distance & Flexible Learning
               </h1>
               
               <div className="flex justify-center mt-12">

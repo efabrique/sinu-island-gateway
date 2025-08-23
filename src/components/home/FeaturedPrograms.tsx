@@ -113,10 +113,10 @@ const FeaturedPrograms = () => {
 
         {/* Header */}
         <CardHeader className="flex-1 px-4 py-3">
-          <CardTitle className="text-[#023047] text-lg font-semibold">
+          <CardTitle className="text-[#222] text-lg font-semibold">
             {program.title}
           </CardTitle>
-          <CardDescription className="text-[#023047]/80 text-sm">
+          <CardDescription className="text-[#023047] text-sm">
             {program.description}
           </CardDescription>
         </CardHeader>

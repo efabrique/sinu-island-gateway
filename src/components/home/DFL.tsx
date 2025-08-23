@@ -30,7 +30,7 @@ const DFL: React.FC = () => {
         </p>
 
         {/* Explore Button */}
-        <button className="mt-6 w-full max-w-xs inline-flex items-center justify-center text-white font-medium hover:underline transition px-4 py-3 bg-blue-600 rounded">
+        <button className="mt-6 w-full max-w-xs inline-flex items-center justify-center text-white font-medium hover:bg-blue-700 hover:text-[#222222] transition px-4 py-3 bg-blue-600 rounded">
           Explore Courses
           <ArrowRight className="ml-2 h-5 w-5" />
         </button>

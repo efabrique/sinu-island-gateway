@@ -17,77 +17,86 @@ const features = [
 
 const MissionVission: React.FC = () => {
     const [hovered, setHovered] = useState<number | null>(null);
-    // Images for each feature (replace with your actual image paths)
+
     const featureImages = [
         '/lovable-uploads/graduation-circle-portrait-students-university-ceremony-celebration-academic-achievement-college-degree-friends-men-women-education-learning-studying_590464-464488.avif',
         '/lovable-uploads/graduation-circle-portrait-students-university-ceremony-celebration-academic-achievement-college-degree-friends-men-women-education-learning-studying_590464-464488.avif',
         '/lovable-uploads/graduation-circle-portrait-students-university-ceremony-celebration-academic-achievement-college-degree-friends-men-women-education-learning-studying_590464-464488.avif',
-
     ];
 
     return (
         <div
             style={{
-            display: 'flex',
-            gap: '18rem',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: '15vh',
-            backgroundColor: '#035ac5ff',
-            padding: '2rem',
-            color: '#fff',
-            fontSize: '1.5rem',
+                display: 'flex',
+                gap: '18rem',
+                justifyContent: 'center',
+                alignItems: 'center',
+                minHeight: '15vh',
+                backgroundColor: '#035ac5ff',
+                padding: '2rem',
+                color: '#fff',
+                fontSize: '1.5rem',
             }}
         >
             {features.map((feature, idx) => (
-            <div
-                key={feature.name}
-                style={{
-                position: 'relative',
-                cursor: 'pointer',
-                textAlign: 'center',
-                padding: '0 1rem',
-                }}
-                onMouseEnter={() => setHovered(idx)}
-                onMouseLeave={() => setHovered(null)}
-            >
-                <span style={{ fontWeight: 'bold', }}>{feature.name}</span>
-                {hovered === idx && (
                 <div
+                    key={feature.name}
                     style={{
-                    position: 'absolute',
-                    top: '2rem',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    background: 'white',
-                    border: '1px solid #ccc',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-                    padding: '1rem',
-                    minWidth: '320px',
-                    zIndex: 10,
-                    color: '#082952',
-                    display: 'grid',
-                    alignItems: 'center',
-                    gap: '1.5rem',
-                    fontWeight: 'bold',
-                    fontSize: '1rem', // Set font size for hover box
+                        position: 'relative',
+                        cursor: 'pointer',
+                        textAlign: 'center',
+                        padding: '0 1rem',
                     }}
+                    onMouseEnter={() => setHovered(idx)}
+                    onMouseLeave={() => setHovered(null)}
                 >
-                    <div style={{ flex: 1, textAlign: 'left' }}>
-                    {feature.content}
-                    </div>
-                    <img
-                    src={featureImages[idx]}
-                    alt={feature.name}
-                    style={{
-                        width: '300px',
-                        height: '300px',
-                        borderRadius: '8px',
-                    }}
-                    />
+                    {/* Feature Name with hover text color */}
+                    <span
+                        style={{
+                            fontWeight: 'bold',
+                            color: hovered === idx ? '#222' : '#fff',
+                            transition: 'color 0.3s',
+                        }}
+                    >
+                        {feature.name}
+                    </span>
+
+                    {hovered === idx && (
+                        <div
+                            style={{
+                                position: 'absolute',
+                                top: '2rem',
+                                left: '50%',
+                                transform: 'translateX(-50%)',
+                                background: 'white',
+                                border: '1px solid #ccc',
+                                boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                                padding: '1rem',
+                                minWidth: '320px',
+                                zIndex: 10,
+                                color: '#082952',
+                                display: 'grid',
+                                alignItems: 'center',
+                                gap: '1.5rem',
+                                fontWeight: 'bold',
+                                fontSize: '1rem',
+                            }}
+                        >
+                            <div style={{ flex: 1, textAlign: 'left' }}>
+                                {feature.content}
+                            </div>
+                            <img
+                                src={featureImages[idx]}
+                                alt={feature.name}
+                                style={{
+                                    width: '300px',
+                                    height: '300px',
+                                    borderRadius: '8px',
+                                }}
+                            />
+                        </div>
+                    )}
                 </div>
-                )}
-            </div>
             ))}
         </div>
     );

@@ -13,6 +13,10 @@ import InternationalTab from '@/components/admission/InternationalTabs';
 import InternationalStudyOptions from '@/components/study-abroad/InternationalStudyOptions';
 import InternationalFeaturedPrograms from '@/components/study-abroad/InternationalFeaturedPrograms';
 import InternationalStudyOptionsSection from '@/components/study-abroad/InternationalStudyOptionsSection';
+import InternationalKeyDates from '@/components/study-abroad/InternationalKeyDates';
+import { StudentExperience } from '@/components/study-abroad/StudentExperience';
+import InternationalEvents from './InternationalEvents';
+import InternationalNewsEvents from '@/components/study-abroad/InternationalNewsEvents';
 
 const AdmissionRequirements = () => {
   return (
@@ -25,11 +29,9 @@ const AdmissionRequirements = () => {
         <InternationalStudyOptions/>
         <InternationalFeaturedPrograms />
         <InternationalStudyOptionsSection />
-        <UndergraduateRequirementsSection />
-        <PostgraduateRequirementsSection />
-        <EnglishRequirementsSection />
-        <DocumentsSection />
-        <ApplicationProcessSection />
+        <InternationalKeyDates />
+        <StudentExperience />
+        <InternationalNewsEvents />
       </main>
       <Footer />
       <BackToTop />

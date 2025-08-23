@@ -29,8 +29,8 @@ const ScrolledDesktopHeader = () => {
   return (
     <div className="relative transform-gpu">
       {/* Main Navigation Bar with dark background */}
-      <div className="bg-[#082952] border-t border-[#0b2c55]">
-        <div className="container mx-auto px-4">
+      <div className="bg-blue-600 border-t border-[#0b2c55]">
+        <div className="container mx-auto px-8">
           <div className="flex items-center justify-between">
             {/* SINU Text Logo - White color */}
             <div className="py-3 transition-all duration-200 ease-in-out">

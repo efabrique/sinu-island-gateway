@@ -66,7 +66,7 @@ const OurStories: React.FC = () => {
         ))}
       </div>
         <div className="text-center mt-8 md:mt-8">
-            <Button className="bg-[#035ac5ff] text-white hover:bg-[#082952]/90">
+            <Button variant="outline" className="bg-[#fff] text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white">
               Show More Stories
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

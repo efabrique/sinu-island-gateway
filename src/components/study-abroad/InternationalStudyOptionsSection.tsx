@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Microscope, Calculator, Gavel, Stethoscope, Palette, Globe } from 'lucide-react';
+import { Microscope, Calculator, Gavel, Stethoscope, Palette, Globe, ArrowRight } from 'lucide-react';
 import OptimizedImage from '@/components/common/OptimizedImage';
+import { Button } from '../ui/button';
 
 const InternationalStudyOptionsSection = () => {
   const studyOptions = [
@@ -62,7 +63,7 @@ const InternationalStudyOptionsSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {studyOptions.map((option, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow border-[#8ecae6] overflow-hidden">
+            <Card key={index} className="hover:shadow-lg  transition-shadow border-[#8ecae6] overflow-hidden">
               <div className="relative h-48">
                 <OptimizedImage
                   src={option.image}
@@ -84,6 +85,20 @@ const InternationalStudyOptionsSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="mt-16 w-full flex flex-col items-center justify-center bg-blue-600 rounded-lg px-8 py-6 text-center">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full">
+            <h2 className="text-white text-3xl font-semibold mb-0 md:mb-0 md:mr-6">Got a question?</h2>
+            <div className="flex gap-4">
+              <Button className="bg-white text-blue-600 font-medium px-5 py-2 rounded hover:bg-blue-50 transition">Apply Now
+                <ArrowRight className="ml-2 h-4 w-4" />
+                
+              </Button>
+              <Button className="bg-blue-800 text-white font-medium px-5 py-2 rounded hover:bg-blue-700 transition">Contact Us
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

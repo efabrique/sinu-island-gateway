@@ -1,175 +1,128 @@
+import React, { useState, useRef, useEffect } from "react";
+import OptimizedImage from "../common/OptimizedImage";
 
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, ChevronRight } from 'lucide-react';
-import { useIsMobile } from '@/hooks/use-mobile';
-import OptimizedImage from '../common/OptimizedImage';
-
-interface Link {
+interface LinkItem {
   title: string;
   url: string;
 }
 
-interface Column {
-  title: string;
-  links: Link[];
+interface ImageItem {
+  src: string;
+  alt: string;
 }
 
 interface MegaMenuProps {
-  title: string;
-  columns: Column[];
-  image: {
-    src: string;
-    alt: string;
-  };
   id: string;
+  title: string;
+  links: LinkItem[];
+  image?: ImageItem;
   isScrolled?: boolean;
 }
 
-const MegaMenu: React.FC<MegaMenuProps> = ({ title, columns, image, id, isScrolled = false }) => {
+const MegaMenu: React.FC<MegaMenuProps> = ({ id, title, links, image, isScrolled = false }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isActive, setIsActive] = useState(false);
-  const isMobile = useIsMobile();
-  const menuContainerRef = useRef<HTMLDivElement>(null);
-  
-  const toggleMenu = () => {
-    if (isMobile) {
-      setIsOpen(!isOpen);
-    }
-  };
+  const [dropdownStyle, setDropdownStyle] = useState<React.CSSProperties>({});
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Track hover state for the mega menu container
+  // Close dropdown when clicking outside
   useEffect(() => {
-    if (isMobile) return;
-    
-    const menuContainer = menuContainerRef.current;
-    if (!menuContainer) return;
-    
-    const handleMouseEnter = () => setIsActive(true);
-    const handleMouseLeave = () => setIsActive(false);
-    
-    menuContainer.addEventListener('mouseenter', handleMouseEnter);
-    menuContainer.addEventListener('mouseleave', handleMouseLeave);
-    
-    return () => {
-      menuContainer.removeEventListener('mouseenter', handleMouseEnter);
-      menuContainer.removeEventListener('mouseleave', handleMouseLeave);
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
     };
-  }, [isMobile]);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-  // Calculate background color based on hovered, active states, and scroll state
-  const getButtonClasses = () => {
-    const baseClasses = "px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium focus:outline-none transition-colors";
-    
-    if (isScrolled) {
-      // When scrolled, use white text by default
-      if (isHovered || isActive) {
-        return `${baseClasses} bg-[#f9c74f] text-[#023047] hover:bg-[#f9c74f] hover:text-[#023047]`;
-      }
-      return `${baseClasses} text-white hover:bg-[#f9c74f] hover:text-[#023047]`;
-    } else {
-      // Normal state (not scrolled)
-      if (isHovered || isActive) {
-        return `${baseClasses} bg-[#f9c74f] text-[#023047] hover:bg-[#f9c74f] hover:text-[#023047]`;
-      }
-      return `${baseClasses} text-white hover:bg-[#f9c74f] hover:text-[#023047] `;
+  // Calculate dropdown position dynamically
+  const calculateDropdownPosition = () => {
+    if (!buttonRef.current || !menuRef.current) return;
+
+    const buttonRect = buttonRef.current.getBoundingClientRect();
+    const dropdown = menuRef.current.querySelector<HTMLDivElement>("#" + id);
+    if (!dropdown) return;
+
+    // Temporarily show dropdown to measure content width
+    dropdown.style.visibility = "hidden";
+    dropdown.style.display = "block";
+    const contentWidth = dropdown.scrollWidth; // auto-width based on content
+    const windowWidth = window.innerWidth;
+    dropdown.style.display = "";
+    dropdown.style.visibility = "";
+
+    // Default left position aligned with button
+    let left = buttonRect.left;
+
+    // Prevent overflow right
+    if (left + contentWidth > windowWidth) {
+      left = Math.max(10, windowWidth - contentWidth - 10); // 10px margin from edges
     }
+
+    setDropdownStyle({ left });
   };
+
+  const handleOpen = () => {
+    calculateDropdownPosition();
+    setIsOpen(!isOpen);
+  };
+
+  const buttonClasses = `
+    px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium
+    focus:outline-none transition-colors
+    ${isScrolled ? "text-white hover:bg-[#f9c74f] hover:text-[#023047]" : "text-white hover:bg-[#f9c74f] hover:text-[#023047]"}
+  `;
 
   return (
-    <div 
-      className={`${isMobile ? 'w-full' : 'mega-menu-container'}`} 
-      id={`menu-container-${id}`}
-      ref={menuContainerRef}
+    <div
+      ref={menuRef}
+      className="relative group w-full md:w-auto"
+      onMouseEnter={() => window.innerWidth >= 768 && setIsOpen(true)}
+      onMouseLeave={() => window.innerWidth >= 768 && setIsOpen(false)}
     >
-      <button 
-        className={getButtonClasses()}
-        onClick={toggleMenu}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        aria-controls={`mega-menu-${id}`}
-        aria-expanded={isMobile ? isOpen : undefined}
+      {/* Menu Button */}
+      <button
+        ref={buttonRef}
+        className={buttonClasses}
+        onClick={() => window.innerWidth < 768 && handleOpen()}
+        aria-controls={id}
+        aria-expanded={isOpen}
       >
         {title}
-        {isMobile ? 
-          <ChevronRight className={`ml-1 h-4 w-4 transition-transform ${isOpen ? 'rotate-90' : ''}`} /> :
-          <ChevronDown className="ml-1 h-4 w-4" />
-        }
       </button>
-      
-      {/* Mobile Dropdown */}
-      {isMobile && isOpen && (
-        <div className="bg-[#ADC5CF] p-4 border-t border-[#8ecae6] animate-accordion-down" id={`mobile-menu-${id}`}>
-          <div className="space-y-4">
-            {columns.map((column, colIndex) => (
-              <div key={colIndex}>
-                <h3 className="text-lg font-bold text-[#082952] mb-2">{column.title}</h3>
-                <ul className="space-y-2 pl-2">
-                  {column.links.map((link, linkIndex) => (
-                    <li key={linkIndex} className="flex items-start">
-                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-[#66b2b2]"></span>
-                      <a href={link.url} className="text-[#023047] hover:text-[#219ebc] hover:underline">
-                        {link.title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+
+      {/* Dropdown */}
+      <div
+        id={id}
+        style={dropdownStyle}
+        className={`
+          absolute top-full z-50 origin-top
+          bg-[#ADC5CF] md:bg-blue-600 border-t border-[#8ecae6] md:border-none md:shadow-lg
+          transform transition-all duration-300 ease-in-out
+          scale-y-0 opacity-0
+          ${isOpen ? "scale-y-100 opacity-100" : ""}
+          
+        `}
+      >
+        <div className="p-4 md:px-6 md:py-4 flex flex-col md:flex-row gap-6 w-max">
+          {/* Links List */}
+          <ul className="flex-1 space-y-5 pl-2">
+            {links.map((link, index) => (
+              <li key={index} className="flex items-start">
+                <a
+                  href={link.url}
+                  className=" hover:text-[#219ebc]  md:text-[#fff] md:hover:text-[#222222] md:font-medium"
+                >
+                  {link.title}
+                </a>
+              </li>
             ))}
-            
-            <div className="h-40 mt-4 overflow-hidden rounded-md">
-              <OptimizedImage
-                src={image.src}
-                alt={image.alt}
-                className="h-full w-full"
-                objectFit="cover"
-                width={300}
-              />
-            </div>
-          </div>
+          </ul>
+
+        
         </div>
-      )}
-      
-      {/* Desktop Mega Menu Dropdown */}
-      {!isMobile && (
-        <div 
-          className="mega-menu" 
-          id={`mega-menu-${id}`}
-        >
-          <div className="container mx-auto px-4 py-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              
-              <div className="col-span-1">
-                <h3 className="text-lg font-bold text-[#082952] mb-4">{columns[0].title}</h3>
-                <ul className="space-y-2">
-                  {columns[0].links.map((link, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-[#66b2b2]"></span>
-                      <a href={link.url} className="text-gray-500 text-lg font-bold hover:text-[#222222] hover:underline">
-                        {link.title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            
-              {/* Image Column */}
-              <div className="col-span-1">
-                <div className="h-full w-full overflow-hidden rounded-md">
-                  <OptimizedImage 
-                    src={image.src} 
-                    alt={image.alt} 
-                    className="h-60 w-full"
-                    objectFit="cover"
-                    width={400}
-                  />
-                  <p className="mt-2 text-sm text-[#023047] italic">{image.alt}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      </div>
     </div>
   );
 };

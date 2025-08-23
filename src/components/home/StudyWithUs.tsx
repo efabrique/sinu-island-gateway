@@ -29,10 +29,10 @@ export default function StudyWithUs() {
                 }}
             >
                 <h2 style={{ marginBottom: '1.5rem', fontWeight: 700, fontSize: '1.5rem' }}>Study With Us
-                                    <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+                <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
 
                 </h2>
-                <p style={{ marginBottom: '1.5rem', color: '#555', textAlign: 'justify' }}>
+                <p style={{ marginBottom: '1.5rem', color: '#222222', textAlign: 'justify' }}>
                     Choose a degree or course that excites and motivates, where you will gain the knowledge, industry connections and real-world experience needed to create the career you want.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
