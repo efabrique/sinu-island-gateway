@@ -10,44 +10,14 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import OptimizedImage from '../common/OptimizedImage';
 import ErrorBoundary from '../common/ErrorBoundary';
-
-const programs = [
-  {
-    title: "Business Administration",
-    description: "Develop managerial and entrepreneurial skills with our comprehensive business program.",
-    image: "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9",
-    link: "#"
-  },
-  {
-    title: "Marine Science",
-    description: "Study marine ecosystems and conservation in one of the world's most biodiverse regions.",
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742",
-    link: "#"
-  },
-  {
-    title: "Education",
-    description: "Shape the future by becoming a skilled educator with our teaching certification programs.",
-    image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511",
-    link: "#"
-  },
-  {
-    title: "Computer Science",
-    description: "Master AI, cybersecurity, and software development with our cutting-edge CS curriculum.",
-    image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
-    link: "#"
-  },
-  {
-    title: "Public Health",
-    description: "Empower communities and improve healthcare systems through impactful public health training.",
-    image: "https://images.unsplash.com/photo-1551601651-2a8555f1a136",
-    link: "#"
-  }
-];
+import {getFeatureProgrammes} from '../../../sanity/lib/sanity';
 
 const FeaturedPrograms = () => {
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
+  const [featuredPrograms, setFeaturedPrograms] = useState([]);
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -74,8 +44,12 @@ const FeaturedPrograms = () => {
       }
     }, delay);
 
+    // Fetch courses once on mount
+    getFeatureProgrammes().then(setFeaturedPrograms);
+
     return () => clearInterval(interval);
   }, [isPaused, direction]);
+
 
   return (
     <ErrorBoundary>
@@ -98,7 +72,7 @@ const FeaturedPrograms = () => {
   onMouseEnter={() => setIsPaused(true)}
   onMouseLeave={() => setIsPaused(false)}
 >
-  {programs.map((program, index) => (
+  {featuredPrograms.map((program, index) => (
     <ErrorBoundary key={index}>
       <Card className="flex-shrink-0 w-64 sm:w-72 md:w-72 lg:w-72 flex flex-col overflow-hidden hover:shadow-lg transition-shadow duration-300">
         {/* Image */}
@@ -149,5 +123,4 @@ const FeaturedPrograms = () => {
     </ErrorBoundary>
   );
 };
-
 export default FeaturedPrograms;
