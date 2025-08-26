@@ -9,45 +9,169 @@ export const client = createClient({
   useCdn: false
 });
 
-
-// Optional: Image URL builder for sanity images
+// Image URL builder
 const builder = imageUrlBuilder(client);
 export const urlFor = (source: any) => builder.image(source);
 
-// TypeScript interface for FeatureProgramme
 export interface FeatureProgramme {
   _id: string;
   title: string;
   description: string;
   image: {
-    _type: 'image';
-    asset: {
-      _ref: string;
-      _type: 'reference';
+    sanityImage?: {
+      _type: 'image';
+      asset: {
+        _ref: string;
+        _type: 'reference';
+      };
     };
+    imageUrl?: string;
   };
   link?: string;
 }
 
+export interface StudyWithUs {
+  _id: string;
+  title: string;
+  description: string;
+  image: {
+    sanityImage?: {
+      _type: 'image';
+      asset: {
+        _ref: string;
+        _type: 'reference';
+      };
+    };
+    imageUrl?: string;
+  };
+}
 
-// Function to fetch all feature programmes
+export interface Home_StudentServices {
+  _id: string;
+  title: string;
+  description: string;
+  image: {
+    sanityImage?: {
+      _type: 'image';
+      asset: {
+        _ref: string;
+        _type: 'reference';
+      };
+    };
+    imageUrl?: string;
+  };
+}
+
+export interface OurStories {
+  _id: string;
+  title: string;
+  description: string;
+  image: {
+    sanityImage?: {
+      _type: 'image';
+      asset: {
+        _ref: string;
+        _type: 'reference';
+      };
+    };
+    imageUrl?: string;
+  };
+  link?: string;
+}
+
 export const getFeatureProgrammes = async (): Promise<FeatureProgramme[]> => {
   const query = `*[_type == "featureProgramme"]{
     _id,
     title,
     description,
-    image,
+    image {
+      sanityImage,
+      imageUrl
+    },
     link
   }`;
 
   try {
-
     const featureProgrammes: FeatureProgramme[] = await client.fetch(query);
-      console.log("Featured Programs Data:", featureProgrammes);
-
+    console.log("Featured Programs Data:", featureProgrammes);
     return featureProgrammes;
   } catch (error) {
     console.error('Error fetching feature programmes:', error);
     return [];
   }
+};
+
+export const getstudywithus = async (): Promise<StudyWithUs[]> => {
+  const query = `*[_type == "studywithus"]{
+    _id,
+    title,
+    description,
+    image {
+      sanityImage,
+      imageUrl
+    },
+  }`;
+
+  try {
+    const studywithus: StudyWithUs[] = await client.fetch(query);
+    console.log("Study With Us Data:", studywithus);
+    return studywithus;
+  } catch (error) {
+    console.error('Error fetching study with us data:', error);
+    return [];
+  }
+};
+
+export const gethome_studentservices = async (): Promise<Home_StudentServices[]> => {
+  const query = `*[_type == "home_studentservices"]{
+    _id,
+    title,
+    description,
+    image {
+      sanityImage,
+      imageUrl
+    },
+  }`;
+
+  try {
+    const home_studentservices: Home_StudentServices[] = await client.fetch(query);
+    console.log("Student services Data:", home_studentservices);
+    return home_studentservices;
+  } catch (error) {
+    console.error('Error fetching student services at homepage data:', error);
+    return [];
+  }
+};
+
+export const getOurStories = async (): Promise<OurStories[]> => {
+  const query = `*[_type == "ourstories"]{
+    _id,
+    title,
+    description,
+    image {
+      sanityImage,
+      imageUrl
+    },
+    link
+  }`;
+
+  try {
+    const ourstories: OurStories[] = await client.fetch(query);
+    console.log("Our Stories Data:", ourstories);
+    return ourstories;
+  } catch (error) {
+    console.error('Error fetching our stories data:', error);
+    return [];
+  }
+};
+
+// Helper to get image URL
+export const getImageUrl = (imageField: FeatureProgramme['image']) => {
+  if (imageField?.sanityImage) {
+    return urlFor(imageField.sanityImage).url();
+  }
+  if (imageField?.imageUrl) {
+    return imageField.imageUrl;
+  }
+  return null;
 };

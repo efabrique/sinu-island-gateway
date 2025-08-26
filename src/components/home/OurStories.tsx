@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
+import { getOurStories, urlFor } from '../../../sanity/lib/sanity';
 
 type CardItem = {
   title: string;
@@ -32,28 +32,49 @@ const cards: CardItem[] = [
 ];
 
 const OurStories: React.FC = () => {
+ const [ourstories, setOurStories] = useState([]);
+
+    const getImageSrc = (image: { sanityImage?: any; imageUrl?: string }) => {
+        if (image?.sanityImage) {
+            return urlFor(image.sanityImage).url();
+        }
+        if (image?.imageUrl) {
+            return image.imageUrl;
+        }
+        return '';
+    };
+
+    useEffect(() => {
+        // Fetch courses once on mount
+        getOurStories().then(setOurStories);
+
+        return () => {};
+    }, []);
+
   return (
+
+
     <section className="py-10 px-4">
         <h2 className="text-3xl font-bold text-center mb-8 text-[#082952]">Our Stories
                 <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
 
         </h2>
       <div className="max-w-7xl mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-        {cards.map((card, index) => (
+      {ourstories.map((program, index) => (
           <div key={index} className="bg-white rounded shadow hover:shadow-md transition-shadow duration-300 overflow-hidden flex flex-col">
             <img
-              src={card.image}
-              alt={card.title}
+              src={getImageSrc(program.image)}
+              alt={program.title}
               className="h-48 w-full object-cover"
             />
             <div className="p-4 flex-grow flex flex-col justify-between">
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">{card.title}</h3>
-                <p className="text-sm text-gray-600">{card.description}</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">{program.title}</h3>
+                <p className="text-sm text-gray-600">{program.description}</p>
               </div>
               <div className="mt-4">
                 <a
-                  href={card.link}
+                  href={program.link}
                   className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
                 >
                   Read More

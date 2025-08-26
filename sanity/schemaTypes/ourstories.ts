@@ -1,6 +1,6 @@
 export default {
-  name: 'featureProgramme',
-  title: 'Feature Programme',
+  name: 'ourstories',
+  title: 'Our Stories',
   type: 'document',
   fields: [
     {

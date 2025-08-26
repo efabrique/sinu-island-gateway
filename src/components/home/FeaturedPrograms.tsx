@@ -10,14 +10,23 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import OptimizedImage from '../common/OptimizedImage';
 import ErrorBoundary from '../common/ErrorBoundary';
-import {getFeatureProgrammes} from '../../../sanity/lib/sanity';
+import { getFeatureProgrammes, urlFor } from '../../../sanity/lib/sanity';
 
 const FeaturedPrograms = () => {
-
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [featuredPrograms, setFeaturedPrograms] = useState([]);
+
+  const getImageSrc = (image: { sanityImage?: any; imageUrl?: string }) => {
+    if (image?.sanityImage) {
+      return urlFor(image.sanityImage).url();
+    }
+    if (image?.imageUrl) {
+      return image.imageUrl;
+    }
+    return '';
+  };
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -50,7 +59,6 @@ const FeaturedPrograms = () => {
     return () => clearInterval(interval);
   }, [isPaused, direction]);
 
-
   return (
     <ErrorBoundary>
       <section className="py-8 md:py-8 bg-[#fff]">
@@ -58,66 +66,56 @@ const FeaturedPrograms = () => {
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mb-4  ">
               Featured Academic Programs
-                <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
-
+              <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
             </h2>
             <p className="text-base md:text-lg text-[#023047] max-w-2xl mx-auto">
               Discover our diverse range of undergraduate and graduate programs designed to prepare you for success.
             </p>
           </div>
 
-<div
-  ref={scrollRef}
-  className="flex overflow-x-auto space-x-4 md:space-x-6 scroll-smooth py-4 px-1 scrollbar-hide"
-  onMouseEnter={() => setIsPaused(true)}
-  onMouseLeave={() => setIsPaused(false)}
->
-  {featuredPrograms.map((program, index) => (
-    <ErrorBoundary key={index}>
-      <Card className="flex-shrink-0 w-64 sm:w-72 md:w-72 lg:w-72 flex flex-col overflow-hidden hover:shadow-lg transition-shadow duration-300">
-        {/* Image */}
-        <div className="h-40 sm:h-48 w-full overflow-hidden flex-shrink-0">
-          <OptimizedImage
-            src={program.image}
-            alt={program.title}
-            className="w-full h-full object-cover"
-            width={400}
-          />
-        </div>
-
-        {/* Header */}
-        <CardHeader className="flex-1 px-4 py-3">
-          <CardTitle className="text-[#222] text-lg font-semibold">
-            {program.title}
-          </CardTitle>
-          <CardDescription className="text-[#023047] text-sm">
-            {program.description}
-          </CardDescription>
-        </CardHeader>
-
-        {/* Footer */}
-        <CardFooter className="px-4 pb-4 pt-2">
-          <Button
-            variant="outline"
-            className="w-full text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white flex items-center justify-center"
+          <div
+            ref={scrollRef}
+            className="flex overflow-x-auto space-x-4 md:space-x-6 scroll-smooth py-4 px-1 scrollbar-hide"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
           >
-            Learn More
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </CardFooter>
-      </Card>
-    </ErrorBoundary>
-  ))}
-</div>
+            {featuredPrograms.map((program, index) => (
+              <ErrorBoundary key={index}>
+                <Card className="flex-shrink-0 w-64 sm:w-72 md:w-72 lg:w-72 flex flex-col overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                  {/* Image */}
+                  <div className="h-40 sm:h-48 w-full overflow-hidden flex-shrink-0">
+                    <OptimizedImage
+                      src={getImageSrc(program.image)}
+                      alt={program.title}
+                      className="w-full h-full object-cover"
+                      width={400}
+                    />
+                  </div>
 
-{/*
-          <div className="text-center mt-8 md:mt-8">
-            <Button className="bg-[#035ac5ff] text-white hover:bg-[#082952]/90">
-              View All Programs
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+                  {/* Header */}
+                  <CardHeader className="flex-1 px-4 py-3">
+                    <CardTitle className="text-[#222] text-lg font-semibold">
+                      {program.title}
+                    </CardTitle>
+                    <CardDescription className="text-[#023047] text-sm">
+                      {program.description}
+                    </CardDescription>
+                  </CardHeader>
+
+                  {/* Footer */}
+                  <CardFooter className="px-4 pb-4 pt-2">
+                    <Button
+                      variant="outline"
+                      className="w-full text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white flex items-center justify-center"
+                    >
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </ErrorBoundary>
+            ))}
           </div>
-          */}
         </div>
       </section>
     </ErrorBoundary>

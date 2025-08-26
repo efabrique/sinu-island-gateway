@@ -1,6 +1,6 @@
 export default {
-  name: 'featureProgramme',
-  title: 'Feature Programme',
+  name: 'studywithus',
+  title: 'Study With Us',
   type: 'document',
   fields: [
     {
@@ -54,13 +54,6 @@ export default {
       //     };
       //   },
       // },
-    },
-    {
-      name: 'link',
-      title: 'Link',
-      type: 'url',
-      validation: (Rule: any) =>
-        Rule.uri({ allowRelative: true, scheme: ['http', 'https', 'mailto', 'tel'] }),
     },
   ],
   preview: {
