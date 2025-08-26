@@ -1,160 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { getNews, getEvents, urlFor } from '../../../sanity/lib/sanity';
 
-type CardItem = {
-  title: string;
-  description: string;
-  image: string;
-  date: string; //e.g. "2025-01-01"
-  link?: string;
+// Utility to format date
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.toLocaleString('default', { month: 'short' });
+  return { day, month };
 };
 
-const formatDate = (dateStr: string) => {
-  const date = new Date(dateStr);
-  return {
-    day: date.getDate().toString().padStart(2, '0'),
-    month: date.toLocaleString('default', { month: 'short' }).toUpperCase()
-  };
-};
-
-const newsCards: CardItem[] = [
-{
-    title: "SINU Researcher Wins International Award",
-    date: "May 8, 2025",
-    description: "Dr. Sarah Johnson's groundbreaking research on coral reef conservation receives global recognition.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
-    link: "#"
-  },
-  {
-    title: "New Technology Center Opening Ceremony",
-    date: "May 1, 2025",
-    description: "The state-of-the-art technology center will enhance learning experiences for students across disciplines.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
-    link: "#"
-  },
-  {
-    title: "SINU Hosts Pacific Islands Education Summit",
-    date: "April 20, 2025",
-    description: "Educational leaders from across the Pacific gathered to discuss regional collaboration and innovation.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
-    link: "#"
-  },
-  {
-    title: 'Campus Renovation Completed',
-    description: 'The north wing renovation brings new labs and smart classrooms.',
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b',
-    date: '2025-01-01',
-    link: '#',
-  },
-  {
-    title: 'Scholarship Opportunities',
-    description: 'New grants available for undergraduates starting this fall.',
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b',
-        date: '2025-01-01',
-
-    link: '#',
-  },
-  {
-    title: 'Research Funding Doubled',
-    description: 'University commits to supporting innovation and projects.',
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b',
-        date: '2025-01-01',
-
-    link: '#',
-  },
-  {
-    title: 'Research Funding Doubled',
-    description: 'University commits to supporting innovation and projects.',
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b',
-        date: '2025-01-01',
-
-    link: '#',
-  },
-  {
-    title: 'Research Funding Doubled',
-    description: 'University commits to supporting innovation and projects.',
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b',
-        date: '2025-01-01',
-
-    link: '#',
-  },
-  {
-    title: 'Research Funding Doubled',
-    description: 'University commits to supporting innovation and projects.',
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b',
-        date: '2025-01-01',
-
-    link: '#',
-  }
-];
-
-const eventCards: CardItem[] = [
-    {
-    title: "Virtual Open Day",
-    date: "2025-04-15",
-    description: " 9:00 AM - 3:00 PM Online",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
-    link: "#"
-  },
-  {
-    title: "Guest Lecture: Climate Change in the Pacific",
-    date: "2025-04-20",
-    description: " 2:00 PM - 4:00 PM Main Auditorium",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
-    link: "#"
-  },
-  {
-    title: "Alumni Networking Evening",
-    date: "2025-04-25",
-    description: " 6:00 PM - 8:00 PM Student Center",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
-    link: "#"
-  },
-  {
-    title: 'Open Day 2025',
-    description: 'Join us to explore our campus, meet staff and attend mini-lectures.',
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1',
-    date: '2025-01-01',
-    link: '#',
-  },
-  {
-    title: 'Annual Science Fair',
-    description: 'Showcasing breakthrough student and faculty research.',
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1',
-    date: '2025-01-01',
-    link: '#',
-  },
-  {
-    title: 'Graduation Ceremony',
-    description: 'Celebrate the achievements of our latest graduating class.',
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1',
-    date: '2025-01-01',
-    link: '#',
-  },
-    {
-    title: 'Graduation Ceremony',
-    description: 'Celebrate the achievements of our latest graduating class.',
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1',
-    date: '2025-01-01',
-    link: '#',
-  },
-    {
-    title: 'Graduation Ceremony',
-    description: 'Celebrate the achievements of our latest graduating class.',
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1',
-    date: '2025-01-01',
-    link: '#',
-  },
-    {
-    title: 'Graduation Ceremony',
-    description: 'Celebrate the achievements of our latest graduating class.',
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1',
-    date: '2025-01-01',
-    link: '#',
-  }
-];
-
-const ScrollableCardRow: React.FC<{ cards: CardItem[] }> = ({ cards }) => {
+const ScrollableCardRow: React.FC<{ cards: any[] }> = ({ cards }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
@@ -185,6 +41,16 @@ const ScrollableCardRow: React.FC<{ cards: CardItem[] }> = ({ cards }) => {
     return () => clearInterval(interval);
   }, [direction, isPaused]);
 
+  const getImageSrc = (image: { sanityImage?: any; imageUrl?: string }) => {
+    if (image?.sanityImage) {
+      return urlFor(image.sanityImage).url();
+    }
+    if (image?.imageUrl) {
+      return image.imageUrl;
+    }
+    return '';
+  };
+
   return (
     <div
       ref={scrollRef}
@@ -200,7 +66,11 @@ const ScrollableCardRow: React.FC<{ cards: CardItem[] }> = ({ cards }) => {
             key={index}
             className="min-w-[280px] max-w-[280px] shrink-0 bg-white rounded shadow hover:shadow-md transition duration-300 flex flex-col "
           >
-            <img src={card.image} alt={card.title} className="h-44 w-full object-cover rounded-t" />
+            <img
+              src={getImageSrc(card.image)}
+              alt={card.title}
+              className="h-44 w-full object-cover rounded-t"
+            />
 
             {/* Stylized Date Block */}
             <div className="px-4 pt-4">
@@ -216,7 +86,10 @@ const ScrollableCardRow: React.FC<{ cards: CardItem[] }> = ({ cards }) => {
                 <p className="text-sm text-gray-600">{card.description}</p>
               </div>
               <div className="mt-4">
-                <a href={card.link} className="inline-flex items-center text-[#035ac5ff] hover:text-blue-800 font-medium">
+                <a
+                  href={card.link}
+                  className="inline-flex items-center text-[#035ac5ff] hover:text-blue-800 font-medium"
+                >
                   Read More
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
@@ -231,6 +104,13 @@ const ScrollableCardRow: React.FC<{ cards: CardItem[] }> = ({ cards }) => {
 
 const NewsEventsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'news' | 'events'>('news');
+  const [news, setNews] = useState<any[]>([]);
+  const [events, setEvents] = useState<any[]>([]);
+
+  useEffect(() => {
+    getNews().then(setNews);
+    getEvents().then(setEvents);
+  }, []);
 
   return (
     <section className="py-10 px-4 bg-gray-50">
@@ -253,9 +133,9 @@ const NewsEventsSection: React.FC = () => {
 
         {/* Card Section */}
         {activeTab === 'news' ? (
-          <ScrollableCardRow cards={newsCards} />
+          <ScrollableCardRow cards={news} />
         ) : (
-          <ScrollableCardRow cards={eventCards} />
+          <ScrollableCardRow cards={events} />
         )}
       </div>
     </section>

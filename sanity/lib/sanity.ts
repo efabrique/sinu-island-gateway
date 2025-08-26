@@ -79,6 +79,38 @@ export interface OurStories {
   link?: string;
 }
 
+export interface News {
+  _id: string;
+  title: string;
+  description: string;
+  image: {
+    sanityImage?: {
+      _type: 'image';
+      asset: {
+        _ref: string;
+        _type: 'reference';
+      };
+    };
+    imageUrl?: string;
+  };
+  link?: string;
+}
+export interface Events {
+  _id: string;
+  title: string;
+  description: string;
+  image: {
+    sanityImage?: {
+      _type: 'image';
+      asset: {
+        _ref: string;
+        _type: 'reference';
+      };
+    };
+    imageUrl?: string;
+  };
+  link?: string;
+}
 export const getFeatureProgrammes = async (): Promise<FeatureProgramme[]> => {
   const query = `*[_type == "featureProgramme"]{
     _id,
@@ -161,6 +193,49 @@ export const getOurStories = async (): Promise<OurStories[]> => {
     return ourstories;
   } catch (error) {
     console.error('Error fetching our stories data:', error);
+    return [];
+  }
+};
+
+export const getNews = async (): Promise<News[]> => {
+  const query = `*[_type == "news"]{
+    _id,
+    title,
+    description,
+    image {
+      sanityImage,
+      imageUrl
+    },
+    link
+  }`;
+
+  try {
+    const news: News[] = await client.fetch(query);
+    console.log("News Data:", news);
+    return news;
+  } catch (error) {
+    console.error('Error fetching news data:', error);
+    return [];
+  }
+};
+export const getEvents = async (): Promise<Events[]> => {
+  const query = `*[_type == "events"]{
+    _id,
+    title,
+    description,
+    image {
+      sanityImage,
+      imageUrl
+    },
+    link
+  }`;
+
+  try {
+    const events: Events[] = await client.fetch(query);
+    console.log("Events Data:", events);
+    return events;
+  } catch (error) {
+    console.error('Error fetching events data:', error);
     return [];
   }
 };
