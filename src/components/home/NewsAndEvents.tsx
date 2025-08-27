@@ -7,6 +7,7 @@ const formatDate = (dateString: string) => {
   const date = new Date(dateString);
   const day = date.getDate();
   const month = date.toLocaleString('default', { month: 'short' });
+  console.log(day, month);
   return { day, month };
 };
 

@@ -111,6 +111,55 @@ export interface Events {
   };
   link?: string;
 }
+
+export interface Vision {
+  _id: string;
+  title: string;
+  description: string;
+  image: {
+    sanityImage?: {
+      _type: 'image';
+      asset: {
+        _ref: string;
+        _type: 'reference';
+      };
+    };
+    imageUrl?: string;
+  };
+}
+
+export interface Mission {
+  _id: string;
+  title: string;
+  description: string;
+  image: {
+    sanityImage?: {
+      _type: 'image';
+      asset: {
+        _ref: string;
+        _type: 'reference';
+      };
+    };
+    imageUrl?: string;
+  };
+}
+
+export interface Value {
+  _id: string;
+  title: string;
+  description: string;
+  image: {
+    sanityImage?: {
+      _type: 'image';
+      asset: {
+        _ref: string;
+        _type: 'reference';
+      };
+    };
+    imageUrl?: string;
+  };
+}
+
 export const getFeatureProgrammes = async (): Promise<FeatureProgramme[]> => {
   const query = `*[_type == "featureProgramme"]{
     _id,
@@ -202,6 +251,7 @@ export const getNews = async (): Promise<News[]> => {
     _id,
     title,
     description,
+    date,
     image {
       sanityImage,
       imageUrl
@@ -223,6 +273,7 @@ export const getEvents = async (): Promise<Events[]> => {
     _id,
     title,
     description,
+    date,
     image {
       sanityImage,
       imageUrl
@@ -236,6 +287,69 @@ export const getEvents = async (): Promise<Events[]> => {
     return events;
   } catch (error) {
     console.error('Error fetching events data:', error);
+    return [];
+  }
+};
+
+export const getvision = async (): Promise<Vision[]> => {
+  const query = `*[_type == "vision"]{
+    _id,
+    title,
+    description,
+    image {
+      sanityImage,
+      imageUrl
+    },
+  }`;
+
+  try {
+    const vision: Vision[] = await client.fetch(query);
+    console.log("Vision Data:", vision);
+    return vision;
+  } catch (error) {
+    console.error('Error fetching vision data:', error);
+    return [];
+  }
+};
+
+export const getmission = async (): Promise<Mission[]> => {
+  const query = `*[_type == "mission"]{
+    _id,
+    title,
+    description,
+    image {
+      sanityImage,
+      imageUrl
+    },
+  }`;
+
+  try {
+    const mission: Mission[] = await client.fetch(query);
+    console.log("mission Data:", mission);
+    return mission;
+  } catch (error) {
+    console.error('Error fetching mission data:', error);
+    return [];
+  }
+};
+
+export const getvalue = async (): Promise<Value[]> => {
+  const query = `*[_type == "value"]{
+    _id,
+    title,
+    description,
+    image {
+      sanityImage,
+      imageUrl
+    },
+  }`;
+
+  try {
+    const value: Value[] = await client.fetch(query);
+    console.log("value Data:", value);
+    return value;
+  } catch (error) {
+    console.error('Error fetching value data:', error);
     return [];
   }
 };

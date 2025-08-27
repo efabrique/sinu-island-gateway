@@ -1,28 +1,44 @@
 import React, { useState } from 'react';
-
-const features = [
-    {
-        name: 'Our Vision',
-        content: 'A quality National University, raising standards of education and applied research in the Pacific region.',
-    },
-    {
-        name: 'Our Mission',
-        content: 'Championing the pursuit of knowledge, skills, academic inquiry and applied research to transform lives through higher education and training, inclusive of diverse communities, while providing relevant solutions for the Solomon Islands.',
-    },
-    {
-        name: 'Our Values',
-        content: 'Excellence and Quality: SINU is committed to providing excellent and high quality teaching, learning, skills training, and research. Innovativeness: SINU encourages and promotes creative ideas and solutions to existing and new challenges. Relevance: SINU is committed to providing relevant teaching.',
-    },
-];
+import { getvision, getmission, getvalue, urlFor } from '../../../sanity/lib/sanity';
 
 const MissionVission: React.FC = () => {
     const [hovered, setHovered] = useState<number | null>(null);
+    const [comibinedData, setCombinedData] = useState<any[]>([]);
 
-    const featureImages = [
-        '/lovable-uploads/graduation-circle-portrait-students-university-ceremony-celebration-academic-achievement-college-degree-friends-men-women-education-learning-studying_590464-464488.avif',
-        '/lovable-uploads/graduation-circle-portrait-students-university-ceremony-celebration-academic-achievement-college-degree-friends-men-women-education-learning-studying_590464-464488.avif',
-        '/lovable-uploads/graduation-circle-portrait-students-university-ceremony-celebration-academic-achievement-college-degree-friends-men-women-education-learning-studying_590464-464488.avif',
-    ];
+      const getImageSrc = (image: { sanityImage?: any; imageUrl?: string }) => {
+        if (image?.sanityImage) {
+          return urlFor(image.sanityImage).url();
+        }
+        if (image?.imageUrl) {
+          return image.imageUrl;
+        }
+        return '';
+      };
+
+    React.useEffect(() => {
+     const fetchData = async () => {
+    try {
+      const [visionData, missionData, valueData] = await Promise.all([
+        getvision(),
+        getmission(),
+        getvalue(),
+      ]);
+
+      const tagged = [
+        ...visionData.map((item: any) => ({ ...item, type: 'Our Vision' })),
+        ...missionData.map((item: any) => ({ ...item, type: 'Our Mission' })),
+        ...valueData.map((item: any) => ({ ...item, type: 'Our Value' })),
+      ];
+
+      setCombinedData(tagged);
+      console.log('Combined Data:', tagged);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  fetchData();
+}, []);
 
     return (
         <div
@@ -38,9 +54,9 @@ const MissionVission: React.FC = () => {
                 fontSize: '1.5rem',
             }}
         >
-            {features.map((feature, idx) => (
+            {comibinedData.map((feature, idx) => (
                 <div
-                    key={feature.name}
+                    key={feature.title || idx}
                     style={{
                         position: 'relative',
                         cursor: 'pointer',
@@ -58,7 +74,7 @@ const MissionVission: React.FC = () => {
                             transition: 'color 0.3s',
                         }}
                     >
-                        {feature.name}
+                        {feature.type}
                     </span>
 
                     {hovered === idx && (
@@ -83,11 +99,11 @@ const MissionVission: React.FC = () => {
                             }}
                         >
                             <div style={{ flex: 1, textAlign: 'left' }}>
-                                {feature.content}
+                                {feature.description}
                             </div>
                             <img
-                                src={featureImages[idx]}
-                                alt={feature.name}
+                                src={getImageSrc(feature.image)}
+                                alt={feature.title || feature.type}
                                 style={{
                                     width: '300px',
                                     height: '300px',

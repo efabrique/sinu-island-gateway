@@ -3,33 +3,6 @@ import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { getOurStories, urlFor } from '../../../sanity/lib/sanity';
 
-type CardItem = {
-  title: string;
-  description: string;
-  image: string;
-  link?: string;
-};
-
-const cards: CardItem[] = [
-  {
-    title: 'Environmental Studies',
-    description: 'Explore the relationship between humans and nature through our dynamic environmental program.',
-    image: 'public/lovable-uploads/7284ab6b-b66f-44ea-be92-9f17dc726408.png',
-    link: '#',
-  },
-  {
-    title: 'Visual Arts',
-    description: 'Dive into painting, sculpture, and design with our hands-on creative arts curriculum.',
-    image: 'public/lovable-uploads/e770e3e6-8bc7-4ced-8a1b-acfda565e2a4.png',
-    link: '#',
-  },
-  {
-    title: 'Data Science',
-    description: 'Analyze and interpret data to solve complex problems in real-world contexts.',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97',
-    link: '#',
-  }
-];
 
 const OurStories: React.FC = () => {
  const [ourstories, setOurStories] = useState([]);

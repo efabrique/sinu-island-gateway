@@ -4,6 +4,9 @@ import home_studentservices from './homestudentservices'
 import ourstories from './ourstories'
 import news from './news'
 import events from './events'
+import vision from './vision'
+import mission from './mission'
+import value from './value'
 
 export const schemaTypes = [
   featureprogrammes,
@@ -12,4 +15,7 @@ export const schemaTypes = [
   ourstories,
   news,
   events,
+  vision,
+  mission,
+  value
 ]
