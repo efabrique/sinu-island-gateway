@@ -160,6 +160,32 @@ export interface Value {
   };
 }
 
+export interface undergraduateDegree {
+  _id: string;
+  title: string;
+  description: string;
+  image: {
+    sanityImage?: {
+      _type: 'image';
+      asset: {
+        _ref: string;
+        _type: 'reference';
+      };
+    };
+    imageUrl?: string;
+  };
+  link?: string;
+}
+
+export interface UGkeydates {
+  _id: string;
+  title: string;
+  description: string;
+  day: string;
+  month: string;
+  link?: string;
+}
+
 export const getFeatureProgrammes = async (): Promise<FeatureProgramme[]> => {
   const query = `*[_type == "featureProgramme"]{
     _id,
@@ -350,6 +376,49 @@ export const getvalue = async (): Promise<Value[]> => {
     return value;
   } catch (error) {
     console.error('Error fetching value data:', error);
+    return [];
+  }
+};
+
+export const getundergraduateDegrees = async (): Promise<undergraduateDegree[]> => {
+  const query = `*[_type == "undergraduateDegree"]{
+    _id,
+    title,
+    description,
+    duration,
+    image {
+      sanityImage,
+      imageUrl
+    },
+    link
+  }`;
+
+  try {
+    const undergraduateDegrees: undergraduateDegree[] = await client.fetch(query);
+    console.log("Featured undergraduate degree Data:", undergraduateDegrees);
+    return undergraduateDegrees;
+  } catch (error) {
+    console.error('Error fetching undergraduate degrees:', error);
+    return [];
+  }
+};
+
+export const getUGkeyDates = async (): Promise<UGkeydates[]> => {
+  const query = `*[_type == "ugkeydates"]{
+    _id,
+    title,
+    description,
+    day,
+    month,
+    link
+  }`;
+
+  try {
+    const ugkeydates: UGkeydates[] = await client.fetch(query);
+    console.log("Featured undergraduate key dates Data:", ugkeydates);
+    return ugkeydates;
+  } catch (error) {
+    console.error('Error fetching undergraduate key dates:', error);
     return [];
   }
 };

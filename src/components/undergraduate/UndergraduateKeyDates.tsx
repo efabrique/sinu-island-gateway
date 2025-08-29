@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { getUGkeyDates, urlFor } from '../../../sanity/lib/sanity';
 
 interface EventItem {
   day: string;
@@ -7,49 +8,17 @@ interface EventItem {
   description: string;
 }
 
-const events: EventItem[] = [
-  {
-    day: '15',
-    month: 'Aug',
-    title: 'Applications Open',
-    description: 'Start submitting your course applications online.',
-  },
-  {
-    day: '30',
-    month: 'Sep',
-    title: 'Open Day',
-    description: 'Visit the campus, meet faculty and explore facilities.',
-  },
-  {
-    day: '10',
-    month: 'Oct',
-    title: 'Scholarship Deadline',
-    description: 'Last day to apply for merit-based scholarships.',
-  },
-  {
-    day: '30',
-    month: 'Oct',
-    title: 'Application Deadline',
-    description: 'Final date to apply for undergraduate programs.',
-  },
-  {
-    day: '01',
-    month: 'Feb',
-    title: 'Semester Begins',
-    description: 'Classes begin for all enrolled students.',
-  },
-  {
-    day: '05',
-    month: 'Mar',
-    title: 'Orientation Week',
-    description: 'New students attend orientation activities.',
-  },
-];
-
 const KeyDatesSection: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
+  const [UGkeydates, setUGkeydates] = useState<EventItem[]>([]);
 
-  const visibleEvents = showAll ? events : events.slice(0, 3);
+  React.useEffect(() => {
+    getUGkeyDates().then((data) => {
+      setUGkeydates(data);
+    });
+  }, []);
+
+  const visibleEvents = showAll ? UGkeydates : UGkeydates.slice(0, 3);
 
   return (
     <section id="key-dates" className="w-full max-w-7xl mx-auto p-6 ">
@@ -79,7 +48,7 @@ const KeyDatesSection: React.FC = () => {
           </div>
         ))}
       </div>
-       {!showAll && events.length > 3 && (
+       {!showAll && UGkeydates.length > 3 && (
         <div className="mt-6 pb-20 text-center">
           <button
             onClick={() => setShowAll(true)}

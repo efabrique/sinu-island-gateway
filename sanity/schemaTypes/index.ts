@@ -7,6 +7,8 @@ import events from './events'
 import vision from './vision'
 import mission from './mission'
 import value from './value'
+import undergraduateDegree from './undergraduatedegrees'
+import UGkeydates from './UGkeydates'
 
 export const schemaTypes = [
   featureprogrammes,
@@ -17,5 +19,7 @@ export const schemaTypes = [
   events,
   vision,
   mission,
-  value
+  value,
+  undergraduateDegree,
+  UGkeydates,
 ]
