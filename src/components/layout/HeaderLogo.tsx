@@ -1,71 +1,56 @@
-
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface HeaderLogoProps {
-  isMobile: boolean;
+  handleLogoClick?: () => void;
 }
 
-const HeaderLogo: React.FC<HeaderLogoProps> = ({ isMobile }) => {
-  const navigate = useNavigate();
+export function HeaderLogo({ handleLogoClick }: HeaderLogoProps) {
+  const [scrolled, setScrolled] = useState(false);
 
-  const handleLogoClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    navigate('/');
-    // Scroll to top after navigation
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }, 0);
-  };
-
-  if (isMobile) {
-    return (
-      <div className="flex-1 flex justify-center">
-        <Link to="/" onClick={handleLogoClick} className="flex items-center gap-3">
-          <div className="relative">
-            <div className="h-16 w-16 flex items-center justify-center">
-              <img 
-                src="/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png" 
-                alt="SINU Logo" 
-                className="h-full w-full object-contain"
-              />
-            </div>
-          </div>
-          <div className="text-[#082952] font-bold text-3xl">
-            SINU
-          </div>
-        </Link>
-      </div>
-    );
-  }
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 50);
+    }
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
-      {/* Floating Logo Card for Desktop/Tablet - Now Completely Transparent */}
-      <div className="fixed top-4 left-4 z-50 rounded-full p-1 transition-colors duration-300" 
-           style={{ 
-             width: '142px', 
-             height: '142px'
-           }}>
-        <Link to="/" onClick={handleLogoClick} className="w-full h-full flex items-center justify-center rounded-full overflow-hidden">
-          <img 
-            src="/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png" 
-            alt="SINU Logo" 
+      {/* Logo container */}
+      <div
+        className={`fixed left-4 z-50 rounded-full p-1 transition-all duration-500 ease-in-out
+          ${scrolled 
+            ? "top-2 w-12 h-12"           // Smaller logo on scroll
+            : "top-4 w-24 h-20 sm:w-32 sm:h-28 md:w-36 md:h-30" // Larger logo for desktop
+          }`}
+      >
+        <Link
+          to="/"
+          onClick={handleLogoClick}
+          className="w-full h-full flex items-center justify-center rounded-full overflow-hidden"
+        >
+          <img
+            src="/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png"
+            alt="SINU Logo"
             className="w-full h-full object-contain p-1"
           />
         </Link>
       </div>
-      
-      <div className="flex-grow flex flex-col items-center justify-center" style={{ minHeight: '80px' }}>  <h1 className="text-[#0b2c55] font-bold text-xl sm:text-2xl md:text-4xl text-center ml-30" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)' }}>
+
+      {/* Text below the logo */}
+      <div
+        className={`fixed left-4 z-50 w-36 sm:w-40 text-center text-[#222222] transition-opacity duration-500 ease-in-out
+          ${scrolled ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+        style={{ top: scrolled ? '0px' : '100px', paddingTop: scrolled ? '0px' : '2rem' }}
+      >
+        <h1 className="font-bold text-xs sm:text-sm md:text-base leading-tight">
           Solomon Islands National University
         </h1>
-
       </div>
     </>
   );
-};
+}
 
 export default HeaderLogo;

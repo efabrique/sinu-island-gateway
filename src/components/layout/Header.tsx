@@ -1,7 +1,5 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
-import MobileHeader from './MobileHeader';
 import DesktopHeader from './DesktopHeader';
 import ScrolledDesktopHeader from './ScrolledDesktopHeader';
 
@@ -89,38 +87,29 @@ const Header = () => {
   return (
     <header 
       ref={headerRef} 
-      className={`sticky top-0 w-full bg-white shadow-md z-50 transition-all duration-300 ease-in-out ${
+      className={`sticky top-0 w-full bg-transparent z-50 transition-all duration-300 ease-in-out ${
         isScrolled && !isMobile ? 'transform-gpu' : ''
       }`}
     >
-      {isMobile ? (
-        <MobileHeader 
-          menuOpen={menuOpen}
-          setMenuOpen={setMenuOpen}
-          expandedMenus={expandedMenus}
-          toggleSubmenu={toggleSubmenu}
-        />
-      ) : (
-        <div className="relative">
-          {/* Desktop Header - with smooth transition */}
-          <div className={`transition-all duration-300 ease-in-out transform-gpu ${
-            isScrolled 
-              ? 'opacity-0 -translate-y-full absolute inset-x-0 pointer-events-none' 
-              : 'opacity-100 translate-y-0 relative'
-          }`}>
-            <DesktopHeader />
-          </div>
-          
-          {/* Scrolled Header - with smooth transition */}
-          <div className={`transition-all duration-300 ease-in-out transform-gpu ${
-            isScrolled 
-              ? 'opacity-100 translate-y-0 relative' 
-              : 'opacity-0 translate-y-full absolute inset-x-0 pointer-events-none'
-          }`}>
-            <ScrolledDesktopHeader />
-          </div>
+      <div className="relative">
+        {/* Desktop Header - with smooth transition */}
+        <div className={`transition-all duration-300 ease-in-out transform-gpu ${
+          isScrolled 
+            ? 'opacity-0 -translate-y-full absolute inset-x-0 pointer-events-none' 
+            : 'opacity-100 translate-y-0 relative'
+        }`}>
+          <DesktopHeader />
         </div>
-      )}
+        
+        {/* Scrolled Header - with smooth transition */}
+        <div className={`transition-all duration-300 ease-in-out transform-gpu ${
+          isScrolled 
+            ? 'opacity-100 translate-y-0 relative' 
+            : 'opacity-0 translate-y-full absolute inset-x-0 pointer-events-none'
+        }`}>
+          <ScrolledDesktopHeader />
+        </div>
+      </div>
     </header>
   );
 };

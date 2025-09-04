@@ -39,7 +39,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ id, title, links, image, isScrolled
   // Calculate dropdown position dynamically
   const calculateDropdownPosition = () => {
     if (!buttonRef.current || !menuRef.current) return;
-
     const buttonRect = buttonRef.current.getBoundingClientRect();
     const dropdown = menuRef.current.querySelector<HTMLDivElement>("#" + id);
     if (!dropdown) return;
@@ -47,31 +46,30 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ id, title, links, image, isScrolled
     // Temporarily show dropdown to measure content width
     dropdown.style.visibility = "hidden";
     dropdown.style.display = "block";
-    const contentWidth = dropdown.scrollWidth; // auto-width based on content
+    const contentWidth = dropdown.scrollWidth;
     const windowWidth = window.innerWidth;
     dropdown.style.display = "";
     dropdown.style.visibility = "";
 
-    // Default left position aligned with button
     let left = buttonRect.left;
-
-    // Prevent overflow right
     if (left + contentWidth > windowWidth) {
-      left = Math.max(10, windowWidth - contentWidth - 10); // 10px margin from edges
+      left = Math.max(10, windowWidth - contentWidth - 10);
     }
-
     setDropdownStyle({ left });
   };
 
-  const handleOpen = () => {
+  const handleToggle = () => {
     calculateDropdownPosition();
     setIsOpen(!isOpen);
   };
 
   const buttonClasses = `
-    px-4 py-3 flex items-center justify-between w-full md:w-auto text-sm font-medium
-    focus:outline-none transition-colors
-    ${isScrolled ? "text-white hover:bg-[#f9c74f] hover:text-[#023047]" : "text-white hover:bg-[#f9c74f] hover:text-[#023047]"}
+    px-4 py-3 flex items-center justify-between w-full md:w-auto rounded-sm
+    font-sans font-medium text-base transition-colors focus:outline-none
+    ${isScrolled 
+      ? "text-black hover:text-[#ffb703] hover:bg-[#0b2c55]/90" 
+      : "text-black hover:text-[#ffb703] hover:bg-[#0b2c55]/90"
+    }
   `;
 
   return (
@@ -85,11 +83,11 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ id, title, links, image, isScrolled
       <button
         ref={buttonRef}
         className={buttonClasses}
-        onClick={() => window.innerWidth < 768 && handleOpen()}
+        onClick={() => window.innerWidth < 768 && handleToggle()}
         aria-controls={id}
         aria-expanded={isOpen}
       >
-        {title}
+        <span className="font-sans">{title}</span>
       </button>
 
       {/* Dropdown */}
@@ -97,30 +95,25 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ id, title, links, image, isScrolled
         id={id}
         style={dropdownStyle}
         className={`
-          absolute top-full z-50 origin-top
-          bg-[#ADC5CF] md:bg-blue-600 border-t border-[#8ecae6] md:border-none md:shadow-lg
-          transform transition-all duration-300 ease-in-out
-          scale-y-0 opacity-0
-          ${isOpen ? "scale-y-100 opacity-100" : ""}
-          
+          absolute top-full z-50 origin-top bg-white border-t border-[#8ecae6]
+          md:border-none md:shadow-lg transform transition-all duration-300 ease-in-out
+          scale-y-0 opacity-0 ${isOpen ? "scale-y-100 opacity-100" : ""}
         `}
       >
         <div className="p-4 md:px-6 md:py-4 flex flex-col md:flex-row gap-6 w-max">
           {/* Links List */}
-          <ul className="flex-1 space-y-5 pl-2">
+          <ul className="flex-1 space-y-4">
             {links.map((link, index) => (
-              <li key={index} className="flex items-start">
+              <li key={index}>
                 <a
                   href={link.url}
-                  className=" hover:text-[#219ebc]  md:text-[#fff] md:hover:text-[#222222] md:font-medium"
+                  className="block font-sans text-base text-[#222] hover:text-[#ffb703] md:font-medium transition-colors"
                 >
                   {link.title}
                 </a>
               </li>
             ))}
           </ul>
-
-        
         </div>
       </div>
     </div>

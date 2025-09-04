@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '@/components/layout/Header';
 import Hero from '@/components/home/Hero';
@@ -19,41 +18,57 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <ErrorBoundary>
-        <Header />
-      </ErrorBoundary>
-      <main className="flex-grow">
-        <ErrorBoundary>
+        {/* Hero Section */}
+        <div className="relative w-full">
           <Hero />
-        </ErrorBoundary>
-        <div className="my-10" />
-        <ErrorBoundary>
-          <MissonVision />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <StudyWithUs/>
-        </ErrorBoundary>
+
+          {/* Header over Hero */}
+          <div className="absolute top-0 left-0 w-full z-10">
+            <Header />
+          </div>
+        </div>
+      </ErrorBoundary>
+
+      {/* Main Content */}
+      <main className="flex-grow w-full px-4 sm:px-6 md:px-8 lg:px-16">
+        <div className="flex flex-col gap-12 md:gap-16 pt-8">
+
           <ErrorBoundary>
-          <StudentServices/>
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <FeaturedPrograms />
-        </ErrorBoundary>
-        <div className="my-10" />
-        <ErrorBoundary>
-          <DFL />
-        </ErrorBoundary>
-        <div className="my-10" />
-        <ErrorBoundary>
-          <OurStories />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <NewsAndEvents />
-        </ErrorBoundary>
-        <div className="my-10" />
+            <MissonVision />
+          </ErrorBoundary>
+
+          <ErrorBoundary>
+            <StudyWithUs />
+          </ErrorBoundary>
+
+          <ErrorBoundary>
+            <StudentServices />
+          </ErrorBoundary>
+
+          <ErrorBoundary>
+            <FeaturedPrograms />
+          </ErrorBoundary>
+
+          <ErrorBoundary>
+            <DFL />
+          </ErrorBoundary>
+
+          <ErrorBoundary>
+            <OurStories />
+          </ErrorBoundary>
+
+          <ErrorBoundary>
+            <NewsAndEvents />
+          </ErrorBoundary>
+
+        </div>
       </main>
+
+      {/* Footer */}
       <ErrorBoundary>
         <Footer />
       </ErrorBoundary>
+
       <BackToTop />
     </div>
   );

@@ -48,7 +48,7 @@ const MissionVission: React.FC = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 minHeight: '15vh',
-                backgroundColor: '#035ac5ff',
+                backgroundColor: '#22a2bf',
                 padding: '2rem',
                 color: '#fff',
                 fontSize: '1.5rem',
