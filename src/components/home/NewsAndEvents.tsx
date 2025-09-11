@@ -7,7 +7,6 @@ const formatDate = (dateString: string) => {
   const date = new Date(dateString);
   const day = date.getDate();
   const month = date.toLocaleString('default', { month: 'short' });
-  console.log(day, month);
   return { day, month };
 };
 
@@ -55,7 +54,7 @@ const ScrollableCardRow: React.FC<{ cards: any[] }> = ({ cards }) => {
   return (
     <div
       ref={scrollRef}
-      className="flex overflow-x-auto space-x-6 py-6 px-4 scroll-smooth scrollbar-hide"
+      className="w-screen flex overflow-x-auto space-x-6 py-6 scroll-smooth scrollbar-hide"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -65,7 +64,7 @@ const ScrollableCardRow: React.FC<{ cards: any[] }> = ({ cards }) => {
         return (
           <div
             key={index}
-            className="min-w-[280px] max-w-[280px] shrink-0 bg-white rounded shadow hover:shadow-md transition duration-300 flex flex-col "
+            className="min-w-[280px] max-w-[280px] shrink-0 bg-white rounded shadow hover:shadow-md transition duration-300 flex flex-col"
           >
             <img
               src={getImageSrc(card.image)}
@@ -73,7 +72,7 @@ const ScrollableCardRow: React.FC<{ cards: any[] }> = ({ cards }) => {
               className="h-44 w-full object-cover rounded-t"
             />
 
-            {/* Stylized Date Block */}
+            {/* Date Block */}
             <div className="px-4 pt-4">
               <div className="inline-block text-center border border-blue-600 rounded-md px-3 py-1">
                 <div className="text-lg font-bold text-blue-600 leading-tight">{day}</div>
@@ -114,31 +113,25 @@ const NewsEventsSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-10 px-4 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        {/* Toggle Buttons */}
-        <div className="flex justify-center gap-4 mb-8">
-          {['news', 'events'].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab as 'news' | 'events')}
-              className={`px-5 py-2 rounded font-medium transition-colors duration-200
-                ${activeTab === tab
-                  ? 'bg-[#035ac5ff]/90 text-white'
-                  : 'bg-transparent text-blue-1200 hover:bg-blue-100'}`}
-            >
-              {tab.charAt(0).toUpperCase() + tab.slice(1)}
-            </button>
-          ))}
-        </div>
-
-        {/* Card Section */}
-        {activeTab === 'news' ? (
-          <ScrollableCardRow cards={news} />
-        ) : (
-          <ScrollableCardRow cards={events} />
-        )}
+    <section className="py-10 bg-gray-50 md:pt-30 pt-20">
+      {/* Toggle Buttons */}
+      <div className="max-w-7xl mx-auto flex justify-center gap-4 mb-8 px-4">
+        {['news', 'events'].map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab as 'news' | 'events')}
+            className={`px-5 py-2 rounded font-medium transition-colors duration-200
+              ${activeTab === tab
+                ? 'bg-[#035ac5ff]/90 text-white'
+                : 'bg-transparent text-blue-1200 hover:bg-blue-100'}`}
+          >
+            {tab.charAt(0).toUpperCase() + tab.slice(1)}
+          </button>
+        ))}
       </div>
+
+      {/* Full-width scrollable card row */}
+      {activeTab === 'news' ? <ScrollableCardRow cards={news} /> : <ScrollableCardRow cards={events} />}
     </section>
   );
 };

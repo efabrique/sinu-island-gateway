@@ -16,59 +16,39 @@ import DFL from '@/components/home/DFL';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <ErrorBoundary>
-        {/* Hero Section */}
-        <div className="relative w-full">
-          <Hero />
+    <div className="relative min-h-screen flex flex-col">
+      {/* Header stays fixed over Hero */}
+      <Header />
 
-          {/* Header over Hero */}
-          <div className="absolute top-0 left-0 w-full z-10">
-            <Header />
-          </div>
-        </div>
-      </ErrorBoundary>
+      {/* Hero */}
+      <div className="relative z-0">
+        <Hero />
+      </div>
 
       {/* Main Content */}
-      <main className="flex-grow w-full px-4 sm:px-6 md:px-8 lg:px-16">
-        <div className="flex flex-col gap-12 md:gap-16 pt-8">
-
-          <ErrorBoundary>
-            <MissonVision />
-          </ErrorBoundary>
-
-          <ErrorBoundary>
-            <StudyWithUs />
-          </ErrorBoundary>
-
-          <ErrorBoundary>
-            <StudentServices />
-          </ErrorBoundary>
-
-          <ErrorBoundary>
-            <FeaturedPrograms />
-          </ErrorBoundary>
-
-          <ErrorBoundary>
-            <DFL />
-          </ErrorBoundary>
-
-          <ErrorBoundary>
-            <OurStories />
-          </ErrorBoundary>
-
-          <ErrorBoundary>
-            <NewsAndEvents />
-          </ErrorBoundary>
-
+      <main
+        className="
+          flex-grow w-full
+          
+         
+        "
+      >
+        {/* Section spacing */}
+        <div className="flex flex-col ">
+          <ErrorBoundary><MissonVision /></ErrorBoundary>
+          <ErrorBoundary><StudyWithUs /></ErrorBoundary>
+          <ErrorBoundary><StudentServices /></ErrorBoundary>
+          <ErrorBoundary><FeaturedPrograms /></ErrorBoundary>
+          <ErrorBoundary><DFL /></ErrorBoundary>
+          <ErrorBoundary><OurStories /></ErrorBoundary>
+          <ErrorBoundary><NewsAndEvents /></ErrorBoundary>
         </div>
       </main>
 
       {/* Footer */}
-      <ErrorBoundary>
-        <Footer />
-      </ErrorBoundary>
+      <ErrorBoundary><Footer /></ErrorBoundary>
 
+      {/* Back to top floating button */}
       <BackToTop />
     </div>
   );

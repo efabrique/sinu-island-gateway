@@ -1,56 +1,50 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface HeaderLogoProps {
+  isScrolled: boolean;
   handleLogoClick?: () => void;
 }
 
-export function HeaderLogo({ handleLogoClick }: HeaderLogoProps) {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 50);
-    }
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
+const HeaderLogo: React.FC<HeaderLogoProps> = ({ isScrolled, handleLogoClick }) => {
   return (
-    <>
-      {/* Logo container */}
-      <div
-        className={`fixed left-4 z-50 rounded-full p-1 transition-all duration-500 ease-in-out
-          ${scrolled 
-            ? "top-2 w-12 h-12"           // Smaller logo on scroll
-            : "top-4 w-24 h-20 sm:w-32 sm:h-28 md:w-36 md:h-30" // Larger logo for desktop
-          }`}
+    <div
+      className={`
+        flex  items-center justify-center text-center 
+        transition-all duration-500 ease-in-out
+        ${isScrolled ? "scale-100 opacity-100  pl-10" : "scale-100 opacity-100 pt-0 flex-col"}
+      `}
+    >
+      {/* Logo */}
+      <Link
+        to="/"
+        onClick={handleLogoClick}
+        className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
       >
-        <Link
-          to="/"
-          onClick={handleLogoClick}
-          className="w-full h-full flex items-center justify-center rounded-full overflow-hidden"
-        >
-          <img
-            src="/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png"
-            alt="SINU Logo"
-            className="w-full h-full object-contain p-1"
-          />
-        </Link>
-      </div>
+        <img
+          src="/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png"
+          alt="SINU Logo"
+          className="w-full h-full object-contain"
+        />
+      </Link>
 
-      {/* Text below the logo */}
+      {/* Text below logo (always two lines) */}
       <div
-        className={`fixed left-4 z-50 w-36 sm:w-40 text-center text-[#222222] transition-opacity duration-500 ease-in-out
-          ${scrolled ? "opacity-0 pointer-events-none" : "opacity-100"}`}
-        style={{ top: scrolled ? '0px' : '100px', paddingTop: scrolled ? '0px' : '2rem' }}
+        className={`
+          mt-2 w-full max-w-xs sm:max-w-sm md:max-w-md
+          transition-opacity duration-500 ease-in-out
+          ${isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"}
+        `}
       >
-        <h1 className="font-bold text-xs sm:text-sm md:text-base leading-tight">
-          Solomon Islands National University
+        <h1 className="font-bold text-sm sm:text-base md:text-lg leading-tight text-center">
+          Solomon Islands
+        </h1>
+        <h1 className="font-bold text-sm sm:text-base md:text-lg leading-tight text-center">
+          National University
         </h1>
       </div>
-    </>
+    </div>
   );
-}
+};
 
 export default HeaderLogo;

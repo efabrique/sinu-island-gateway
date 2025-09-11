@@ -4,33 +4,31 @@ import OptimizedImage from '@/components/common/OptimizedImage';
 import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
-  // State to track scroll
   const [scrolled, setScrolled] = React.useState(0);
 
   React.useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY);
-    };
+    const handleScroll = () => setScrolled(window.scrollY);
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Limit how much the image can be pushed down (e.g., max 200px)
   const maxPush = 200;
   const imagePush = Math.min(scrolled, maxPush);
 
-  // Single image details (used for all screen sizes)
-  const imageSrc = "/lovable-uploads/14230634-06c7-442c-99f2-16522f195ee8.png";
-  const imageAlt = "Beautiful coastal city at night with illuminated buildings and harbor";
+  const imageSrc =
+    '/lovable-uploads/14230634-06c7-442c-99f2-16522f195ee8.png';
+  const imageAlt =
+    'Beautiful coastal city at night with illuminated buildings and harbor';
 
   return (
-    <div className="relative bg-[#023047] h-[80vh] md:h-[90vh] overflow-hidden">
-      {/* Background Image - Used for all screen sizes */}
+    <div className="relative bg-[#023047] h-[70vh] sm:h-[75vh] md:h-[85vh] lg:h-[90vh] overflow-hidden">
+      {/* Background Image */}
       <div
         className="absolute inset-0"
-        style={{ transform: `translateY(${imagePush}px)`, transition: 'transform 0.2s' }}
+        style={{
+          transform: `translateY(${imagePush}px)`,
+          transition: 'transform 0.2s',
+        }}
       >
         <OptimizedImage
           src={imageSrc}
@@ -43,47 +41,53 @@ const Hero: React.FC = () => {
         />
       </div>
 
-<div className="text-center text-white px-4 max-w-7xl mx-auto" style={{ paddingTop: '18rem' }}>
-  {/* Main heading */}
-  <h1
-    className="font-bold text-3xl sm:text-4xl md:text-5xl drop-shadow-lg mb-20"
-    style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
-  >
-    Welcome to Solomon Islands National University
-  </h1>
+      {/* Card Overlay */}
+      <div
+        className="
+          absolute 
+          inset-x-0 bottom-20 translate-y-50 flex justify-center px-4
+          sm:inset-x-auto sm:bottom-16 sm:translate-y-0 sm:left-8 md:left-12 sm:justify-start
+          z-10
+        "
+      >
+        <div
+          className="
+          bg-[#22a2bf]/50 backdrop-blur-md rounded-2xl shadow-2xl
+          p-4 sm:p-6 md:p-8 lg:p-10
+          w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl
+          text-center sm:text-left
+        "
+        >
+          <h2 className="font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#222] mb-4 sm:mb-6">
+            New Student? Apply Now!
+          </h2>
 
-  {/* Subheading */}
-  <h2
-    className="font-bold text-2xl sm:text-3xl md:text-3xl drop-shadow-lg mt-16 mb-8"
-    style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)', paddingTop: '5rem' }}
-  >
-    New Student? Apply Now!
-  </h2>
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center sm:justify-start">
+            <Button
+              size="lg"
+              className="bg-[#ffb703] hover:bg-[#d7a12c] text-[#082952] font-bold text-base sm:text-lg md:text-xl px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 w-full sm:w-auto"
+              asChild
+            >
+              <Link to="/undergraduate-study">Undergraduate</Link>
+            </Button>
 
-  {/* Buttons */}
-  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-    <Button
-      size="lg"
-      className="bg-[#ffb703] hover:bg-[#d7a12c] text-[#082952] font-bold text-lg px-8 py-4 drop-shadow-lg transition-colors duration-300"
-      asChild
-    >
-      <Link to="/course-catalog">Undergraduate</Link>
-    </Button>
-    <Button
-      size="lg"
-      variant="outline"
-      className="bg-white text-black border-2 border-white hover:bg-white hover:text-[#082952] font-bold text-lg px-8 py-4 drop-shadow-lg transition-colors duration-300"
-      asChild
-    >
-      <Link to="/apply">Postgraduate</Link>
-    </Button>
-  </div>
-</div>
+            <Button
+              size="lg"
+              variant="outline"
+              className="bg-white text-black border-2 border-[#082952] hover:bg-[#082952] hover:text-white font-bold text-base sm:text-lg md:text-xl px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 w-full sm:w-auto"
+              asChild
+            >
+              <Link to="/postgraduate-study">Postgraduate</Link>
+            </Button>
+          </div>
+        </div>
+      </div>
 
-      {/* Announcement Banner with Scrolling Text */}
-      <div className="absolute bottom-0 left-0 right-0 bg-[#ffb703] py-2 md:py-3 overflow-hidden">
+      {/* Announcement Banner */}
+      <div className="absolute bottom-0 left-0 right-0 bg-[#ffb703] py-2 sm:py-3 overflow-hidden">
         <div className="whitespace-nowrap inline-block animate-scroll">
-          <p className="text-[#023047] text-xs sm:text-sm md:text-base font-medium px-4">
+          <p className="text-[#023047] text-xs sm:text-sm md:text-base font-medium px-4 sm:px-6">
             Enrollment for Semester two 2025 is now open! Apply before May 30th.
           </p>
         </div>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -14,21 +13,30 @@ import KeyDatesSection from '@/components/undergraduate/UndergraduateKeyDates';
 
 const UndergraduateStudy = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
+      {/* Header */}
       <Header />
-      <main>
-        <UndergraduateHero />
 
-        <UndergraduateTab/>
-        <NextStepsSection />
-        <UndergraduateStudyOptions />
-        
-        <StudyOptionsSection />
-        
-        <RequirementsSection />
-        <KeyDatesSection />
+      {/* Main content */}
+      <main className="flex-grow w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+        <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
+          {/* Hero Section */}
+          <UndergraduateHero />
+
+          {/* Tabs / Study Options */}
+          <UndergraduateTab />
+          <NextStepsSection />
+          <UndergraduateStudyOptions />
+          <StudyOptionsSection />
+          <RequirementsSection />
+          <KeyDatesSection />
+        </div>
       </main>
+
+      {/* Footer */}
       <Footer />
+
+      {/* Back to top button */}
       <BackToTop />
     </div>
   );

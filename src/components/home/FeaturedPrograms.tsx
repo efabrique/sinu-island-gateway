@@ -19,12 +19,8 @@ const FeaturedPrograms = () => {
   const [featuredPrograms, setFeaturedPrograms] = useState([]);
 
   const getImageSrc = (image: { sanityImage?: any; imageUrl?: string }) => {
-    if (image?.sanityImage) {
-      return urlFor(image.sanityImage).url();
-    }
-    if (image?.imageUrl) {
-      return image.imageUrl;
-    }
+    if (image?.sanityImage) return urlFor(image.sanityImage).url();
+    if (image?.imageUrl) return image.imageUrl;
     return '';
   };
 
@@ -39,13 +35,11 @@ const FeaturedPrograms = () => {
       if (!isPaused && container) {
         if (direction === 'right') {
           container.scrollLeft += scrollStep;
-
           if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
             setDirection('left');
           }
         } else {
           container.scrollLeft -= scrollStep;
-
           if (container.scrollLeft <= 0) {
             setDirection('right');
           }
@@ -53,7 +47,6 @@ const FeaturedPrograms = () => {
       }
     }, delay);
 
-    // Fetch courses once on mount
     getFeatureProgrammes().then(setFeaturedPrograms);
 
     return () => clearInterval(interval);
@@ -61,64 +54,64 @@ const FeaturedPrograms = () => {
 
   return (
     <ErrorBoundary>
-      <section className="py-8 md:py-8 bg-[#fff]">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mb-4  ">
-              Featured Academic Programs
-              <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
-            </h2>
-            <p className="text-base md:text-lg text-[#023047] max-w-2xl mx-auto">
-              Discover our diverse range of undergraduate and graduate programs designed to prepare you for success.
-            </p>
-          </div>
+      <section className="pt-10 md:pt-40 bg-[#fff]">
+        {/* Remove container to allow full-width scroll */}
+        <div className="text-center mb-8 md:mb-12 px-4 md:px-12 lg:px-24">
+          <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold mb-4">
+            Featured Academic Programs
+            <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+          </h2>
+          <p className="text-base md:text-lg text-[#023047] max-w-2xl mx-auto">
+            Discover our diverse range of undergraduate and graduate programs designed to prepare you for success.
+          </p>
+        </div>
 
-          <div
-            ref={scrollRef}
-            className="flex overflow-x-auto space-x-4 md:space-x-6 scroll-smooth py-4 px-1 scrollbar-hide"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
-            {featuredPrograms.map((program, index) => (
-              <ErrorBoundary key={index}>
-                <Card className="flex-shrink-0 w-64 sm:w-72 md:w-72 lg:w-72 flex flex-col overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                  {/* Image */}
-                  <div className="h-40 sm:h-48 w-full overflow-hidden flex-shrink-0">
-                    <OptimizedImage
-                      src={getImageSrc(program.image)}
-                      alt={program.title}
-                      className="w-full h-full object-cover"
-                      width={400}
-                    />
-                  </div>
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto md:pt-10 space-x-4 md:space-x-6 scroll-smooth py-4 px-4 md:px-12 lg:px-24 scrollbar-hide"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {featuredPrograms.map((program, index) => (
+            <ErrorBoundary key={index}>
+              <Card className="flex-shrink-0 w-64 sm:w-72 md:w-72 lg:w-72 flex flex-col overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                {/* Image */}
+                <div className="h-40 sm:h-48 w-full overflow-hidden flex-shrink-0">
+                  <OptimizedImage
+                    src={getImageSrc(program.image)}
+                    alt={program.title}
+                    className="w-full h-full object-cover"
+                    width={400}
+                  />
+                </div>
 
-                  {/* Header */}
-                  <CardHeader className="flex-1 px-4 py-3">
-                    <CardTitle className="text-[#222] text-lg font-semibold">
-                      {program.title}
-                    </CardTitle>
-                    <CardDescription className="text-[#023047] text-sm">
-                      {program.description}
-                    </CardDescription>
-                  </CardHeader>
+                {/* Header */}
+                <CardHeader className="flex-1 px-4 py-3">
+                  <CardTitle className="text-[#222] text-lg font-semibold">
+                    {program.title}
+                  </CardTitle>
+                  <CardDescription className="text-[#023047] text-sm">
+                    {program.description}
+                  </CardDescription>
+                </CardHeader>
 
-                  {/* Footer */}
-                  <CardFooter className="px-4 pb-4 pt-2">
-                    <Button
-                      variant="outline"
-                      className="w-full text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white flex items-center justify-center"
-                    >
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </CardFooter>
-                </Card>
-              </ErrorBoundary>
-            ))}
-          </div>
+                {/* Footer */}
+                <CardFooter className="px-4 pb-4 pt-2">
+                  <Button
+                    variant="outline"
+                    className="w-full text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white flex items-center justify-center"
+                  >
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </CardFooter>
+              </Card>
+            </ErrorBoundary>
+          ))}
         </div>
       </section>
     </ErrorBoundary>
   );
 };
+
 export default FeaturedPrograms;

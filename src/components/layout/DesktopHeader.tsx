@@ -1,42 +1,50 @@
-import React, { useState } from "react";
-import HeaderLogo from "./HeaderLogo";
-import TopNavigation from "./TopNavigation";
-import MainNavigation from "./MainNavigation";
-import { Menu, X } from "lucide-react";
+import React, { useState } from 'react';
+import HeaderLogo from './HeaderLogo';
+import MainNavigation from './MainNavigation';
+import TopNavigation from './TopNavigation';
+import { Menu, X } from 'lucide-react'; // icons for mobile menu toggle
 
-const DesktopHeader = () => {
+interface DesktopHeaderProps {
+  isScrolled?: boolean;
+}
+
+const DesktopHeader: React.FC<DesktopHeaderProps> = ({ isScrolled = false }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="w-full bg-transparent">
-      {/* Top bar with logo and hamburger */}
-      <div className="container mx-auto px-4 py-4 sm:py-6 flex items-center justify-between">
-        <HeaderLogo />
+    <div className="w-full bg-transparent min-h-[80px]">
+      <div className="container mx-auto px-4 py-4 sm:py-8 flex flex-col">
+        {/* Top bar: Logo left, TopNavigation right */}
+        <div className="w-full flex items-center justify-between">
+          <HeaderLogo isScrolled={isScrolled} />
 
-        {/* Desktop Top Navigation */}
-        <div className="flex-1 flex justify-end lg:flex lg:items-center lg:space-x-4 pt-10">
-          <TopNavigation />
-        </div>
-      </div>
-
-      {/* Main Navigation */}
-      <div className="bg-transparent">
-        <div className="container mx-auto px-4">
-          {/* Desktop Main Navigation */}
-          <div className="hidden lg:block">
-            <MainNavigation />
+          {/* TopNavigation hidden on mobile */}
+          <div className="hidden lg:flex flex-1 justify-end items-center">
+            <TopNavigation isScrolled={isScrolled} />
           </div>
 
-          {/* Mobile Menu */}
-          {mobileMenuOpen && (
-            <div className="lg:hidden bg-white shadow-md rounded-md p-4 mt-2 space-y-4 font-sans text-base">
-              <TopNavigation />
-              <MainNavigation />
-            </div>
-          )}
+          {/* Mobile hamburger button */}
+          <button
+            className="lg:hidden p-2 text-gray-700"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
+
+        {/* Mobile dropdown menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden mt-4 w-full">
+            <div className="bg-white shadow-lg rounded-lg p-4 animate-slide-down w-full">
+              {/* MainNavigation in responsive grid layout */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:grid-cols-3 gap-4 relative">
+                <MainNavigation isScrolled={isScrolled} isMobile={true} />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-    </header>
+    </div>
   );
 };
 

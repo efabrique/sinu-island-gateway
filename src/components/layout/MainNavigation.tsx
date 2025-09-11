@@ -4,23 +4,38 @@ import { megaMenuData } from '@/data/megaMenuData';
 
 interface MainNavigationProps {
   isScrolled?: boolean;
+  isMobile?: boolean;
 }
 
-const MainNavigation: React.FC<MainNavigationProps> = ({ isScrolled = false }) => {
+const MainNavigation: React.FC<MainNavigationProps> = ({ isScrolled = false, isMobile = false }) => {
+  if (isMobile) {
+    return (
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-3 relative">
+        {Object.entries(megaMenuData).map(([key, menuData], index) => (
+          <div key={key} className="relative">
+            <MegaMenu
+              id={`mega-menu-${index}`}
+              title={menuData.title || key}
+              links={menuData.links || []}
+              image={menuData.image}
+              isScrolled={isScrolled}
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // Desktop layout
   return (
-    <nav 
-      className="
-        flex flex-wrap justify-center gap-x-6 gap-y-2 
-        font-sans text-base md:text-lg
-      "
-    >
+    <nav className="flex justify-center gap-4 ">
       {Object.entries(megaMenuData).map(([key, menuData], index) => (
         <MegaMenu
           key={key}
-          id={`mega-menu-${index}`} // unique id for aria-controls
-          title={menuData.title || key} // fallback to key if title missing
-          links={menuData.links || []} // fallback empty array if links missing
-          image={menuData.image} // optional
+          id={`mega-menu-${index}`}
+          title={menuData.title || key}
+          links={menuData.links || []}
+          image={menuData.image}
           isScrolled={isScrolled}
         />
       ))}
