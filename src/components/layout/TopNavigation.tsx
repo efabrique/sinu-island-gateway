@@ -22,7 +22,7 @@ const TopNavigation: React.FC<TopNavigationProps> = ({ isScrolled = false }) => 
     <div className="w-full flex flex-col">
       {/* Top nav row */}
       <div
-        className={`flex items-center justify-end gap-4 transition-all duration-500 ${
+        className={`flex items-center justify-end transition-all duration-500 ${
           isScrolled ? 'hidden lg:flex' : 'flex'
         }`}
       >

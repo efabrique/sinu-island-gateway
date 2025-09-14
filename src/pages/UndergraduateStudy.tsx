@@ -18,8 +18,8 @@ const UndergraduateStudy = () => {
       <Header />
 
       {/* Main content */}
-      <main className="flex-grow w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-        <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
+      <main className="flex-grow w-full ">
+        <div className="flex flex-col">
           {/* Hero Section */}
           <UndergraduateHero />
 
