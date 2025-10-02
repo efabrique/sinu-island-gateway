@@ -2,8 +2,10 @@ export function StudentExperience() {
   return (
     <section className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-2" style={{ color: '#222222' }}>
+        <h2 className="text-3xl md:4xl font-bold text-center mb-2" style={{ color: '#222222' }}>
           Join SINU Experience
+                <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+
         </h2>
 
         <div className="bg-white rounded-lg p-8 shadow-lg">

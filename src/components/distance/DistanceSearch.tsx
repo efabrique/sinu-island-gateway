@@ -166,7 +166,7 @@ const DistanceSearch: React.FC = () => {
   };
 
   return (
-    <section className="w-full max-w-5xl mx-auto px-4 py-8 sm:py-12">
+    <section className="w-full max-w-5xl mx-auto px-4 py-8 sm:py-12 md:mt-20">
       <h2 className="text-2xl sm:text-4xl font-bold text-center mb-6 text-[#222222]">Our Learning Centers
         <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
       </h2>

@@ -54,7 +54,7 @@ const FeaturedPrograms = () => {
 
   return (
     <ErrorBoundary>
-      <section className="pt-10 md:pt-40 bg-[#fff]">
+      <section className="pt-10 md:pb-40 pb-20 bg-black/40">
         {/* Remove container to allow full-width scroll */}
         <div className="text-center mb-8 md:mb-12 px-4 md:px-12 lg:px-24">
           <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold mb-4">
@@ -74,7 +74,7 @@ const FeaturedPrograms = () => {
         >
           {featuredPrograms.map((program, index) => (
             <ErrorBoundary key={index}>
-              <Card className="flex-shrink-0 w-64 sm:w-72 md:w-72 lg:w-72 flex flex-col overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <Card className="flex-shrink-0 border-[#22a2bf] w-64 sm:w-72 md:w-72 lg:w-72 flex flex-col overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 {/* Image */}
                 <div className="h-40 sm:h-48 w-full overflow-hidden flex-shrink-0">
                   <OptimizedImage
@@ -87,7 +87,7 @@ const FeaturedPrograms = () => {
 
                 {/* Header */}
                 <CardHeader className="flex-1 px-4 py-3">
-                  <CardTitle className="text-[#222] text-lg font-semibold">
+                  <CardTitle className="text-[#222] text-center text-lg font-semibold">
                     {program.title}
                   </CardTitle>
                   <CardDescription className="text-[#023047] text-sm">

@@ -1,8 +1,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Wrench, Stethoscope, Car, Cpu, Building, Users, ChefHat, Palette } from 'lucide-react';
+import { Wrench, Stethoscope, Car, Cpu, Building, Users, ChefHat, Palette, ArrowRight } from 'lucide-react';
 import OptimizedImage from '../common/OptimizedImage';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
@@ -131,7 +131,7 @@ const CourseAreasSection = () => {
   }, [isPaused, direction]);
 
   return (
-    <section id= "tafe-courses" className="py-4 bg-white">
+    <section id= "tafe-courses" className="py-4 bg-white md:mt-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4">
@@ -155,38 +155,39 @@ const CourseAreasSection = () => {
       const cardContent = (
         <Card
           key={index}
-          className={`flex flex-col border-[#222222] justify-between min-h-[400px] text-center shrink-0 w-80 transition-shadow 
+          className={`flex flex-col border-[#22a2bf] justify-between min-h-[400px]  shrink-0 w-80 transition-shadow 
             ${area.disabled 
               ? "bg-gray-200 opacity-60 pointer-events-none" // grey out and disable interaction
               : "hover:shadow-lg"
             }`}
         >
-          <CardHeader className="pb-2">
-            <div className="h-56 overflow-hidden">
+            <div className="h-40 sm:h-48 w-full overflow-hidden flex-shrink-0">
               <OptimizedImage
                 src={area.image}
                 alt={area.title}
                 className="w-full h-full"
                 objectFit="cover"
-                width={500}
+                width={400}
               />
             </div>
-            <CardTitle className="text-xl text-[#082952] mt-3">{area.title}</CardTitle>
-            <CardDescription className="text-[#082952] flex-grow text-base mt-1">
-              {area.description}
-            </CardDescription>
-          </CardHeader>
+            <CardHeader className="flex-1 px-4 py-3">
+                  <CardTitle className="text-[#222] text-center text-lg font-semibold">
+                    {area.title}
+                  </CardTitle>
+                  <CardDescription className="text-[#023047] text-sm">
+                    {area.description}
+                  </CardDescription>
+                </CardHeader>
 
-          <CardContent className="pt-2 mt-auto">
-            <Button
-              variant="outline"
-              className="w-full text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white"
-              size="lg"
-              disabled={area.disabled}
-            >
-              View Courses
-            </Button>
-          </CardContent>
+          <CardFooter className="px-4 pb-4 pt-2">
+                  <Button
+                    variant="outline"
+                    className="w-full text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white flex items-center justify-center"
+                  >
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </CardFooter>
         </Card>
       );
 

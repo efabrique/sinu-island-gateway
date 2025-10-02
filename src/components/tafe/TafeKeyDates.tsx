@@ -52,7 +52,7 @@ const TafeKeyDates: React.FC = () => {
   const visibleEvents = showAll ? events : events.slice(0, 3);
 
   return (
-    <section id="key-dates" className="w-full max-w-7xl mx-auto p-6 ">
+    <section id="key-dates" className="w-full max-w-7xl mx-auto p-6 md:mt-20 ">
       <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4 text-center">Key Dates
                         <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
 
@@ -89,7 +89,7 @@ const TafeKeyDates: React.FC = () => {
           </button>
         </div>
       )}
-        <div className="bg-[#8ecae6] rounded-lg p-8 text-center">
+        <div className="bg-[#8ecae6] rounded-lg p-8 text-center md:mt-20">
           <h3 className="text-2xl font-bold text-[#023047] mb-4">
             Need Help with Your Application?
           </h3>

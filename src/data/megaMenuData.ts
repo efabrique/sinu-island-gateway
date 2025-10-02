@@ -6,7 +6,7 @@ export const megaMenuData = {
     links: [
       { title: "Undergraduate", url: "/undergraduate-study" },
       { title: "Postgraduate", url: "/postgraduate-study" },
-      { title: "Distance & Flexible Learning", url: "/distance-flexible-learning" },
+      { title: "Student Learning Support", url: "/distance-flexible-learning" },
       { title: "SINU TAFE & TVET", url: "/sinu-tafe-vvet" },
       { title: "Short Courses", url: "/short-courses" },
       { title: "International", url: "/admission-requirements" }
@@ -20,7 +20,6 @@ export const megaMenuData = {
     title: "Research",
     links: [
       { title: "Research Impacts", url: "/research-centers-institutes" },
-      { title: "Research Projects", url: "/research-grants" },
       { title: "Research Challenges", url: "/ethics-committee" },
       { title: "Research Funding", url: "/research-partnerships" },
       { title: "Research Ethics", url: "/research-ethics" },
@@ -86,7 +85,8 @@ export const megaMenuData = {
       { title: "Executive Leadership", url: "#" },
       { title: "Organizational Structure", url: "#" },
       { title: "Strategic Plan", url: "#" },
-      { title: "Policies & Procedures", url: "#" }
+      { title: "Policies & Procedures", url: "#" },
+      { title: "BICS" , url: "#" }
     ],
     image: {
       src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",

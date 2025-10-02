@@ -11,7 +11,7 @@ interface TopNavigationProps {
 const TopNavigation: React.FC<TopNavigationProps> = ({ isScrolled = false }) => {
   const navItems = [
     { to: '/staff-login', icon: User, label: 'Staff Portal' },
-    { to: '/student-login', icon: Users, label: 'Student Portal' },
+    { to: '/student-portal', icon: Users, label: 'Student Portal' },
     { to: '/moodle', icon: GraduationCap, label: 'Moodle' },
     { to: '/library-services', icon: Library, label: 'Library' },
     { to: '/applicant-login', icon: Book, label: 'Apply Now' },

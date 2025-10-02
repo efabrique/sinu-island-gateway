@@ -40,7 +40,7 @@ const StudyOptionsSection = () => {
   ];
 
   return (
-    <section className="py-10 bg-[#edf4ff]">
+    <section className="py-10 bg-[#edf4ff] md:mt-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4 text-center relative inline-block">

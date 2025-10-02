@@ -17,24 +17,29 @@ import DFL from '@/components/home/DFL';
 const Index = () => {
   return (
     <div className="relative min-h-screen flex flex-col">
+      {/* Fixed background image in bottom-right corner */}
+      <div
+        className="fixed bottom-0 right-0 w-full h-full pointer-events-none z-0"
+        style={{
+          backgroundImage: "url('/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png')",
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center ',
+          backgroundSize: '25%', // show only 1/4 of the image
+          opacity: 0.15, // optional for watermark effect
+        }}
+      />
+
       {/* Header stays fixed over Hero */}
       <Header />
 
       {/* Hero */}
-      <div className="relative z-0">
+      <div className="relative z-10">
         <Hero />
       </div>
 
       {/* Main Content */}
-      <main
-        className="
-          flex-grow w-full
-          
-         
-        "
-      >
-        {/* Section spacing */}
-        <div className="flex flex-col ">
+      <main className="flex-grow w-full relative z-10">
+        <div className="flex flex-col">
           <ErrorBoundary><MissonVision /></ErrorBoundary>
           <ErrorBoundary><StudyWithUs /></ErrorBoundary>
           <ErrorBoundary><StudentServices /></ErrorBoundary>

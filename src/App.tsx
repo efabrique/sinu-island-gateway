@@ -51,6 +51,7 @@ import CampusAccommodation from "./pages/CampusAccommodation";
 import Transportation from "./pages/Transportation";
 import StaffLogin from "./pages/StaffLogin";
 import StudentLogin from "./pages/StudentLogin";
+import StudentPortal from "./pages/StudentsPortal";
 import ApplicantLogin from "./pages/ApplicantLogin";
 import NotFound from "./pages/NotFound";
 import TafeEnrollment from "./pages/TafeEnrollment";
@@ -111,6 +112,7 @@ const App = () => (
           <Route path="/transportation" element={<Transportation />} />
           <Route path="/staff-login" element={<StaffLogin />} />
           <Route path="/student-login" element={<StudentLogin />} />
+          <Route path="/student-portal" element={<StudentPortal />} />
           <Route path="/applicant-login" element={<ApplicantLogin />} />
           <Route path="/tafe-enroll" element={<TafeEnrollment />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

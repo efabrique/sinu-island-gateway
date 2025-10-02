@@ -27,7 +27,7 @@ const OurStories: React.FC = () => {
   return (
 
 
-    <section className="py-10 px-4 md:pt-40 pt-20">
+    <section className="py-10 px-4 md:pt-40 pt-20 pb-20 bg-white/40">
         <h2 className="text-3xl font-bold text-center mb-8 text-[#082952]">Our Stories
                 <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
 

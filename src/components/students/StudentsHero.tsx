@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import OptimizedImage from '@/components/common/OptimizedImage';
 
-const DistanceHero = () => {
+const StudentsHero = () => {
   return (
     <section className="bg-[#edf4ff] relative overflow-hidden">
       {/* Background Image Container with Responsive Aspect Ratios */}
@@ -47,28 +47,31 @@ const DistanceHero = () => {
             p-4 md:p-12
           "
         >
-          <div className="relative z-10 max-w-4xl mt-40">
+          <div className="relative z-10 max-w-7xl mt-40">
             <h1
-              className="text-4xl md:text-5xl font-bold text-white  text-center bg-black/50 inline-block px-4 py-2"
+              className="text-3xl md:text-4xl font-bold text-white   inline-block px-4 py-2"
               style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
             >
-              Student Learning Support
+              Welcome to Solomon Islands National University
             </h1>
 
             <Card className="bg-[#22a2bf]/50 border-0 max-w-2xl">
-              <CardContent className="p-6 md:p-8">
+              <CardContent className="p-4 md:p-8">
                 <h3 className="text-xl md:text-3xl font-semibold text-white mb-4">
-                  Highly flexible, tailored for online learning and close to your home.
+                  Ready to start your journey with SINU?
                 </h3>
-                <p className="text-sm text-white leading-relaxed">
-                  Studying online may feel overwhelming, but we're here to help you. You'll have access to all our wide range of support services. Ask our Distance and Flexible Learning Center Support Staff.
+                <p className="text-m text-white leading-relaxed text-left">
+                  We hope you are studying your favourite subjects, look towards an engaging career, a burgeoning student life, inspiring teachers and friends for life. We hope you feel at home.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start py-6">
-                  <Button className="bg-[#ffb703] hover:bg-[#082952] text-white px-8 py-3">
-                    Find a Center
+                  <Button className="bg-[#fff] font-semibold text-[#082952] hover:bg-[#082952]  hover:text-white px-8 py-3">
+                    New Student 
                   </Button>
-                  <Button className="bg-white text-[#082952] hover:bg-[#082952] hover:text-white border-0 px-8 py-3 transition-all duration-300">
-                    Browse Programs
+                  <Button className="bg-white text-[#082952] font-semibold hover:bg-[#082952] hover:text-white border-0 px-8 py-3 transition-all duration-300">
+                    Student Account
+                  </Button>
+                <Button className="bg-white text-[#082952] font-semibold hover:bg-[#082952] hover:text-white border-0 px-8 py-3 transition-all duration-300">
+                    Register your Studies
                   </Button>
                 </div>
               </CardContent>
@@ -80,4 +83,4 @@ const DistanceHero = () => {
   );
 };
 
-export default DistanceHero;
+export default StudentsHero;

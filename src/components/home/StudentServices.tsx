@@ -16,7 +16,7 @@ export default function StudentServices() {
   }, []);
 
   return (
-    <div className="pt-10 md:pt-40">
+    <div className="pt-10 md:pt-20 md:pb-20">
       {studentservices.map((program, index) => (
         <div
           key={index}

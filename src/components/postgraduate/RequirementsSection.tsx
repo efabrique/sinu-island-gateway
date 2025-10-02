@@ -36,7 +36,7 @@ const RequirementsSection = () => {
   ];
 
   return (
-    <section id="pg-admission" className="py-16 bg-white">
+    <section id="pg-admission" className=" bg-white md:mt-20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">

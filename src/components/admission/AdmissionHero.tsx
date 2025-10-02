@@ -18,7 +18,7 @@ const AdmissionHero = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+          <h1 className="text-3xl md:text-5xl font-bold text-white mt-20 md:mt-40 mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             International Students 
           </h1>
           <p className="text-lg md:text-xl text-[#fff] mb-8 leading-relaxed" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>

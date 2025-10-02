@@ -4,7 +4,7 @@ import { getstudywithus, urlFor } from '../../../sanity/lib/sanity';
 import HeaderLogo from '../layout/HeaderLogo';
 import { Link } from 'react-router-dom';
 
-export default function StudyWithUs() {
+export default function StudentsStudyWithUs() {
   const [studywithus, setStudyWithUs] = useState<any[]>([]);
 
   const getImageSrc = (image: { sanityImage?: any; imageUrl?: string }) => {
@@ -15,14 +15,16 @@ export default function StudyWithUs() {
 
   useEffect(() => {
     getstudywithus().then(setStudyWithUs);
+          console.log(studywithus);
+
   }, []);
 
   return (
     // Responsive top padding: mobile pt-10, desktop pt-32
-    <div className="pt-10 md:pt-20 bg-black/40">
+    <div className=" md:pt-20 bg-black/25">
       {studywithus
-      .filter(program => program.title === "Study With Us")
-      .map((program, index) => (
+        .filter(program => program.title === "Study With Us in Student Page")
+        .map((program, index) => (
         <div
           key={index}
           className="relative flex flex-col md:flex-row items-center justify-center min-h-screen px-4 sm:px-6 md:px-12 lg:px-24 py-12 gap-8"
@@ -38,7 +40,7 @@ export default function StudyWithUs() {
             "
           >
             <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold mb-4">
-              {program.title}
+              Study Essentials
               <span className="block h-1 w-20 bg-blue-600 mx-auto md:mx-0 mt-2 rounded-sm"></span>
             </h2>
             <p className="mb-6 text-gray-800 text-justify sm:text-sm md:text-base lg:text-lg">
@@ -51,14 +53,14 @@ export default function StudyWithUs() {
                 className="w-full sm:w-auto text-[#035ac5] border-[#035ac5] hover:bg-[#035ac5] hover:text-white transition-colors"
                 onClick={() => alert('Find a degree clicked')}
               >
-                Find a Degree
+                Enrolment Information
               </Button>
               <Button
                 variant="outline"
                 className="w-full sm:w-auto text-[#035ac5] border-[#035ac5] hover:bg-[#035ac5] hover:text-white transition-colors"
                 onClick={() => alert('Ask an academic clicked')}
               >
-                Ask an Academic
+                Find out more
               </Button>
             </div>
           </div>
@@ -79,7 +81,7 @@ export default function StudyWithUs() {
           </div>
         </div>
       ))}
-      <div className="w-full bg-[#22a2bf] shadow-md transition-all duration-300 ease-in-out md:mt-20">
+      <div className="w-full bg-[#22a2bf] shadow-md transition-all duration-300 ease-in-out md:mt-20 md:mb-20">
       {/* Reduced height only on desktop */}
       <div className="container mx-auto md:px-40 flex items-center justify-between py-5 lg:py-6">
       <h2 className="text-black text-2xl md:text-4xl font-semibold">
@@ -88,7 +90,7 @@ export default function StudyWithUs() {
       </h2>
                     <Button
                       size="lg"
-                      className="bg-[#ffb703] hover:bg-blue-600 hover:text-black text-[#082952] font-bold text-base sm:text-lg md:text-xl px-4 sm:px-9 md:px-20 py-2 sm:py-3 md:py-4 w-full sm:w-auto"
+                      className="bg-[#ffb703] hover:bg-blue-600 hover:text-black text-[#082952] font-bold text-base sm:text-lg md:text-xl px-4 sm:px-6 md:px-20 py-2 sm:py-3 md:py-4 w-full sm:w-auto"
                       asChild
                     >
                     <Link to="/undergraduate-study">Learn More</Link>

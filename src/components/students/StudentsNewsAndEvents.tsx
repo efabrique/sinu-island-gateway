@@ -102,7 +102,7 @@ const ScrollableCardRow: React.FC<{ cards: any[] }> = ({ cards }) => {
   );
 };
 
-const NewsEventsSection: React.FC = () => {
+const StudentsNewsEventsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'news' | 'events'>('news');
   const [news, setNews] = useState<any[]>([]);
   const [events, setEvents] = useState<any[]>([]);
@@ -113,14 +113,14 @@ const NewsEventsSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-10  bg-black/40 md:pt-30 pt-10">
+    <section className="py-10  bg-black/25 md:pt-30 ">
       {/* Toggle Buttons */}
       <div className="max-w-7xl mx-auto flex justify-center gap-4 mb-8 px-4 ">
         {['news', 'events'].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab as 'news' | 'events')}
-            className={`px-5 py-2 rounded font-medium transition-colors duration-200 
+            className={`px-5 py-2 text-xl rounded font-medium transition-colors duration-200 
               ${activeTab === tab
                 ? 'bg-[#035ac5ff]/90 text-white  '
                 : 'bg-transparent text-blue-1200 hover:bg-blue-100'}`}
@@ -136,4 +136,4 @@ const NewsEventsSection: React.FC = () => {
   );
 };
 
-export default NewsEventsSection;
+export default StudentsNewsEventsSection;

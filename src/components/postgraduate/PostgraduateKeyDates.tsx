@@ -52,7 +52,7 @@ const PostgraduateKeyDates: React.FC = () => {
   const visibleEvents = showAll ? events : events.slice(0, 3);
 
   return (
-    <section id="key-dates" className="w-full max-w-7xl mx-auto p-6 ">
+    <section id="key-dates" className="w-full max-w-7xl mx-auto p-6 md:mt-20">
       <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4 text-center">Key Dates
                         <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
 
@@ -89,7 +89,7 @@ const PostgraduateKeyDates: React.FC = () => {
           </button>
         </div>
       )}
-        <div className="bg-[#8ecae6] rounded-lg p-8 text-center">
+        <div className="bg-[#8ecae6] rounded-lg p-8 text-center md:mt-20">
           <h3 className="text-2xl font-bold text-[#023047] mb-4">
             Need Help with Your Application?
           </h3>
@@ -99,18 +99,18 @@ const PostgraduateKeyDates: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-8 justify-center items-start sm:items-center">
   {/* Phone */}
-  <div className="text-center">
-    <p className="font-semibold text-[#023047] mb-2">Phone</p>
+  <div className="text-center ml-10">
+    <p className="font-semibold  text-[#023047] mb-2">Phone</p>
     <a
       href="tel:+67712345678"
-      className="inline-block px-4 py-2 bg-blue-900 text-white rounded-lg hover:bg-blue-700 transition"
+      className="inline-block px-4 py-2 bg-blue-900  text-white rounded-lg hover:bg-blue-700 transition"
     >
       Call +677 12345678
     </a>
   </div>
 
   {/* Email Button */}
-  <div className="text-center">
+  <div className="text-center ml-16">
     <p className="font-semibold text-[#023047] mb-2">Email</p>
     <a
       href="mailto:admissions@sinu.edu.sb"
@@ -121,7 +121,7 @@ const PostgraduateKeyDates: React.FC = () => {
   </div>
 
   {/* Office Hours */}
-  <div className="text-center">
+  <div className="text-center ml-10">
     <p className="font-semibold text-[#023047]">Office Hours</p>
     <p className="text-[#023047]">Mon-Fri, 8:00 AM - 4:00 PM</p>
   </div>

@@ -82,7 +82,7 @@ const InternationalFeaturedPrograms = () => {
       <section className="py-8 md:py-8 bg-[#fff]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mb-4  ">
+            <h2 className="text-3xl md:text-3xl font-bold text-[#222222] mb-4  ">
               Most Reviewed Degrees
                 <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
 
@@ -100,7 +100,7 @@ const InternationalFeaturedPrograms = () => {
 >
   {programs.map((program, index) => (
     <ErrorBoundary key={index}>
-      <Card className="flex-shrink-0 w-64 sm:w-72 md:w-72 lg:w-72 flex flex-col border-[#222222] overflow-hidden hover:shadow-lg transition-shadow duration-300">
+      <Card className="flex-shrink-0 w-64 sm:w-72 md:w-72 lg:w-72 flex flex-col border-[#22a2bf] overflow-hidden hover:shadow-lg transition-shadow duration-300">
         {/* Image */}
         <div className="h-40 sm:h-48 w-full overflow-hidden flex-shrink-0">
           <OptimizedImage

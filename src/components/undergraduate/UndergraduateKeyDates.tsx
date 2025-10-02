@@ -21,7 +21,7 @@ const KeyDatesSection: React.FC = () => {
   const visibleEvents = showAll ? UGkeydates : UGkeydates.slice(0, 3);
 
   return (
-    <section id="key-dates" className="w-full max-w-7xl mx-auto p-6 md:pt-40">
+    <section id="key-dates" className="w-full max-w-7xl mx-auto p-6 md:pt-20">
       <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4 text-center">Key Dates
        <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
 

@@ -135,7 +135,7 @@ const DFLProgramStructure = () => {
       {/* Section 1 - Learning Pathway Education */}
 
 <section id = "dfl-programs">
-  <h2 className="text-4xl font-bold text-center mb-10 text-[#222222]">
+  <h2 className="text-4xl font-bold text-center mb-10 text-[#222222] md:mt-20">
     DFL Program Structure
     <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
   </h2>
@@ -227,7 +227,7 @@ const DFLProgramStructure = () => {
         
       {/* Section 2 - Higher Qualification Programs */}
       <section>
-  <h2 className="text-2xl font-bold text-center mb-6 text-[#222222]">
+  <h2 className="text-2xl font-bold text-center mb-6 text-[#222222] md:mt-40">
     Higher Qualification Programs
   </h2>
   <input

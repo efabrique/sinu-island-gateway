@@ -2,15 +2,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const tabs = [
-  {label: 'Study With Us', path: '/why-postgraduate'},
-  { label: 'How to Apply', path: '/admission' },
-  { label: 'Program Structure', sectionId: 'key-dates' },
-  { label: 'Key Events', path: '/events' },
-  { label: 'Scholorships', path: '/scholorships' },
-  { label: 'Life in SINU', path: '/life-in-sinu' },
+  {label: 'Admission & Registeration', path: '/admission-requirement'},
+  { label: 'Support & Services', path: '/student-support' },
+  { label: 'IT for Students', sectionId: '/IT-services' },
+  { label: 'Students Life', path: '/students-life' },
+  { label: 'Careers', path: '/careers' },
 ];
 
-const PostgraduateTab: React.FC = () => {
+const StudentsTab: React.FC = () => {
   const navigate = useNavigate();
 
   const handleTabClick = (tab: typeof tabs[number]) => {
@@ -48,4 +47,4 @@ const PostgraduateTab: React.FC = () => {
   );
 };
 
-export default PostgraduateTab;
+export default StudentsTab;

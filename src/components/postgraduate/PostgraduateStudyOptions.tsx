@@ -45,7 +45,7 @@ const PostgraduateStudyOptions: React.FC = () => {
 
   return (
     <div className="w-full max-w-3xl mx-auto p-6">
-                <div className="text-center mb-12">
+                <div className="text-center mb-12 md:mt-20">
           <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4">
             Postgraduate Study Options
                             <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
