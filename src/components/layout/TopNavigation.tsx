@@ -1,84 +1,50 @@
-
 import React from 'react';
 import { Search, Book, User, Users, Library, GraduationCap } from 'lucide-react';
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import MainNavigation from './MainNavigation';
 
-const TopNavigation = () => {
+interface TopNavigationProps {
+  isScrolled?: boolean;
+}
+
+const TopNavigation: React.FC<TopNavigationProps> = ({ isScrolled = false }) => {
+  const navItems = [
+    { to: '/staff-login', icon: User, label: 'Staff Portal' },
+    { to: '/student-portal', icon: Users, label: 'Student Portal' },
+    { to: '/moodle', icon: GraduationCap, label: 'Moodle' },
+    { to: '/library-services', icon: Library, label: 'Library' },
+    { to: '/applicant-login', icon: Book, label: 'Apply Now' },
+    { to: '/course-finder', icon: Search, label: 'Search' },
+  ];
+
   return (
-    <div className="bg-[#219ebc]">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap justify-between items-center">
-          <div className="flex-1"></div>
-          <div className="flex items-center space-x-2 py-2">
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90 transition-colors duration-300"
-              asChild
-            >
-              <Link to="/staff-login">
-                <User className="mr-2 h-4 w-4" />
-                <span>Staff Portal</span>
-              </Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90 transition-colors duration-300"
-              asChild
-            >
-              <Link to="/student-login">
-                <Users className="mr-2 h-4 w-4" />
-                <span>Student Portal</span>
-              </Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90 transition-colors duration-300"
-              asChild
-            >
-              <Link to="#moodle">
-                <GraduationCap className="mr-2 h-4 w-4" />
-                <span>Moodle</span>
-              </Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90 transition-colors duration-300"
-              asChild
-            >
-              <Link to="/library-services">
-                <Library className="mr-2 h-4 w-4" />
-                <span>Library</span>
-              </Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90 transition-colors duration-300"
-              asChild
-            >
-              <Link to="/applicant-login">
-                <Book className="mr-2 h-4 w-4" />
-                <span>Apply Now</span>
-              </Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="text-white hover:text-[#ffb703] hover:bg-[#219ebc]/90 transition-colors duration-300"
-              asChild
-            >
-              <Link to="/course-finder">
-                <Search className="mr-2 h-4 w-4" />
-                <span>Search</span>
-              </Link>
-            </Button>
-          </div>
-        </div>
+    <div className="w-full flex flex-col">
+      {/* Top nav row */}
+      <div
+        className={`flex items-center justify-end transition-all duration-500 ${
+          isScrolled ? 'hidden lg:flex' : 'flex'
+        }`}
+      >
+        {navItems.map(({ to, icon: Icon, label }) => (
+          <Button
+            key={label}
+            asChild
+            variant="ghost"
+            size="sm"
+            className="flex items-center text-lg font-sans font-medium text-black hover:text-[#222] hover:bg-[#22a2bf]/70 transition-colors duration-300"
+          >
+            <Link to={to}>
+              <Icon className="mr-2 h-4 w-4" />
+              <span>{label}</span>
+            </Link>
+          </Button>
+        ))}
+      </div>
+
+      {/* Main navigation row centered below */}
+      <div className="w-full flex justify-center mt-10 hidden lg:flex">
+        <MainNavigation isScrolled={isScrolled} />
       </div>
     </div>
   );

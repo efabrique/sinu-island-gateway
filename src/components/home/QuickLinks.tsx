@@ -46,9 +46,9 @@ const quickLinks = [
 const QuickLinks = () => {
   return (
     <ErrorBoundary>
-      <section className="py-8 md:py-16 bg-[#F8F8F8]">
+      <section className="py-8 md:py-8 ">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#219ebc] text-center mb-8 md:mb-12">Quick Links</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#082952] text-center mb-8 md:mb-12">Quick Links</h2>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {quickLinks.map((link, index) => (

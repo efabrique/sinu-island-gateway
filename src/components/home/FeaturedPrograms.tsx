@@ -1,78 +1,113 @@
-
-import React from 'react';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import OptimizedImage from '../common/OptimizedImage';
 import ErrorBoundary from '../common/ErrorBoundary';
-
-const programs = [
-  {
-    title: "Business Administration",
-    description: "Develop managerial and entrepreneurial skills with our comprehensive business program.",
-    image: "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9",
-    link: "#"
-  },
-  {
-    title: "Marine Science",
-    description: "Study marine ecosystems and conservation in one of the world's most biodiverse regions.",
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742",
-    link: "#"
-  },
-  {
-    title: "Education",
-    description: "Shape the future by becoming a skilled educator with our teaching certification programs.",
-    image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511",
-    link: "#"
-  }
-];
+import { getFeatureProgrammes, urlFor } from '../../../sanity/lib/sanity';
 
 const FeaturedPrograms = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
+  const [featuredPrograms, setFeaturedPrograms] = useState([]);
+
+  const getImageSrc = (image: { sanityImage?: any; imageUrl?: string }) => {
+    if (image?.sanityImage) return urlFor(image.sanityImage).url();
+    if (image?.imageUrl) return image.imageUrl;
+    return '';
+  };
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const scrollStep = 1;
+    const delay = 30;
+
+    const interval = setInterval(() => {
+      if (!isPaused && container) {
+        if (direction === 'right') {
+          container.scrollLeft += scrollStep;
+          if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
+            setDirection('left');
+          }
+        } else {
+          container.scrollLeft -= scrollStep;
+          if (container.scrollLeft <= 0) {
+            setDirection('right');
+          }
+        }
+      }
+    }, delay);
+
+    getFeatureProgrammes().then(setFeaturedPrograms);
+
+    return () => clearInterval(interval);
+  }, [isPaused, direction]);
+
   return (
     <ErrorBoundary>
-      <section className="py-8 md:py-16 bg-[#F8F8F8]">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#219ebc] mb-4">Featured Academic Programs</h2>
-            <p className="text-base md:text-lg text-[#023047] max-w-2xl mx-auto">
-              Discover our diverse range of undergraduate and graduate programs designed to prepare you for success.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {programs.map((program, index) => (
-              <ErrorBoundary key={index}>
-                <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                  <div className="h-48 overflow-hidden">
-                    <OptimizedImage 
-                      src={program.image} 
-                      alt={program.title} 
-                      className="w-full h-full"
-                      objectFit="cover"
-                      width={400}
-                    />
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="text-[#023047]">{program.title}</CardTitle>
-                    <CardDescription className="text-[#023047]/80">{program.description}</CardDescription>
-                  </CardHeader>
-                  <CardFooter>
-                    <Button variant="outline" className="w-full text-[#219ebc] border-[#219ebc] hover:bg-[#219ebc] hover:text-white">
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </CardFooter>
-                </Card>
-              </ErrorBoundary>
-            ))}
-          </div>
-          
-          <div className="text-center mt-8 md:mt-12">
-            <Button className="bg-[#219ebc] text-white hover:bg-[#219ebc]/90">
-              View All Programs
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
+      <section className="pt-10 md:pb-40 pb-20 bg-black/40">
+        {/* Remove container to allow full-width scroll */}
+        <div className="text-center mb-8 md:mb-12 px-4 md:px-12 lg:px-24">
+          <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold mb-4">
+            Featured Academic Programs
+            <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+          </h2>
+          <p className="text-base md:text-lg text-[#023047] max-w-2xl mx-auto">
+            Discover our diverse range of undergraduate and graduate programs designed to prepare you for success.
+          </p>
+        </div>
+
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto md:pt-10 space-x-4 md:space-x-6 scroll-smooth py-4 px-4 md:px-12 lg:px-24 scrollbar-hide"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {featuredPrograms.map((program, index) => (
+            <ErrorBoundary key={index}>
+              <Card className="flex-shrink-0 border-[#22a2bf] w-64 sm:w-72 md:w-72 lg:w-72 flex flex-col overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                {/* Image */}
+                <div className="h-40 sm:h-48 w-full overflow-hidden flex-shrink-0">
+                  <OptimizedImage
+                    src={getImageSrc(program.image)}
+                    alt={program.title}
+                    className="w-full h-full object-cover"
+                    width={400}
+                  />
+                </div>
+
+                {/* Header */}
+                <CardHeader className="flex-1 px-4 py-3">
+                  <CardTitle className="text-[#222] text-center text-lg font-semibold">
+                    {program.title}
+                  </CardTitle>
+                  <CardDescription className="text-[#023047] text-sm">
+                    {program.description}
+                  </CardDescription>
+                </CardHeader>
+
+                {/* Footer */}
+                <CardFooter className="px-4 pb-4 pt-2">
+                  <Button
+                    variant="outline"
+                    className="w-full text-[#035ac5ff] border-[#035ac5ff] hover:bg-[#035ac5ff] hover:text-white flex items-center justify-center"
+                  >
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </CardFooter>
+              </Card>
+            </ErrorBoundary>
+          ))}
         </div>
       </section>
     </ErrorBoundary>

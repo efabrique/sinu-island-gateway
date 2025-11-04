@@ -2,64 +2,16 @@ export function StudentExperience() {
   return (
     <section className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12" style={{ color: '#082952' }}>
-          The SINU Experience
+        <h2 className="text-3xl md:4xl font-bold text-center mb-2" style={{ color: '#222222' }}>
+          Join SINU Experience
+                <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+
         </h2>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-12">
-          <div className="bg-white rounded-lg p-8 shadow-lg" style={{ borderLeft: '4px solid #ffb703' }}>
-            <h3 className="text-2xl font-semibold mb-6" style={{ color: '#082952' }}>
-              Campus Life
-            </h3>
-            <ul className="space-y-3">
-              <li className="flex items-center">
-                <div className="w-4 h-4 rounded-full mr-3" style={{ backgroundColor: '#8ecae6' }}></div>
-                <span style={{ color: '#082952' }}>Modern campus facilities and libraries</span>
-              </li>
-              <li className="flex items-center">
-                <div className="w-4 h-4 rounded-full mr-3" style={{ backgroundColor: '#8ecae6' }}></div>
-                <span style={{ color: '#082952' }}>Student clubs and cultural organizations</span>
-              </li>
-              <li className="flex items-center">
-                <div className="w-4 h-4 rounded-full mr-3" style={{ backgroundColor: '#8ecae6' }}></div>
-                <span style={{ color: '#082952' }}>Sports and recreational activities</span>
-              </li>
-              <li className="flex items-center">
-                <div className="w-4 h-4 rounded-full mr-3" style={{ backgroundColor: '#8ecae6' }}></div>
-                <span style={{ color: '#082952' }}>On-campus accommodation options</span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="bg-white rounded-lg p-8 shadow-lg" style={{ borderLeft: '4px solid #219ebc' }}>
-            <h3 className="text-2xl font-semibold mb-6" style={{ color: '#082952' }}>
-              Cultural Activities
-            </h3>
-            <ul className="space-y-3">
-              <li className="flex items-center">
-                <div className="w-4 h-4 rounded-full mr-3" style={{ backgroundColor: '#d7a12c' }}></div>
-                <span style={{ color: '#082952' }}>Traditional dance and music workshops</span>
-              </li>
-              <li className="flex items-center">
-                <div className="w-4 h-4 rounded-full mr-3" style={{ backgroundColor: '#d7a12c' }}></div>
-                <span style={{ color: '#082952' }}>Island excursions and cultural tours</span>
-              </li>
-              <li className="flex items-center">
-                <div className="w-4 h-4 rounded-full mr-3" style={{ backgroundColor: '#d7a12c' }}></div>
-                <span style={{ color: '#082952' }}>Community engagement projects</span>
-              </li>
-              <li className="flex items-center">
-                <div className="w-4 h-4 rounded-full mr-3" style={{ backgroundColor: '#d7a12c' }}></div>
-                <span style={{ color: '#082952' }}>Language exchange programs</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
         <div className="bg-white rounded-lg p-8 shadow-lg">
-          <h3 className="text-2xl font-semibold text-center mb-8" style={{ color: '#082952' }}>
-            Student Testimonials
-          </h3>
+          <p className="text-lg font-semibold text-center mb-8 text-[#082952]">
+            We want to help you make the most of your study experience in Solomon Islands. You will learn from world-class teaching staff at innovative facilities. You will be able to interact with local and international students. You will get to experience Solomon Islands culture and way of life.
+          </p>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-6 rounded-lg" style={{ backgroundColor: '#edf4ff' }}>
               <p className="mb-4 italic" style={{ color: '#082952' }}>
@@ -69,7 +21,7 @@ export function StudentExperience() {
                 <div className="w-12 h-12 rounded-full mr-3" style={{ backgroundColor: '#8ecae6' }}></div>
                 <div>
                   <p className="font-semibold" style={{ color: '#082952' }}>Sarah Johnson</p>
-                  <p className="text-sm" style={{ color: '#082952' }}>Environmental Science, University of Auckland</p>
+                  <p className="text-sm" style={{ color: '#082952' }}>Environmental Science, SINU</p>
                 </div>
               </div>
             </div>
@@ -81,7 +33,7 @@ export function StudentExperience() {
                 <div className="w-12 h-12 rounded-full mr-3" style={{ backgroundColor: '#ffb703' }}></div>
                 <div>
                   <p className="font-semibold" style={{ color: '#082952' }}>Marcus Chen</p>
-                  <p className="text-sm" style={{ color: '#082952' }}>Education Studies, University of Sydney</p>
+                  <p className="text-sm" style={{ color: '#082952' }}>Education Studies, SINU</p>
                 </div>
               </div>
             </div>

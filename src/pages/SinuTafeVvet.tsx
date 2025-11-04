@@ -9,6 +9,8 @@ import SupportSection from '@/components/tafe/SupportSection';
 import PathwaysSection from '@/components/tafe/PathwaysSection';
 import EnrollmentSection from '@/components/tafe/EnrollmentSection';
 import BackToTop from '@/components/common/BackToTop';
+import TafeTab from '@/components/tafe/TafeTab';
+import TafeKeyDates from '@/components/tafe/TafeKeyDates';
 
 const SinuTafeVvet = () => {
   return (
@@ -16,11 +18,11 @@ const SinuTafeVvet = () => {
       <Header />
       <main className="flex-grow">
         <TafeHero />
-        <CourseAreasSection />
-        <StudyOptionsSection />
-        <PathwaysSection />
-        <SupportSection />
+        <TafeTab/>
         <EnrollmentSection />
+        <CourseAreasSection />
+        <PathwaysSection />
+        <TafeKeyDates/>
       </main>
       <Footer />
       <BackToTop />

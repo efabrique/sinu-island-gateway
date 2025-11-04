@@ -1,18 +1,39 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import OptimizedImage from '@/components/common/OptimizedImage';
 import { Link } from 'react-router-dom';
 
-const Hero = () => {
+const Hero: React.FC = () => {
+  const [scrolled, setScrolled] = React.useState(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const maxPush = 200;
+  const imagePush = Math.min(scrolled, maxPush);
+
+  const imageSrc =
+    '/lovable-uploads/14230634-06c7-442c-99f2-16522f195ee8.png';
+  const imageAlt =
+    'Beautiful coastal city at night with illuminated buildings and harbor';
+
   return (
-    <div className="relative bg-[#023047] h-[50vh] md:h-[70vh] overflow-hidden">
-      {/* Background Image - Desktop and Tablet */}
-      <div className="absolute inset-0 hidden md:block">
+    <div className="relative bg-[#023047] h-[70vh] sm:h-[75vh] md:h-[85vh] lg:h-[90vh] overflow-hidden">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0"
+        style={{
+          transform: `translateY(${imagePush}px)`,
+          transition: 'transform 0.2s',
+        }}
+      >
         <OptimizedImage
-          src="/lovable-uploads/dd83a8a4-d4ea-40b9-924f-7052266d9b2a.png"
-          alt="Beautiful coastal city at night with illuminated buildings and harbor"
-          className="w-full h-full"
+          src={imageSrc}
+          alt={imageAlt}
+          className="w-full h-full object-cover object-center transition-opacity duration-700"
           objectFit="cover"
           priority={true}
           width={1920}
@@ -20,52 +41,53 @@ const Hero = () => {
         />
       </div>
 
-      {/* Background Image - Mobile */}
-      <div className="absolute inset-0 block md:hidden">
-        <OptimizedImage
-          src="/lovable-uploads/dd607778-2df7-469b-8bdd-075226d8cec6.png"
-          alt="Student in yellow dress holding book"
-          className="w-full h-full object-cover object-center"
-          objectFit="cover"
-          priority={true}
-          width={540}
-          height={960}
-        />
-      </div>
-      
-      {/* Content - Text and Buttons directly on image */}
-      <div className="relative h-full flex items-center justify-center">
-        <div className="text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-            Discover Your Potential at SINU
-          </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl mb-8 font-semibold drop-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-            <span className="block md:hidden">Discover Your Potential at SINU</span>
-            <span className="hidden md:block">Its Your Future. Let us help you discover it.</span>
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-[#ffb703] hover:bg-[#d7a12c] text-[#082952] font-bold text-lg px-8 py-4 drop-shadow-lg transition-colors duration-300"
+      {/* Card Overlay */}
+      <div
+        className="
+          absolute 
+          inset-x-0 bottom-20 translate-y-50 flex justify-center px-4
+          sm:inset-x-auto sm:bottom-16 sm:translate-y-0 sm:left-8 md:left-12 sm:justify-start
+          z-10
+        "
+      >
+        <div
+          className="
+          bg-[#22a2bf]/50 backdrop-blur-md rounded-2xl shadow-2xl
+          p-4 sm:p-6 md:p-8 lg:p-10
+          w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl
+          text-center sm:text-left
+        "
+        >
+          <h2 className="font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#222] mb-4 sm:mb-6">
+            New Student? Apply Now!
+          </h2>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center sm:justify-start">
+            <Button
+              size="lg"
+              className="bg-[#ffb703] hover:bg-[#d7a12c] text-[#082952] font-bold text-base sm:text-lg md:text-xl px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 w-full sm:w-auto"
               asChild
             >
-              <Link to="/course-catalog">Explore Programs</Link>
+              <Link to="/undergraduate-study">Undergraduate</Link>
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#082952] font-bold text-lg px-8 py-4 drop-shadow-lg transition-colors duration-300"
+
+            <Button
+              size="lg"
+              variant="outline"
+              className="bg-white text-black border-2 border-[#082952] hover:bg-[#082952] hover:text-white font-bold text-base sm:text-lg md:text-xl px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 w-full sm:w-auto"
+              asChild
             >
-              Apply Now
+              <Link to="/postgraduate-study">Postgraduate</Link>
             </Button>
           </div>
         </div>
       </div>
-      
-      {/* Announcement Banner with Scrolling Text */}
-      <div className="absolute bottom-0 left-0 right-0 bg-[#ffb703] py-2 md:py-3 overflow-hidden">
+
+      {/* Announcement Banner */}
+      <div className="absolute bottom-0 left-0 right-0 bg-[#ffb703] py-2 sm:py-3 overflow-hidden">
         <div className="whitespace-nowrap inline-block animate-scroll">
-          <p className="text-[#023047] text-sm md:text-base font-medium px-4">
+          <p className="text-[#023047] text-xs sm:text-sm md:text-base font-medium px-4 sm:px-6">
             Enrollment for Semester two 2025 is now open! Apply before May 30th.
           </p>
         </div>
