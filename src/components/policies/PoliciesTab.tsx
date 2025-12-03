@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const tabs = [
-  {label: 'Home', sectionId: '/policies-home'},
-  { label: 'Search Policies', sectionId: '/policies-search' },
+  {label: 'Home', sectionId: 'policies-home'},
+  { label: 'Search Policies', sectionId: 'policies-search' },
   { label: 'Bulletins', sectionId: 'key-dates' },
   { label: 'News', path: '/news' },
 ];

@@ -33,9 +33,9 @@ export default function PoliciesSearch() {
 
 
   return (
-<div
+<section
+  id="policies-search"
   className="p-4 sm:p-10 max-w-full sm:max-w-2xl lg:max-w-3xl mx-auto"
-  section-id="policies-search"
 >
   <h2 className="text-xl sm:text-4xl font-bold mb-8 text-center sm:text-left">
     Browse Our Policy Library
@@ -87,6 +87,6 @@ export default function PoliciesSearch() {
       </li>
     ))}
   </ul>
-</div>
+</section>
   );
 }

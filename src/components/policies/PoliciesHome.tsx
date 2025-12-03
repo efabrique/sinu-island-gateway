@@ -19,7 +19,7 @@ export default function StudyWithUs() {
 
   return (
     // Responsive top padding: mobile pt-10, desktop pt-32
-    <section className="pt-10 md:pt-20 bg-black/40" id="policies-home">
+    <section id="policies-home" className="pt-10 md:pt-20 bg-black/40" >
       {studywithus 
       .filter(program => program.title === "Study With Us")
       .map((program, index) => (
