@@ -1,0 +1,19 @@
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: sinu-island-gateway-delpoyment
+    spec:
+      replicas: 3
+      selector:
+        matchLabels:
+          app: sinu-island-gateway
+      template:
+        metadata:
+          labels:
+            app: sinu-island-gateway
+        spec:
+          containers:
+          - name: sinu-island-gateway-container
+            image: your-docker-registry/sinu-island-gateway:build # Replace with your image
+            ports:
+            - containerPort: 80

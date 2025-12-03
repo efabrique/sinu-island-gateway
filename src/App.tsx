@@ -55,6 +55,7 @@ import StudentPortal from "./pages/StudentsPortal";
 import ApplicantLogin from "./pages/ApplicantLogin";
 import NotFound from "./pages/NotFound";
 import TafeEnrollment from "./pages/TafeEnrollment";
+import Policies from "./pages/Policies";
 
 const queryClient = new QueryClient();
 
@@ -115,6 +116,7 @@ const App = () => (
           <Route path="/student-portal" element={<StudentPortal />} />
           <Route path="/applicant-login" element={<ApplicantLogin />} />
           <Route path="/tafe-enroll" element={<TafeEnrollment />} />
+          <Route path="/policies-procedures" element={<Policies/>}/>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
