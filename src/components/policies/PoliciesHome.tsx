@@ -19,13 +19,13 @@ export default function StudyWithUs() {
 
   return (
     // Responsive top padding: mobile pt-10, desktop pt-32
-    <section id="policies-home" className="pt-10 md:pt-20 bg-black/40" >
+    <section id="policies-home" className="pt-10 md:pt-10 bg-black/40" >
       {studywithus 
-      .filter(program => program.title === "Study With Us")
+      .filter(program => program.title === "Study With Us in Policies Pages")
       .map((program, index) => (
         <div
           key={index}
-          className="relative flex flex-col md:flex-row items-center justify-center min-h-screen px-4 sm:px-6 md:px-12 lg:px-24 py-12 gap-8"
+          className="relative flex flex-col md:flex-row items-center justify-center min-h-screen px-4 sm:px-6 md:px-20 lg:px-24 py-12 gap-8"
         >
           {/* Content Box */}
           <div
@@ -33,34 +33,17 @@ export default function StudyWithUs() {
               relative z-10
               bg-[#fff]/95 rounded-xl shadow-lg 
               p-6 sm:p-8 md:p-10 
-              w-full max-w-sm text-center md:text-left
-              md:absolute md:top-1/2 md:left-60 md:transform md:-translate-y-1/2 md:-translate-x-1/4
+              w-full max-w-s text-center md:text-left
+              md:relative md:top-1/2 md:left-20 md:transform md:-translate-y-1 md:-translate-x-1
             "
           >
             <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold mb-4">
-              {program.title}
+              {"SINU Policies"}
               <span className="block h-1 w-20 bg-blue-600 mx-auto md:mx-0 mt-2 rounded-sm"></span>
             </h2>
             <p className="mb-6 text-gray-800 text-justify sm:text-sm md:text-base lg:text-lg">
               {program.description}
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button
-                variant="outline"
-                className="w-full sm:w-auto text-[#035ac5] border-[#035ac5] hover:bg-[#035ac5] hover:text-white transition-colors"
-                onClick={() => alert('Find a degree clicked')}
-              >
-                Find a Degree
-              </Button>
-              <Button
-                variant="outline"
-                className="w-full sm:w-auto text-[#035ac5] border-[#035ac5] hover:bg-[#035ac5] hover:text-white transition-colors"
-                onClick={() => alert('Ask an academic clicked')}
-              >
-                Ask an Academic
-              </Button>
-            </div>
           </div>
 
           {/* Image */}
