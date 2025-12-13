@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Button } from '../ui/button';
 import { getstudywithus, urlFor } from '../../../sanity/lib/sanity';
 import HeaderLogo from '../layout/HeaderLogo';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function StudyWithUs() {
+  const navigate = useNavigate();
   const [studywithus, setStudyWithUs] = useState<any[]>([]);
 
   const getImageSrc = (image: { sanityImage?: any; imageUrl?: string }) => {
@@ -49,14 +50,14 @@ export default function StudyWithUs() {
               <Button
                 variant="outline"
                 className="w-full sm:w-auto text-[#035ac5] border-[#035ac5] hover:bg-[#035ac5] hover:text-white transition-colors"
-                onClick={() => alert('Find a degree clicked')}
+                onClick={() => navigate('/course-finder')}
               >
                 Find a Degree
               </Button>
               <Button
                 variant="outline"
                 className="w-full sm:w-auto text-[#035ac5] border-[#035ac5] hover:bg-[#035ac5] hover:text-white transition-colors"
-                onClick={() => alert('Ask an academic clicked')}
+                onClick={() => navigate('Ask an academic clicked')}
               >
                 Ask an Academic
               </Button>

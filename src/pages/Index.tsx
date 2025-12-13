@@ -21,7 +21,7 @@ const Index = () => {
       <div
         className="fixed bottom-0 right-0 w-full h-full pointer-events-none z-0"
         style={{
-          backgroundImage: "url('/lovable-uploads/e89a9d15-f230-44b8-8ecb-322ac2085582.png')",
+          backgroundImage: "/lovable-uploads/DSC05719.jpg",
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center ',
           backgroundSize: '25%', // show only 1/4 of the image

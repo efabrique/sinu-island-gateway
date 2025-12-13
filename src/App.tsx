@@ -56,6 +56,8 @@ import ApplicantLogin from "./pages/ApplicantLogin";
 import NotFound from "./pages/NotFound";
 import TafeEnrollment from "./pages/TafeEnrollment";
 import Policies from "./pages/Policies";
+import { ProgramDetails } from "./components/study-abroad/ProgramDetails";
+import ProgrammeDetails from "./pages/ProgrammeDetails";
 
 const queryClient = new QueryClient();
 
@@ -117,6 +119,7 @@ const App = () => (
           <Route path="/applicant-login" element={<ApplicantLogin />} />
           <Route path="/tafe-enroll" element={<TafeEnrollment />} />
           <Route path="/policies-procedures" element={<Policies/>}/>
+          <Route path="/programme/:code" element={<ProgrammeDetails />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

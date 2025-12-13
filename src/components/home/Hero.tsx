@@ -16,12 +16,12 @@ const Hero: React.FC = () => {
   const imagePush = Math.min(scrolled, maxPush);
 
   const imageSrc =
-    '/lovable-uploads/14230634-06c7-442c-99f2-16522f195ee8.png';
+    '/lovable-uploads/DSC05873.jpg';
   const imageAlt =
     'Beautiful coastal city at night with illuminated buildings and harbor';
 
   return (
-    <div className="relative bg-[#023047] h-[70vh] sm:h-[75vh] md:h-[85vh] lg:h-[90vh] overflow-hidden">
+    <div className="relative bg-[#023047] h-[70vh] sm:h-[75vh] md:h-[85vh] lg:h-[98vh] overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0"

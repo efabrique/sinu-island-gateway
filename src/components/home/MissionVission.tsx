@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { getvision, getmission, getvalue, urlFor } from '../../../sanity/lib/sanity';
+import React, { useState, useEffect } from "react";
+import { getvision, getmission, getvalue, urlFor } from "../../../sanity/lib/sanity";
 
-const MissionVission: React.FC = () => {
-  const [hovered, setHovered] = useState<number | null>(null);
-  const [combinedData, setCombinedData] = useState<any[]>([]);
+const MissionVission = () => {
+  const [hovered, setHovered] = useState(null);
+  const [combinedData, setCombinedData] = useState([]);
+  const [popupPosition, setPopupPosition] = useState("center");
 
-  const getImageSrc = (image: { sanityImage?: any; imageUrl?: string }) => {
+  const getImageSrc = (image) => {
     if (image?.sanityImage) return urlFor(image.sanityImage).url();
     if (image?.imageUrl) return image.imageUrl;
-    return '';
+    return "";
   };
 
   useEffect(() => {
@@ -21,14 +22,14 @@ const MissionVission: React.FC = () => {
         ]);
 
         const tagged = [
-          ...visionData.map((item: any) => ({ ...item, type: 'Our Vision' })),
-          ...missionData.map((item: any) => ({ ...item, type: 'Our Mission' })),
-          ...valueData.map((item: any) => ({ ...item, type: 'Our Value' })),
+          ...visionData.map((item) => ({ ...item, type: "Our Vision" })),
+          ...missionData.map((item) => ({ ...item, type: "Our Mission" })),
+          ...valueData.map((item) => ({ ...item, type: "Our Value" })),
         ];
 
         setCombinedData(tagged);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
@@ -36,30 +37,58 @@ const MissionVission: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-[#22a2bf] mt-20 text-white py-8 px-4 sm:px-6 md:px-12 flex flex-col md:flex-row justify-center items-center md:items-start gap-8 md:gap-16">
+    <div className="bg-[#22a2bf] mt-20 text-white py-8 px-4 sm:px-6 md:px-12 
+      flex flex-col md:flex-row justify-center items-center 
+      md:items-start gap-8 md:gap-16"
+    >
       {combinedData.map((feature, idx) => (
         <div
           key={feature.title || idx}
           className="relative flex-1 text-center cursor-pointer"
-          onMouseEnter={() => setHovered(idx)}
+          onMouseEnter={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+
+            let position = "center";
+
+            if (rect.left < 150) {
+              position = "left";
+            } else if (viewportWidth - rect.right < 150) {
+              position = "right";
+            }
+
+            setPopupPosition(position);
+            setHovered(idx);
+          }}
           onMouseLeave={() => setHovered(null)}
         >
-          {/* Feature Title */}
+          {/* Title */}
           <span
             className={`font-bold transition-colors duration-300 ${
-              hovered === idx ? 'text-[#222]' : 'text-white'
+              hovered === idx ? "text-[#222]" : "text-white"
             } text-lg sm:text-xl md:text-2xl`}
           >
             {feature.type}
           </span>
 
-          {/* Hover / Tap Popup */}
+          {/* Popup */}
           {hovered === idx && (
-            <div className="absolute z-50 top-full mt-4 left-1/2 transform -translate-x-1/2 bg-white border border-gray-300 shadow-lg p-4 sm:p-6 rounded-lg w-[90vw] max-w-lg md:max-w-xl text-[#082952] grid grid-cols-1 sm:grid-cols-2 gap-4 items-center justify-items-center">
+            <div
+              className={`
+                absolute z-50 top-full mt-4 bg-white border border-gray-300 shadow-lg 
+                p-4 sm:p-6 rounded-lg w-[90vw] max-w-lg text-[#082952]
+                grid grid-cols-1 sm:grid-cols-2 gap-4 items-center justify-items-center
+                transition-all duration-200
+                ${popupPosition === "center" ? "left-1/2 -translate-x-1/2" : ""}
+                ${popupPosition === "left" ? "left-0" : ""}
+                ${popupPosition === "right" ? "right-0" : ""}
+              `}
+            >
               {/* Description */}
-              <div className="text-center sm:text-left text-sm sm:text-base font-medium">
+              <p className="text-justify text-sm sm:text-base font-medium">
                 {feature.description}
-              </div>
+              </p>
+
               {/* Image */}
               {feature.image && (
                 <img

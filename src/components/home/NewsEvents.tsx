@@ -92,7 +92,7 @@ const NewsEvents = () => {
             </div>
             <div className="space-y-6">
               {events.map((event, index) => (
-                <Card key={index} className="border-[#8ecae6]/30">
+                <Card key={index} className="border-[#222]">
                   <CardHeader className="pb-2">
                     <div className="flex items-center text-sm text-[#023047]/70 mb-1">
                       <Calendar className="mr-1 h-4 w-4" />

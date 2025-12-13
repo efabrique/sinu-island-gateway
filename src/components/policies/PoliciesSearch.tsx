@@ -1,6 +1,4 @@
 import { useState } from "react";
-import  fileRou  from "../../routes/fileRoutes";
-import { get } from "http";
 import axios from "axios";
 
 interface PdfFile {
@@ -16,77 +14,87 @@ export default function PoliciesSearch() {
   const [loading, setLoading] = useState(false);
 
   const handleSearch = async () => {
-  if (!query.trim()) return;
+    setLoading(true);
 
-  setLoading(true);
+    try {
+      let res;
 
-  try {
-    const res = await axios.get<PdfFile[]>(`http://localhost:5000/api/files/search/${query}`);
-    console.log("Search results:", res.data);
-    setResults(res.data || []);
-  } catch (err) {
-    console.error("Search error:", err);
-  }
+      if (!query.trim()) {
+        // If input empty → fetch all files
+        res = await axios.get<PdfFile[]>(
+          "http://localhost:5000/api/policy_files/all"
+        );
+      } else {
+        // Search by query
+        res = await axios.get<PdfFile[]>(
+          `http://localhost:5000/api/policy_files/search/${query}`
+        );
+      }
 
-  setLoading(false);
-};
+      console.log("Results:", res.data);
+      setResults(res.data || []);
+    } catch (err) {
+      console.error("Search error:", err);
+    }
 
+    setLoading(false);
+  };
 
   return (
-<section
-  id="policies-search"
-  className="p-4 sm:p-10 max-w-full sm:max-w-2xl lg:max-w-3xl mx-auto"
->
-  <h2 className="text-xl sm:text-4xl font-bold mb-8 text-center sm:text-left">
-    Browse Our Policy Library
-  </h2>
-
-  {/* Search bar */}
-  <div className="flex flex-col sm:flex gap-3 mb-8 w-full">
-    <input
-      type="text"
-      placeholder="Search by filename or keywords..."
-      className="border px-3 py-2 rounded w-full sm:flex-1"
-      value={query}
-      onChange={(e) => setQuery(e.target.value)}
-    />
-
-    <button
-      onClick={handleSearch}
-      className="bg-blue-600 text-xl text-white px-4 py-2 rounded w-full sm:w-auto"
+    <section
+      id="policies-search"
+      className="p-4 sm:p-10 max-w-full sm:max-w-2xl lg:max-w-3xl mx-auto"
     >
-      Search
-    </button>
-  </div>
+      <h2 className="text-xl sm:text-4xl font-bold mb-8 text-center sm:text-left">
+        Browse Our Policy Library
+      </h2>
 
-  {/* Loading */}
-  {loading && <p className="text-center">Searching...</p>}
+      {/* Search bar */}
+      <div className="flex flex-col sm:flex gap-3 mb-8 w-full">
+        <input
+          type="text"
+          placeholder="Search by filename or keywords..."
+          className="border px-3 py-2 rounded w-full sm:flex-1"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
 
-  {/* No results */}
-  {!loading && results.length === 0 && query !== "" && (
-    <p className="text-gray-600 text-center">No files found.</p>
-  )}
-
-  {/* Results */}
-  <ul className="space-y-3 mt-4">
-    {results.map((file) => (
-      <li
-        key={file._id}
-        className="border p-3 rounded flex flex-col sm:flex-row justify-between  bg-black/30 sm:items-center gap-2"
-      >
-        <span className="break-words font-bold">{file.filename}</span>
-
-        <a
-          href={`http://localhost:5000/api/files/file/${file._id}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 underline text-sm sm:text-base"
+        <button
+          onClick={handleSearch}
+          className="bg-blue-600 text-xl text-white px-4 py-2 rounded w-full sm:w-auto"
         >
-          View / Download Policy
-        </a>
-      </li>
-    ))}
-  </ul>
-</section>
+          Search
+        </button>
+      </div>
+
+      {/* Loading */}
+      {loading && <p className="text-center">Searching...</p>}
+
+      {/* No results */}
+      {!loading && results.length === 0 && query !== "" && (
+        <p className="text-gray-600 text-center">No files found.</p>
+      )}
+
+      {/* Results */}
+      <ul className="space-y-3 mt-4">
+        {results.map((file) => (
+          <li
+            key={file._id}
+            className="border p-3 rounded flex flex-col sm:flex-row justify-between bg-black/30 sm:items-center gap-2"
+          >
+            <span className="break-words font-bold">{file.filename}</span>
+
+            <a
+              href={`http://localhost:5000/api/policy_files/file/${file._id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline text-sm sm:text-base"
+            >
+              View / Download Policy
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

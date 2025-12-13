@@ -32,7 +32,7 @@ const TopNavigation: React.FC<TopNavigationProps> = ({ isScrolled = false }) => 
             asChild
             variant="ghost"
             size="sm"
-            className="flex items-center text-lg font-sans font-medium text-black hover:text-[#222] hover:bg-[#22a2bf]/70 transition-colors duration-300"
+            className="flex items-center text-lg font-sans font-medium text-white hover:text-[#222] hover:bg-[#22a2bf]/70 transition-colors duration-300"
           >
             <Link to={to}>
               <Icon className="mr-2 h-4 w-4" />

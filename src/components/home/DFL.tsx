@@ -14,17 +14,17 @@ const DFL: React.FC = () => {
 >
   {/* Background Image */}
   <img
-    src="public/lovable-uploads/e770e3e6-8bc7-4ced-8a1b-acfda565e2a4.png"
+    src="/lovable-uploads/ad9248e2-c248-4963-9342-2a48dcf11ed8.jpg"
     alt="Student Learning Support"
     className="absolute inset-0 w-full h-full object-cover transition duration-500 brightness-100 group-hover:brightness-75"
   />
 
   {/* Overlay content */}
   <div className="relative z-10 p-8 flex flex-col justify-end h-full">
-    <h2 className="text-white text-4xl font-bold transition-all duration-500">
+    <h2 className="text-black text-4xl font-bold transition-all duration-500">
       {hovered ? 'Student Learning Support' : 'SLS'}
     </h2>
-    <p className="text-white text-lg mt-3 max-w-xl">
+    <p className="text-black text-lg mt-3 max-w-xl">
       Bringing the University to your Home
     </p>
     <button 

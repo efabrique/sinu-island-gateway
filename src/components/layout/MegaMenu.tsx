@@ -39,8 +39,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ id, title, links, image, isScrolled
     transition-colors focus:outline-none
     ${
       isScrolled
-        ? "text-black hover:text-[#222] hover:bg-[#22a2bf]/70"
-        : "text-black hover:text-[#222] hover:bg-[#22a2bf]/70 pt-4"
+        ? "text-white hover:text-[#222] hover:bg-[#22a2bf]/70"
+        : "text-white hover:text-[#222] hover:bg-[#22a2bf]/70 pt-4"
     }
   `;
 

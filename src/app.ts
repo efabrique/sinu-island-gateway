@@ -9,7 +9,7 @@ app.use(cors());
 connectDB();
 
 // Routes
-app.use("/api/files", fileRoutes);
+app.use("/", fileRoutes);
 
-const PORT = 5000;
+const PORT = 7000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

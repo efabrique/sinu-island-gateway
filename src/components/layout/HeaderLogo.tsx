@@ -36,10 +36,10 @@ const HeaderLogo: React.FC<HeaderLogoProps> = ({ isScrolled, handleLogoClick }) 
           ${isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"}
         `}
       >
-        <h1 className="font-bold text-sm sm:text-base md:text-lg leading-tight text-center text-[#222]">
+        <h1 className="font-bold text-sm sm:text-base md:text-xl leading-tight text-center text-[#222]">
           Solomon Islands
         </h1>
-        <h1 className="font-bold text-sm sm:text-base md:text-lg leading-tight text-center text-[#222]">
+        <h1 className="font-bold text-sm sm:text-base md:text-xl leading-tight text-center text-[#222]">
           National University
         </h1>
       </div>
