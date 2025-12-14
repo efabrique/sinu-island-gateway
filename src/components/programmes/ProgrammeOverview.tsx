@@ -19,10 +19,10 @@ const ProgrammeOverview = () => {
             <CardContent>
                 <section id="programme-overview" className="w-full">
                     <div className="max-w-5xl mx-auto px-4 py-8">
-                        <h2 className="text-3xl md:text-3xl font-bold text-[#222222] mb-6">
+                        <h2 className="text-3xl md:text-2xl font-bold text-[#222222] mb-6">
                             {programme_title} Description
                         </h2>
-                        <h2 className="text-2xl md:text-2xl text-blue-600/60 mb-6">
+                        <h2 className="text-2xl md:text-xl text-blue-600/60 mb-6">
                             {programme_name} at Solomon Islands National University
                         </h2>
                         <p className="text-[#082952] mb-4">

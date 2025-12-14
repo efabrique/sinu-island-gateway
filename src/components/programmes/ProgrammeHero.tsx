@@ -17,21 +17,22 @@ const ProgrammeHero = () => {
   const maxScroll = 120;
   const scrollFactor = Math.min(scrolled / maxScroll, 1);
 
-  const scale = 1 - scrollFactor * 0.5;
-  const translateX = -scrollFactor * 50;
+  const scale = 1 - scrollFactor * 0.2;
+  const translateX = -scrollFactor * 20;
   const translateY = -scrollFactor * 10;
   const bgOpacity = 0.3 + scrollFactor * 0.7;
 
   return (
-    <div className="sticky top-0 z-50 w-full h-[60vh] md:h-[20vh] flex items-center justify-center overflow-hidden transition-colors duration-300 bg-blue-200">
+    <div className="sticky top-0 z-50 w-full h-[60vh] md:h-[20vh] flex items-center justify-center overflow-hidden transition-colors duration-300 bg-black">
       <div
-        className="text-black font-bold transition-transform duration-300"
+        className="text-white font transition-transform duration-300"
         style={{
           transform: `translate(${translateX}%, ${translateY}%) scale(${scale})`,
           transformOrigin: "left center",
+            fontFamily: '"Times New Roman", Times, serif',
         }}
       >
-        <div className="text-5xl md:text-5xl">
+        <div className="text-5xl md:text-4xl">
           {programme_name}
         </div>
 
