@@ -10,7 +10,7 @@ export interface IFile extends Document {
   programme_credits: string;
   programme_year: string;
   programme_study_type: string[];
-  program_description: number;
+  programme_description: number;
   programme_location: string;
   programme_study_period: string;
   programme_english_requirement: string;
@@ -26,7 +26,7 @@ const FileSchema: Schema = new Schema({
   programme_credits: { type: Number, required: false },
   programme_year: { type: String, required: false },
   programme_study_type: { type: [String], required: false },
-  program_description: { type: String, required: false },
+  programme_description: { type: String, required: false },
   programme_location: { type: String, required: true },
   programme_study_period: { type: String, required: false },
   programme_english_requirement: { type: String, required: false },

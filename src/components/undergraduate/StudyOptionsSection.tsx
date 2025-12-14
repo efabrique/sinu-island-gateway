@@ -16,18 +16,18 @@ interface UndergraduateDegree {
 const StudyOptionsSection = () => {
   const [undergraduateDegrees, setUndergraduateDegrees] = useState<UndergraduateDegree[]>([]);
   useEffect(() => {
-      getundergraduateDegrees().then(setUndergraduateDegrees);
-    }, []);
-  
-    const getImageSrc = (image: { sanityImage?: any; imageUrl?: string } | undefined) => {
-      if (image?.sanityImage) {
-        return urlFor(image.sanityImage).url();
-      }
-      if (image?.imageUrl) {
-        return image.imageUrl;
-      }
-      return '';
-    };
+    getundergraduateDegrees().then(setUndergraduateDegrees);
+  }, []);
+
+  const getImageSrc = (image: { sanityImage?: any; imageUrl?: string } | undefined) => {
+    if (image?.sanityImage) {
+      return urlFor(image.sanityImage).url();
+    }
+    if (image?.imageUrl) {
+      return image.imageUrl;
+    }
+    return '';
+  };
 
   return (
     <section className="py-16 bg-white md:mt-40">
@@ -35,11 +35,11 @@ const StudyOptionsSection = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4">
             Search by study area...
-                            <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+            <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
 
           </h2>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {undergraduateDegrees.map((UGdegree, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow border-[#8ecae6] overflow-hidden">
