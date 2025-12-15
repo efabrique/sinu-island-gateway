@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { Search } from 'lucide-react';
+import { AlertTriangle, Search } from 'lucide-react';
 import ErrorBoundary from '@/components/common/ErrorBoundary';
 import OptimizedImage from '@/components/common/OptimizedImage';
 import { useNavigate } from "react-router-dom";
@@ -118,13 +118,14 @@ const CourseFinder = () => {
                         onChange={(e) => setSelectedFaculty(e.target.value)}
                       >
                         <option value="all">All Faculties</option>
-                        <option value="science_technology">Science & Technology</option>
-                        <option value="business_tourism">Business & Tourism Studies</option>
-                        <option value="nursing_medicine_health_science">Nursing, Medicine & Health Sciences</option>
-                        <option value="agriculture_forestry_fisheries">Agriculture & Fisheries</option>
-                        <option value="tafe">TAFE & TVET</option>
-                        <option value="maritime">Maritime</option>
-                        <option value="distance_flexible_learning">Distance & Flexible Learning</option>
+                        <option value="Faculty of Science and Technology">Science & Technology</option>
+                        <option value="Faculty of Education and Humanities">Education & Humanities</option>
+                        <option value="Faculty of Business & Tourism Studies">Business & Tourism Studies</option>
+                        <option value="Faculty of Nursing, Medicine and  Health Sciences">Nursing, Medicine & Health Sciences</option>
+                        <option value="Faculty of Agriculture, Forestry and Fisheries">Agriculture & Fisheries</option>
+                        <option value="SINU TAFE School of Technology">TAFE & TVET</option>
+                        <option value="Solomon Islands Maritime College">Maritime</option>
+                        <option value="Center for Distance & Flexible Learning">Distance & Flexible Learning</option>
                       </select>
                     </div>
 
@@ -136,11 +137,12 @@ const CourseFinder = () => {
                         onChange={(e) => setSelectedLevel(e.target.value)}
                       >
                         <option value="all">All Levels</option>
-                        <option value="undergraduate">Undergraduate</option>
-                        <option value="postgraduate">Postgraduate</option>
+                        <option value="Undergraduate">Undergraduate</option>
+                        <option value="Postgraduate">Postgraduate</option>
                         <option value="technical_and_trade">Technical & Trade</option>
-                        <option value="preparatory">University Preparatory</option>
-                        <option value="short">Short Courses</option>
+                        <option value="University Preparatory Certificate">University Preparatory</option>
+                        <option value="Double Major">Double Major</option>
+                        <option value="Certificate">Certificate</option>
                       </select>
                     </div>
                   </div>
@@ -162,6 +164,12 @@ const CourseFinder = () => {
                       </Button>
                     </div>
                   </div>
+                  <div className="text-xl bg-orange-600/40 text-black mt-8 p-4 rounded-md duration-300 ease-in-out hover:scale-105">
+                    <AlertTriangle className="w-6 h-6 text-black mt-1" />
+                    <span>
+                      <strong> Note: </strong> SINU is currently reviewing all programmes to comply with the Solomon Islands Qualifications Framework (SIQF). Programme SIQF levels may be updated soon.
+                    </span>
+                  </div>
                 </form>
 
                 {/* Results */}
@@ -172,56 +180,56 @@ const CourseFinder = () => {
                   <div className="mt-6 pt-10 space-y-4">
                     {results.map((course, idx) => (
                       < Card
-                        key = { idx }
-                        className = "cursor-pointer hover:text-blue-600 hover:bg-gray-100 transition-colors"
-                        onClick = {() =>
-                    navigate(`/programme/${course.programme_code}`, {
-                      state: {
-                      programme_name: course.programme_name,
-                    programme_code: course.programme_code,
-                    programme_description: course.programme_description,
-                    SIQF_level: course.SIQF_level,
-                    programme_faculty: course.programme_faculty,
-                    programme_department: course.programme_department,
-                    programme_credits: course.programme_credits,
-                    programme_entry_requirement: course.programme_entry_requirement,
-                    programme_year: course.programme_year,
-                    programme_study_type: course.programme_study_type,
-                    programme_location: course.programme_location,
-                    programme_study_period: course.programme_study_period,
-                    programme_english_requirement: course.programme_english_requirement,
+                        key={idx}
+                        className="cursor-pointer hover:text-blue-600 hover:bg-gray-100 transition-colors duration-300 ease-in-out hover:scale-105"
+                        onClick={() =>
+                          navigate(`/programme/${course.programme_code}`, {
+                            state: {
+                              programme_name: course.programme_name,
+                              programme_code: course.programme_code,
+                              programme_description: course.programme_description,
+                              SIQF_level: course.SIQF_level,
+                              programme_faculty: course.programme_faculty,
+                              programme_department: course.programme_department,
+                              programme_credits: course.programme_credits,
+                              programme_entry_requirement: course.programme_entry_requirement,
+                              programme_year: course.programme_year,
+                              programme_study_type: course.programme_study_type,
+                              programme_location: course.programme_location,
+                              programme_study_period: course.programme_study_period,
+                              programme_english_requirement: course.programme_english_requirement,
 
                             },
                           })
                         }
                       >
-                    <CardContent className="grid grid-cols-2 items-center">
-                      <div>
-                        <h3 className="font-bold text-lg">
-                          {course.programme_name}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          Programme Code: {course.programme_code}
-                        </p>
-                      </div>
+                        <CardContent className="grid grid-cols-2 items-center ">
+                          <div>
+                            <h3 className="font-bold text-lg">
+                              {course.programme_name}
+                            </h3>
+                            <p className="text-sm text-muted-foreground">
+                              Programme Code: {course.programme_code}
+                            </p>
+                          </div>
 
-                      <div className="text-right font-semibold">
-                        {course.programme_credits} Credits
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+                          <div className="text-right font-semibold">
+                            {course.programme_credits} Credits
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
                 )}
+              </div>
             </div>
           </div>
         </div>
-    </div>
       </main >
 
-  <ErrorBoundary>
-    <Footer />
-  </ErrorBoundary>
+      <ErrorBoundary>
+        <Footer />
+      </ErrorBoundary>
     </div >
   );
 };

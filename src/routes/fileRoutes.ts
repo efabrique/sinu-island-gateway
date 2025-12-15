@@ -185,7 +185,7 @@ router.get("/programme_catalogue/search", async (req, res) => {
 
     // Filter by study level (SIQF / level)
     if (level && level !== "all") {
-      query.SIQF_level = level;
+      query.programme_level = level;
     }
 
     // Filter by faculty / school

@@ -22,12 +22,12 @@ export default function PoliciesSearch() {
       if (!query.trim()) {
         // If input empty → fetch all files
         res = await axios.get<PdfFile[]>(
-          "http://localhost:5000/api/policy_files/all"
+          "http://localhost:7000/policy_files/all"
         );
       } else {
         // Search by query
         res = await axios.get<PdfFile[]>(
-          `http://localhost:5000/api/policy_files/search/${query}`
+          `http://localhost:7000/policy_files/search/${query}`
         );
       }
 
@@ -85,7 +85,7 @@ export default function PoliciesSearch() {
             <span className="break-words font-bold">{file.filename}</span>
 
             <a
-              href={`http://localhost:5000/api/policy_files/file/${file._id}`}
+              href={`http://localhost:7000/policy_files/file/${file._id}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 underline text-sm sm:text-base"

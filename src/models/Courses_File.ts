@@ -14,6 +14,7 @@ export interface IFile extends Document {
   programme_location: string;
   programme_study_period: string;
   programme_english_requirement: string;
+  programme_level: string;
 }
 
 const FileSchema: Schema = new Schema({
@@ -30,6 +31,7 @@ const FileSchema: Schema = new Schema({
   programme_location: { type: String, required: true },
   programme_study_period: { type: String, required: false },
   programme_english_requirement: { type: String, required: false },
+  programme_level: { type: String, required: false },
 });
 
 

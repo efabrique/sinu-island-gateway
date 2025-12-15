@@ -8,6 +8,7 @@ import ProgrammeHero from "@/components/programmes/ProgrammeHero";
 import ProgrammeTab from "@/components/programmes/ProgrammeTab";
 import ProgrammeOverview from "@/components/programmes/ProgrammeOverview";
 import { Card, CardContent } from "../components/ui/card";
+import { AlertTriangle } from "lucide-react";
 
 
 const ProgrammeDetails = () => {
@@ -29,6 +30,19 @@ const ProgrammeDetails = () => {
     }
   };
 
+  const parseLines = (text?: string): string[] => {
+    return text
+      ? text
+        .split(/\r?\n/)   // handle \n and \r\n
+        .map(line => line.trim())
+        .filter(Boolean)  // remove empty lines
+      : [];
+  };
+
+  const admissionRequirements = parseLines(programme_entry_requirement);
+  const englishRequirements = parseLines(programme_english_requirement);
+
+
   return (
     <div className="min-h-screen flex flex-col">
       <ErrorBoundary>
@@ -39,7 +53,7 @@ const ProgrammeDetails = () => {
       <ProgrammeHero />
 
       {/* Content with Left Nav */}
-      <div className="flex w-full max-w-7xl mx-auto px-4 gap-6">
+      <div className="flex w-full max-w-7xl mx-auto px-4 gap-6 ">
 
         {/* Left Navigation */}
         <aside className="hidden md:block w-64 sticky top-28 h-[calc(100vh-7rem)] overflow-y-auto border-r">
@@ -67,14 +81,14 @@ const ProgrammeDetails = () => {
         </aside>
 
         {/* Right Content */}
-        <main className="flex-1 py-6 space-y-20">
-          <section id="description">
+        <main className="flex-1 py-6 space-y-20 ">
+          <section id="description ">
             <ProgrammeOverview />
           </section>
 
           <section id="admission_requirement">
             <div className="min-h-[300px]">
-              <Card className="w-full mb-8 shadow-lg border border-gray-200">
+              <Card className="w-full mb-8 shadow-lg border border-gray-200 bg-black/10 duration-300 ease-in-out hover:scale-105">
                 <CardContent>
 
                   <div className="max-w-5xl mx-auto px-4 py-8">
@@ -82,12 +96,17 @@ const ProgrammeDetails = () => {
                       Admission Requirements
                     </h2>
 
-                    <p className="text-[#082952] mb-4">
-                      {programme_entry_requirement}
-                    </p>
-                    <p className="text-[#082952] mb-4">
-                      Our programmes are designed to provide students with a comprehensive education that combines theoretical knowledge with practical skills. Each programme is carefully crafted to meet industry standards and prepare students for successful careers in their chosen fields.
-                    </p>
+                    {admissionRequirements.length > 0 ? (
+                      <ul className="list-disc pl-6 space-y-2 text-[#082952]">
+                        {admissionRequirements.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-[#082952]">
+                        Admission requirements will be advised upon application.
+                      </p>
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -95,17 +114,25 @@ const ProgrammeDetails = () => {
           </section>
           <section id="english_requirement">
             <div className="min-h-[300px]">
-              <Card className="w-full mb-8 shadow-lg border border-gray-200">
+              <Card className="w-full mb-8 shadow-lg border border-gray-200 bg-black/10 duration-300 ease-in-out hover:scale-105">
                 <CardContent>
 
                   <div className="max-w-5xl mx-auto px-4 py-8">
                     <h2 className="text-2xl font-bold mb-4">
                       English Language Requirement
                     </h2>
+                    {englishRequirements.length > 0 ? (
+                      <ul className="list-disc pl-6 space-y-2 text-[#082952]">
+                        {englishRequirements.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-[#082952]">
+                        English language requirements will be advised upon application.
+                      </p>
+                    )}
 
-                    <p className="text-[#082952] mb-4">
-                      {programme_english_requirement}
-                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -114,7 +141,7 @@ const ProgrammeDetails = () => {
           </section>
           <section id="program_requirement">
             <div className="min-h-[300px]">
-              <Card className="w-full mb-8 shadow-lg border border-gray-200">
+              <Card className="w-full mb-8 shadow-lg border border-gray-200 bg-black/10 duration-300 ease-in-out hover:scale-105">
                 <CardContent>
 
                   <div className="max-w-5xl mx-auto px-4 py-8">
@@ -136,7 +163,7 @@ const ProgrammeDetails = () => {
           </section>
           <section id="program_structure">
             <div className="min-h-[300px]">
-              <Card className="w-full mb-8 shadow-lg border border-gray-200">
+              <Card className="w-full mb-8 shadow-lg border border-gray-200 bg-black/10 duration-300 ease-in-out hover:scale-105">
                 <CardContent>
 
                   <div className="max-w-5xl mx-auto px-4 py-8">
@@ -155,7 +182,7 @@ const ProgrammeDetails = () => {
           </section>
           <section id="availabilty">
             <div className="min-h-[300px]">
-              <Card className="w-full mb-8 shadow-lg border border-gray-200">
+              <Card className="w-full mb-8 shadow-lg border border-gray-200 bg-black/10 duration-300 ease-in-out hover:scale-105">
                 <CardContent>
 
                   <div className="max-w-5xl mx-auto px-4 py-8">
@@ -173,7 +200,7 @@ const ProgrammeDetails = () => {
           </section>
           <section id="siqf_level">
             <div className="min-h-[300px]">
-              <Card className="w-full mb-8 shadow-lg border border-gray-200">
+              <Card className="w-full mb-8 shadow-lg border border-gray-200 bg-black/10 transition-transform duration-300 ease-in-out hover:scale-105">
                 <CardContent>
 
                   <div className="max-w-5xl mx-auto px-4 py-8">
@@ -181,7 +208,10 @@ const ProgrammeDetails = () => {
                       SIQF Level</h2>
 
                     <p className="text-[#082952] mb-4">
-                      Program Duration:  {programme_year}
+                      <AlertTriangle className="w-6 h-6 text-black mt-1" />
+                      <span>
+                        <strong> Note: </strong> SINU is currently reviewing all programmes to comply with the Solomon Islands Qualifications Framework (SIQF). Programme SIQF levels may be updated soon.
+                      </span>
                     </p>
                   </div>
                 </CardContent>
@@ -191,7 +221,7 @@ const ProgrammeDetails = () => {
           </section>
           <section id="apply_now">
             <div className="min-h-[300px]">
-              <Card className="w-full mb-8 shadow-lg border border-gray-200">
+              <Card className="w-full mb-8 shadow-lg border border-gray-200 bg-black/10 duration-300 ease-in-out hover:scale-105">
                 <CardContent>
 
                   <div className="max-w-5xl mx-auto px-4 py-8">
@@ -209,7 +239,7 @@ const ProgrammeDetails = () => {
           </section>
           <section id="contacts">
             <div className="min-h-[300px]">
-              <Card className="w-full mb-8 shadow-lg border border-gray-200">
+              <Card className="w-full mb-8 shadow-lg border border-gray-200 bg-black/10 duration-300 ease-in-out hover:scale-105">
                 <CardContent>
 
                   <div className="max-w-5xl mx-auto px-4 py-8">
