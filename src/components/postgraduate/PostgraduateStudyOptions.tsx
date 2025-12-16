@@ -1,111 +1,168 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const courseData = {
-  'Masters of Science': {
-    description: 'Explore scientific disciplines, research, and innovation in the natural world.',
-    image: 'https://source.unsplash.com/featured/?science,lab',
-  },
-  'Masters of Business Administration': {
-    description: 'Gain insights into management, marketing, and entrepreneurship.',
-    image: 'https://source.unsplash.com/featured/?business,office',
-  },
-  'Masters of Laws': {
-    description: 'Study legal systems, jurisprudence, and prepare for a career in law.',
-    image: 'https://source.unsplash.com/featured/?law,court',
-  },
-  'Masters of Public Health': {
-    description: 'Train in patient care, medical procedures, and healthcare ethics.',
-    image: 'https://source.unsplash.com/featured/?nursing,hospital',
-  },
-  'Masters of Education': {
-    description: 'Prepare for teaching roles and educational leadership in schools and communities.',
-    image: 'https://source.unsplash.com/featured/?education,classroom',
-  },
-  'Doctor of Philosphy(PhD)': {
-    description: 'Delve into humanities, languages, and social sciences.',
-    image: 'https://source.unsplash.com/featured/?arts,creativity',
-  },
-};
+interface Programme {
+  _id: string;
+  programme_name: string;
+  programme_code: string;
+  programme_description?: string;
+  programme_image?: string;
+  programme_credits: number;
+  programme_study_period: string;
+  programme_level: string;
+  programme_faculty: string;
+  programme_department: string;
+  programme_entry_requirement: string;
+  programme_year: number;
+  programme_study_type: string[];
+  programme_location: string;
+  programme_english_requirement: string;
+  SIQF_level: string;
+
+}
 
 const PostgraduateStudyOptions: React.FC = () => {
-  const [searchInput, setSearchInput] = useState('');
-  const [selectedCourse, setSelectedCourse] = useState('');
+  const [searchInput, setSearchInput] = useState("");
+  const [results, setResults] = useState<Programme[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [hasSearched, setHasSearched] = useState(false);
+  const navigate = useNavigate();
 
-  const courseNames = Object.keys(courseData);
-  const filteredCourses = courseNames.filter(course =>
-    course.toLowerCase().includes(searchInput.toLowerCase())
-  );
+  const API_BASE = "http://localhost:7000";
 
-  const handleCourseSelect = (courseName: string) => {
-    setSelectedCourse(courseName);
-    setSearchInput(courseName);
+  /* ---------------- BUTTON SEARCH ---------------- */
+  const handleSearch = async () => {
+    const query = searchInput.trim();
+    if (!query) return;
+
+    try {
+      setLoading(true);
+      setError("");
+      setHasSearched(true);
+
+      const params = new URLSearchParams({
+        programme_name: query,
+      });
+      console.log("Searching with params:", params.toString());
+      const res = await fetch(
+        `${API_BASE}/programme_catalogue/postgraduate_search?${params.toString()}`
+      );
+
+      if (!res.ok) {
+        throw new Error("No programmes found");
+      }
+
+      const data = await res.json();
+      setResults(data.data || []);
+    } catch (err) {
+      setError("Failed to fetch programmes");
+      setResults([]);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const course = courseData[selectedCourse as keyof typeof courseData];
-
+  /* ---------------- UI ---------------- */
   return (
-    <div className="w-full max-w-3xl mx-auto p-6">
-                <div className="text-center mb-12 md:mt-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4">
-            Postgraduate Study Options
-                            <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
-
-          </h2>
-          <p className="text-lg text-[#082952] max-w-3xl mx-auto">
+    <div className="w-full max-w-3xl mx-auto p-6 md:pt-20">
+      <div className="text-center mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#222222]">
+          Postgraduate Degrees
+        </h2>
+        <span className="block h-1 w-20 bg-blue-600 mx-auto mt-2 rounded-sm"></span>
+        <p className="text-lg text-[#082952] max-w-3xl mx-auto md:mt-4">
             Choose from our range of postgraduate programs designed to prepare you for success 
             in your chosen career while contributing to the development of the Solomon Islands.
           </p>
-        </div>
-      {/* Sentence with Dropdown */}
-      <label className="text-lg font-medium text-gray-800">
-        Degree you are looking for:{' '}
-              </label>
-    <div className="relative">
+      </div>
+
+      <label className="text-lg font-medium text-[#222222]">
+        Degree you are looking for:
+      </label>
+
+      {/* INPUT + SEARCH BUTTON */}
+      <div className="flex mt-2">
         <input
           type="text"
           value={searchInput}
-          placeholder="Search for a course..."
-          onChange={(e) => {setSearchInput(e.target.value);
-            setSelectedCourse('');}}
-            className="w-full px-4 py-2 border border-blue-500 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-        {/* Suggestions */}
-        {searchInput && filteredCourses.length > 0 && (
-          <ul className="absolute z-10 w-full bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto mt-1">
-            {filteredCourses.map((courseName) => (
-              <li
-                key={courseName}
-                onClick={() => handleCourseSelect(courseName)}
-                className="px-4 py-2 hover:bg-blue-100 cursor-pointer"
-              >
-                {courseName}
-              </li>
-            ))}
-          </ul>
-        )}
-        {searchInput && filteredCourses.length === 0 && (
-          <div className="absolute z-10 w-full bg-white border border-gray-300 rounded-md shadow-md mt-1 px-4 py-2 text-gray-500">
-            No matching course found.
-          </div>
-        )}
+          onChange={(e) => setSearchInput(e.target.value)}
+          placeholder="Search by programme name..."
+          className="flex-1 px-4 py-2 border border-gray-600 rounded-l-md focus:ring-2 focus:ring-blue-500"
+        />
+
+        <button
+          onClick={handleSearch}
+          disabled={!searchInput.trim() || loading}
+          className="px-6 py-2 bg-blue-600 text-white font-medium rounded-r-md hover:bg-blue-700 disabled:opacity-50"
+        >
+          Search
+        </button>
       </div>
 
-      {/* Selected Course Info */}
-      {course && (
-        <div className="mt-8 rounded-lg shadow-lg overflow-hidden bg-white">
-          <img
-            src={course.image}
-            alt={selectedCourse}
-            className="w-full h-64 object-cover"
-          />
-          <div className="p-6">
-            <h2 className="text-2xl font-semibold text-gray-800">
-              {selectedCourse}
-            </h2>
-            <p className="mt-2 text-gray-600">{course.description}</p>
-          </div>
+      {/* STATUS */}
+      {hasSearched && (
+        <div className="mt-6">
+          {loading && <p>Loading programmes...</p>}
+          {error && <p className="text-red-600">{error}</p>}
         </div>
       )}
-    </div>
+
+          {results.map((programme) => (
+            <div
+              key={programme._id}
+              onClick={() =>
+                navigate(`/programme/${programme.programme_code}`, {
+                  state: {
+                    programme_name: programme.programme_name,
+                    programme_code: programme.programme_code,
+                    programme_description: programme.programme_description,
+                    SIQF_level: programme.SIQF_level,
+                    programme_faculty: programme.programme_faculty,
+                    programme_department: programme.programme_department,
+                    programme_credits: programme.programme_credits,
+                    programme_entry_requirement: programme.programme_entry_requirement,
+                    programme_year: programme.programme_year,
+                    programme_study_type: programme.programme_study_type,
+                    programme_location: programme.programme_location,
+                    programme_study_period: programme.programme_study_period,
+                    programme_english_requirement: programme.programme_english_requirement,
+                  },
+                })
+              }
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
+            >
+              {programme.programme_image && (
+                <img
+                  src={programme.programme_image}
+                  alt={programme.programme_name}
+                  className="w-full h-56 object-cover"
+                />
+              )}
+
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold text-gray-800">
+                  {programme.programme_name}
+                </h3>
+
+                {programme.programme_description && (
+                  <p className="mt-2 text-gray-600 line-clamp-3">
+                    {programme.programme_description}
+                  </p>
+                )}
+
+                <p className="mt-4 text-blue-600 font-medium">
+                  Credits: {programme.programme_credits}
+                </p>
+
+                <p className="mt-2 text-blue-600 font-medium">
+                  Availability: {programme.programme_study_period}
+                </p>
+              </div>
+            </div>
+          ))}
+
+        </div>
   );
 };
 

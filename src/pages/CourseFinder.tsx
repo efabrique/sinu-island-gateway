@@ -46,9 +46,9 @@ const CourseFinder = () => {
         }
       } else {
         const params = new URLSearchParams({
-          name: trimmedQuery || 'all',
-          level: selectedLevel,
-          faculty: selectedFaculty,
+          programme_name: trimmedQuery || 'all',
+          programme_level: selectedLevel,
+          programme_faculty: selectedFaculty,
         });
 
         const res = await fetch(`${API_BASE}/programme_catalogue/search?${params.toString()}`);

@@ -14,6 +14,14 @@ const router = Router();
 // Multer in-memory storage
 const upload = multer({ storage: multer.memoryStorage() });
 
+const normalize = (value: string) =>
+  value
+    .trim()
+    .replace(/\s+/g, " "); // collapse multiple spaces
+
+const escapeRegex = (value: string) =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
 // Upload a PDF from client request
 router.post("/policy_files/upload", upload.single("pdf"), async (req, res) => {
   try {
@@ -54,7 +62,7 @@ router.post("/policy_files/upload-from-path", async (req, res) => {
 // search all PDFs and return metadata
 router.get("/policy_files/all", async (req, res) => {
   try {
-      console.log("Test route hit!");
+    console.log("Test route hit!");
 
     const files = await PolicyFileModel.find()
       .select("_id filename mimetype createdAt updatedAt")
@@ -93,11 +101,11 @@ router.get("/policy_files/file/:id", async (req, res) => {
 
 router.post("/programme_catalogue/upload_programmes", async (req, res) => {
   try {
-        const filePath = req.body.path; // e.g., "D:/docs/myfile.pdf"
+    const filePath = req.body.path; // e.g., "D:/docs/myfile.pdf"
     if (!filePath) {
       return res.status(400).json({ error: "No file uploaded" });
     }
-    
+
     const rows = await readXlsxFile(filePath);
     console.log("Excel rows:", rows.length);
 
@@ -108,7 +116,7 @@ router.post("/programme_catalogue/upload_programmes", async (req, res) => {
     const header = rows[0];         // First row → column names
     const dataRows = rows.slice(1); // Following rows → data
     console.log("Header:", header);
-        console.log("datarows:", dataRows.length);
+    console.log("datarows:", dataRows.length);
 
     let inserted = 0;
     let updated = 0;
@@ -171,28 +179,35 @@ router.post("/programme_catalogue/upload_programmes", async (req, res) => {
   }
 });
 
-
 router.get("/programme_catalogue/search", async (req, res) => {
   try {
-    const { name, level, faculty } = req.query;
+    const { programme_name, programme_level, programme_faculty } = req.query;
 
     const query: any = {};
 
     // Search by programme name (optional)
-    if (name && name !== "all") {
-      query.programme_name = { $regex: name, $options: "i" };
+    if (programme_name && programme_name !== "all") {
+      query.programme_name = { $regex: programme_name, $options: "i" };
     }
 
     // Filter by study level (SIQF / level)
-    if (level && level !== "all") {
-      query.programme_level = level;
+    if (programme_level && programme_level !== "all") {
+      query.programme_level = programme_level;
     }
 
     // Filter by faculty / school
-    if (faculty && faculty !== "all") {
-      query.programme_faculty = { $regex: faculty, $options: "i" };
-    }
+    if (programme_faculty && programme_faculty !== "all") {
+      if (programme_faculty && programme_faculty !== "all") {
+        const normalizedFaculty = normalize(decodeURIComponent(String(programme_faculty)));
+        const escapedFaculty = escapeRegex(normalizedFaculty);
 
+        query.programme_faculty = {
+          $regex: escapedFaculty,
+          $options: "i",
+        };
+      }
+    }
+    console.log("Search query:", query);
     const programmes = await CoursesFiles.find(query)
       .sort({ programme_name: 1 });
 
@@ -205,6 +220,86 @@ router.get("/programme_catalogue/search", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch programmes" });
   }
 });
+
+router.get("/programme_catalogue/undergraduate_search", async (req, res) => {
+  try {
+    const { programme_name } = req.query;
+
+    if (!programme_name || typeof programme_name !== "string") {
+      return res.status(400).json({ error: "Name parameter is required and must be a string" });
+    }
+
+    const query = {
+      programme_level: "Undergraduate",
+      programme_name: { $regex: programme_name.trim(), $options: "i" },
+    };
+    console.log("Undergraduate search query:", query);
+    const programmes = await CoursesFiles.find(query)
+      .sort({ programme_name: 1 });
+
+    res.json({
+      count: programmes.length,
+      data: programmes,
+    });
+  } catch (error) {
+    console.error("Search error:", error);
+    res.status(500).json({ error: "Failed to fetch programmes" });
+  }
+});
+
+router.get("/programme_catalogue/postgraduate_search", async (req, res) => {
+  try {
+    const { programme_name } = req.query;
+
+    if (!programme_name || typeof programme_name !== "string") {
+      return res.status(400).json({ error: "Name parameter is required and must be a string" });
+    }
+
+    const query = {
+      programme_level: "Postgraduate",
+      programme_name: { $regex: programme_name.trim(), $options: "i" },
+    };
+    console.log("Postgraduate search query:", query);
+    const programmes = await CoursesFiles.find(query)
+      .sort({ programme_name: 1 });
+
+    res.json({
+      count: programmes.length,
+      data: programmes,
+    });
+  } catch (error) {
+    console.error("Search error:", error);
+    res.status(500).json({ error: "Failed to fetch programmes" });
+  }
+});
+
+router.get("/programme_catalogue/tafe_search", async (req, res) => {
+  try {
+    const { programme_name } = req.query;
+
+    if (!programme_name || typeof programme_name !== "string") {
+      return res.status(400).json({ error: "Name parameter is required and must be a string" });
+    }
+
+    const query = {
+      programme_level: "Postgraduate",
+      programme_name: { $regex: programme_name.trim(), $options: "i" },
+    };
+    console.log("Postgraduate search query:", query);
+    const programmes = await CoursesFiles.find(query)
+      .sort({ programme_name: 1 });
+
+    res.json({
+      count: programmes.length,
+      data: programmes,
+    });
+  } catch (error) {
+    console.error("Search error:", error);
+    res.status(500).json({ error: "Failed to fetch programmes" });
+  }
+});
+
+
 
 
 router.get("/programme_catalogue/code/:code", async (req, res) => {

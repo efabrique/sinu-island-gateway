@@ -41,7 +41,7 @@ const LearningCentersSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section id="find-center" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#082952] mb-4">

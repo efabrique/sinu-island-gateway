@@ -2,8 +2,11 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import OptimizedImage from '@/components/common/OptimizedImage';
+import { useNavigate } from "react-router-dom";
 
 const DistanceHero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="bg-[#edf4ff] relative overflow-hidden">
       {/* Background Image Container with Responsive Aspect Ratios */}
@@ -64,10 +67,22 @@ const DistanceHero = () => {
                   Studying online may feel overwhelming, but we're here to help you. You'll have access to all our wide range of support services. Ask our Distance and Flexible Learning Center Support Staff.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start py-6">
-                  <Button className="bg-[#ffb703] hover:bg-[#082952] text-white px-8 py-3">
+                  <Button
+                    onClick={() => {
+                      const section = document.getElementById("find-center");
+                      if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="bg-[#ffb703] hover:bg-[#082952] text-white px-8 py-3"
+                  >
                     Find a Center
                   </Button>
-                  <Button className="bg-white text-[#082952] hover:bg-[#082952] hover:text-white border-0 px-8 py-3 transition-all duration-300">
+
+                  <Button
+                    onClick={() => navigate("/course-finder")}
+                    className="bg-white text-[#082952] hover:bg-[#082952] hover:text-white border-0 px-8 py-3 transition-all duration-300"
+                  >
                     Browse Programs
                   </Button>
                 </div>
