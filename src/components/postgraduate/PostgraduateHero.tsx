@@ -11,7 +11,7 @@ const PostgraduateHero = () => {
         {/* Desktop: 16:9 aspect ratio */}
         <div className="hidden lg:block h-[800px] w-full">
           <OptimizedImage
-            src="/lovable-uploads/6b273f3f-f623-4cb9-be89-346eea9ab6a9.png"
+            src="/lovable-uploads/1763956138152.jpg"
             alt="SINU students celebrating achievement"
             className="w-full h-full object-cover"
             objectFit="cover"
@@ -21,7 +21,7 @@ const PostgraduateHero = () => {
         {/* Tablet: 4:3 aspect ratio */}
         <div className="hidden md:block lg:hidden aspect-[4/3] w-full">
           <OptimizedImage
-            src="/lovable-uploads/6b273f3f-f623-4cb9-be89-346eea9ab6a9.png"
+            src="/lovable-uploads/1763956138152.jpg"
             alt="SINU students celebrating achievement"
             className="w-full h-full object-cover"
             objectFit="cover"
@@ -31,7 +31,7 @@ const PostgraduateHero = () => {
         {/* Mobile: 9:16 aspect ratio */}
         <div className="block md:hidden aspect-[9/16] w-full">
           <OptimizedImage
-            src="/lovable-uploads/6b273f3f-f623-4cb9-be89-346eea9ab6a9.png"
+            src="/lovable-uploads/1763956138152.jpg"
             alt="SINU students celebrating achievement"
             className="w-full h-full object-cover"
             objectFit="cover"

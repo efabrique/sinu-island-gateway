@@ -11,7 +11,7 @@ const UndergraduateHero = () => {
         {/* Desktop: 16:9 aspect ratio */}
         <div className="hidden lg:block h-[800px] w-full">
           <OptimizedImage
-            src="/lovable-uploads/6b273f3f-f623-4cb9-be89-346eea9ab6a9.png"
+            src="/lovable-uploads/IMG_4756.JPG"
             alt="SINU students celebrating achievement"
             className="w-full h-full object-cover"
             objectFit="cover"
@@ -21,7 +21,7 @@ const UndergraduateHero = () => {
         {/* Tablet: 4:3 aspect ratio */}
         <div className="hidden md:block lg:hidden aspect-[4/3] w-full">
           <OptimizedImage
-            src="/lovable-uploads/6b273f3f-f623-4cb9-be89-346eea9ab6a9.png"
+            src="/lovable-uploads/IMG_4756.JPG"
             alt="SINU students celebrating achievement"
             className="w-full h-full object-cover"
             objectFit="cover"
@@ -31,7 +31,7 @@ const UndergraduateHero = () => {
         {/* Mobile: 9:16 aspect ratio */}
         <div className="block md:hidden aspect-[9/16] w-full">
           <OptimizedImage
-            src="/lovable-uploads/6b273f3f-f623-4cb9-be89-346eea9ab6a9.png"
+            src="/lovable-uploads/IMG_4756.JPG"
             alt="SINU students celebrating achievement"
             className="w-full h-full object-cover"
             objectFit="cover"
@@ -55,7 +55,7 @@ const UndergraduateHero = () => {
               Undergraduate
             </h1>
 
-            <Card className="bg-[#22a2bf]/50 border-0 max-w-2xl">
+            <Card className="bg-[#22a2bf]/70 border-0 max-w-2xl">
               <CardContent className="p-6 md:p-8">
                 <h3 className="text-xl md:text-3xl font-semibold text-white mb-4">
                   Prepare Yourself for a Great Future with Confidence

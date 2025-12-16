@@ -97,7 +97,7 @@ const StudyOptionsSection = () => {
 
   /* ---------------- UI ---------------- */
   return (
-    <section className="py-16 bg-white md:mt-40">
+    <section className="py-16 bg-white md:mt-20">
       <div className="container mx-auto px-4">
         {/* HEADER */}
         <div className="text-center mb-12">
