@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  api:
+    image: yourdockerhubuser/sinu-island-gateway:${TAG}
+    restart: always
+    expose:
+      - "3000"
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      MONGO_URI: ${MONGO_URI}
+
+  mongo:
+    image: mongo:7
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - api
+      
+volumes:
+  mongo_data:
