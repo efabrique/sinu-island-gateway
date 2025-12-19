@@ -139,7 +139,7 @@ const CourseAreasSection = () => {
 
       {/* CONTENT */}
       <CardHeader className="flex-1 px-4 py-3">
-        <CardTitle className="text-[#222] text-center text-lg font-semibold">
+        <CardTitle className="text-[#222]  text-lg font-semibold">
           {area.programme_name}
         </CardTitle>
         <CardDescription className="text-[#023047] text-sm">

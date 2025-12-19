@@ -5,6 +5,7 @@ import PolicyFileModel from "../models/Policy_File.ts";
 import fs from "fs";
 import CoursesFiles from "../models/Courses_File.ts";
 import readXlsxFile from "read-excel-file/node";
+import UnitFile from "../models/Unit_File.ts";
 
 
 const router = Router();
@@ -141,6 +142,9 @@ router.post("/programme_catalogue/upload_programmes", async (req, res) => {
         // Convert credits to number
         else if (key === "programme_credits") {
           record[key] = Number(value);
+        }
+                if (key === "programme_units" && typeof value === "string") {
+          record[key] = value.split("\n").map((v) => v.trim());
         }
         else {
           record[key] = value;
@@ -322,5 +326,105 @@ router.get("/programme_catalogue/code/:code", async (req, res) => {
   }
 });
 
+router.post("/unit_catalogue/upload_units", async (req, res) => {
+  try {
+    const filePath = req.body.path; 
+    if (!filePath) {
+      return res.status(400).json({ error: "No file uploaded" });
+    }
+
+    const rows = await readXlsxFile(filePath);
+    console.log("Excel rows:", rows.length);
+
+    if (!rows.length) {
+      return res.status(400).json({ error: "Excel file is empty" });
+    }
+
+    const header = rows[0];         // First row → column names
+    const dataRows = rows.slice(1); // Following rows → data
+    console.log("Header:", header);
+    console.log("datarows:", dataRows.length);
+
+    let inserted = 0;
+    let updated = 0;
+
+    for (const row of dataRows) {
+      if (row.length === 0 || row.every((v) => v === null || v === "")) {
+        continue; // skip empty rows
+      }
+
+      const record: any = {};
+
+      // Map Excel columns → object
+      row.forEach((value, idx) => {
+        const key = String(header[idx]);
+
+        if (!key) return;
+
+        // Convert study type string → array
+        if (key === "unit_study_type" && typeof value === "string") {
+          record[key] = value.split(",").map((v) => v.trim());
+        }
+        // Convert credits to number
+        else if (key === "unit_credits") {
+          record[key] = Number(value);
+        }
+
+        else {
+          record[key] = value;
+        }
+      });
+
+      // Ensure required primary field exists
+      if (!record.programme_units) continue;
+
+      // Find existing record
+      const existing = await UnitFile.findOne({
+        programme_units: record.programme_units,
+      });
+
+      if (existing) {
+        await UnitFile.updateOne(
+          { programme_units: record.programme_units },
+          { $set: record }
+        );
+        updated++;
+      } else {
+        await UnitFile.create(record);
+        inserted++;
+      }
+    }
+
+    return res.json({
+      success: true,
+      message: "Upload processed successfully",
+      inserted,
+      updated,
+    });
+  } catch (error) {
+    console.error("Upload error:", error);
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+router.get("/unit_catalogue/code/:programme_units", async (req, res) => {
+  try {
+    const { programme_units } = req.params;
+
+    // ONLY search by programme_units
+    const programme = await UnitFile.findOne({
+      programme_units: programme_units,
+    });
+
+    if (!programme) {
+      return res.status(404).json({ error: "Programme not found" });
+    }
+
+    res.json(programme);
+  } catch (error) {
+    console.error("Code search error:", error);
+    res.status(500).json({ error: "Failed to fetch programme" });
+  }
+});
 
 export default router;
