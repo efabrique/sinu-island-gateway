@@ -20,6 +20,7 @@ interface Programme {
   programme_english_requirement: string;
   SIQF_level: string;
   programme_credits: number;
+  programme_units: string;
 }
 
 const API_BASE = "http://localhost:7000";
@@ -41,7 +42,6 @@ const StudyOptionsSection = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  /* ---------------- FETCH PROGRAMMES ---------------- */
   const fetchProgrammes = async (faculty?: string) => {
     try {
       setLoading(true);
@@ -52,11 +52,9 @@ const StudyOptionsSection = () => {
       }
 
       params.append("programme_level", "Undergraduate");
-      console.log("Fetching programmes with params:", params.toString());
       const res = await fetch(
         `${API_BASE}/programme_catalogue/search?${params.toString()}`
       );
-      console.log("Fetch response:", res);
       const json = await res.json();
       const data = json.data || [];
 
@@ -71,12 +69,10 @@ const StudyOptionsSection = () => {
     }
   };
 
-  /* ---------------- INITIAL LOAD ---------------- */
   useEffect(() => {
     fetchProgrammes();
   }, []);
 
-  /* ---------------- FACULTY FILTER ---------------- */
   useEffect(() => {
     if (selectedFaculty === "All") {
       setFilteredProgrammes(programmes);
@@ -90,16 +86,12 @@ const StudyOptionsSection = () => {
       );
     }
 
-    // also send filter to backend
     fetchProgrammes(selectedFaculty);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedFaculty]);
 
-  /* ---------------- UI ---------------- */
   return (
     <section className="py-16 bg-white md:mt-20">
       <div className="container mx-auto px-4">
-        {/* HEADER */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#222222] mb-4">
             Search by study area...
@@ -107,7 +99,6 @@ const StudyOptionsSection = () => {
           </h2>
         </div>
 
-        {/* FACULTY FILTER */}
         <div className="flex justify-center mb-10">
           <select
             value={selectedFaculty}
@@ -122,7 +113,6 @@ const StudyOptionsSection = () => {
           </select>
         </div>
 
-        {/* CONTENT */}
         {loading ? (
           <p className="text-center">Loading programmes...</p>
         ) : (
@@ -147,6 +137,7 @@ const StudyOptionsSection = () => {
                       programme_location: programme.programme_location,
                       programme_study_period: programme.programme_study_period,
                       programme_english_requirement: programme.programme_english_requirement,
+                      programme_units: programme.programme_units,
                     },
                   })
                 }

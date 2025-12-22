@@ -143,9 +143,7 @@ router.post("/programme_catalogue/upload_programmes", async (req, res) => {
         else if (key === "programme_credits") {
           record[key] = Number(value);
         }
-                if (key === "programme_units" && typeof value === "string") {
-          record[key] = value.split("\n").map((v) => v.trim());
-        }
+
         else {
           record[key] = value;
         }
@@ -326,7 +324,7 @@ router.get("/programme_catalogue/code/:code", async (req, res) => {
   }
 });
 
-router.post("/unit_catalogue/upload_units", async (req, res) => {
+router.post("/unit_catalogues/upload_units", async (req, res) => {
   try {
     const filePath = req.body.path; 
     if (!filePath) {
@@ -407,9 +405,9 @@ router.post("/unit_catalogue/upload_units", async (req, res) => {
   }
 });
 
-router.get("/unit_catalogue/code/:programme_units", async (req, res) => {
+router.get("/unit_catalogues/code", async (req, res) => {
   try {
-    const { programme_units } = req.params;
+    const { programme_units } = req.query;
 
     // ONLY search by programme_units
     const programme = await UnitFile.findOne({

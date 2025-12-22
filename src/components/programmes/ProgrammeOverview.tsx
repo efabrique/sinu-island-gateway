@@ -15,14 +15,14 @@ const ProgrammeOverview = () => {
         programme_title = "Program";
     }
     return (
-        <Card className="w-full mb-8 shadow-lg border border-gray-200">
+        <Card className="w-full md:mt-8 shadow-lg border border-gray-200 bg-black/10 transition-transform duration-300 ease-in-out hover:scale-105">
             <CardContent>
                 <section id="programme-overview" className="w-full">
                     <div className="max-w-5xl mx-auto px-4 py-8">
                         <h2 className="text-3xl md:text-2xl font-bold text-[#222222] mb-6">
                             {programme_title} Description
                         </h2>
-                        <h2 className="text-2xl md:text-xl text-blue-600/60 mb-6">
+                        <h2 className="text-2xl md:text-xl text-blue-600/90 mb-6">
                             {programme_name} at Solomon Islands National University
                         </h2>
                         <p className="text-[#082952] mb-4">

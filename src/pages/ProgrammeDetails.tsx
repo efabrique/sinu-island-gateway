@@ -9,15 +9,18 @@ import ProgrammeTab from "@/components/programmes/ProgrammeTab";
 import ProgrammeOverview from "@/components/programmes/ProgrammeOverview";
 import { Card, CardContent } from "../components/ui/card";
 import { AlertTriangle } from "lucide-react";
+import ProgrammeStructure from "@/components/programmes/ProgrammeStructure";
 
 
 const ProgrammeDetails = () => {
   const { state } = useLocation();
   const { code } = useParams();
   const [scrolled, setScrolled] = useState(0);
-  const { programme_entry_requirement, programme_english_requirement, programme_year, programme_department, programme_faculty, programme_code } = state || {};
+  const { programme_entry_requirement, programme_english_requirement, programme_year, programme_department, programme_faculty, programme_code, programme_units } = state || {};
 
   useEffect(() => {
+        window.scrollTo(0, 0);
+
     const handleScroll = () => setScrolled(window.scrollY);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -53,7 +56,7 @@ const ProgrammeDetails = () => {
       <ProgrammeHero />
 
       {/* Content with Left Nav */}
-      <div className="flex w-full max-w-7xl mx-auto px-4 gap-6 ">
+      <div className="flex w-full max-w-8xl mx-auto gap-6 ">
 
         {/* Left Navigation */}
         <aside className="hidden md:block w-64 sticky top-28 h-[calc(100vh-7rem)] overflow-y-auto border-r">
@@ -81,13 +84,13 @@ const ProgrammeDetails = () => {
         </aside>
 
         {/* Right Content */}
-        <main className="flex-1 py-6 space-y-20 ">
+        <main className="flex-1/2 py-6 px-4 md:px-8 ">
           <section id="description ">
             <ProgrammeOverview />
           </section>
 
           <section id="admission_requirement">
-            <div className="min-h-[300px]">
+            <div className="min-h-[300px] md:py-20">
               <Card className="w-full mb-8 shadow-lg border border-gray-200 bg-black/10 duration-300 ease-in-out hover:scale-105">
                 <CardContent>
 
@@ -140,7 +143,7 @@ const ProgrammeDetails = () => {
             </div>
           </section>
           <section id="program_requirement">
-            <div className="min-h-[300px]">
+            <div className="min-h-[300px] md:py-20">
               <Card className="w-full mb-8 shadow-lg border border-gray-200 bg-black/10 duration-300 ease-in-out hover:scale-105">
                 <CardContent>
 
@@ -161,28 +164,14 @@ const ProgrammeDetails = () => {
 
             </div>
           </section>
+
           <section id="program_structure">
-            <div className="min-h-[300px]">
-              <Card className="w-full mb-8 shadow-lg border border-gray-200 bg-black/10 duration-300 ease-in-out hover:scale-105">
-                <CardContent>
-
-                  <div className="max-w-5xl mx-auto px-4 py-8">
-                    <h2 className="text-2xl font-bold mb-4">
-                      Program Structure
-                    </h2>
-
-                    <p className="text-[#082952] mb-4">
-                      Program Duration:  {programme_year}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-            </div>
+            <ProgrammeStructure />
           </section>
+
           <section id="availabilty">
             <div className="min-h-[300px]">
-              <Card className="w-full mb-8 shadow-lg border border-gray-200 bg-black/10 duration-300 ease-in-out hover:scale-105">
+              <Card className="w-full shadow-lg border border-gray-200 bg-black/10 duration-300 ease-in-out hover:scale-105">
                 <CardContent>
 
                   <div className="max-w-5xl mx-auto px-4 py-8">
@@ -271,3 +260,7 @@ const ProgrammeDetails = () => {
 };
 
 export default ProgrammeDetails;
+function useLayoutEffect(arg0: () => void, arg1: undefined[]) {
+  throw new Error("Function not implemented.");
+}
+

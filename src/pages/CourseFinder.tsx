@@ -198,6 +198,7 @@ const CourseFinder = () => {
                               programme_location: course.programme_location,
                               programme_study_period: course.programme_study_period,
                               programme_english_requirement: course.programme_english_requirement,
+                              programme_units: course.programme_units,
 
                             },
                           })
